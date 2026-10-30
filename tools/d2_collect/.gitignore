@@ -1,0 +1,5 @@
+.venv/
+my-profile.json
+__pycache__/
+*.pyc
+d2-output*/

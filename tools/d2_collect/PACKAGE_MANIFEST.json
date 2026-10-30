@@ -1,0 +1,14 @@
+{
+  "version": "0.2.0",
+  "schema": "d2-intake-2",
+  "files": {
+    "collect_logs.py": "31e20f46713479865e83c6e9bc69e0ddead95ec3d703a8111843c1cd19f2d96f",
+    "privacy.py": "b93aacb56d8a8bab3f539805114b8d7c92488d921f6f0c1d78baca74217d8001",
+    "requirements.txt": "bc2135fdf9a325a668c503b22b4b091f53fc21aae328ac951007c4f3d5e0f85d",
+    "profile.example.json": "8295ce57ea184e4aabbb1e4e01a564069f79fc06e46f6160468f05e8aa97726d",
+    "README.md": "d03d57c653b06006904690e971052ae0c2fc6b39795d3b03f2b35c078652f94b",
+    ".gitignore": "7ce3870cf361a8b2099db49f7e53b82fe08976bab42cf237f6cd57234e777ad2",
+    "tests/test_collect_logs.py": "b4ffcabeaa2ca9512bff64d21376bfd7d45c664e6b0b61ccb98c4b8de321b203",
+    "tests/test_privacy_regressions.py": "532da4c80edeed950787b88a1e89ec4f47724f6c1c1193a1c6d7361b6ed41eb0"
+  }
+}
