@@ -1,0 +1,22 @@
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Локальные данные и результаты сбора
+.private/
+d2-output*/
+my-profile.json
+key.bin
+handoff.zip
+dataset.zip
+
+# Переменные окружения
+.env
+.env.*
+!.env.example
+
+# macOS
+.DS_Store
