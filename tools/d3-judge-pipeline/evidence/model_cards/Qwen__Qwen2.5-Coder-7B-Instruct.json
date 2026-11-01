@@ -1,0 +1,8 @@
+{
+  "model_id": "Qwen/Qwen2.5-Coder-7B-Instruct",
+  "revision": "c03e6d358207e414f1eca0bb1891e29f1db0e242",
+  "license": "apache-2.0",
+  "url": "https://huggingface.co/Qwen/Qwen2.5-Coder-7B-Instruct",
+  "sha256": "3c090be37f829adc1e4cdb78733667437732541470430ab2cd785d7f0d460077",
+  "local_inference_price": "no API fee; hardware cost not measured"
+}

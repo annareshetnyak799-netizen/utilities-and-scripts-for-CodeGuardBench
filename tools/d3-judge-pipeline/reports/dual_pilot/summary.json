@@ -1,0 +1,8 @@
+{
+  "shared": 40,
+  "valid_both": 18,
+  "disagreements": 16,
+  "disagreement_rate": 0.8888888888888888,
+  "independent_families": true,
+  "gold": 0
+}

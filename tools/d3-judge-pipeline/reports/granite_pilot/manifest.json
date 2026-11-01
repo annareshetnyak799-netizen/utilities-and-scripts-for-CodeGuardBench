@@ -1,0 +1,24 @@
+{
+  "fingerprint": "1c699829ff78cd2b7f1348840fefc0144bd9e0926aacac8423dfb8e305fddfce",
+  "config": {
+    "judges": [
+      {
+        "provider": "huggingface",
+        "model_id": "ibm-granite/granite-3.3-2b-instruct",
+        "family": "granite",
+        "revision": "707f574c62054322f6b5b04b6d075f0a8f05e0f0",
+        "device": "mps",
+        "allow_download": false,
+        "enable_thinking": false,
+        "do_sample": false,
+        "seed": 20261101,
+        "max_new_tokens": 500
+      }
+    ]
+  },
+  "prompt_sha": "d35eca7794bbca38cb139ea16b933d42d5b0f57511f264a945d2b23e2ac64cfa",
+  "input_sha": "b5aac1d1bd9600e95a8b048368361998cb184b930b66409d10cde1656a1b314f",
+  "dry_run": false,
+  "policy_version": "v0-2026-11-01",
+  "gold": false
+}

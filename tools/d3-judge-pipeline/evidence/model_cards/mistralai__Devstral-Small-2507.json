@@ -1,0 +1,8 @@
+{
+  "model_id": "mistralai/Devstral-Small-2507",
+  "revision": "bd165ab26cebbcc2eea2c4ecbfc07f3ac42b3c39",
+  "license": "apache-2.0",
+  "url": "https://huggingface.co/mistralai/Devstral-Small-2507",
+  "sha256": "ea9729a563e07cb391603e646f36e0d76db33c3e24dff5b9448493454cf010de",
+  "local_inference_price": "no API fee; hardware cost not measured"
+}

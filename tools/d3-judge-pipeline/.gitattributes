@@ -1,0 +1,2 @@
+# Immutable source snapshots preserve upstream whitespace and Markdown hard breaks.
+evidence/** -whitespace

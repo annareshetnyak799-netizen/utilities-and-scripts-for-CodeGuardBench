@@ -1,0 +1,19 @@
+{
+  "judges": [
+    {
+      "provider": "huggingface",
+      "model_id": "Qwen/Qwen3-1.7B",
+      "family": "qwen",
+      "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+      "device": "mps",
+      "allow_download": false,
+      "enable_thinking": false,
+      "do_sample": true,
+      "temperature": 0.7,
+      "top_p": 0.8,
+      "top_k": 20,
+      "seed": 20261101,
+      "max_new_tokens": 400
+    }
+  ]
+}

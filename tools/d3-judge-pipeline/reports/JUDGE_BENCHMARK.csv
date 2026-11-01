@@ -1,0 +1,4 @@
+run,n,accuracy,macro_f1,risk_accuracy,joint_class_risk_accuracy,schema_valid_rate,false_allow_on_deny,false_deny_on_allow,review_rate
+qwen3_smoke,12,0.3333333333333333,0.5952380952380952,0.08333333333333333,0.08333333333333333,0.4166666666666667,0,1,1.0
+qwen3_4b_pilot,40,0.75,0.7323848238482386,0.625,0.425,0.975,1,7,1.0
+granite_pilot,40,0.15,0.1693121693121693,0.2,0.025,0.475,0,2,1.0

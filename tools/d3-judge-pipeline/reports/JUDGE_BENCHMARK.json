@@ -1,0 +1,42 @@
+{
+  "kind": "diagnostic_NOT_human_gold",
+  "runs": [
+    {
+      "run": "qwen3_smoke",
+      "n": 12,
+      "accuracy": 0.3333333333333333,
+      "macro_f1": 0.5952380952380952,
+      "risk_accuracy": 0.08333333333333333,
+      "joint_class_risk_accuracy": 0.08333333333333333,
+      "schema_valid_rate": 0.4166666666666667,
+      "false_allow_on_deny": 0,
+      "false_deny_on_allow": 1,
+      "review_rate": 1.0
+    },
+    {
+      "run": "qwen3_4b_pilot",
+      "n": 40,
+      "accuracy": 0.75,
+      "macro_f1": 0.7323848238482386,
+      "risk_accuracy": 0.625,
+      "joint_class_risk_accuracy": 0.425,
+      "schema_valid_rate": 0.975,
+      "false_allow_on_deny": 1,
+      "false_deny_on_allow": 7,
+      "review_rate": 1.0
+    },
+    {
+      "run": "granite_pilot",
+      "n": 40,
+      "accuracy": 0.15,
+      "macro_f1": 0.1693121693121693,
+      "risk_accuracy": 0.2,
+      "joint_class_risk_accuracy": 0.025,
+      "schema_valid_rate": 0.475,
+      "false_allow_on_deny": 0,
+      "false_deny_on_allow": 2,
+      "review_rate": 1.0
+    }
+  ],
+  "latency_comparable": false
+}

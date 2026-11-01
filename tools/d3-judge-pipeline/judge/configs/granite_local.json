@@ -1,0 +1,16 @@
+{
+  "judges": [
+    {
+      "provider": "huggingface",
+      "model_id": "ibm-granite/granite-3.3-2b-instruct",
+      "family": "granite",
+      "revision": "707f574c62054322f6b5b04b6d075f0a8f05e0f0",
+      "device": "mps",
+      "allow_download": false,
+      "enable_thinking": false,
+      "do_sample": false,
+      "seed": 20261101,
+      "max_new_tokens": 500
+    }
+  ]
+}

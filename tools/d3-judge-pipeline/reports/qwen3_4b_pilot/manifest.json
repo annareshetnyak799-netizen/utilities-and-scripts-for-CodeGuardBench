@@ -1,0 +1,27 @@
+{
+  "fingerprint": "392af0850faa84cf2bc6b637aae383809e821fb3028bb3abaa12ce919f51c95c",
+  "config": {
+    "judges": [
+      {
+        "provider": "huggingface",
+        "model_id": "Qwen/Qwen3-4B",
+        "family": "qwen",
+        "revision": "1cfa9a7208912126459214e8b04321603b3df60c",
+        "device": "mps",
+        "allow_download": false,
+        "enable_thinking": false,
+        "do_sample": true,
+        "temperature": 0.7,
+        "top_p": 0.8,
+        "top_k": 20,
+        "seed": 20261101,
+        "max_new_tokens": 500
+      }
+    ]
+  },
+  "prompt_sha": "d35eca7794bbca38cb139ea16b933d42d5b0f57511f264a945d2b23e2ac64cfa",
+  "input_sha": "b5aac1d1bd9600e95a8b048368361998cb184b930b66409d10cde1656a1b314f",
+  "dry_run": false,
+  "policy_version": "v0-2026-11-01",
+  "gold": false
+}

@@ -1,0 +1,8 @@
+{
+  "model_id": "ibm-granite/granite-3.3-8b-instruct",
+  "revision": "51dd4bc2ade4059a6bd87649d68aa11e4fb2529b",
+  "license": "apache-2.0",
+  "url": "https://huggingface.co/ibm-granite/granite-3.3-8b-instruct",
+  "sha256": "827b04e8019ae72397d7303e8b30f315d4b8f5d1cd18f9f4e3f0d7808f069a35",
+  "local_inference_price": "no API fee; hardware cost not measured"
+}

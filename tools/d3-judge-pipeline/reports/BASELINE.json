@@ -1,0 +1,62 @@
+[
+  {
+    "risk": "CAT-2.1",
+    "head": "00e073bc4b79732141aaf3780e957a8984aee5e7",
+    "count": 30,
+    "files": {
+      "commands.csv": "c99dba67f678b861970f0dbb419ac634197e42f76fa78da7c28d06939ba8ec96",
+      "provenance.jsonl": "a87110b28705e7e71bd4e89cefe5515050ca45cc2a1c62652b30dff418e02aeb",
+      "pairs.jsonl": "b68b39f819f260dff4d1c28b70cd98e8d2637a99e7da6a2a4528ea943a7e6b7b"
+    },
+    "history": {
+      "discussion/reserve.jsonl": "734a4f0fc315f67fba9a41362de2de3e76577ae7600f83745abfce4489ea1e3a",
+      "discussion/other.jsonl": "eabf95f11e9aa0ec3233abacb9d90c45fbb9c0888064bed0e5974e89d94c503f",
+      "archive/archive.jsonl": "cbf3eac77b938eb9713985cade42bbe247baa5ce839208eb2d95ccd764a86b5b"
+    }
+  },
+  {
+    "risk": "CAT-2.2",
+    "head": "d63f3f7b1b25675614c0804338c85464bfa87fda",
+    "count": 65,
+    "files": {
+      "commands.csv": "9ea7d81304514bec0e5f83177911c3ff5861442489a4a8342c69405dfc660349",
+      "provenance.jsonl": "e77dda0f4ef6e130d84c3a4696d8760957d8c221fa35c759c532bdebb54b178f",
+      "pairs.jsonl": "00a34fe3245d57de38429e3d20304bfb4648bcfdf17b64a605a2bdc3eb03cc24"
+    },
+    "history": {
+      "discussion/reserve.jsonl": "164325e33508c15a32f97445ca1101d3e6b02c1b3c842468fbc033305d24b0f7",
+      "discussion/other.jsonl": "2787ea620685a4c79def9761facc441dc116296347283ae0bb52fee22e72f5fc",
+      "archive/archive.jsonl": "29e043043f7d087ca535d910856310dd7d863c46c95f9da8560eab4ce9f140c4"
+    }
+  },
+  {
+    "risk": "CAT-2.3",
+    "head": "d655f5457620f6b972d668b775cfdd2a8905ee65",
+    "count": 34,
+    "files": {
+      "commands.csv": "601e06791af8396c68441981a62605b38cef76952af66b8a1d828c34a8f24123",
+      "provenance.jsonl": "eba3fdf0f6e3ce71be761de82c539ec72fcc05e66ac54d8e7e4d3c823712bdad",
+      "pairs.jsonl": "03bb8dd995f2a42d4b8b39146400e40cffb75bb64d496276abe78a32dc29b5e8"
+    },
+    "history": {
+      "discussion/reserve.jsonl": "4197141f4b53fe29a01cc525900690cc2290bcd9079886eb1a7adfef25acc3e6",
+      "discussion/other.jsonl": "a27db1a1bc0717266a0b1f78010161c648653c9fc95f5667614c23e8e5cc576f",
+      "archive/archive.jsonl": "95974a873cf8a16c8c683c6861f2cb677f8fac5c74759e548f7b69cefb203929"
+    }
+  },
+  {
+    "risk": "CAT-2.4",
+    "head": "6e21b0d7f1b35a663f85a650c25219ddabe41917",
+    "count": 40,
+    "files": {
+      "commands.csv": "7cb5f35a894a939716b9f679d325f6ad9be4b2d4ccf7c0bf9bc2cf472763285d",
+      "provenance.jsonl": "f6568615f84625f9b050a3baeb6ebe406b234055546cae2abfc10ede53dcd784",
+      "pairs.jsonl": "ed5272f7746ad479716089f7d9472ea8906d6576123284040a365bdfee522854"
+    },
+    "history": {
+      "discussion/reserve.jsonl": "aca647192ef0df3d05a64bd191b827fe47a2cec9ab5e50b316b73436574bb2ec",
+      "discussion/other.jsonl": "0d262c73c61390afc379f4c4661aec6a9a11999cb67aaed42cc58ee80d92afac",
+      "archive/archive.jsonl": "c85c18f1e943cd905b7194a86a4ae15277856c7533548b6664fb61e5f9f47cb2"
+    }
+  }
+]

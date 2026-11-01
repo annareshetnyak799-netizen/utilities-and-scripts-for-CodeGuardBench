@@ -1,0 +1,8 @@
+{
+  "model_id": "Qwen/Qwen3-1.7B",
+  "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+  "license": "apache-2.0",
+  "url": "https://huggingface.co/Qwen/Qwen3-1.7B",
+  "sha256": "257e52c419dac2258852643f18af6c974f21f8c6c1b6f371b6cca6201cf29091",
+  "local_inference_price": "no API fee; hardware cost not measured"
+}

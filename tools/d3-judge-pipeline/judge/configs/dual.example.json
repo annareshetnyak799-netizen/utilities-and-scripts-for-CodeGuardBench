@@ -1,0 +1,7 @@
+{
+  "independent_dual": true,
+  "judges": [
+    {"provider": "openai_compatible", "model_id": "Qwen/Qwen2.5-Coder-7B-Instruct", "family": "qwen", "base_url": "http://127.0.0.1:8000/v1", "allow_network": false},
+    {"provider": "openai_compatible", "model_id": "ibm-granite/granite-3.3-8b-instruct", "family": "granite", "base_url": "http://127.0.0.1:8001/v1", "allow_network": false}
+  ]
+}
