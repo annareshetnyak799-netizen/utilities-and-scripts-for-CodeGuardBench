@@ -77,4 +77,7 @@ class OpenAICompatible:
                 time.sleep(min(2**attempt, 8))
 
 def make_adapter(config):
+    if config['provider'] == 'huggingface_cuda':
+        from .cuda_adapter import HuggingFaceCUDA
+        return HuggingFaceCUDA(config)
     return {'mock':Mock, 'huggingface':HuggingFace, 'openai_compatible':OpenAICompatible}[config['provider']](config)

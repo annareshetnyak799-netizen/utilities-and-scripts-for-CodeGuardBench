@@ -1,0 +1,6 @@
+# Torch/CUDA come from Kaggle's image and are recorded in runtime.json.
+# Do not replace Kaggle's CUDA-enabled torch wheel with a generic wheel.
+-r requirements.txt
+transformers==5.1.0
+accelerate==1.12.0
+bitsandbytes==0.49.2

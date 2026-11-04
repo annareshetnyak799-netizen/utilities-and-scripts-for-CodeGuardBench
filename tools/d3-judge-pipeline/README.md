@@ -3,6 +3,12 @@
 Рабочая ветка `feat/d3-judge-pipeline`. Вспомогательная разметка Bash-команд,
 не production guard и не автоматический gold. Подробные команды — [RUNBOOK](RUNBOOK.md).
 
+[Kaggle GPU pilot](KAGGLE.md): отдельный CUDA/NF4 adapter и сборка приватного
+notebook с pinned checkpoints. Технический smoke не подтверждает качество judge.
+
+[Google Colab](COLAB.md): автономный notebook для Granite8B на одной GPU,
+два диагностических входа и выгрузка результатов в ZIP. GPU-запуск пока не проверен.
+
 - [Политика v0](policy/POLICY_V0.md), версионированные промпты и строгий JSON.
 - `judge.pipeline`: command-only вход, локальные HF/open-compatible модели,
   resume, статические проверки, disagreement/review gate.

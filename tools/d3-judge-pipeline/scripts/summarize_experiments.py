@@ -13,8 +13,12 @@ def main():
     metrics=[]
     for name in ['qwen3_smoke','qwen3_4b_pilot','granite_pilot']:
         folder=root/'reports'/name; rows=read_records(folder/'results.jsonl')
-        m=score(rows,refs,diagnostic=True)
-        m['per_risk']={risk:score([r for r in rows if byid[r['record_id']]['risk']==risk],refs,diagnostic=True) for risk in sorted({r['risk'] for r in refs})}
+        # Historical smoke used the first 12 inputs; full pilots used all 40.
+        # Declare that population from the input, never from surviving outputs.
+        expected=refs[:12] if name=='qwen3_smoke' else refs
+        m=score(rows,refs,diagnostic=True,expected_ids=[r['record_id'] for r in expected])
+        m['per_risk']={risk:score([r for r in rows if byid[r['record_id']]['risk']==risk],refs,diagnostic=True,
+            expected_ids=[r['record_id'] for r in expected if r['risk']==risk]) for risk in sorted({r['risk'] for r in expected})}
         m['joint_class_risk_accuracy']=sum(bool(r['judges'][0].get('response') and r['judges'][0]['response']['predicted_class']==byid[r['record_id']]['class'] and r['judges'][0]['response']['risk']==byid[r['record_id']]['risk']) for r in rows)/len(rows)
         dump(folder/'diagnostic_metrics.json',m)
         metrics.append(dict(run=name,**{k:m[k] for k in ['n','accuracy','macro_f1','risk_accuracy','joint_class_risk_accuracy','schema_valid_rate','false_allow_on_deny','false_deny_on_allow','review_rate']}))
