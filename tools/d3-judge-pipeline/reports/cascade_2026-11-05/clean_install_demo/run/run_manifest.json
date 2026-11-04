@@ -1,0 +1,40 @@
+{
+  "input_sha": "3005bbd596595c43c93e0fffe74205e5a6b289d32b24886cb91bade9815b9f0d",
+  "policy_sha": "a8b70fd5147df19b451154f2da5526e03cbe93e60d5553fae49bdb931fef2a5b",
+  "policy_version": "cascade-policy-2026-11-05.1",
+  "schema_sha": "47c5bedab7edd48cbe41463348e2188493cc250afe7752fc982d5933e2c61941",
+  "prompt_sha": "0792044b842740a0feb383b122c5f20f3d2e4c9a3d7a19ca96f2769fdd24f4e7",
+  "implementation_sha": "0931ed4354140a8f98bc36c13b172f7b0b49727ec4a5e93457b9d12d378171fb",
+  "parser_version": "0.18",
+  "config": {
+    "architecture": "semantic_cascade",
+    "models": [
+      {
+        "provider": "mock",
+        "model_id": "mock-semantic"
+      },
+      {
+        "provider": "failure",
+        "model_id": "intentional-failure"
+      }
+    ]
+  },
+  "mode": "command_only",
+  "expected_ids": [
+    "demo-0",
+    "demo-1",
+    "demo-2",
+    "demo-3",
+    "demo-4",
+    "demo-5",
+    "demo-6",
+    "demo-7",
+    "demo-8",
+    "demo-9",
+    "demo-10"
+  ],
+  "fingerprint": "2267c7b8515f1c92a4cc0b51af22c2599c582a783a5ac4afc63d50d86572c656",
+  "python": "3.11.9 (v3.11.9:de54cf5be3, Apr  2 2024, 07:12:50) [Clang 13.0.0 (clang-1300.0.29.30)]",
+  "platform": "macOS-27.2-arm64-arm-64bit",
+  "human_gold_available": false
+}

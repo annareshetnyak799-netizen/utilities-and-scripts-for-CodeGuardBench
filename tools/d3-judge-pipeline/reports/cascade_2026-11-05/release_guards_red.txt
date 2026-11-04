@@ -1,0 +1,84 @@
+FFFFFF                                                                   [100%]
+=================================== FAILURES ===================================
+_________________ test_single_candidate_is_not_a_minimal_pair __________________
+
+    def test_single_candidate_is_not_a_minimal_pair():
+     c={'command':'echo fixture','description':'fictional','util':'echo','class':'allow','severity':'low'}
+>    with pytest.raises(ValidationError):validate({'candidates':[c]},GENERATION_SCHEMA)
+E    Failed: DID NOT RAISE <class 'jsonschema.exceptions.ValidationError'>
+
+tests/test_release_guards.py:10: Failed
+__________________ test_oversize_rejected_before_ast_features __________________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x102cb3b90>
+
+    def test_oversize_rejected_before_ast_features(monkeypatch):
+     import judge.static as static
+     monkeypatch.setattr(static,'features',lambda c: (_ for _ in ()).throw(AssertionError('oversize AST must not run')))
+>    assert 'invalid_or_oversize_input' in static.analyze('a'*32769)['flags']
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_release_guards.py:14: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+judge/static.py:85: in analyze
+    result = dict(bash_valid=False, parser_status='not_run', features=features(command) if isinstance(command,str) else {},
+                                                                      ^^^^^^^^^^^^^^^^^
+tests/test_release_guards.py:13: in <lambda>
+    monkeypatch.setattr(static,'features',lambda c: (_ for _ in ()).throw(AssertionError('oversize AST must not run')))
+                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+.0 = <tuple_iterator object at 0x1040b1bd0>
+
+>   monkeypatch.setattr(static,'features',lambda c: (_ for _ in ()).throw(AssertionError('oversize AST must not run')))
+E   AssertionError: oversize AST must not run
+
+tests/test_release_guards.py:13: AssertionError
+_ test_extended_secret_shapes_never_reach_parser[sk-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa] _
+
+secret = 'sk-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
+
+    @pytest.mark.parametrize('secret',['sk-'+'a'*30,'xoxb-'+'a'*20,'-----BEGIN EC PRIVATE KEY-----'])
+    def test_extended_secret_shapes_never_reach_parser(secret):
+>    assert 'possible_secret' in analyze('printf '+secret)['flags']
+E    AssertionError: assert 'possible_secret' in []
+
+tests/test_release_guards.py:17: AssertionError
+__ test_extended_secret_shapes_never_reach_parser[xoxb-aaaaaaaaaaaaaaaaaaaa] ___
+
+secret = 'xoxb-aaaaaaaaaaaaaaaaaaaa'
+
+    @pytest.mark.parametrize('secret',['sk-'+'a'*30,'xoxb-'+'a'*20,'-----BEGIN EC PRIVATE KEY-----'])
+    def test_extended_secret_shapes_never_reach_parser(secret):
+>    assert 'possible_secret' in analyze('printf '+secret)['flags']
+E    AssertionError: assert 'possible_secret' in []
+
+tests/test_release_guards.py:17: AssertionError
+_ test_extended_secret_shapes_never_reach_parser[-----BEGIN EC PRIVATE KEY-----] _
+
+secret = '-----BEGIN EC PRIVATE KEY-----'
+
+    @pytest.mark.parametrize('secret',['sk-'+'a'*30,'xoxb-'+'a'*20,'-----BEGIN EC PRIVATE KEY-----'])
+    def test_extended_secret_shapes_never_reach_parser(secret):
+>    assert 'possible_secret' in analyze('printf '+secret)['flags']
+E    AssertionError: assert 'possible_secret' in []
+
+tests/test_release_guards.py:17: AssertionError
+______________ test_api_parameters_cannot_override_budgeted_limit ______________
+
+tmp_path = PosixPath('/private/var/folders/s5/wgbcfr7944sb1lf88j5m_3ld4qjxdj/T/pytest-of-dekovaleva/pytest-17/test_api_parameters_cannot_ove0')
+
+    def test_api_parameters_cannot_override_budgeted_limit(tmp_path):
+     c={'base_url':'https://api.proxyapi.ru/v1','allow_network':True,'model_id':'priced','rub_per_million':{'input':1,'output':1},'parameters':{'max_tokens':1000000000}}
+>    with pytest.raises(ProviderError,match='reserved_request_parameter'):API(c,Budget(tmp_path/'ledger',1))
+E    Failed: DID NOT RAISE <class 'codeguard_judge.providers.ProviderError'>
+
+tests/test_release_guards.py:20: Failed
+=========================== short test summary info ============================
+FAILED tests/test_release_guards.py::test_single_candidate_is_not_a_minimal_pair
+FAILED tests/test_release_guards.py::test_oversize_rejected_before_ast_features
+FAILED tests/test_release_guards.py::test_extended_secret_shapes_never_reach_parser[sk-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa]
+FAILED tests/test_release_guards.py::test_extended_secret_shapes_never_reach_parser[xoxb-aaaaaaaaaaaaaaaaaaaa]
+FAILED tests/test_release_guards.py::test_extended_secret_shapes_never_reach_parser[-----BEGIN EC PRIVATE KEY-----]
+FAILED tests/test_release_guards.py::test_api_parameters_cannot_override_budgeted_limit
+6 failed in 0.15s

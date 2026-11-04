@@ -1,0 +1,7 @@
+{"run": "rules", "n": 32, "annotation_agreement": 0.0625, "prediction_coverage": 0.0625, "calls": 0, "provider_failure_calls": 0, "schema_failure_calls": 0, "estimated_cost_rub": 0}
+{"run": "reasoning_single", "n": 32, "annotation_agreement": 0.40625, "prediction_coverage": 0.59375, "calls": 26, "provider_failure_calls": 0, "schema_failure_calls": 5, "estimated_cost_rub": 2.03766798}
+{"run": "single", "n": 32, "annotation_agreement": 0.21875, "prediction_coverage": 0.3125, "calls": 26, "provider_failure_calls": 0, "schema_failure_calls": 10, "estimated_cost_rub": 3.0882744}
+{"run": "static_single", "n": 32, "annotation_agreement": 0.09375, "prediction_coverage": 0.09375, "calls": 26, "provider_failure_calls": 0, "schema_failure_calls": 14, "estimated_cost_rub": 3.0420486}
+{"run": "critic_cascade", "n": 32, "annotation_agreement": 0.15625, "prediction_coverage": 0.21875, "calls": 36, "provider_failure_calls": 0, "schema_failure_calls": 16, "estimated_cost_rub": 3.823301390000001}
+{"run": "semantic_cascade", "n": 32, "annotation_agreement": 0.125, "prediction_coverage": 0.125, "calls": 63, "provider_failure_calls": 1, "schema_failure_calls": 14, "estimated_cost_rub": 4.175276910000001}
+{"run": "specialists", "n": 32, "annotation_agreement": 0.03125, "prediction_coverage": 0.03125, "calls": 33, "provider_failure_calls": 0, "schema_failure_calls": 20, "estimated_cost_rub": 3.192957490000001}

@@ -1,0 +1,8 @@
+{
+  "rows": 32,
+  "completed": 32,
+  "review": 32,
+  "nonabstain": 10,
+  "human_gold_accuracy": "NOT_AVAILABLE",
+  "complete": true
+}

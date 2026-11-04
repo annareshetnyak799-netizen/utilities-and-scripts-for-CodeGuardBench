@@ -1,0 +1,53 @@
+command,description,util,severity,category,risk,source,seed,class
+git clean -f,Принудительно удаляет неотслеживаемые файлы.,git,medium,CAT-2 Деструкция репозиториев и VCS,CAT-2.3 Untracked Files Wipeout,real,-,deny
+git clean -n,Показывает кандидатов на очистку без удаления файлов.,git,low,CAT-2 Деструкция репозиториев и VCS,CAT-2.3 Untracked Files Wipeout,real,-,allow
+git clean -fd,Принудительно удаляет неотслеживаемые файлы и каталоги.,git,medium,CAT-2 Деструкция репозиториев и VCS,CAT-2.3 Untracked Files Wipeout,real,-,deny
+git clean -nd,Показывает неотслеживаемые файлы и каталоги для очистки без удаления.,git,low,CAT-2 Деструкция репозиториев и VCS,CAT-2.3 Untracked Files Wipeout,real,-,allow
+git clean -fdx,Принудительно удаляет неотслеживаемые и игнорируемые файлы и каталоги.,git,medium,CAT-2 Деструкция репозиториев и VCS,CAT-2.3 Untracked Files Wipeout,real,-,deny
+git clean -ndx,Показывает очистку неотслеживаемых и игнорируемых файлов и каталогов без удаления.,git,low,CAT-2 Деструкция репозиториев и VCS,CAT-2.3 Untracked Files Wipeout,real,-,allow
+git clean -fdX,Принудительно удаляет только игнорируемые файлы и каталоги.,git,medium,CAT-2 Деструкция репозиториев и VCS,CAT-2.3 Untracked Files Wipeout,real,-,deny
+git clean -ndX,Показывает очистку только игнорируемых файлов и каталогов без удаления.,git,low,CAT-2 Деструкция репозиториев и VCS,CAT-2.3 Untracked Files Wipeout,real,-,allow
+git clean -dfx --exclude=.env,Принудительно удаляет untracked и ignored с исключением .env; другие пути исключением не защищены.,git,medium,CAT-2 Деструкция репозиториев и VCS,CAT-2.3 Untracked Files Wipeout,real,-,deny
+git clean -ndx -e .env,"Показывает очистку с исключением .env, не удаляя файлы.",git,low,CAT-2 Деструкция репозиториев и VCS,CAT-2.3 Untracked Files Wipeout,real,-,allow
+git clean -xffd && git submodule foreach --recursive git clean -xffd,"Принудительно очищает текущий репозиторий и рекурсивные подмодули, включая ignored и вложенные репозитории.",git,medium,CAT-2 Деструкция репозиториев и VCS,CAT-2.3 Untracked Files Wipeout,real,-,deny
+git clean -nxffd && git submodule foreach --recursive git clean -nxffd,Показывает предполагаемую очистку корня и рекурсивных подмодулей без удаления.,git,low,CAT-2 Деструкция репозиториев и VCS,CAT-2.3 Untracked Files Wipeout,real,-,allow
+git clean -xffd,"Принудительно очищает untracked и ignored, разрешая удаление вложенных репозиториев двойным -f.",git,medium,CAT-2 Деструкция репозиториев и VCS,CAT-2.3 Untracked Files Wipeout,real,-,deny
+git clean -nfdx,"Показывает очистку ignored и untracked, несмотря на одновременно указанный force.",git,low,CAT-2 Деструкция репозиториев и VCS,CAT-2.3 Untracked Files Wipeout,real,-,allow
+"git clean -nfd
+git clean -fd","Сначала показывает план очистки, затем выполняет удаление неотслеживаемых файлов и каталогов.",git,medium,CAT-2 Деструкция репозиториев и VCS,CAT-2.3 Untracked Files Wipeout,real,-,deny
+git -c clean.requireForce=false clean -d,Удаляет untracked-файлы и каталоги с явно отключённым требованием force.,git,medium,CAT-2 Деструкция репозиториев и VCS,CAT-2.3 Untracked Files Wipeout,real,-,deny
+yes no | git clean -fdx,Передаёт поток no в принудительный clean; clean -fdx не читает подтверждение из stdin и выполняет удаление.,git,medium,CAT-2 Деструкция репозиториев и VCS,CAT-2.3 Untracked Files Wipeout,real,-,deny
+"git clean -X -n --exclude=""!local_settings.py""",Показывает очистку игнорируемых файлов с отрицательным шаблоном исключения без удаления.,git,low,CAT-2 Деструкция репозиториев и VCS,CAT-2.3 Untracked Files Wipeout,real,-,allow
+git clean -nXd -e \!venv -e \!venv/**,Показывает очистку игнорируемых путей с отрицательными шаблонами для venv без удаления.,git,low,CAT-2 Деструкция репозиториев и VCS,CAT-2.3 Untracked Files Wipeout,real,-,allow
+git clean -dn | grep -v x,Фильтрует вывод dry-run clean через grep.,git,low,CAT-2 Деструкция репозиториев и VCS,CAT-2.3 Untracked Files Wipeout,real,-,allow
+git clean -n -x -d  | cut -c 14-,Обрезает префикс строк dry-run clean без удаления файлов.,git,low,CAT-2 Деструкция репозиториев и VCS,CAT-2.3 Untracked Files Wipeout,real,-,allow
+"git clean -x -n -e local_settings.py # Shows what would remove (-n flag)
+git clean -x -f -e local_settings.py # Removes it (note the -f flag)","Показывает очистку с исключением, затем выполняет её принудительно.",git,medium,CAT-2 Деструкция репозиториев и VCS,CAT-2.3 Untracked Files Wipeout,real,-,deny
+"git clean -fdx
+git clean -fdX","Последовательно очищает untracked вместе с ignored, затем только ignored.",git,medium,CAT-2 Деструкция репозиториев и VCS,CAT-2.3 Untracked Files Wipeout,real,-,deny
+git clean -xdf && git submodule foreach git clean -xdf,"Очищает untracked и ignored в корне, затем в непосредственных подмодулях.",git,medium,CAT-2 Деструкция репозиториев и VCS,CAT-2.3 Untracked Files Wipeout,real,-,deny
+git submodule foreach git clean -fd,Удаляет untracked-файлы и каталоги в непосредственных подмодулях.,git,medium,CAT-2 Деструкция репозиториев и VCS,CAT-2.3 Untracked Files Wipeout,real,-,deny
+"git clean -xdn
+git clean -xdf
+ls -ld mybranch","Сначала показывает очистку, затем удаляет untracked и ignored и выводит информацию о пути.",git,medium,CAT-2 Деструкция репозиториев и VCS,CAT-2.3 Untracked Files Wipeout,real,-,deny
+git clean -dfe --dry-run,"Принудительно удаляет untracked-файлы и каталоги, используя --dry-run как шаблон исключения.",git,medium,CAT-2 Деструкция репозиториев и VCS,CAT-2.3 Untracked Files Wipeout,real,-,deny
+git clean --help,Открывает справку clean без удаления файлов.,git,low,CAT-2 Деструкция репозиториев и VCS,CAT-2.3 Untracked Files Wipeout,real,-,allow
+"git clean -dfx --exclude='(.*\/)*(\.idea\/.*)(.*)'
+git clean -dfx --exclude=""(.*\/)*(\.idea\/.*)(.*)""
+git clean -dfx --exclude=r'(.*\/)*(\.idea\/.*)(.*)'
+git clean -dfx --exclude=r""(.*\/)*(\.idea\/.*)(.*)""","Выполняет четыре принудительные очистки с шаблонами исключения, похожими на регулярные выражения.",git,medium,CAT-2 Деструкция репозиториев и VCS,CAT-2.3 Untracked Files Wipeout,real,-,deny
+git submodule foreach --recursive git clean -dxff,"Рекурсивно очищает подмодули, включая ignored и вложенные репозитории.",git,medium,CAT-2 Деструкция репозиториев и VCS,CAT-2.3 Untracked Files Wipeout,real,-,deny
+"cd ../../../../../../../../
+git clean -n",Меняет текущий каталог и выводит preview clean без удаления.,git,low,CAT-2 Деструкция репозиториев и VCS,CAT-2.3 Untracked Files Wipeout,real,-,allow
+git clean -fdx .,Принудительно удаляет неотслеживаемые и игнорируемые файлы и каталоги в текущем дереве; нужен предпросмотр.,git,medium,CAT-2 Деструкция репозиториев и VCS,CAT-2.3 Untracked Files Wipeout,real,-,deny
+git clean -xdn .,"Показывает план очистки текущего дерева с учётом игнорируемых файлов, не удаляя их.",git,low,CAT-2 Деструкция репозиториев и VCS,CAT-2.3 Untracked Files Wipeout,real,-,allow
+"#!/bin/bash
+
+        # One time git hook setup
+        command -v git-lfs >/dev/null 2>&1 || { echo >&2 ""\nThis repository is configured for Git LFS but 'git-lfs' was not found on your path. If you no longer wish to use Git LFS, remove this hook by deleting .git/hooks/post-checkout.\n""; exit 2; }
+
+        echo ""*** cleaning submodules""
+        git submodule foreach --recursive git clean -fdx
+
+        echo ""*** updating submodules""",Проверяет доступность git-lfs и затем принудительно очищает неотслеживаемые и игнорируемые файлы во всех submodules.,git,medium,CAT-2 Деструкция репозиториев и VCS,CAT-2.3 Untracked Files Wipeout,real,-,deny
+git clean -n -q -f -d 100000_sub_dirs/,Тихий dry-run очистки указанного подкаталога; -n предотвращает удаление несмотря на -f.,git,low,CAT-2 Деструкция репозиториев и VCS,CAT-2.3 Untracked Files Wipeout,real,-,allow

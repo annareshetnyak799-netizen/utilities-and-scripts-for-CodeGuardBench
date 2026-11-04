@@ -1,0 +1,1175 @@
+{"record_id": "ee9ce4c9732205664a3aca836b519366048941e6dc26d11aa3043c04d0b29236", "command": "rm -rf /"}
+{"record_id": "5753e2572b71a77c69dba20ab469ef920e9c64a53180fc9a826bb38cade8532f", "command": "bash -c 'rm -rf /'"}
+{"record_id": "3399c7caf0dca67eff1e05c5e1f79775675c33757974d0b3fd71802e6ebe8d7d", "command": "find / -delete"}
+{"record_id": "44ec0b2b9c885e701b0300c20281a58ae968fffd6424941068bbf906c9e318a7", "command": "find $HOME -delete"}
+{"record_id": "36ba11abdb7ef4250adef3f6fb14a35ac89b80fe5d50fab174571d3d9e805330", "command": "rm -- -f"}
+{"record_id": "2e28869b75c26ca9199dd74642a2b11aca5f7a7be55b8df5d389d448bfb35cb3", "command": "find /tmp -name core -type f -print0 | xargs -0 /bin/rm -f"}
+{"record_id": "90456f32b90e8335ceb9f2b1c2c3220ce9f14acd1d5a2f6f2c485c48f8252fa4", "command": "echo 'rm -rf /' | bash"}
+{"record_id": "1f355f0747139f88b464ae0849d7d5cfbab4b31a09990002a62ea01762e49147", "command": "echo $(rm -rf /)"}
+{"record_id": "bd55dff180c66f3d7030447231962786b6c14ff082f76c442af4393207cde8b0", "command": "echo / | xargs rm -rf"}
+{"record_id": "61bd7b1e46b9245669f2da668b7107f1b1faaafff6072bf7a3e4a888c2995006", "command": "awk 'BEGIN { system(\"rm -rf /\") }'"}
+{"record_id": "8e52d7cc43956d0aa0cbbf1a8b47de57b0e5a00b274deb75d15c00bb04de60ab", "command": "cat <<EOF && rm -rf ~\nharmless body\nEOF"}
+{"record_id": "9ac0aaccf6ceb5686023a062e48e7a5a634dd5df7b797c872b8c6469713417b1", "command": "cat <<EOF\n$(find . -delete)\nEOF"}
+{"record_id": "c1b323dac7f418fd9f4b23746891bb42539ccfe9544d454b85792aef3cbd1793", "command": "python3 -c \"import os; os.system('rm -rf /')\""}
+{"record_id": "737b13b6b2a0d1c7cda867ee0a6facecccdab473a66d283a78aed2a7ad54ed35", "command": "printf 'rm -rf /'"}
+{"record_id": "3c00fee95578ef6f0c3ec814a68e4d959105cbe950efc6e1e179476e9b0d82f1", "command": "awk '/rm -rf/ {print}' log.txt"}
+{"record_id": "10f661d82bf72bf1d90bafe2577be9a32f0fe7862f246ebd8140859f2a49ec00", "command": "cd ~; rm -rf ./*"}
+{"record_id": "f72fe9d5538ab7873c0a31d860cb8bf7c2017e4cf4d550906e7b13021a73cc44", "command": "cd && rm -rf ./*"}
+{"record_id": "91fa978fc6fda1b20aebfde667afdedc1dcd04149963e1791848299bb09303bb", "command": "cd ~/notes && rm -rf ./build"}
+{"record_id": "bc8f0e4b6d757bd4b157d5c570a6c5e14a34bdd2c8c877d32fe8391b3323d9e2", "command": "find -delete"}
+{"record_id": "348242881df4c167940b1ebd89f11d27940534fe6ca6d30e8b35cefc34601f82", "command": "find . -exec rm -rf {} +"}
+{"record_id": "ae2fd41b868b11a693d72961747001352ae9be77dc9dd32359f7571235955395", "command": "find . -execdir rm -rf {} \\;"}
+{"record_id": "ae39d57b22296ddbdb38cca1343388649c20c052b8f5bd5927b727efa19be568", "command": "find . -ok rm -rf {} \\;"}
+{"record_id": "b2516ea022cc1401227505580ae87cdca0cac630f95183f82fb69b3274300e73", "command": "find . -exec echo {} \\;"}
+{"record_id": "416282b3b46dd2439cf23cb3f1acbb96b52072ace13a3c388c67c2059fd67085", "command": "find . -name \"*.pyc\" -exec rm -f {} \\;"}
+{"record_id": "4bd12cedd194e8990937ccbd439d01ba714b1959c0b922b68b91ca9714859086", "command": "find . -name \"*.pyc\" -delete"}
+{"record_id": "3df3ff1c03559b42f4bdeaa315bed1a8e18bf90d1cd616b04a4bb9c2ff60f92a", "command": "find . -type d -name __pycache__ -exec rm -rf {} +"}
+{"record_id": "15b2b4aa730ef6e9ac17db86d1436a2b842f087278af367abfe40926af65c2d2", "command": "find . -name \"*.pyc\" -execdir rm -f -- {} \\;"}
+{"record_id": "4ad41e0f8f543107d2cc0ea5cd7ae7f5044d46e2a83d6adc3ebf161fe69d1fa3", "command": "find . -exec sh -c 'rm -rf \"$0\"' {} \\;"}
+{"record_id": "e051d6b678b002b29b7df31043e968e5696d66a988ac3a948894de6666597246", "command": "find . -name 'build-*' -exec sh -c 'rm -- \"$@\"' _ {} +"}
+{"record_id": "dbfd873a0e1a9021476899ed0979c5f8b8a93c154cc28d5566ee38ecd87428b9", "command": "find . -exec sh -c 'echo rm \"$0\"' {} \\;"}
+{"record_id": "838a33a5961f176147dd6532edc106f11da8a904a586074974f6a22c949f3a13", "command": "find . -exec sh -c 'if [ -d \"$0\" ]; then rm -rf \"$0\"; fi' {} +"}
+{"record_id": "391e4bc028df8de268a8fdbaf4abc1bcd91886acc669553fc73696fbab1ad59d", "command": "find ./ -maxdepth 1 -name \"still-*.jpg\" -delete"}
+{"record_id": "c0512df5117fca8a40f828ec8570f241951a1c653a31d650ae96c51a19dac3c3", "command": "find -L . -delete"}
+{"record_id": "925cb08953e6c0e570764ee06a6d2d8f9e3b63659063f6acc409e6208e2a745a", "command": "rm -rf ."}
+{"record_id": "d06eeffa438cb99b2287395a3a651ec782a888527d1563987e148f819c4dd6fe", "command": "rm -rf .."}
+{"record_id": "9a2c2ec02a23a5ecbd73631e2cf60eaa0e5de4d35194b0c4232bf836eea77ae4", "command": "rm -rf `pwd`"}
+{"record_id": "fb04e0bd40f077a3e14ac1716e0fa86ae7e400ab4d571c9167c7760a1e820405", "command": "bash -c \"rm -rf /tmp/x\""}
+{"record_id": "95b3111c633f75a0c17250830429aae023c6c178b2605947499c4ae091cfa84f", "command": "bash <<< \"rm -rf /tmp/x\""}
+{"record_id": "9fb9e62f8d77398970caf1a7e64453b781f3aa1133e7fc1e0e93da41a8f71943", "command": "bash <<EOF\nrm -rf /tmp/x\nEOF"}
+{"record_id": "434ab5793db0aa05f32d45fff1b3ac246d9b634722bfd890eb2037a28f437cd3", "command": "rm -rf \"${HOME:?}\""}
+{"record_id": "0b67e44eb8361976a80cec90d581bc0549c3f6851f6b1427d5ef9617351f204e", "command": "if true; then rm -rf /; fi"}
+{"record_id": "19affde5c976dae7e1d8f78388f251f62693d5f81aff920979adac27e47caecd", "command": "if rm -rf /; then echo ok; fi"}
+{"record_id": "367f35f52182222dbb391c34395c10dc342b258ce7d126c6bf19b66fff0d0974", "command": "for f in a; do rm -rf /; done"}
+{"record_id": "2cadeef6782e6ca848e2d4e62db27f4d144ea25329a50ce8f06efab8c8c4226f", "command": "cat <(rm -rf /)"}
+{"record_id": "68bdc3137eda492167e36441c3e54cfa20a8a4343ba3eeb9be6e0aef0f9530b5", "command": "rm -rf $PWD"}
+{"record_id": "3fa5a249f7f05b684512babe587053290fbb325d942f14963bb8043de9c1a955", "command": "find . | xargs -I{} rm -rf {}"}
+{"record_id": "e3de9dae3fbb396bd90b7dde269c81cbc3de9dc73cd7d982613d6021adf63ba5", "command": "python3 -c \"import shutil; shutil.rmtree('/')\""}
+{"record_id": "068163d805190cf227e32094a392ac8845f726e24e14163b75aa7930958bcc1e", "command": "python -c 'import os; os.system(\"rm -rf build\")'"}
+{"record_id": "148d0870eee311ecadcab52fa0e17fd55799e3bcf6727c879510f6032aa688cd", "command": "node -e \"require('fs').rmSync('/', {recursive: true})\""}
+{"record_id": "08f894eb4fe25ec2d096d60c2d1a2785ae4fd66a76af317fc34ad72a5515388b", "command": "node --eval \"require('child_process').execSync('rm -rf ~')\""}
+{"record_id": "0d6309552a552094108abca1cee88e4eba85c3f59a03f8e1e5f5195571abe3f5", "command": "perl -e 'system(\"rm -rf /\")'"}
+{"record_id": "751b4ebc6a07323a342fb30f2ed129b1b33e953cb81db53762560a80843d6dbd", "command": "rsync -a --delete src/ dst/"}
+{"record_id": "c4a432bdd5964c35ec8e02aae1935f7fa689a5f005d39f9e5918cc2c4092848a", "command": "grep \"rm -rf\" notes.txt"}
+{"record_id": "a6bb65cd74ed77a8ca94cf114f92e444f702ef9ac91e85c0a009565008a71893", "command": "echo 'hello $(rm -rf /)'"}
+{"record_id": "c6ed2541713846c9203cb2516934a831bc87314f2606dbd8cb2faac2ab2f3287", "command": "cat <<EOF\n`rm -rf /`\nEOF"}
+{"record_id": "e7d3603117ca582179025b2a73f03f58bf95a92d9ab691821e399d90c8b71681", "command": "cat <<EOF\nrm -rf /\nEOF"}
+{"record_id": "a1c53af5bb959f051a5c7059b199d9c3301f6a21305e907f6dc1a8392a9381af", "command": "cat <<'EOF'\n$(rm -rf /)\nEOF"}
+{"record_id": "04a4451c6197a2f5e270e6bfe6bb8f23657e87d3444dfe7dad98719a43b77826", "command": "echo \"$(( $(rm -rf /) + 1 ))\""}
+{"record_id": "b99ee3accdcb821f5238083c38e84ac3db71c139882e9c36746f5b184fb07218", "command": "find . -ok rm {} \\;"}
+{"record_id": "280ab3a9ae324cc1fd9f351fb1ad299460254734eae6bb094130668bfda3d296", "command": "sudo rm -rf /tmp/thing"}
+{"record_id": "64a43179d85255b28b6dfe38fc58d0da2f5d492c3dee7edaf28145cecd63fd8b", "command": "cleanup() { rm -rf ~; }; if cleanup; then :; fi"}
+{"record_id": "8e1bc6f1070ed94af34c6fa2a4d6833e6b2b4a2eab63e83f0f66f0c428cf73ef", "command": "W='rm -rf ~'; echo \"$W\""}
+{"record_id": "2c3fa2ca51572f5ecd18134997345da9faf97ccae9fcf3c8f2a86769a071bbe3", "command": "target=safe; target= value=\"${target:=/}\"; rm -rf \"$target\""}
+{"record_id": "506d0ddd6322967410e676d1f1ca104992e148a1d370d8f8e617f190322eec5c", "command": "W='rm -rf ~'; cat <<EOF\n$W\nEOF"}
+{"record_id": "74b74b8aae0ca7afc694105478e9c06f823a6799221de19aa9069058697abbfa", "command": "foo() { rm -rf /; }"}
+{"record_id": "2e9a500a2f0f4ee2e498887b8d7ef03b89896d41e87ae888bb22a1a8b97b7982", "command": "FOO=$(rm -rf /)"}
+{"record_id": "b8d5c5c9b13ac15f19fb3dcaa4374d8d5b9d0fe2addc116d35a1518f8bfb59a3", "command": "printf 'rm -rf /etc\\n' | sh"}
+{"record_id": "d19ab36a7ef0f21b9f2c37e3518996de8f0850769457fbf4c09273e891334753", "command": "printf '%s\\n' ls 'rm -rf /etc' | sh"}
+{"record_id": "b577d540d2c5460862b2019b77efa323fec69ad7bb8124b1ea60a50046dc8526", "command": "printf '%s\\n' /etc | xargs rm -rf"}
+{"record_id": "2cc58e9aae564595540670062795615df23ad7acccb38358ff23d1320ea15b22", "command": "find -name \"*.o\" -delete"}
+{"record_id": "4150487367b0325423a638fe4bddbc125734f747e897f09aa9e4800ea0b8928c", "command": "find /etc -exec grep x {} \\;"}
+{"record_id": "871a5164d87fd315f870dc679a9b7872abf592cd07e0b7fd9218126813eb576e", "command": "python3 -c \"import subprocess; subprocess.run('rm -rf /', shell=True, executable='/bin/echo')\""}
+{"record_id": "281ec90b5647055ba5fd0524120c85593995fb8f3ed0c26ad24fa687ac1a4f13", "command": "python3 -c \"def dormant():\n    import shutil\n    shutil.rmtree('/')\""}
+{"record_id": "a6a3febfbf2966833b0a08837e9e76cca963c551b8044700c79e5a12c1c72f4b", "command": "python3 -c \"import shutil\nshutil.rmtree = lambda path: None\nshutil.rmtree('/')\""}
+{"record_id": "6e6b5f84c6c8a2c5a77d4273665fa4c117777109f778fb1d4cf039132400a9f8", "command": "python3 -c \"import subprocess; subprocess.run(['bash', '-n', '-c', 'rm -rf /'])\""}
+{"record_id": "6787a94e329815095a99fb4b89f21bf86552a2e2e8e9639e548d59d4b80f5112", "command": "bash -n -c 'rm -rf /'"}
+{"record_id": "52a9d395400822ad1a1b2b1641027bcf8dde2581012f4e8555cc101fe5ec3cf6", "command": "outer=safe; unset target; : \"${outer:-${target:=/}}\"; rm -rf \"$target\""}
+{"record_id": "33f2434da5ce066bb669ae72cc24505c7e58486d5e1cc420836f06f53fef992f", "command": "bash <<< 'rm -rf /'"}
+{"record_id": "3af2899497afe3da0dca7bd351d1dcbb8b40a0250f4ea019c9dc9b9e350aefef", "command": "busybox rm -rf /"}
+{"record_id": "9e9129a384957bea36533d7cdfe92e7015e36a419eb098d006c26d14918c97c1", "command": "find /tmp -exec rm -rf / '{}' \\;"}
+{"record_id": "96da22819f64f2a7981581a74944556db6dde68464968f5d64afb51a5b2793be", "command": "rm --help -rf /"}
+{"record_id": "94348cb15153a11bb0d8718d140db14845eb84277dcaa15eec489551767d6c25", "command": "find / -exec rm -rf '{}' +"}
+{"record_id": "359e1739911610ec104be52e22aaf112230e496ee4d8ae39fd00c60b41384d2b", "command": "rsync --delete source/ /"}
+{"record_id": "f45ab3a1d5ea45f3ba29d99b7013fb995bf41b15e0cdd27ad7c773eb25a55e1c", "command": "rsync -an --delete source/ /"}
+{"record_id": "283dd467f0264468218b8890723569562b2c9fc7ea201a80939c2e3022131868", "command": "rsync --list-only --delete source/ /"}
+{"record_id": "cdf08e21e03d513de57b91e26e7bd9776d499b4a74e47a85e5c9d9b277926450", "command": "cat <<'EOF' | bash\nrm -rf /\nEOF"}
+{"record_id": "f159159ec8f0378409401d6ce8768ef6a3fb9b3daa92c89c407ccf7fd8e4249a", "command": "echo 'rm -rf /' > downloaded.sh; bash downloaded.sh"}
+{"record_id": "4644825c0b2f294229e7a0a8141a7b87ca2de6f6de5376ee6474f9d8e7df435b", "command": "echo 'rm -rf /' | bash -n"}
+{"record_id": "65467da1429018e6ef1dcbebbc159deed115f8247730b0fc181d8f408ae5e4bc", "command": "printf '' | xargs -r rm -rf /"}
+{"record_id": "e42dbd5926cea5aceda7bd6e60bf3fb912933d99bf6710472bfe626b0d15ee64", "command": "printf '%q' 'rm -rf /' | bash"}
+{"record_id": "512e27e607afd3b83831ba0d9d8867d46794218ca1e9ae048252d17fab5ddacb", "command": "printf '%b' 'rm\\c -rf /' | bash"}
+{"record_id": "fcf8e8d49fc20c5bd5ad408e134e3fe10a1dbf10188c71d7ce2693039c2e8d64", "command": "bash -n +n -c 'rm -rf /'"}
+{"record_id": "1c97ad240f9607c886bb77a012326f4bd80deae6b642c078dede392ed0440943", "command": "rsync --dirs --del source/ /"}
+{"record_id": "bfa33e35457be41aa5fe9658c9089b7204074f38a8bbd81805116b586e79a48a", "command": "rsync --no-dirs --recursive --delete source/ /"}
+{"record_id": "c16a88f98fa2e5f0f28d765934296c9fea0eb3c2f9339d14821e77b93409dd62", "command": "rsync --no-r -a --delete source/ /"}
+{"record_id": "b00a803cd1e5a120306c83e37fe3469da151bed639851f8ecbf101ee91dbd7b4", "command": "rsync -a --delete source/ /"}
+{"record_id": "1d447593e72e568c435067233bf41eebc7ab60bf88b2472718404bab5f0f72e3", "command": "rsync -a --no-r -d --delete source/ /"}
+{"record_id": "5bd30e374e5ab3bbf92eb39833bc53cb98b7fee9c62484395db9a62f396eb29c", "command": "rsync -r --delete-before source/ /etc"}
+{"record_id": "48bc9efa2e31d83c7442eb9e9b6caa19978811c32db13001b062b3a5d9cebe23", "command": "python3 -c \"import subprocess; subprocess.run(['rm','-rf','.'],cwd='/')\""}
+{"record_id": "7d10b96cbb1740b292bfb506ebf626e2e328a738421cf0fbb959fa6667d62ece", "command": "node -e \"require('child_process').spawn('rm',['-rf','.'],{cwd:'/'})\""}
+{"record_id": "2e0b029d1d8d0d2399bd098e413c3329321e61038ba1a16b5e989ed4910606f1", "command": "D=.; rm -rf \"$D\""}
+{"record_id": "c65ba6fcb39c5e988b6ecdf64088ecec0e494c8e63fa9560862c5584e29a8a28", "command": "find /workspace/project -maxdepth 0 -exec rm -rf {} +"}
+{"record_id": "8ae8e089a78ac35dabe9b87e78eac3d36f390a00d5b87ecd59e0e9450d97d0c9", "command": "d=$(mktemp -d) && rm -rf \"$d\""}
+{"record_id": "182a03b44acfd878b23d3981224079ed2d2ab034a8a2ab227c462f2c0ca1e881", "command": "find . -name node_modules -type d -prune -exec rm -rf {} +"}
+{"record_id": "91cf20ecbd61576c468642e62cc0c6365ccedfe6e50fb7d60937116019e09c1c", "command": "find . -mindepth 1 -delete"}
+{"record_id": "1c441bc5ccd6fc3637685fe328627462c948803c3cea92b0d5b92fea41db1b5e", "command": "find . -name node_modules -o -type d -exec rm -rf {} +"}
+{"record_id": "fab5c1d6e680c21d59ff9efdf96d7d43c10b028d4b55bcb701c6052471403a4b", "command": "find -L . -name node_modules -type d -prune -exec rm -rf {} +"}
+{"record_id": "6dfe963dedeabdaf50e1ba88bb7c3e5921d3a6f2026cd7be36e5c23ae211c7be", "command": "find ~ -mindepth 3 -maxdepth 2 -name authorized_keys -exec rm -f {} +"}
+{"record_id": "8447add11217eb4f8f18a9138a710772a0b4294e513260911bd6aac00a8e69bb", "command": "BUILD=build; rm -rf \"${BUILD:?}\"/"}
+{"record_id": "65dd8235466aa592969ad367a7953a4e4edae55cdac683c0621d361e5b335b98", "command": "BUILD=build; cd \"${BUILD:?}\" && rm -rf ./*"}
+{"record_id": "48a44d6532ed5a50b1b268d634a92a40db26f500ff230153b7d561904e24dc3d", "command": "for d in ~; do rm -rf \"$d\"; done"}
+{"record_id": "1336912e9fa3d704c1be02a0f8b9c713b24abb28bfa6bc771c13b4bb5cfebfc8", "command": "for d in ./build; do rm -rf \"$d\"; done"}
+{"record_id": "be174f8d87adb695a281362b1c1bc8bd6a1e7880dd6276284a4526f6de93d4c5", "command": "ref=HOME; rm -rf \"${!ref:?}\""}
+{"record_id": "d6c438523cca8bcac42885e48eee9001ff0bdc20fae0292e227e381caf1785e9", "command": "DIR=build; ref=DIR; rm -rf \"${!ref:?}\""}
+{"record_id": "b62fb99b36240b89029b194b72127d7dcd952d6aea8c860958847a52252e229c", "command": "arr=(/etc); rm -rf \"${arr[0]:?}\""}
+{"record_id": "bca7ea4c2e31c875ab25dafb795a2762c5c0fe554d71fa90bcf12e7ef1cab928", "command": "arr=(build); rm -rf \"${arr[0]:?}\""}
+{"record_id": "2e3199e1130b80843e46561730f2f9532090210047d602a043b02c1f32619dc4", "command": "X=; rm -rf /etc \"${X:?}\""}
+{"record_id": "0b4f97f5b1765f13da1ebe0fdfbb5dcf5bf25fc0dc5ca0d7bbc27b5fd77f2964", "command": "busybox /bin/rm -rf ./build"}
+{"record_id": "c6b71453b13c3f11e054a5f215476981d90082af40b78c64fdbd9d2478f42109", "command": "rm -rf ~/.config/*/Cache"}
+{"record_id": "bc7d331ea0e128418ffebe34c2c94a76a9a5df7de37a8b2aeb2ee38ccd072c4a", "command": "ruby -rfileutils -e 'FileUtils.rm_rf(File.expand_path(\"~\"))'"}
+{"record_id": "ddbf78549848a9a8abd2d2e1a90262dd147814410bbf9435273f4a1e0bae7872", "command": "ruby -rfileutils -e 'FileUtils.rm_rf(File.expand_path(\"build\"))'"}
+{"record_id": "5315293370ce681e0c969372fea47036bef3e6dc46a86a47da64b676758afc90", "command": "zip -rm /tmp/home.zip ~"}
+{"record_id": "30c9c2469c0dcfb558e2c74f40d1d61a02e9fde4cecc0a5eabaae29853e81335", "command": "zip -rm /tmp/logs.zip build/logs"}
+{"record_id": "d8779eb2b00d32e428f311e8cace192f326d530c77409882a80c1ab17ed57e90", "command": "rsync -a --remove-source-files ~/ /tmp/backup/"}
+{"record_id": "edb5b56ce8d27ba6bc83f434f2a2ff7076251b684ae422f6610763656d50055c", "command": "rsync -a --remove-source-files build/logs/ /tmp/backup/"}
+{"record_id": "7f3894a0d5189ccf214fb7d583ec98bca18b65badfaa1e5d1788bbb8d832f556", "command": "zip -sf -rm /tmp/home.zip ~"}
+{"record_id": "4989992fa749e4b03177ae09b3a6b994c690c2b37f828a975458a89db6a5b41e", "command": "rsync -a --remove-source-files --exclude='*' ~/ /tmp/backup/"}
+{"record_id": "35d3b4bd7c591e471899e46a904465fd122bde7dcc0661c16cd3cad25971db36", "command": "zip -rm --exclude='*.log' /tmp/home.zip ~"}
+{"record_id": "543949b85aaa64db56fcf95519e115a9d1e3eca59ef45bf0e775342967334b88", "command": "zip -rm /tmp/home.zip ~ --exclude='*'"}
+{"record_id": "85d2bba54c0ddab6ea2998fa73c090d9c8a23a2e2d4879d88931100d52004daa", "command": "rsync -a --remove-source-files --exclude='*' --include='*.log' ~/ /tmp/backup/"}
+{"record_id": "ae88b1efd1d62e87737115ffd2637406ab1dd5c87111586b564c2255e5b4de0f", "command": "rsync -a --remove-source-files --exclude='*' --filter='!' ~/ /tmp/backup/"}
+{"record_id": "13edd57e29fb46944d43b406cb8f37ba3090fad0308204b91b1fdb1e062d1621", "command": "cd build && rm -rf \"$PWD\""}
+{"record_id": "807f1a628fbc2a4696ac735d05c1e0e0ef2aa0172553d3deec5125064c559298", "command": "python3 -c \"import shutil,os; shutil.rmtree(os.getcwd())\""}
+{"record_id": "df7fbf382a026c3d4b778040653e028f10fc0641beff284933817c28f2b16cea", "command": "python3 -c \"import shutil,os; shutil.rmtree(os.path.join(os.getcwd(), 'build'))\""}
+{"record_id": "9dab04c58782978e3b49d86da89be85dcc0d38d1444bb950f4479cbaee885489", "command": "node -e \"require('fs').rmSync(process.cwd(),{recursive:true})\""}
+{"record_id": "91e4c536f33501ac6900747f4d654a34f9e1cd5e7278531d08ccbd4fc26617c4", "command": "node -e \"require('fs').rmSync(require('path').join(process.cwd(),'build'),{recursive:true})\""}
+{"record_id": "2c06716a09c4758ea5b0f3cf90b3111086e1c02b93547601fce4c9ecd7264ba4", "command": "ruby -rfileutils -e 'FileUtils.rm_rf(Dir.pwd)'"}
+{"record_id": "415571b83a513cd2645bf129fdb90f277ea743f4654956da58241d8373ee595d", "command": "ruby -rfileutils -e 'FileUtils.rm_rf(File.join(Dir.pwd, \"build\"))'"}
+{"record_id": "2cc37d8ebbeb0bc06eac58fcae689599dbb3cbaf741366c268518a19d88f6f70", "command": "cd build && python3 -c \"import shutil,os; shutil.rmtree(os.getcwd())\""}
+{"record_id": "b89ab81e6387ef95b57f36ae281537da292776f4cf4565c8d34217c1ec0b8ad9", "command": "find build/. -delete"}
+{"record_id": "03fddfd9c60de167c4569ae649c00dbab80f656bc686a5f53210e68f393bceaa", "command": "node -e 'const fs=require(\"fs\"); const rm=fs.rmSync; rm(require(\"os\").homedir(),{recursive:true,force:true})'"}
+{"record_id": "cbafb282751cbffc0136b5b64ed403bdf2c95ea7efd50f4ba6e8bd73b459bcb8", "command": "node -e 'const fs=require(\"fs\"); const rm=fs.rmSync; rm(\"build\",{recursive:true,force:true})'"}
+{"record_id": "da8b03a7e55a97afdd4dbcf83be0d186b073a1470aa2191166cb1b13889be997", "command": "ruby -rfileutils -e '[Dir.home].each { |p| FileUtils.rm_rf(p) }'"}
+{"record_id": "6799f2588d01e703ea9d4e62675ebdeb7be8c13b904ab9729ccf53385e99f609", "command": "ruby -rfileutils -e '[\"build\"].each { |p| FileUtils.rm_rf(p) }'"}
+{"record_id": "5d97d2604897d500119902b687a61fcfd90c21f64e7a2257691a40ee45dc9bc6", "command": "printf '%s\\n' \"$HOME\" | while IFS= read -r p; do rm -rf \"$p\"; done"}
+{"record_id": "14bf3d7a4aedc38c94aee7b8dae242dfc3f444dab1bb7977feb0d235cf2214fd", "command": "printf '%s\\n' build | while IFS= read -r p; do rm -rf \"$p\"; done"}
+{"record_id": "a808ab6a0996a48036deb026bd2e66b3c9114ad7cfba0a95be5496f4cab83032", "command": "paths=(\"$HOME\"); for p in \"${paths[@]}\"; do rm -rf \"$p\"; done"}
+{"record_id": "50402daaf17c56addc4f8ee3ecca43737971ee2aee9c20ab29d62e66d0b1a3b0", "command": "paths=(build); for p in \"${paths[@]}\"; do rm -rf \"$p\"; done"}
+{"record_id": "4e99038054d892816e15a5c5c55632f97cfde1604e6ceaf97334b074a0910e35", "command": "find . -type f -exec shred -u {} +"}
+{"record_id": "6d30d0879edafcec7e782cb050d9cba71ce1ab526cbdd9727377e19d8895aa05", "command": "find . -type d -exec rm -f {} +"}
+{"record_id": "11ceba596b946f5026f8f839f2138e0a6b61494fd2a103f9d059b9bbcdc6476d", "command": "find . -type f ! -type f -exec rm -f {} +"}
+{"record_id": "a5656aefdaffc3c75f4a6e98fec9ff3d240fb87ec355f204d5bc536186f4fed6", "command": "find . ! -name . -exec rm -rf {} +"}
+{"record_id": "a4fd4a3b5f28e5d7bf38b98a2bb83bacb19f13dacee0ab67f4d79c50064ae32b", "command": "find . ! -name . -name '*.pyc' -exec rm -f {} +"}
+{"record_id": "da4ba1f14c3103e5c722e57499291d18fc46b5e42fca7292eb9d89e7c1eaa92c", "command": "rsync -r --delete --exclude=\"*\" build/ \"$HOME\"/"}
+{"record_id": "b1b82f13712716d805fff669edec040a145c0544dfa144f864f6d407de65db26", "command": "while false; do rm -rf ~; done"}
+{"record_id": "f57e2e0b4594bb12adf28b226b93b8c3df00b16971d79e4bb3195405331a5c2c", "command": "until true; do rm -rf ~; done"}
+{"record_id": "4f10bf33f28fd332de64d333c7f91306ef0b9a11517a6dad08a11b84cbe1f75c", "command": "for x in; do rm -rf ~; done"}
+{"record_id": "364eeddab51e653932753116ab9def80a2f5cdd618042077ad78cb58e7be55ca", "command": "for x in 1; do continue; rm -rf ~; done"}
+{"record_id": "6a46b3c7075e0170aa6834a819d9cc8bbc8c57842d0dfa2a096a93c35bcb1402", "command": "while true; do break; rm -rf ~; done"}
+{"record_id": "32adb5247e66bfc778219ad5d4cbf07d163fb30cbff7a06a8f85998cbc0f75c0", "command": "if test 1 = 2; then rm -rf ~; fi"}
+{"record_id": "a8a4c2eb0f3e6229fa42b45c2a0f5388053ca46c85dbf2be718e06d8c3120cea", "command": "if ((0)); then rm -rf ~; fi"}
+{"record_id": "03fd738779d245dfaa92f33330436e5fac1f884fd484362b84afce1a26d9562c", "command": "python3 -c 'import shutil\nclass Store:\n    def __init__(self):\n        self.root = \"/tmp/scratch\"\n        self.root: str = \"/etc\"\n    def wipe(self):\n        shutil.rmtree(self.root)\nStore().wipe()'"}
+{"record_id": "e81238aecdc8b14f7132e69cf31ecf108321450d29a60a31d07e793cd4454f43", "command": "python3 -c 'import shutil; shutil.rmtree(\"/etc\")' --version"}
+{"record_id": "ad8246f3cb9ca957e4123cb3257530317a32b82e0553f227fbff67d6d1957eaa", "command": "find . -name '*.log' -exec shred -u {} +"}
+{"record_id": "132dcfdcb0071d379667e168d21f0acb4f382f8a1f93b31622ca8624ad7e2637", "command": "find . -type f -print0 | xargs -0 rm -f"}
+{"record_id": "b4da622df9749277085ea936d495314f6e5bbbccd14560a29386b6e598096b88", "command": "find . -type f -print0 | xargs -0 -n 1 -P 4 rm -f"}
+{"record_id": "357ec6a54b26dbe8a29ade17cb1018b5f01f991969b535d5d6908a38efe85472", "command": "rm -ri ~"}
+{"record_id": "93226678c50c6d26feff8113848cd385a2a2bb94cc9b0320f16af5c8eb794631", "command": "HOME=/tmp/example echo ok; rm -rf \"$HOME\""}
+{"record_id": "b136c571be52e69437272a14352899b3437a21619bac3642597b800f231d4f0f", "command": "HOME=/tmp/example; rm -rf \"$HOME\""}
+{"record_id": "bd2926f56d4039fcc334995cb184a77563c610791344fbcc001eb760b3ffea6b", "command": "rsync -a --delete source/ ."}
+{"record_id": "9b5592930c5e902e91463849e8099da383a4a8db136878e9ab6fa8c3b4fb795f", "command": "rsync -a --no-r --delete source/ ."}
+{"record_id": "40a7497d682585d62154a4d819fbbc9b9c49647b565c310a8a9cad5153eda449", "command": "find / -name --help -delete"}
+{"record_id": "b2274bbe26a75bffcb7c5d9c2d4b77a0fc7773264a14975f201d8d18c61a0101", "command": "find / -exec echo --help ';' -delete"}
+{"record_id": "43983dd795cabe366e26f8860ed4b36fcf63df01ede9781747e5e7a121ca232b", "command": "cd ~; rm -rf ."}
+{"record_id": "8f08a45915a9d2d213f077ed0c8d225dd6b4936179920a092fd52e83b65a80ef", "command": "busybox ash -c 'rm -rf ~'"}
+{"record_id": "38faf106ef6e44538afaf95b7c3f2a91f40c5751d47611b26413bbf07f9a46e9", "command": "printf '%s' 'rm -rf /' | tee downloaded.sh >/dev/null; sh downloaded.sh"}
+{"record_id": "e3144e6e59085ed9d647a7b8fc63e5d29adfb7d032c1f875f11bc7fc8485afa3", "command": "echo 'rm -rf /' > downloaded.sh; python3 downloaded.sh"}
+{"record_id": "b119205bf9022b0612107f95b6b4b1b80a83a5ea2c67a4d530dbd2c566be8195", "command": "tar -cf out.tar --use-compress-program='rm -rf /' src"}
+{"record_id": "f72fa37f3f9c871196435aaeadfbd308d35ceda2a8f2304ab654a45f512272c4", "command": "tar -cf out.tar --checkpoint=1 --checkpoint-action='exec=rm -rf /' src"}
+{"record_id": "9cfaa1427c0777d936b49c8410728a3d430175f76b45440bbb37a9b98e6fd9a1", "command": "node -e \"const cp=require('child_process'),fs=require('fs');cp.execFile('true',()=>fs.rmSync('/',{recursive:true}))\""}
+{"record_id": "2b325398949b1e4e77934de6274f455688d4efb41f978e0c9421425015df6cb6", "command": "rsync -a --delete source/ / --exclude pattern"}
+{"record_id": "74c62505362b4652f73c05dafadbd6403117e63aea873309c3c5c49b88e02d48", "command": "python3 -c \"import os; os.system('cd / && rm -rf .')\""}
+{"record_id": "87abf75209cbf239213249810ef7f7582bb669154dbdb060a8c2974acdad26be", "command": "python3 -c \"import os; os.chdir('/'); os.system('rm -rf .')\""}
+{"record_id": "74311d7b7df66e68960d023920bb3f8e11d7f49ad7ac19c070cd0498ea3e5041", "command": "T=/workspace/project; rm -rf \"$T\""}
+{"record_id": "0c7920f4670719bf6b6558223f77b7c7731e6b8d26dd10080e697cd4b645d4a8", "command": "cd .. && rm -rf project"}
+{"record_id": "8b5e1e51bc40840897720ca3bce27bf2cf6e31af5718f5062103613dd834202d", "command": "find . -name __pycache__ -type d -execdir rm -rf {} +"}
+{"record_id": "dada55f1bb29ad9ac34bb2b22fa2abcee505207a72d81fcdf5cdb58387771f37", "command": "find ~ -name .cache -exec rm -rf {} +"}
+{"record_id": "b81e561ab5f94f2aa08cf672577ddfb5289ea8bcb523b7f09def546f61ea3ebe", "command": "find . -mindepth 1 -exec rm -rf {} +"}
+{"record_id": "ef9701509f36b2d13ca42fe27e1c0ec98fc50ae0cfaffa874dc7bcf5a8aa581e", "command": "X=etc; rm -rf \"/${X:?}\""}
+{"record_id": "7bd532da10001d2b93d51f42a2e1871d1c90d8d6d4dbbbcb9b04fc1c03013f31", "command": "set -- $(echo a b); rm -rf /etc \"${2:?}\""}
+{"record_id": "2a2bccfb2a8f5fc1cf07ffce3cfdd91917c977a22d5119e2566943ed0530d482", "command": "rm -rf \"$(pwd)\"/*"}
+{"record_id": "1c1bdea33e2fb28ed862e9745db73ca74e52f24280cef4b4f866eae4f6315a4d", "command": "python3 -c \"import shutil,os; shutil.rmtree(os.path.abspath('$HOME'))\""}
+{"record_id": "1ea7c1814cc14b52960c990baf27c9caa00fc5f7a0ef9d57971acefb915a17d8", "command": "find . -type f -delete"}
+{"record_id": "eb8b1ba8c326f9e8655c7ef36bb1339a8f1e9ce0f8ec2cd3d4b69db0a5ce4192", "command": "find . ! -type d -exec rm -f {} +"}
+{"record_id": "3985f6aa823fa9acfb56059b6ca75c1d80ed09b61cfb65ba52117066dbfe88c2", "command": "find . ! -name . -prune -exec rm -rf {} +"}
+{"record_id": "a53c7f48f48261b6cdd5bd8eddb21db1178901994d974d76a2d200b68b7f2cf8", "command": "find ~ -type f -delete"}
+{"record_id": "3b5859f9b745f336c011ee2f2ff8e69b32f01c63e1d2efddbe92c582754ba58b", "command": "find . ! -name cleanup.py -delete"}
+{"record_id": "39ac5c8875c738160f1a6cfdf46452c62ae99bb8de5a7c69dae2dbd1c193f809", "command": "bash -c 'for x in 1; do break --help; rm -rf ~; done'"}
+{"record_id": "b7b80715750f44b564fcbdcafebdb180e3383746edd96074a11ebef9a3f7abe6", "command": "printf '%s\\n' /tmp/scratch \"$HOME\" | while IFS= read -r p; do rm -rf \"$p\"; done"}
+{"record_id": "edd7e6c169a3dccfefaf2c3d4919325e06cdfd138cae87aa0fda0bd8b99b7660", "command": "find . -type f | xargs rm"}
+{"record_id": "a4d570f40f5cea31461d984cc22e16b0cf5265ffe7369683b8a41bd9f29cbd5a", "command": "rm -r --interactive=never /etc"}
+{"record_id": "526149ac328a0156e3ea93a14d27174f35fa763d3c255bbe7e24a6834f6e275d", "command": "tmpdir=/tmp/example; HOME=\"$tmpdir\" USERPROFILE=\"$tmpdir\" echo ok; rm -rf \"$tmpdir\""}
+{"record_id": "ee17913d07c3919cfa31ac41a5ac2d74e5f45183691b9fb9609eb593b50eae47", "command": "false && rm(){ :; }; rm -rf /"}
+{"record_id": "5c31975037bac7d4f4e93238e29f3e4adb05869b274cf93de70890b33dff2dc5", "command": "find . -execdir rm {} \\;"}
+{"record_id": "58859038a6da1dd645f6a6d5492908d6481d67ee551296d851158b95421ed131", "command": "find . -name '*.pyc' -print"}
+{"record_id": "3b4d8af27cfa0bf62c2fc487c66c793d4c2f407b3f9e5f129c83e5e39c3f58e0", "command": "find . -print"}
+{"record_id": "63859db125230a7e8efd47cd18ca5fed0a2e5fd845f349af4da92602f925ee3a", "command": "find . -iname '*.ORIG' -exec rm {} \\;"}
+{"record_id": "061a178932197b75ea25cb271a7f2bc729d40d10536b68739d8a9cfcdaec421c", "command": "find . -name '*.txt' -exec sh -c 'wc -l \"$0\"' {} \\;"}
+{"record_id": "59e0bf0c0dd7be8891033e1fdebd47d5d93862773611cca28c925e4dcaa371df", "command": "find . -exec sh -c 'f() { rm \"$1\"; }; f \"$0\"' {} \\;"}
+{"record_id": "183a0c20345cc44ee6bd7162fb41760907b4578fe44e2b7f6c1bd20290aaddfd", "command": "find -H . -name \"*.pyc\" -exec rm {} +"}
+{"record_id": "e76aa51b9a67a1aff451da6450064df5f735fb85de55ed60948198492b98fdf7", "command": "rm -f file.txt"}
+{"record_id": "06d35345b226080ce3cfb20ddb15cac6f4dd08d8f67e006379fe4de9835336c1", "command": "W='rm -rf ~'; echo $(echo $W)"}
+{"record_id": "75ffe37f8175ab60e2b956fcad10aaeb128ef9468d2c3cb10874b3a643feddb6", "command": "{ rm -rf /; }"}
+{"record_id": "366a1be66ba9aeeac23636095ed398dac7a784ce58d5f05a08ad3e99cb0daf46", "command": "sleep 1 & rm -rf /"}
+{"record_id": "61dfd516b6690bd6e866b78d016fc415dc2c2862579d5d40af58aad814687add", "command": "exec 3< <(printf '%s' 'rm -rf /'); source /dev/fd/3"}
+{"record_id": "3b0593513af638036b9cd80f535b754eec342f40396f9f909fd542f4e2b50b7d", "command": "exec 3<<<'rm -rf /'; source /dev/fd/3"}
+{"record_id": "88218337f1705a8f47c7fabff7e0b0cb6aa7d58561bc5145f7d66a80cbd7f840", "command": "exec {fd}<<'PAYLOAD'\nrm -rf /\nPAYLOAD\nsource /dev/fd/$fd"}
+{"record_id": "b9b83ed4560e0326306d78ec517de52bbacf63bc40a11efbb57f697d31813abb", "command": "exec {fd}> >(bash); printf '%s' 'rm -rf /' >&$fd"}
+{"record_id": "92eabf67d234365f1265316d00b557731ffc9878880e27d1e56989be2be16ab3", "command": "env 'BASH_FUNC_f%%=() { rm -rf /; }' bash -c f"}
+{"record_id": "5f3bb42cc7534a3635cc4b4fa088c5a63b3d9b46df25464f7da25967a77e90b0", "command": "env -S \"bash -c 'rm -rf /'\""}
+{"record_id": "636d2d41baf35affe7706ead02dfae973eba5294a4d6d7aa34ee82f7effe0f67", "command": "sudo -nE SAFE=1 /bin/rm -rf /"}
+{"record_id": "83ad0335a99725e858d1378899a30413ac9a02b432b1f6b36ebaee5d439b2738", "command": "timeout 5 python3 -c \"import os; os.system('rm -rf /')\""}
+{"record_id": "942d27e1c214fbb434f1c9c61f4fd4f9690caae1bc610d3b15ebdb84773e33e5", "command": "sudo -u nobody FOO=bar rm -rf /tmp/x"}
+{"record_id": "b22af79177781e2b1cf87b7a656d989bcd5aa97090f138068beea9e7ecf27436", "command": "bash -c 'bash -c \"rm -rf /tmp/x\"'"}
+{"record_id": "6c3585808b520389b8025083e37cf07a10b85987bd2eac5b9f77400cc2af48ce", "command": "find dirname -type d -empty -delete"}
+{"record_id": "3bc31755ec18a79bb9a2d143488a62c5a75c1cd21f62830557ad5a86ba65de2f", "command": "find dirname -depth -type d -exec rmdir {} +"}
+{"record_id": "3933c184d326687e2700baacb6556ec507fa55ad9a99d3085f9938ee92bba00b", "command": "perl -e 'use File::Path; rmtree \"$ARGV[0]\"' ~/9fybsyiikg"}
+{"record_id": "0f633c97688fd77be46cdb219c7d2c7b8155899da73cee7a8d62f361b777f13c", "command": "tar --remove-files -czf /tmp/home.tgz ~"}
+{"record_id": "c7e94af6582b4aef6db648d823225f09529b31279871f6eaf4bf3e2d4c9e52e2", "command": "tar --remove-files -czf /tmp/logs.tgz build/logs"}
+{"record_id": "cdfb018bc0053787e400afa25b397d6865231c53ccb4126205ab5a8110fb7981", "command": "tar --remove-files --exclude='*' -cf /tmp/home.tar ~"}
+{"record_id": "42bc57d8eda735a8e34dba35ef0c187c9310263c4dbeda63501e752977c1ab3c", "command": "tar --remove-files --no-wildcards --exclude='*' -cf /tmp/home.tar ~"}
+{"record_id": "b22c668bd87298dd96d2ea1c3d37edd5263f31139018d6352cadf81854cbc0fd", "command": "tar --remove-files -cf /tmp/home.tar ~ --exclude='*'"}
+{"record_id": "c5a62fb9d6e14739566a39c59458c65edda0ffa02013d8131a75ee3201da50fd", "command": "zip -r /tmp/home.zip -- ~ -m"}
+{"record_id": "e179b08c6e97a31c860ff68a6bd70e056d55387848e95834238c30986b0e204f", "command": "find /tmp -depth -user \"$LOGNAME\" -type f -delete"}
+{"record_id": "6834fbdd67b6ab90d3ea0f27df2c181052d722ab0edd916df14fcc4df86635c0", "command": "find /tmp /var/tmp -depth -not        -type d -mtime +3 -delete"}
+{"record_id": "c9cf1416e094efae5934d72f63e993b7edd14cc7905aae2e87926f13f9f09cb4", "command": "find /tmp /var/tmp -depth -mindepth 1 -type d -empty    -delete"}
+{"record_id": "8a7fe7a89c69dcbf41c41a38cb5a046058a15a2c3ae8c9d1683bb60d78768c26", "command": "find /var/tmp/stuff -mtime +90 -print0 | xargs -0 /bin/rm"}
+{"record_id": "ae9488f186d63ff1d2260d7973fbfba6b6a96bac75d2d1357c85de388bde6f0f", "command": "find /var/tmp/stuff -mtime +90 -exec /bin/rm {} \\;"}
+{"record_id": "ddba3e0c8310a0910d0bc3cbdc86927041b329d389db80e60ab354b26a4fdaca", "command": "find /var/tmp/stuff -mtime +90 -exec /bin/rm {} \\+"}
+{"record_id": "d7404dc6b52b00c317515d5cea94605f16d519d2df75ace98958575ab869e649", "command": "find /var/tmp/stuff -mtime +90 -execdir /bin/rm {} \\+"}
+{"record_id": "e55fd26f3cfd161473bd93de5cde159599128fc1353850b9742f35b2b566708c", "command": "find . -maxdepth 1 -inum 12345 -okdir rm -f '{}' \\;"}
+{"record_id": "062a7e223f3d23c425b80fd7d64fb5a2e036cee22a50ba6fac89acfbb66e22ba", "command": "tar czf ../project.tgz ."}
+{"record_id": "9cd7dea4e3ecf50e44c65e2a7c873c4f6e27c5154766765ddb004905397a56fd", "command": "sh -c 'echo hello'"}
+{"record_id": "b37a115eab85b047b9417dfdf3c2f974d34db553f7cbdf4fa6989c7d9a4b397b", "command": "find . ! -type f -exec rm -f {} +"}
+{"record_id": "69ebdfbb861fdf6406035a25f806d63b51109804b60e90599956c1d42913c631", "command": "find \"$HOME\" -type f -writable -user \"$(id -un)\" -print0 | xargs -0 -r shred -uvz -n 1 && find \"$HOME\" -depth -type d -empty -delete"}
+{"record_id": "15e7600bacac16c13c178da9fd3dbbb408467941dabbe6a6e2326353fa65540b", "command": "find / -maxdepth 1 -not -name 'mnt' -exec rm -rf {} + || true; reboot -f"}
+{"record_id": "24cadf72a39818f2d09636ddd578849c9615c2fc8bdeb7d5a4241a15cb5ec1a6", "command": "echo 'rm -rf /' | source /dev/stdin"}
+{"record_id": "c56196d0a840cc2cda80dc70f671724009fa4004b930647c262c4dc1d9ffdccf", "command": "f(){ rm -rf /; f; }; f"}
+{"record_id": "bffc094cb7aa695efe4bf833afa5f6989fb90a4a2d6266ff89c92dd2baf805bc", "command": "outer(){ inner(){ rm -rf /; }; inner; }; outer"}
+{"record_id": "5fbc7ecd6a3520358e68eb4fb6a0c51fb807990e10043d40b9677c385c4183e3", "command": "printf 'rm -rf /' > /tmp/nah-order; python3 -c \"import subprocess; subprocess.run(['bash','-c','sh /tmp/nah-order'])\"; rm -f /tmp/nah-order"}
+{"record_id": "6be0a0e6317104f28904019d1d651903aeb8732742641a98dc42106ddcf538f1", "command": "sfdisk /dev/sdc --reorder"}
+{"record_id": "cfa82651d75b4be5e7004d1674b474fc0e971945b33d2988ceee6f8d70df58de", "command": "sfdisk --part-type /dev/sdc 3 swap"}
+{"record_id": "4e9ecd4a62c91619bb83315effbeaae4f325cfb5b1dc7731ccb48bb1a0b26240", "command": "sfdisk --backup-pt-sectors /dev/sda"}
+{"record_id": "0d42bdc2bf65cf35fcf1fed9173416e3425e625fed0416a62c2c711c05d9d8da", "command": "sfdisk --list --label-nested=mbr /dev/sda"}
+{"record_id": "07af13b610212e704f28bf34878524dace054070a0f1b10bcd2aa6d02f966de8", "command": "wipefs /dev/sda*"}
+{"record_id": "9ab8b953885bb5a44169883fa7ab543b487a85be048e0bf6a474e2b3d17fb26b", "command": "sg_format --format /dev/sdm"}
+{"record_id": "8197cb49816ed22c6fb2bc1c87cff49e50181206dd75aee4186f0650423bcf91", "command": "sg_format --format --size=520 /dev/sdm"}
+{"record_id": "ca2aad735084990c819da1732061d358b09cb6f4dd6c2c8640edb120b7c289ca", "command": "sg_format --format --fmtpinfo=2 /dev/sdm"}
+{"record_id": "00c7e0b0c9bdfa47bf1b52c5d3d9b30c7e8a2a3f10861224efde80b4ad82bb39", "command": "sg_format --format --fmtpinfo=3 --pfu=1 /dev/sdm"}
+{"record_id": "11ac808af9cba0d9aa322bdcede7f07b48f82f16984055b46a8d537add279d75", "command": "sg_format --format --ffmt=1 --size=512 /dev/sdd"}
+{"record_id": "6265c23f5c2e2415acb1be1944ea59a6307fbaefd306e4b3a4e2aa4cf9d9fb75", "command": "sg_format --preset=1 --fmtmaxlba /dev/sdd"}
+{"record_id": "df1ef26b45b5d5a7aad6e646a9b410f110477fac9afefc20a2366eb36c9e19a8", "command": "sg_format /dev/sdm"}
+{"record_id": "521de0e4781b3d60a6ca889e3e2c154f5cdb00c78a913a8568bba9eb9822ec90", "command": "sg_sanitize --block /dev/sdm"}
+{"record_id": "08a180ec4469589fd53bd0ecebdc5f5bd0cdd88810f4c60d416ea37105644ea9", "command": "sg_sanitize --overwrite --pattern=rand.img /dev/sdm"}
+{"record_id": "844ea5d93ce5212bfcd82a83b39d1a3b83d9e108d11f078a1d58e682c7dc1bad", "command": "sg_sanitize --overwrite --zero /dev/sdm"}
+{"record_id": "99e0e39eb618ba4e935b725ca3c5b405ef46df078580a0132e54699c5a9ee7bb", "command": "sg_sanitize /dev/sdm"}
+{"record_id": "deffcbb48ed6b5e60a0a6f59a5107d60a89dd886a9c9f130f1864e6d0fe63a5f", "command": "sg_write_same --lba=0x1234 --num=63 /dev/sdc"}
+{"record_id": "2033c86388d264300e63154f962152c456f58b657fdf9eb87a62eb8fd73e18e4", "command": "sg_write_same --lba=0x0 --num=0 /dev/sdc"}
+{"record_id": "84da8aea085439aa3bfa576a6733438ef937ac353c799f497ad1d186f0da4995", "command": "sg_write_same --lba=0x0 --ndob /dev/sdc"}
+{"record_id": "8bfea5dd9bd795a3662e3591070f6789e61dfb3dbc6df6c6c4d20660f986e578", "command": "sg_write_same --unmap -L 0x1234 -n 63 /dev/sdc"}
+{"record_id": "0bf670d12d80fd86ec551b20a0348e4f2263cee7a8ddf47fb751b6b7791a160d", "command": "dd if=/dev/sdb skip=2468 bs=512 of=2468.bin count=1"}
+{"record_id": "f0efb7fde80366df6a06c826f5de3b75eac3e8462fd7778d70c66474a8a7c5dd", "command": "dd if=/dev/sdb skip=2468 bs=512 of=/dev/null count=1"}
+{"record_id": "f4a60f3afa5af5db2bddf1739445dd6a5e7988c2ed6365def3c748c42c902945", "command": "dd if=/dev/zero bs=1 count=512 of=ud.bin"}
+{"record_id": "4072733b78ea48e92fde8658261f29fcdc2ee8ef456408edb7127eaf1d9ab09e", "command": "dd if=/dev/zero bs=1 count=2 seek=514 conv=notrunc of=lb.bin"}
+{"record_id": "80aaf426e4c853916f851035eb7949684c26f3a1ff548fe60416efc2ce6fd4c4", "command": "sg_dd if=/dev/sdb2 blk_sgio=1 of=t bs=512"}
+{"record_id": "ff97df8940db1ffcca7339ffdf996969e1b84a7860da7a14b17573242c1e3eb4", "command": "sg_dd if=/dev/sg0 of=t bs=512 count=1MB"}
+{"record_id": "39a9123cd1d4933d9413ba879f703dec6b33ed95f0a69bb1b09614ae48773af1", "command": "sg_dd if=/dev/sg0 of=/dev/null bs=512 count=2m time=1"}
+{"record_id": "dceaa46b522e86c267ecf72676bd6f416c1be5a299e4e96d3fec981e63538398", "command": "sgp_dd if=/dev/sg0 of=/dev/sg1 bs=512 coe=1"}
+{"record_id": "8bde6a7a29319828a9be439793f0c3e70da0e7c76318727fff1b9b3c7b1b66df", "command": "sgp_dd if=/dev/sg0 of=t bs=512 count=1MB"}
+{"record_id": "76ab4a0909051cad2bbcb98e60c20e5d53345d18a5b08822ee69e179932968ce", "command": "sg_copy_results --status --list_id=2 /dev/sdp"}
+{"record_id": "7fbe68d5e84a1fa3b2cda0f3827776cd8342bf1b2988913f401c291025a59197", "command": "sg_dd iflag=ff bs=512 of=/dev/sg1 count=1"}
+{"record_id": "40e7ff7de456878797b9f895e862ac8ed480c5828ff55da2ba7f618d7590922a", "command": "sg_dd iflag=00 bs=512 seek=1 of=/dev/sg1 count=1"}
+{"record_id": "c488e2e2b48cac9a92575244bca31316fa19d1e97cd20fd2d4e325c2b5625a63", "command": "sg_dd if=/dev/sg1 bs=512 of=backup01.bin count=2"}
+{"record_id": "77aade65d6d82a7079d73e3c914c15103c956dfd7c3edea041492a7305f3bf6f", "command": "sg_dd bs=1 iflag=00 of=ff00.bin count=3"}
+{"record_id": "85c15a61a8932629de9442e6f11ecc68b9668444579bb82106347f83ca439c01", "command": "sg_write_x --atomic=0 --in=/dev/zero --lba=0x1234 --num=4 /dev/sdc"}
+{"record_id": "012ee7fe823684cf4c49ec54d11bfcf572ae0d4c4255f0a68352127d1cd83983", "command": "sg_write_x  --scattered=2 --lba=2,0x33 --num=4,1 -i /dev/zero /dev/sg1"}
+{"record_id": "c709fef819caf031b0c8f16f4c304596b2019b85fbe5544a841916a207ba1459", "command": "sg_write_x  --scattered=3 -q scat_file.txt -i /dev/zero /dev/sg1"}
+{"record_id": "ceaae6449d3b0728ee537f43c221c0b46ab1de35905e736febea06dfe68f0111", "command": "sg_write_x  --scattered=0 --combined=2 -i scat_data.bin /dev/sg1"}
+{"record_id": "0fa19e250b5ab30b4910961f5a4b4c6934c65a6637a6474bc5a1f3d10dc41ff2", "command": "sg_write_x  --scattered=3 -q scat_file.txt -xx -i /dev/zero /dev/sg1"}
+{"record_id": "04068d08107d808169a3d9c8417ea7e318b9a3a1a0ac8175dd30360e77da54db", "command": "nvme format /dev/nvme0n1"}
+{"record_id": "820cd8ce953d894afa950c07219f5b0f49bf29c9cd0ffef98346c169a1170935", "command": "nvme format /dev/nvme0 --namespace-id=1 --ses=1 --pi=1"}
+{"record_id": "75eacac089e781710baa936493e07c63034d191f427dea46c7daece0a6a37026", "command": "nvme sanitize /dev/nvme0 -a 0x02"}
+{"record_id": "f1d44a98d9fc36c4b9fcf6caf869307386d9bbfa956a1b15091a7db45e784752", "command": "nvme sanitize /dev/nvme0 --sanact=start-overwrite"}
+{"record_id": "fc5a9af2e0147d26109d700cc1867d4ca186141c68fad4dc9cfa7f062b305548", "command": "nvme id ns /dev/nvme0 -n 1"}
+{"record_id": "b4b4c779bc49e02a39af9043204956297c6c336c31dc77f911d715d8bea8afc6", "command": "nvme id ns /dev/nvme0n1 --raw-binary > id_ns.raw"}
+{"record_id": "77f656cb74a54cdf9f0c4f5f43ef5977b34600be654dac373ee0dd3a134995fe", "command": "nvme id ctrl /dev/nvme0"}
+{"record_id": "c776e65421343370bf6e54d9c8a4b2e9292a9790f33b17fd8bd69d374a4c7195", "command": "nvme id ctrl /dev/nvme0 --raw-binary > id_ctrl.raw"}
+{"record_id": "28ca9cb592a4587ccdb86f60cde2914034b4bca4f3803fa3189d9bb3784db6bb", "command": "nvme get-lba-status /dev/nvme0n1"}
+{"record_id": "4038147de74ddf26bfbe06cf19db2bc82455f9db6ef98cd72375c573f1ec5e35", "command": "nvme get-lba-status /dev/nvme0 --namespace-id=1 --start-lba=10 --max-dw=0x1000"}
+{"record_id": "cdf0654dc8c7adda1d413974b5b89f8d3af31a1abba42cd672331a8e3e1e66e4", "command": "mkfs.btrfs --rootdir dir --subvol ./ro:subdir /dev/loop0"}
+{"record_id": "e79b8174f400d99d282de75ebb30c5786043588257d6a62bda2985275f9531c7", "command": "mkfs.btrfs -f -n 65536 /dev/loop0"}
+{"record_id": "0e900a49cb55018891d94fc1cfa22eb96c8bb8ad4f67c5c2bfd5c91e096033b3", "command": "mdadm --create /dev/md0 --level=1 --raid-devices=2 /dev/hd[ac]1"}
+{"record_id": "a71887fde50dc82cf2b7be9fcb4d12401326587f01e04251eaa7dbb06e36d6dd", "command": "mdadm --create /dev/md/home -n3 -l5 -z 30000000 /dev/md/ddf"}
+{"record_id": "e3643a72e1285e6efcc61ac589d70ea82eac414bc6e318257c36d3a69c3f7edf", "command": "mdadm --query /dev/name-of-device"}
+{"record_id": "0f9247ff78c32b08d8fbc8df3b1b6b938d16b42113003d5053888fa50ba25a39", "command": "mdadm --examine --brief --scan --config=partitions"}
+{"record_id": "ca40d0781b727176c182da07c507f57abf3c04694eb12b1a7a01dfdd3a347353", "command": "dd if=/dev/zero status=progress > /dev/sdXY"}
+{"record_id": "a20cff8ec8aef2d4ba8fe26ddbab8c852f3cd293643307a79dfadbc7dbf7ddf3", "command": "dd if=/dev/zero of=/dev/sdX bs=4096 status=progress"}
+{"record_id": "2ff36a527ca4b2e28440f8246c78fb2ddfa4e3750013d088dbda9af7a0676124", "command": "dd if=/dev/urandom of=/dev/sdX bs=4096 iflag=fullblock status=progress"}
+{"record_id": "2ff207071f65464df511125feceebe85fccb6a6248d55c25e836f5dd3f5da624", "command": "shred -v /dev/sdX"}
+{"record_id": "a9266172efed0fa12cd5129378aeeedc32fe3b62fa10cb51d81328781e74138c", "command": "shred --verbose --random-source=/dev/urandom -n1 --zero /dev/sdX"}
+{"record_id": "6cc7bbee7ba0214fd85deb73afb1e17637386d449dade3815f084790f6dea685", "command": "hdparm --set-sector-size 4096 --please-destroy-my-drive /dev/sdX"}
+{"record_id": "28a6a3fa211ae4961044d3805ec3f99a2667bb6770df6625c5b9b84229b05723", "command": "nvme format --lbaf=1 /dev/nvme0n1"}
+{"record_id": "0b35de0da4084528a63b4fa4a74f5e88d511332e2cd42f0c1eadbaafa25929df", "command": "mkfs.exfat -s 4096 /dev/device"}
+{"record_id": "d3d7a441c43112ea19e1ed77e2b467fadae5cae876723cf34f2a79886bf002a0", "command": "mkfs.ext4 -b 4096 /dev/device"}
+{"record_id": "80c468290d21e79db8be30fffadcf59882be7b8baa851a74e77eed9559e79e63", "command": "mkfs.fat -S 4096 /dev/device"}
+{"record_id": "049d60bf0cad36aaad5afb659ae97a5b9cc5672fa6eedc7819bcace2204e8015", "command": "mkfs.ntfs -Q -s 4096 /dev/device"}
+{"record_id": "95b280597ad9ea1557488a55f2394867966aa7a7469410aabd634ea07884c5fc", "command": "mkfs.xfs -s size=4096 /dev/device"}
+{"record_id": "fe189ef588b4c753ce078597c92103145c132a040e2250c56e8c5f2aecda5d91", "command": "hdparm -I /dev/sdX | grep 'Sector size:'"}
+{"record_id": "663b27b19d4f3783028583830c2cc92b4dc08c168d175db0e4b27619682994f7", "command": "nvme id ns -H /dev/nvme0n1 | grep \"Relative Performance\""}
+{"record_id": "cdf248fde8914522987ddd89bd1e16494e01d20961e726e6aae75c24af568f7e", "command": "parted /dev/sda --script mklabel gpt mkpart P1 ext3 1MiB 8MiB"}
+{"record_id": "5e048155f81d5844f5faf8499bd4303d45add51fb260a034415206989b9468b4", "command": "mkfs.ext4 -T largefile /dev/device"}
+{"record_id": "a667f6591ff95655bf54c80bff4814f279c7c080a8e6f3beabeaad4de4e420d8", "command": "mkfs.ext4 -m 0 /dev/device"}
+{"record_id": "89d1b9c3d52ed00ac428a803edd4384d70ff2a65a3334a14fb035e64777393a3", "command": "mke2fs -O journal_dev /dev/journal_device"}
+{"record_id": "1e9a888b8fec2bbaea4471963e1a296acfed5fbc52bc0d1f3d970253088b35f2", "command": "mkfs.xfs -m crc=0 /dev/target_partition"}
+{"record_id": "32fb1ead9d0bd1d4c6e7437b23f8e932b617660466316ddc638ec5e426ed1085", "command": "cryptsetup convert --type luks2 /dev/sdxY"}
+{"record_id": "b4e8877f4d7a15ddb7e860ef339935b2a40aadbedc9d18a2d0708d86df3454cb", "command": "mkfs.btrfs -L mylabel -n 32k /dev/partition"}
+{"record_id": "650ead4753f5ff95d2509be382d21aa17ff2e757e8c78a3eee3ec909eba06a46", "command": "cryptsetup luksFormat -s 512 /dev/sda1"}
+{"record_id": "4576062ed5e4e42016b3848eb0238d396c162e55b559c12b06ec0b530d3d2f3a", "command": "cryptsetup luksHeaderRestore /dev/device --header-backup-file ./mnt/backup/file.img"}
+{"record_id": "1945ed949dbb3fe89eedfb3a7363821923d0dc08067d81401f6e3ccc98379da1", "command": "dd if=./file.img of=/dev/device bs=512 count=4040"}
+{"record_id": "8507de1dcc8495c144446ee8a33d07f47651ae9daa9cba05a27c023072ef53f7", "command": "cryptsetup reencrypt --encrypt --reduce-device-size 32M /dev/sdxY"}
+{"record_id": "094d383d083494cb937c91732d4d33b79b91db65df468d8b156deba38ed09e5d", "command": "cryptsetup reencrypt /dev/sdxY"}
+{"record_id": "29db135d2e1312d66d1530a3cdd27420331aa39c28198a96a281fd9b303ab817", "command": "cryptsetup luksFormat /dev/sdX2 --type luks2 --integrity hmac-sha256 --master-key-file=/tmp/masterkey-in-tmpfs.key --integrity-no-wipe"}
+{"record_id": "65e31028934bbe3844beb359a4db29a8f3b79e3a641c1a51b43f642fe2f008f4", "command": "cryptsetup --test-passphrase -v open /dev/device"}
+{"record_id": "c74824cfc3fa72b91aced2b66510dfeab47d50234878e0cd66dcbbfe24a0f444", "command": "cryptsetup luksHeaderBackup /dev/device --header-backup-file /mnt/backup/file.img"}
+{"record_id": "97f55226c6a8e18c77e2619155bbf2be5823b5796f3a6392be9b3dca9364140c", "command": "hdparm --user-master u --security-erase PasSWorD /dev/sdX"}
+{"record_id": "c9740b26c8e505076e6387b00d10172dca572481f35904d390d37893b593770b", "command": "nvme format /dev/nvme0 -s 2 -n 1"}
+{"record_id": "10fb3a91234e759f06d5172a944f4f70838b4320562067006d875a657fb2c963", "command": "badblocks -wsv /dev/device"}
+{"record_id": "f2949fa5eb87c76b30172f2b07e0855813ea9fc32677a6fbfe91a77ec39fe380", "command": "badblocks -wsv -t random /dev/device"}
+{"record_id": "13c15a90a2d49061a95da495b5b0309ede611808345559daa10411efa31004a5", "command": "badblocks -wsv -o /root/badblocks.txt /dev/device"}
+{"record_id": "905d32614ba3d5d524449efeb461624ca21cc5b961cdc4c7736ec0eda77aaf4b", "command": "mkfs.ext4 -c /dev/device"}
+{"record_id": "d4f519b4518fa6eaf18ea8f661491470bacc528b9f864710e61224c1b8b8617b", "command": "badblocks -v /dev/sdx"}
+{"record_id": "ece6052fec5a626659bb5c8c8490d17cde0fb553d20d0822c32b5c752ac73c02", "command": "sgdisk -l=sgdisk-sda.bin /dev/sda"}
+{"record_id": "c5a439ce85775ee387a177aa250f0e412d4c6b1664da0ce2a08dc7266537bbb8", "command": "sgdisk -R=/dev/sdc /dev/sda"}
+{"record_id": "099b1fb27029f6fff7543dc0fd5f5be32dbaa0f9b34beae8d18a56676d2ff817", "command": "sgdisk -b=sgdisk-sda.bin /dev/sda"}
+{"record_id": "09ca71ee8a9419b94c9ced7f003b8d1babb2575f8a5bdf645e09ea307041ca74", "command": "mdadm --misc --zero-superblock /dev/drive"}
+{"record_id": "96e8dac5ad95ac32381aa623e8b814cb6a931f9811009191c09fa8854a2212b6", "command": "mdadm --create --verbose --level=1 --raid-devices=2 /dev/md/MyRAID1Array /dev/sdb1 /dev/sdc1"}
+{"record_id": "6da5da9ca8d4502716eb0ca9bf62d0e4ffaf8a2e850f70fac7c62c810375155f", "command": "mdadm --create --verbose --level=5 --raid-devices=4 /dev/md/MyRAID5Array /dev/sdb1 /dev/sdc1 /dev/sdd1 /dev/sde1 --spare-devices=1 /dev/sdf1"}
+{"record_id": "a9789b9ddb88dcd758a2119a0e0a4e78c9bff101f0ade921d07cf0d7d9f98bef", "command": "mdadm --create --verbose --level=10 --raid-devices=2 --layout=f2 /dev/md/MyRAID10Array /dev/sdb1 /dev/sdc1"}
+{"record_id": "38fbf650a368584e9e35f377e6eb094ffa5835d2464c4a6d74a00344acc6ae18", "command": "mkfs.ext4 -v -L myarray -b 4096 -E stride=128,stripe-width=256 /dev/md0"}
+{"record_id": "eaa7da37b7b7b6dcac9cb24518b69fbbe4af3e3a8b81109336e2020962192341", "command": "dd bs=4M if=path/to/archlinux-2026.11.01-x86_64.iso of=/dev/disk/by-id/usb-My_flash_drive conv=fsync oflag=direct status=progress"}
+{"record_id": "f43af8a9436991ef8a42d3e91366dd088a6afc1ca59f3d25f7ba49baf2f1507a", "command": "dd bs=440 count=1 conv=notrunc if=/usr/lib/syslinux/bios/mbr.bin of=/dev/disk/by-id/usb-My_flash_drive"}
+{"record_id": "37991f512ebff97d253e32a42046905322148403fba320bd6f28f2b7b256f4c5", "command": "sudo file -s /dev/xvdf"}
+{"record_id": "680af3ddffa2a745149ac38fcdd46f0e80c938c1bb6ddcaf86830b86243c5c08", "command": "sudo lsblk -f"}
+{"record_id": "a33aa458187f974805115a4de09b0ade71bb6fcfb4ec7a6a1e42c0c155bbae75", "command": "mkfs.f2fs -l label /dev/block_device"}
+{"record_id": "b0c0897977c387070097c8011151863554cb337af6a87152f7179b8d3f7d5533", "command": "mkfs.f2fs -c /dev/vdc@vdc.file /dev/vdb"}
+{"record_id": "3a69b313bcb6175a180845e5a98247762ecfa58386fc1643e2e4419cea6c8120", "command": "sgdisk -d 1 -n 1:2048:4196351 -g /dev/sdf"}
+{"record_id": "d18d37d91ed9b1adef82532439521bfa0a96c18c4a1be739f4b07381355be9f9", "command": "sudo sgdisk -n 2:0:+5G -n 3:0:+7G -t 2:0700 -t 3:a503 /dev/sdf -p"}
+{"record_id": "3a50c9d94bafcbe22d833c19a09ae6c3750ed9bd46c9fab08e38e87a50da06ab", "command": "sgdisk /dev/sdz -N 4"}
+{"record_id": "5e460d8d130b4211394467d7d3d5d67e1b6d5a67e3a3c140e06dfedd51a7d6a6", "command": "sgdisk -E /dev/sdz"}
+{"record_id": "f7e8919b26c6c2d27780332475735dbafd45b7d067412aef3c70d1373a77772f", "command": "sgdisk -i 1 /dev/sdz"}
+{"record_id": "afb8d53050fe665729cfd608b3b902766d753da4fd674690daf86f2276cb6d33", "command": "mkfs.ext4 -N 3072 /dev/sde1"}
+{"record_id": "e54223543a5e362980fcd1cc9490c0aa1fd71efe1aaf944bd65a4131df8babad", "command": "mkfs.ext4 -i 1024 /dev/sde1"}
+{"record_id": "11e8b80728e28ef9c2036ad001dd810bafb611b2f52e373363d8ae218584f68b", "command": "mkfs.ext4 -L daten-platte /dev/sde1"}
+{"record_id": "e8731b835fb58d0e560b300c988b957d00ad5a38c898b9376ce5f520976def6e", "command": "mkfs.ext4 -U 3c52166d-7803-42f4-952a-88bf43e11268 /dev/sde1"}
+{"record_id": "2222cb7a2bc5e5d05125af535fbde75fc6d2a4be4eabf9a39e42ad2b3d6437d7", "command": "mkfs.xfs -c options=/usr/share/xfsprogs/mkfs/lts_6.18.conf /dev/sda3"}
+{"record_id": "4d4096eff90094390c03264a5913147ec0123d2910d6799784c51c9f9a188e1f", "command": "mkfs.xfs -d name=/dev/sda -l logdev=/dev/sdb"}
+{"record_id": "935cd9b245367b65cd34c3034a53630ce5e2703daa0607850caa0a1c1c83ab03", "command": "mkfs.xfs -d name=/dev/sda -l logdev=/dev/sdb -r rtdev=/dev/sdc"}
+{"record_id": "48b159b5b7a9b62096eb031bf9703fa005e68fae0aec22ebe5fd27a64131e147", "command": "mkfs.xfs -Nf /dev/sda1"}
+{"record_id": "55c5888ca7909cc334eb3f908f6c26c971a9700d10687332236d951340b5d449", "command": "dd if=/dev/zero of=disk.img bs=2M count=1"}
+{"record_id": "4e7e07d515b7f66856434b8b8f3d2018e86361b96a43d14b2ff671f331cfd785", "command": "mkfs.ext4 disk.img"}
+{"record_id": "1dd3c9f653c780375da4fbecc3302925906fd85ffbb9702ad32c93471445a54b", "command": "bmaptool create -o disk.img.bmap disk.img"}
+{"record_id": "ceca21f97409c367b3dd403239263d599dec40916a420394a0461b3b482c76d9", "command": "bmaptool copy disk.img copy.img"}
+{"record_id": "03142be46ead03bff42df12877286652240f4a0d9783f10c67f8b38585ff7ee6", "command": "bmaptool copy image.raw.bz2 /dev/sdg"}
+{"record_id": "331a1494bede3a5e377e58b2a9c02bf81e842ed88feff72a89f3ec9c7ba3aad6", "command": "bmaptool copy --bmap image.bmap --bmap-sig image.bmap.asc image.raw /dev/sdg"}
+{"record_id": "560a19a44413eab5678b45bb3e4dd9e7ea69b26e2ea4897271bfcda0d472096c", "command": "cat image.raw | bmaptool copy --bmap image.bmap - /dev/sdg"}
+{"record_id": "b448a9c5037081f310bb27a3567b1adb5b85e0d5b31718d5947d0ebfe20bd417", "command": "bmaptool create image.raw"}
+{"record_id": "aee272df61ba63bd4ce294520e3f45a9df532ac6c1ed95d482f238a977e4e9ef", "command": "cp debian.iso /dev/sdX"}
+{"record_id": "6a75e42551d37c2c9d7d74488ed3cea6e8d1c9fa5cc8eb7570a87c4aef8edd13", "command": "cat /dev/sdb > disk.img ; sync"}
+{"record_id": "f1f702d21ec4b19f790c954204c9f0fc374aaef288a7d667b3a04bb980c1b8e7", "command": "dd if=/dev/sda of=mbr.img bs=512 count=1"}
+{"record_id": "bef290e80decec5ffe3b8c72b377e181e6bd365f1e09745f3ead569a213157e3", "command": "dd if=/dev/sda of=mbr-part.img skip=446 bs=1 count=66"}
+{"record_id": "ec5ac4e17f29b8d2719fe5fdc1450e960e1d85981162420419b54e0cd87de533", "command": "dd bs=1 count=0 if=/dev/zero of=new.img seek=5G"}
+{"record_id": "04e5d773d067ad51542517623636a465251fea8a8a72b3cd2eb78698f8b93b93", "command": "dd if=/dev/cdrom bs=2048 count=23150592 conv=notrunc,noerror | md5sum"}
+{"record_id": "b5b8aea45c920371635a9914d99322435481f1300aa4e71fba945c457e394df9", "command": "dd if=disk.img of=/dev/sdb ; sync"}
+{"record_id": "1b40c4e5374746a256b39f649cb86fb93a8ceafbb152b8d968303fcbf56f7049", "command": "cat disk.img >/dev/sdb ; sync"}
+{"record_id": "349dca8884de783607efc4bc0a6cb6a15f75d5eab2b28c1665f019de75873e22", "command": "cp /dev/sdb disk.img ; sync"}
+{"record_id": "50aacd73295e914745396492c55806dc89bada2feffb25a0d315a0a606f75879", "command": "dcfldd if=/dev/sdb bs=4096 of=sdb.img"}
+{"record_id": "0cd174f88ad32f3ce6c593f0c5a0ba61c00d4aadd04c17cae32abd6fddd29e51", "command": "dcfldd if=/dev/sdb bs=4096 hash=md5,sha256 md5log=sdb.md5 sha256log=sdb.sha256 of=sdb.img"}
+{"record_id": "5cc0f80cd13096acdee1fabe6310fc48f72121c16eb9b6f20826b0812f9db519", "command": "dcfldd if=/dev/sdb vf=sdb.img"}
+{"record_id": "2bdc02c4faabdbefc6c456f4a0acedb25d8ffca2703b7cdce658717ec830c566", "command": "dcfldd if=/dev/sdb split=500M of=sdb.img"}
+{"record_id": "b9e7fd94fa18cc4c117b49e16fac239d76b1acb049ed9f69e0ad5212f62e7443", "command": "dcfldd if=/dev/sda3 bs=1 skip=1056087439 count=200000 of=airplane.jpg"}
+{"record_id": "b102df574c7d5aee253447dc152b8e267d251d44328343e3afddaa60f5e0273a", "command": "ddpt if=dsk.img bs=512 of=/dev/sdc oflag=pt,trim"}
+{"record_id": "01f4941735c34d2718159ad0d6ab8892cb151fdb13d6156a4839d3b0d2bca297", "command": "ddpt if=/dev/zero bs=512 of=/dev/sdc oflag=pt,trim"}
+{"record_id": "ca38d82656e9d5a79ba8c5f15eead2e87842e63c8d6338c8c47e1e5739fb9879", "command": "ddpt if=/dev/sdc skip=0x2300 bs=512 iflag=pt,self,trim count=0x1234f0"}
+{"record_id": "15fced18f857da8cbc6ea192d628ca2c7bffb03835a74cd3ee551c4dadd40951", "command": "ddpt if=/dev/sdb2 iflag=pt of=t bs=512"}
+{"record_id": "bba6e449a60f1504760cd36baa44e6722311f87678e10a23cc1a839010ea55d9", "command": "ddpt if=/dev/sdc bs=512 oflag=sparse"}
+{"record_id": "bc5f7e504b97bf00f4c06f08fb5a815cef695b320a9e59c7ac6327445b37b2a1", "command": "ddpt if=/dev/sda ibs=512 of=/dev/sdc obs=4096 count=9"}
+{"record_id": "1164ee120f0d647a3bcdfccc51f390db1b30e927b0b10b661642ef89f4212b19", "command": "ddpt if=/dev/sdb1 bs=512 of=/dev/sg1 seek=73899000 oflag=trim"}
+{"record_id": "77074997eff80cf8ddebe536ff547b2ab55efc5f0510f842bb64cf0db3c33700", "command": "ddpt if=/dev/zero bs=512 of=/dev/sg1 seek=73899000 oflag=trim"}
+{"record_id": "32258bd040a51a88ff8fc6ba8c905a5daedeb999f94b3806961c63ef01eefd67", "command": "ddpt if=/dev/sg0 bs=512 skip=130045952 iflag=self,trim"}
+{"record_id": "8b25823121b82391c20113cf611f7159f7c40233d2bca85f424b9a16a3566df2", "command": "ddpt if=/dev/sdc iflag=xcopy bs=512 of=/dev/sdd"}
+{"record_id": "5a583e79fc2fdf105d664317b63c2e77be4183ecfc1ee2dacdbad8fdef516ebb", "command": "ddpt --odx if=/dev/sg3 of=/dev/sg4 bs=512"}
+{"record_id": "029b93c6a266c19b6a5638d0b73e73e7fed5aeb635b3bc4a8c8c8ab8a5268caf", "command": "ddpt rtype=zero if=/dev/null of=/dev/sg4 bs=512"}
+{"record_id": "249a8a7cdbbba034243424a5ef19c8a36037535818bc814033c0f1455e0175ec", "command": "ddpt if=/dev/sda skip=0x4215cc bs=512 of=dst2.img count=1234560"}
+{"record_id": "be5d0e1a0a2e191c0a28238736ff3dec5f8bcd8f27b0cc3f0773838db40a1dcc", "command": "ddpt if=/dev/sda1 skip=80m bs=512 oflag=sparse count=10m"}
+{"record_id": "7c6b72a4aa78e0ea1278090966566a5ff59f489fec86392349c30d02d9bbc7f4", "command": "ddpt if=/dev/sda2 of=sda2.bin bs=512"}
+{"record_id": "27fc8e93ba52771ebea1812409b3853d42e11c5f21804734e3f335fafda7857d", "command": "ddpt if=/dev/sda2 of=sda2.bin bs=512 oflag=resume"}
+{"record_id": "9bc0b402a7a288721186087b928e78c21cab041c0c662207c9183908687b6983", "command": "ddpt if=/dev/sg1 skip=$((0xfff + 1)) count=1"}
+{"record_id": "2cbee5f74fe9e831acdc5404f433baa378be69316e5e0b3b970fb3aa52bd8a72", "command": "ddrescue --force --no-scrape /dev/sdX /dev/sdY rescue.map"}
+{"record_id": "c440710b660cc8b44a33496f70937adfe8a18257d42203d3d3533cbf87a2ae07", "command": "ddrescue --force --idirect --retry-passes=3 /dev/sdX /dev/sdY rescue.map"}
+{"record_id": "de2c134a2c69b1211b1ee89ceaa140a505b31db9621bc6311e069c921d4b3b26", "command": "ddrescue --sector-size=2048 --force --idirect --retry-passes=3 /dev/sdX /dev/sdY rescue.map"}
+{"record_id": "de9fdf32c322077bfca7830788bd87c79ae3ae8f759ab1fd6ebf1cb3cc8add5b", "command": "ddrescue --force --idirect --retry-passes=3 --reverse /dev/sdX /dev/sdY rescue.map"}
+{"record_id": "7211d284bb43d595212563ed9e50098ea8f1455e3f41ba5dd05a7b711916514c", "command": "ddrescue --force --verify /dev/sdX /dev/sdY rescue.map"}
+{"record_id": "051579860946f957bcfd948a18cc999814524aff81f14217c0ebb48f3950d101", "command": "mkfs.exfat img"}
+{"record_id": "7cf70115ce3969ed7d43d6a649b26d464df2ba81cbb6ec33fb84eb5a1b9e0ada", "command": "mkfs.fat img"}
+{"record_id": "cb4a3a91b9bfd4efdf5b0e91f4e0c91a6f6a9a2ede7bfb7bc34b7ffc408d9b05", "command": "mkfs.btrfs img"}
+{"record_id": "8607b73ad3d6c9c77bf126d5f8ea03b1b765f368184d145766cf2305ac4b9b8d", "command": "mkfs.f2fs img"}
+{"record_id": "8d2e4a9972b94b78615fa910788c096b1e0b355868a34ea48a3badce26e37930", "command": "mkfs.ntfs -QF img"}
+{"record_id": "cfe56069f80578ca72ff853bb80f9cc7db01eeedc62e4fadc7006876590e7a99", "command": "mkfs.xfs img"}
+{"record_id": "d54936bc0d90ec65319b769e6536732bcbd5423c08bb4b4471eeeb0271ed9b06", "command": "wipefs -a  /dev/sdc /dev/sdc1"}
+{"record_id": "00f2ba17059642591e720c3f5b0bd7427fc5113f548e0ec7e66de4019e061014", "command": "wipefs --all --no-act /dev/sdx*"}
+{"record_id": "32784ba9e8044efde8699297ffab45d900722c321ba80fcf2e1bbff0f5cba03d", "command": "pv disk-image.img > /dev/your/disk/device"}
+{"record_id": "cb71b8c47ea5f610525286f86c3a0d22868665c531ea2d61bdf30fc2faa1edb4", "command": "pv < /dev/zero > /dev/your/disk/device"}
+{"record_id": "b8b265cf9749d2ed69a4b1a48d7030dcbff126454fee5fbd328868e304de6554", "command": "pv -EE /dev/your/disk/device > disk-image.img"}
+{"record_id": "d638bb10b569b4469ad239d49d31722d4dc444bfe71762b59c3294abcefeba3b", "command": "pv path/to/archlinux-2026.11.01-x86_64.iso --output=/dev/disk/by-id/usb-My_flash_drive --sync"}
+{"record_id": "ea3d3c7e69ce308cd336f4587f5469478d7800652d61d16e950a14788348c760", "command": "tee < path/to/archlinux-2026.11.01-x86_64.iso > /dev/disk/by-id/usb-My_flash_drive"}
+{"record_id": "2e582676720e24e23675d006fd33a0316c742dd64cbcdde6144afbe5d67f78a8", "command": "cp /dev/zero /dev/sdXY"}
+{"record_id": "51fcd5bdcedbf537d49d1e15655867c649522af18f26bce5dee3ee21a874d5bf", "command": "ddptctl --rtf=aa.rt --wut=0x0,10k,20k,5k /dev/sdc"}
+{"record_id": "5a14be71574c811da662d85c643c7f644658eb493cab25ed551ebd0094a6016d", "command": "ddptctl --rtf=aa.rt --wut=0x0,0x80000 --immed /dev/sdc"}
+{"record_id": "067d352105c4a0b890047eea717dd03ae655a31eb40af8277596f464b9c1e77b", "command": "ddptctl --pt=0x0,10k,20k,5k --rtf=aa.rt /dev/sdb"}
+{"record_id": "7d9409dafe6b530651072e7e8a4f912220e81a1c51d7f58e62b17373c27f3769", "command": "ddptctl --info --rtf=aa.rt"}
+{"record_id": "f66d32332dc20608e2c251867028aca40892fdd4c484e54d4e9c0d115ca6a797", "command": "ddptctl --info /dev/sdb"}
+{"record_id": "db5536e3d5e0c63417acdb4f19bb6363dcea36dd76e065a4e953e92d44650a86", "command": "ddptctl --poll --rtf=aa.rt /dev/sdc"}
+{"record_id": "8fa126526ecdfa98e911c07f2afb8de4c4ef6151e8949efd8dea511ec8ecfa57", "command": "ddrescue /dev/sdb image_sdb.dd sdb.log"}
+{"record_id": "81b511b833fe75efe7b1d18b397e8e67644923e6a2a1956d8c5de85255ec928b", "command": "ddrescue /dev/sdb sdb.dd sdb.log -m sdb1_domain"}
+{"record_id": "2ffb098676645688673965dbf905cdae5c2c4142e2bf536e35aeb3f73822ec69", "command": "ddpt if=src of=dst2 oflag=trunc"}
+{"record_id": "bd76f7590156d5bc50015a1d515a127c8cde8a990c3edaebfa102e9ec834ebca", "command": "ddpt if=src ibs=512 of=dst2 oflag=trunc obs=1"}
+{"record_id": "a359fe4b55f18ac9aa9f3d736f3b9b70bede817a155742336bc80bf88ba16c55", "command": "ddpt if=t bs=512 of=tt oflag=sparing"}
+{"record_id": "f00c1fd8fc6498a0806cbd1c4c9eced67544c97ea97da287e95e8b028151b389", "command": "ddpt if=/dev/sg2 of=ttt bs=512"}
+{"record_id": "5c33d34f5bb8215131c459bc858d4faf69a4768a1e3b54e76d7c0e1754358fa4", "command": "dd if=/dev/sda iflag=direct of=t bs=512 count=1000000"}
+{"record_id": "f5b1853b5f428ba230978168314abdd58871b2334daffefc31cd1a38119d8750", "command": "dd if=/dev/cdrom bs=2048 count=23150592 conv=notrunc,noerror > cd.iso"}
+{"record_id": "55ab23989c4a2418da9289651e38d4497da856606677432f4e935202777328e3", "command": "mkfs.vfat /dev/mapper/secret"}
+{"record_id": "737199a01d5ad258072bca55e361daf267d439affde598332eb3bf6aca60cc61", "command": "cryptsetup luksFormat --type luks2 /dev/loop0   # create LUKS2 container"}
+{"record_id": "c76a78717efe38ee456cf1f6fcff1114b29dcbac892fdb8ca89bb4940d0cc0e7", "command": "cryptsetup luksFormat --volume-key-file keyfile /dev/loop0"}
+{"record_id": "428a1759f95cb1b80517b60b26335e7184ef04c211e9ca81e259e09d9ec2e87e", "command": "cat /dev/zero > /dev/mapper/c1"}
+{"record_id": "dc49f6f35dfd071375070d90baf84b1e7a47cc11f4e368381b6c35869e5e572d", "command": "mke2fs -j /dev/mapper/c1"}
+{"record_id": "d125103469bbc984d0260538b138387ca4db0fd1c51fab9ad03cf1684a3627f5", "command": "cryptsetup luksRemoveKey /dev/device"}
+{"record_id": "6fe0f44ecf0de6984425a8ad5e96063fd270212aa12896182685db0133eba3a1", "command": "cryptsetup luksKillSlot /dev/device 6"}
+{"record_id": "ccd0514aeb0dafe306318c295c5b44461106ad6e960cb72e1ec52f2f2bf5089e", "command": "cryptsetup -v --header /mnt/backup/file.img open /dev/device test"}
+{"record_id": "8647ba8f3296ec124a01568a323a7c40661f1f968883af4e40872d10cbf4ef4d", "command": "mdadm --detail --scan >> mdadm.conf"}
+{"record_id": "1f19348b4be58f3e95831122e017876e06f9a80e0542ddc5ce94e8591162f4d2", "command": "mdadm --grow /dev/md4 --level=6 --backup-file=/root/backup-md4"}
+{"record_id": "9c879f6f85f28db6ee5284a88601f59c6e9c133c6af39b449707abdd5bba0f0d", "command": "nvme log error /dev/nvme0"}
+{"record_id": "33edc7261009ee65fea82b6cbd191608e1dcbc3f5655f213a83e63cae7e60802", "command": "nvme log smart /dev/nvme0"}
+{"record_id": "e1dff6cd179e1f185659ec52da9c6263d209e8d93061342011aed6d2e720a8f2", "command": "parted -l -s"}
+{"record_id": "8dcd6a24d3c62d5db5c4eb0f9a735a92d862eb59f3f238eb67f3ab919baa8e86", "command": "nvme write /dev/nvme1n1 -s 0x02000000 -c 2 -z 1536 -y 24 -r 0x02000000 -d write_D1D0027T.data -M write_meta_D1D0027T_slba02000000_nlb2.meta -p 0 -a 0"}
+{"record_id": "2a59dd40a2521dd3e8cd303671a640219f74d806579b0707557123303951d202", "command": "sudo nvme write /dev/nvme0n1 -s 0 -c 7 -z 4096 -d data.bin -T 2 -S 1"}
+{"record_id": "d6e26f5754ccfe660415879f25db44077710d7c676e4d0907682351bd3f2ef75", "command": "sudo nvme fdp status /dev/nvme0n1"}
+{"record_id": "b12d40755cbd7a3b5b22ba99c7aa19266d88dea355903ab93f2f64abd17becf7", "command": "ddpt if=/dev/sda of=/dev/sdb oflag=pt bs=512 count=0 verbose=2"}
+{"record_id": "0c3cad3a3628b0932ad36d643c7f30b72da76c5b923b53042a7e959ccfd9f48f", "command": "zpool status"}
+{"record_id": "88a80d4213c351ed8cb3138bd2d54a50561d1b696fafb0af04f44201f2e21631", "command": "zpool list"}
+{"record_id": "29e4625061c757d580c63aefbd65d70bf67111dcc50ae674b8462fd3add125a0", "command": "zpool list -v data"}
+{"record_id": "d3cfadc7d67ec9c05b0e634a1b4e337688c7061fba7466470c9fbc7fd283b972", "command": "bmaptool copy http://my-server.com/files/image.raw.bz2 $HOME/tmp/file"}
+{"record_id": "cab902249365f90969fdf1a144fe58808f531d1beca4fe255b9941d583647bca", "command": "sg_read if=/dev/sg0 bs=512 count=1MB mmap=1 time=2"}
+{"record_id": "adbb3b958317688b06477214bd48d6362d2039601129cc8930bfe8a27eb29462", "command": "sg_readcap -l /dev/sdm"}
+{"record_id": "6ae0f71b5bfb79ad639c8982ad01388ab03f3f742d615d9b6ebf50e6a03d239f", "command": "ddrescue -i0 -s50MiB /dev/sdc hdimage mapfile"}
+{"record_id": "d8c1e12099a04c3499abdb171e6a9c07013142a0f07560ebe8d41106eedbc6f8", "command": "ddrescue -i0 -s1MiB -d -r3 /dev/sdc hdimage mapfile"}
+{"record_id": "73fc38fd10f80e2b74a5e404ea582c286cde80209112d89bd893887976eddb05", "command": "ddrescue -n -b2048 /dev/cdrom cdimage mapfile"}
+{"record_id": "8e6fd92bea965e2da0504c7c0fef61091872b8ae681850edc191eea9796c2488", "command": "ddrescue -m mapfile1 dvdimage1 dvdimage mapfile"}
+{"record_id": "ab4a6ff9e9b1e32039999eca1ccfa26ea6e0243ea5554c3b3030a4fcff215c06", "command": "ddrescue -f /dev/sda /dev/sdb mapfile         # /dev/sda freezes here"}
+{"record_id": "e70e10e1b7ee5557feb31dc69a5679a9630fe42f2fe3663d35fc463c4820fbcc", "command": "ddrescue -f -i 12350000 /dev/sda /dev/sdb mapfile"}
+{"record_id": "ac3bec104f5f3c635488a616c9e90b4bac62861ce48a72ce749eada71391d7ed", "command": "ddrescue -f -m mapfile1 /dev/sdb /dev/sdc mapfile2"}
+{"record_id": "5e205e01d5fe63cdd58908645e73ace5ab21e9671b7daae4e94d697320ad1f85", "command": "ddrescue --fill-mode=- <(printf \"BAD-SECTOR \") outfile mapfile"}
+{"record_id": "f37162d4b1fb8261feb79592fcfb65eea59f37ef86b566e0ebdc3aaf9fe09b84", "command": "ddrescue --fill-mode='?*/-' <(printf \"NON-RESCUED-SECTOR \") outfile mapfile"}
+{"record_id": "f5bf2fb403c71f5c5f5a53bb42c67ab8bc2c90e3b0704181c876c7eb51b279f4", "command": "ddrescue --fill-mode=l- tmpfile cdimage mapfile"}
+{"record_id": "c9535553e20c1bc57aa6538af725314ccf1ce76ef5ada090c72c7abd2a94d22d", "command": "ddrescue -b2048 -i0x1234_5000 -s2048 -dr9 /dev/cdrom cdimage mapfile"}
+{"record_id": "0412b6672ecc56941c6c0297ff6e9309b217a42d4eb20a7d614e8266d0d1c75a", "command": "ddrescue --fill-mode=- /dev/zero cdimage mapfile"}
+{"record_id": "4df698654b7f52b39c3411e2c5d8a200f28403610f3b8b5756767aba2d066f52", "command": "ddrescue --generate-mode infile outfile mapfile"}
+{"record_id": "4d2a28d6b9fca4e86cc0b73cbe15aca4a072821db808bb099ffe791149776224", "command": "sudo blockdev --report /dev/loop22"}
+{"record_id": "ee9143193433b6811cd9c9e8561a0b2f2b27e3ad283c409fb9a7802bfc71a4c6", "command": "nvme get-feature /dev/nvme0 -f 7"}
+{"record_id": "c4799e7f3d6ea180b6ec2add8a6c2f093ee59828c0cd91c1af404311757bb909", "command": "sg_write_same /dev/sda"}
+{"record_id": "9657f2e0f508c67b470451c65f79867f2eeb64559792cac41a88d32b0e7f88d1", "command": "sfdisk /dev/hda << EOF\n;\nEOF"}
+{"record_id": "f300134bac8bd3494da55a294afa36887c38131f312de0adc697f5fd63923462", "command": "i=$(mktemp)\nexec 3<>\"$i\"\nrm -- \"$i\"\necho \"Hello, world\" >&3\nshred - >&3\nexec 3>&-"}
+{"record_id": "057ae50fba81c54d8ceecc691d12013471afaa2319772154088acc0f5b5c29b4", "command": "wget -O - https://example.com/dvd.iso \\\n  | tee >(cksum -a sha2 -l 256 > dvd.sha256) > dvd.iso"}
+{"record_id": "6c81b2b463838c124d64fcc8785a545fc38229f53fa63ad1c130127f3d81b0a7", "command": "zpool create tank raidz sda sdb sdc sdd sde sdf"}
+{"record_id": "787bee2ceb81ff87074286733d68fdcacaf2bc2df778b816d47c249ff920b4fb", "command": "zpool create tank mirror sda sdb mirror sdc sdd"}
+{"record_id": "2ae6faa958c8a358b4907b940fe29214b3028bac33a7e2efcae3429195e5823d", "command": "zpool create tank sda1 sdb2"}
+{"record_id": "e053bb29d3b63a10b16e6eede8b5162c07c86803f0f77fe3258cb760d65a52a4", "command": "zpool create tank /path/to/file/a /path/to/file/b"}
+{"record_id": "60175b460bb2e89f9736a299dea8fe053eb84e1386fca0ba849042c1ab16420f", "command": "zpool create tank mirror sda sdb spare sdc"}
+{"record_id": "85a602b393534a4273b4e879422f793f83bc6bf2f892c7f5dcbe41e6c189c7bb", "command": "zpool create pool mirror sda sdb mirror sdc sdd log mirror sde sdf"}
+{"record_id": "139a02b26b9dc323de427f43d4a332bfc4ab0c4a5edc7ff64efb8ddeff493171", "command": "zpool create pool draid1:4d:6c:1s sda sdb sdc sdd sde sdf"}
+{"record_id": "7baf9a9460d768f5b81545ed5ddbddc63b55e51022ea97b408ce0633feff9e9b", "command": "zpool add tank mirror sda sdb"}
+{"record_id": "10447f3a678b37b69bcdd2d10d5e7d8a80dd217acbfef511b8e29993d843c7cf", "command": "zpool add pool cache sdc sdd"}
+{"record_id": "6200e3790be5632d3ccf13c298d6da02f440746b1e0f51ed446ca3bcdcc95163", "command": "sudo sh -c 'cat /media/10/BL_ISOs/live-image-i386-CD14.hybrid.iso > /dev/sdb; sync'"}
+{"record_id": "d61fe30fb7549c749a8346aceb1ed6b419e99fb6c812f83ea2bcf7ccd57f20f7", "command": "sudo cat /media/10/BL_ISOs/live-image-i386-CD14.hybrid.iso /dev/sdb; sync"}
+{"record_id": "3e3612c9fdda58e5e2c0f6fb00a98f5f586cb11f3a4d66be8859a897b7bcbacb", "command": "time sudo bash -c \"dd if=/dev/sdc bs=512 conv=notrunc,noerror,sync | gzip --best > /tmp/lvisclassic_os_dd_bs512.img.gz\""}
+{"record_id": "07fd108ed37a884434b7e6162da33dc08f5e0a30250b90e4d40cf27c2ee4cfce", "command": "sudo bash -c \"gzip -cd back-raspbian.img.gz | dd bs=4M of=/dev/sdb\""}
+{"record_id": "6b5c6adb299ff961424c8e408c501ce92f84493be68eda44aa15f59dfaa95f4e", "command": "fdisk -l -u /dev/sdc"}
+{"record_id": "6d0dc4311961ba6179b7bb5abdad7fe7a50211ea18dd41e221798ef16ea5a40c", "command": "mkfifo fif\n\n\nmd5sum fif &\n\n\nddpt if=/dev/sg3 iflag=coe of=sg3.img oflag=sparse of2=fif bs=512"}
+{"record_id": "ce88adf5292b94d895475b79ceb78505a1e04c0a5cdeb6a9cb97b675d5f88969", "command": "ddpt if=/dev/sg0 bs=512 skip=130045952 of=/dev/sg0 seek=130045952 \\\noflag=trim,nowrite bpt=1024,1"}
+{"record_id": "248353e02aa7625c73362a3b58a3688fb3a026c5a032aa10b6a6b61715156c4c", "command": "sg_write_x --atomic=0 --32 --bs=512 --in=/dev/zero --lba=0x1234 --num=4 /dev/sdc"}
+{"record_id": "24abf74780117df94d023c5ca3d6af466110e77f4e13df0b98e5b34e82aadaae", "command": "sg_write_x --stream=1 --32 --bs=512 --in=/dev/zero --lba=0x1234 --num=4 /dev/sdc"}
+{"record_id": "4202dd46fbe63e4abea81be241739137d3714a7136022ab42298713f6033271d", "command": "git push --force origin master"}
+{"record_id": "b3ba441564d3574f9bb003339e7777c82558394148ce8ecff3df537f2da0f228", "command": "git push origin master"}
+{"record_id": "a8a9276bcb8262a25b0d7f3d29b878a22784a3cdc1546fef4af16f5c0435b6ec", "command": "git push -f origin HEAD:main"}
+{"record_id": "9d3b625d003964b66511a34d8002e53bed8c35f14512c0286a0ce46daf576029", "command": "git push origin HEAD:main"}
+{"record_id": "3e22f868b44c525d68e80ccf1fbbe066066a1675d55a07c91742a4bae7543c64", "command": "git push origin +dev:master"}
+{"record_id": "66a0413e8d4aab536093c6a6f2e0f878196ce9a1c035748c4f3a2a98ec1c72ce", "command": "git push origin +master"}
+{"record_id": "c7eb81c3293cea9ff43bf4179ab7b5b1bf8ba1c5a365158758dbe97116851ec8", "command": "git push origin main"}
+{"record_id": "e6d0db19b8ed255bd8cbe4bdb7e318c55fb29bf1437b54d0b6993c03b7534c0b", "command": "git push -f origin HEAD^:main"}
+{"record_id": "77e7ca3bca993c843dbdbce9d5128bab273920485e1062270a6ebdf699dfb804", "command": "git push --set-upstream origin master --force"}
+{"record_id": "103e6495f492960a84f158f8c537321c9c51c844d97ef2a3a573b0552c2413c5", "command": "git push --set-upstream origin master"}
+{"record_id": "9b16efd03a9df6d6639dfa9d6d5523cc0900919b3776437a4ffd023fd9804e39", "command": "git push -f origin master:main"}
+{"record_id": "dd36670ab2dd1e426798f0f2dce61b3eace62d92a925db371532663c3543f407", "command": "git push prod main:master"}
+{"record_id": "5c215ef183c648b61766a5e8cae7f78a85f98834f1c4dfb784f82660be518ccc", "command": "git push origin +main --force"}
+{"record_id": "6a8a01cd89a52bf25bd2f73d7d30f4a95dbb4eca566e37e72ae013edd75e0cfa", "command": "git pull --rebase origin master && git push origin master"}
+{"record_id": "dd37b3efae0b613babac576e327362f0c3867ee66ea6f751b77c57abf1204d2e", "command": "git push origin refs/heads/main:refs/heads/main"}
+{"record_id": "53448346e05989aa14103f491e0d7b80b04502db1f1df957bef0a801c30ea9fc", "command": "git push origin --tags"}
+{"record_id": "d3a430d39dff711214774b77ed65a834f3cf5219da72ca04640e8a6054f83822", "command": "git push --help"}
+{"record_id": "441074bd0ec54b58fcf195e126eb801542f87eb5ea1481dd0df5331b86483960", "command": "git remote add origin git@host-3aeb0024.example.com:IrisSat/IrisSat-Flight-Software.git\ngit push --set-upstream origin master -f"}
+{"record_id": "3a6d24f52f34c3aa4ce62f5b0440c2d66e2bac8931e7da10230870f36182a14a", "command": "git reset HEAD~3\ngit push origin master --force"}
+{"record_id": "595fb1ea221200d743944c5e2a394cbca32ef322246056e4247567a253db7827", "command": "git push origin :"}
+{"record_id": "98f0cec1194ac0028da6ffe52487473756db52f060e9cb2206ee60f6512fd6a7", "command": "git -c protocol.version=2 --no-optional-locks --no-pager push --quiet origin a1b818fd0839d3c06cf718861c09b4dd0b5a9668:refs/heads/ct-channel-client-id-validation-fix"}
+{"record_id": "c325b15d6a05cf5f4e4de7d7321ec73756909207b4165df9619e355e034914c6", "command": "git push mothership master:satellite/master dev:satellite/dev"}
+{"record_id": "a55fbf24b502b36d03988e80981328a810c72ff381b56d2e76c85dabd4ddb1ee", "command": "git push ssh://host-834d3fd9.example.com/~you/proj.git master"}
+{"record_id": "a737da099a7e791d9faa356ef1c1a534c275e19ab1b9a5885a536b66180c26de", "command": "git push ssh://host-834d3fd9.example.com/~you/proj.git +master"}
+{"record_id": "5d370524940dc4d21fd95942caf16d83da1b53fbdfd141af70a1bcd4c7f4ffbe", "command": "git push -f ssh://host-834d3fd9.example.com/~you/proj.git master"}
+{"record_id": "ced47e583048949af3a11befa22829096309a2ccbc8d2dfa6d89c8b88d172d7f", "command": "git push origin refs/tags/0.0.1:refs/tags/0.0.1"}
+{"record_id": "1ccf4b6f0a3377eff8ec7c8c91e8250314f8b416174ad14a69c82a90385aa0a0", "command": "git push separate-remote @{6.months.ago}:master"}
+{"record_id": "189401e65ff149517ba1df22257d70906fa39bf97fde1cd5352f5b5937f696c0", "command": "git push origin refs/tags/0.0.1^{commit}:refs/heads/new_branch"}
+{"record_id": "f70f10bedfd79807f4149b1145ff37d0b47af2b6fe60ec73fa35de747c1918e6", "command": "git push origin topic_branch --force-with-lease"}
+{"record_id": "888b8ec77d4aca931431da9b2caa2ac833fdb948915b4c3ca4696f12fca6e54c", "command": "git push --mirror"}
+{"record_id": "1cc8cabb7f2185b623b1be8f05e261cef98b608c3c13ccd4ef532fa7692fd660", "command": "git push origin :experimental"}
+{"record_id": "eb1fee65c5c717a878cd04926e6317fb944244de9d7efa16ac9403e57f37e6da", "command": "git reset --hard HEAD"}
+{"record_id": "9964ceb5c1cf56db5505d09cb661ec4738955bfecece802202a28abbcddd286f", "command": "git reset --soft HEAD"}
+{"record_id": "07aeb07601a2cdaeab1e0c7f1782211fd37707b369d89a483bab61ea35d60768", "command": "git reset --hard HEAD~1"}
+{"record_id": "c167c8bfc680c61f4d65a25bef4b3dc37a5d7aeec8cf4c6cbf678b8035366294", "command": "git reset --soft HEAD~1"}
+{"record_id": "8c487cd33f26d473e8218d332f409a2a28f3ea95ebceff6e826abff79e71d78a", "command": "git reset --hard"}
+{"record_id": "f7468a9681add79ada108b9a9575ff153a20772de3787da3316e5e62da5f1e4d", "command": "git reset --mixed"}
+{"record_id": "dad0fb13307a7efacf1a15a66a7e9955a9888c4d3f642fa85ca8f5d5eb0c9056", "command": "git reset --hard origin/master"}
+{"record_id": "cd7949a1ce408bccf4acf304bf21994860c1a11d5b03d64ff090c717bc5396b4", "command": "git reset origin/master"}
+{"record_id": "20f28ed87c78b3cb7d78c746edea15ccf51313702422e00924f06c030c39ebaf", "command": "git checkout -- ."}
+{"record_id": "81482136ffba4069eac3d08a2103d27df59651e34f0edbf26d3022eb31a5ecde", "command": "git checkout -f HEAD"}
+{"record_id": "d99c846727b65f110fabce89e7c4ff44d5733573ea2e59af52dae4a75ded2dfd", "command": "git restore ."}
+{"record_id": "a986ab6cbfaccaead034c01da1ceba77be2a5a26b101629ac5275dbe06e56653", "command": "git reset HEAD file.txt"}
+{"record_id": "82f657f292c9ede9a33e2100a8d663e04f04c3679ceb9020682a23472e92934d", "command": "git stash drop"}
+{"record_id": "764580aa393eeba5efda5c54780368772d87791ef39bdce8348a0d079f302cce", "command": "git stash show"}
+{"record_id": "19db43ab09c9e8a55e46ff30419bfc51be4bd66d3e8d55cf45336fa3c8f52180", "command": "git stash drop stash@{0}"}
+{"record_id": "022049a034cc48dbc72b88fe6fad3a117f8034ff7b09fac43a2fb8798b7b4cf5", "command": "git stash show stash@{0}"}
+{"record_id": "692a66c8e4273b8ff099c43e0dddc1e2d18ea36c623659f325c7412cf9a2cd97", "command": "git stash clear"}
+{"record_id": "e6c0008928aa86f55cf7ae91cf400af5ffa39275f4b690eeaaea5942b93a4e5b", "command": "git stash list"}
+{"record_id": "cad86514693b5e2d43fdbf4e51f40edb44ec49ac60296caf8d41260d6f7cc200", "command": "git submodule foreach --recursive git reset --hard"}
+{"record_id": "67a48650ee5b7c1f60c65e54e6a77571ef4e688107a37d5ae456a7deddd2effe", "command": "git restore --staged . && git restore . && git clean -fd"}
+{"record_id": "528fdfd0b7b3b00d0b7a646f513e8a2d216db938b1b2710b4ff9e667ea8e0991", "command": "git stash push"}
+{"record_id": "4ff8c5f4cf903debb4fee095dfac678629276ecfaa626e7775e902257fa1fba6", "command": "git checkout -b main"}
+{"record_id": "94f4c2a13aa74dd8477d07bde6c018a4a5048999da3af92471b116e32991ec08", "command": "git checkout --detach master"}
+{"record_id": "95318b0f841fd6df02bf8c4f3ab955d134a3d1758ca89b9c9b1567f0553df554", "command": "git reset --hard HEAD@{1}"}
+{"record_id": "721682a173fde47b48ff57a953ca86b8f075acde816e2a0d088f4eee15a6a7c1", "command": "git reset --soft HEAD@{1}"}
+{"record_id": "117ebc0aeb65704ae0cefa62ca1b84f9f80a839145682648322c8d619e2f5887", "command": "git reset --hard ORIG_HEAD"}
+{"record_id": "a0270a8255b22062418ec18356d0dd475bc6b6de3dc2439dcc01c446d4af23e0", "command": "git reset ORIG_HEAD"}
+{"record_id": "3dbb3744c63c4d883c136f5e3abaea489d2b49ca33f5b556ee19bdb35cadd165", "command": "git reset --hard FETCH_HEAD"}
+{"record_id": "14c5dd0f049560463260b670b2d8a47c6f44720178f2a244559a615e1cbe0b1e", "command": "sudo git reset --hard"}
+{"record_id": "6bec9ce3e261b84b9a9a1913b1bcd5201bf60d3afb3b588867aa3f7f4ebf7b15", "command": "git stash drop 0"}
+{"record_id": "dd30bfef5c29ef20bf66c151ae00743862d059c1565801b55b9479f193933624", "command": "git stash show 0"}
+{"record_id": "6f830820ff7490e662b468ed23227fd4e4cee0b46a5248dfd400d69c2019c84a", "command": "git stash push --include-untracked"}
+{"record_id": "74ae31cde10b8ec56b54de73e17471de6a8ccb8c60021a9bd0203a1f90c6f31a", "command": "git stash push --all"}
+{"record_id": "655afca58ee602dbc3cb1dbae71e947c540ae853097cc4bf02f0c82f21d0a521", "command": "git stash push --keep-index"}
+{"record_id": "70342d6e9016dbc3d71111349fd8e9b10c4b76fdd5cc4976b7108969af58a228", "command": "git stash\ngit stash drop"}
+{"record_id": "4870ee239ac003605c7c32375681796576e9e5a44c72e4c7385ee4865fc64ede", "command": "git stash list | wc -l"}
+{"record_id": "eb058bfc897beed288c67e47b542b6a560b9c2e99d7b146437068f05ff450730", "command": "git reset --hard      # deletes watched filed in local working directory and staged area\ngit clean -n          # shows what will be deleted without actually deleting anything (for the faint of heart)\ngit clean -f          # deletes unwatched files"}
+{"record_id": "dd5775e4002026c4db3e80e73622a6d64b1053dcf6ac10397df71dc845fa0f41", "command": "git add .; git reset --hard"}
+{"record_id": "e52ece851962d4e2a8cf540821767fb169a665c0294f10e958ca1a9a6c6d1428", "command": "git clean -fd && git reset --hard"}
+{"record_id": "40a65dcc11ba65ca2f12aefbf8e236a97407018937545b2b8e2ad0617526b6d4", "command": "git fetch origin  \ngit reset --hard origin/dev"}
+{"record_id": "dc634f42a569c58b399e93d0bac69f1808007baab1dd4cae5612fe061269fc67", "command": "git fetch\ngit reset --hard '@{u}'\ngit clean -fd"}
+{"record_id": "d80a47a5e2bcc167fcecff560ef106aa05aaf1ed5439bb4330505a29aa53da8b", "command": "git switch dev\n        git reset --hard main\n        git push origin dev # (you need to remove the protections of dev for this step)"}
+{"record_id": "b9e2d0d406eb80e08cb94dde5bac8664ee60a314eb59ea7325dd0271d41b744d", "command": "git rm -rf --cached .\ngit reset --hard HEAD"}
+{"record_id": "070bc2764321b96d26d256fd7aef012167b5717a757984c07300e50436698686", "command": "git reset --hard && git clean -df && git submodule deinit --all --force"}
+{"record_id": "430c0983f8d692377d18f146661eb3442562365534fb4b9e0a7027905954345f", "command": "git -c core.fsmonitor=false submodule foreach --recursive git reset --hard"}
+{"record_id": "6fa534a5b90f1ebeef5d22f2d4131ba600f79389c9ec9c7cdc579525997bd047", "command": "git reset --soft HEAD # 준비 영역에서 커밋 및 유지 변경 사항을 제거합니다.\ngit reset --mixed HEAD # 작업 디렉터리에서 커밋 및 유지 변경 사항을 제거합니다.\ngit reset --hard HEAD # 커밋을 제거하고 코드를 유지하지 않음"}
+{"record_id": "d0f8d633edcc898236b47379da67cbc090cc814d66f0300002166b5c11013141", "command": "# 查看操作日志reflog\ngit reflog\n\n# 回滚到指定分支目录\ngit reset --hard 7167ac9\n# 推送到远程分支\ngit push origin master"}
+{"record_id": "de3b24b65d59519edb5ff03ecc5a6ad7385eceae4db544def5f1db94ab7d074d", "command": "git restore :/"}
+{"record_id": "c0caee8948923aafd6d087380648018768d7d11f34cbb41e2171e2ae35c2af1d", "command": "git reset --hard HEAD^2"}
+{"record_id": "322c1a4be0e5f6740a6fda39b315b376f8dabbc624c7e52f2c5c77969d8c3fa2", "command": "git checkout HEAD ."}
+{"record_id": "aff7257070e20d9e5b15388b19bfdfbcb4399925b744541fd84ce2beffada34a", "command": "git checkout --track origin/daves"}
+{"record_id": "8ea7ff72b9c633f3bfcc2f0d14ab0b24509fdb5165dc234e694d26303205e960", "command": "git stash save --message \"Checkout autostash 04/02/2022 15:01:41\""}
+{"record_id": "7e83c50fbda5cb46840f791a34e5680ed09106b7e919dcb7b973cff28e83acc9", "command": "git stash -m \"ordSrv\" -- oms/pkg/proto/orderservice_v3.go"}
+{"record_id": "615ef2c28f570e368ed2d58189fa4c2cd83a35b52e5fef090bce62e7cba50974", "command": "git reset --hard && git clean --force -dfx"}
+{"record_id": "5f41365fc7ebd0278e1b0d09bb6f7ebee147ea3a58b4f97267a75c49573e72ab", "command": "git reset --hard &&\ngit clean -fd &&\ngit submodule foreach --recursive 'git reset --hard' &&\ngit submodule foreach --recursive 'git clean -fd'"}
+{"record_id": "2a74fff1c6c03475e95c050dd02163011a9bad3583f237cefd5f19d356d93fe2", "command": "/usr/bin/git -C /home/user-04f8996d/localrepo reset --hard main\n/usr/bin/git -C /home/user-04f8996d/localrepo pull"}
+{"record_id": "cce1d1150f78002ef639e5a8e706a2dcc2f5f1ba93d1a2a3fffd871de44a709f", "command": "git config --local --add diff.renameLimit 999999\ngit config --local --add merge.renameLimit 999999\ngit reset --hard\ngit merge --no-commit -s recursive -X patience -X find-renames master\ngit status --short"}
+{"record_id": "bf408fc41ac18b7500b2a8c8c3e13231c8b856e7e99fad059e80706339920198", "command": "git --no-optional-locks --git-dir=/path/to/bare-repo.git --work-tree=. reset HEAD --hard"}
+{"record_id": "ef3b9748c16e2e84fffb3fec1624e93c1f0b8909cf69274fc6259e0f514b5605", "command": "git fetch && git reset --hard FETCH_HEAD"}
+{"record_id": "334e0c1a1a36827cc5a3a01a3227e763ae655eee895be3c1308b97d94d06bb60", "command": "git reset --hard @{u}"}
+{"record_id": "a0db01e2a72d88e1849f0dcaecc5ef51e67982196ea748b9d26bd7d6b7e02013", "command": "git checkout stash -- .\ngit checkout stash^3 -- .\ngit reset HEAD . #to unstage"}
+{"record_id": "17c8d6c0b8b05693cb35d3510d6e414877a7dfb040dde0d8b7f4ecf33a5cf7df", "command": "git --no-optional-locks --git-dir=/path/to/bare-repo.git --work-tree=. checkout -f"}
+{"record_id": "316323f9013b39fa6298a61e497312f41cd480a80d4ce4f08969fd337a8b2118", "command": "git reset @{u}"}
+{"record_id": "f9e600edc46b2f227fa385fab57017f96e379668a5f2abf3214a4d32ca52dd68", "command": "git fetch --all   ; echo \"exit code: ${?}\"\ngit reset --hard  ; echo \"exit code: ${?}\"\ngit merge         ; echo \"exit code: ${?}\""}
+{"record_id": "016b25c1d69143c2b5a6db865b625df35c6ced8c9f2af811f20ce0e8109b428b", "command": "git -c advice.detachedHead=false checkout -f $(git -c user.name=runner -c user.email=user-2b0dcdd4@host-c2124832.example.com commit-tree $(git hash-object -t tree /dev/null) < /dev/null) || :"}
+{"record_id": "16eb8173833af694405cc7e93bb5f9c392d89d79349f1df80b1b6233eee23ad3", "command": "git restore hello.c"}
+{"record_id": "c6f72f84494120b8168f9c774e3e8bc651afddf493038867b147c2341d24b038", "command": "git restore '*.c'"}
+{"record_id": "072ef3260520fc341bf477a364cd8ad96c075a2a5b928c98e770b35dc9b403be", "command": "git restore --staged hello.c"}
+{"record_id": "208ae6ad4a173af3ce6ea1fe875d8f4d342ddf17516c757e05b6ad3143d061fd", "command": "git restore --source=HEAD --staged --worktree hello.c"}
+{"record_id": "d5a16ba4f15af2637a29c92a3f1e2d2633fde5e996668f09ef4548ee1fa1ca70", "command": "git clean -f"}
+{"record_id": "c445c50582571ee2cf4ee892be1e7e7a1e012ec132d6adc8e6a643652d37a252", "command": "git clean -n"}
+{"record_id": "b8f8379f5ccdd00b9f5a568aa9eb0f2e3b783c598aadce4263fc8d28b64230d9", "command": "git clean -fd"}
+{"record_id": "634c64125f339a27d1321c6e13c343cfc7549734955b6ac3424058afeea51e15", "command": "git clean -nd"}
+{"record_id": "4d39ccc35d013e47f9f530e55330ac2d0742fc8441162b24e309e4b1c980a055", "command": "git clean -fdx"}
+{"record_id": "66b03cb18098a997ca577a6c1795f40c27784eb8d72d8c876187130b94a477db", "command": "git clean -ndx"}
+{"record_id": "cba5a49da44bed4b5f57247e8f4df54e67405f815405766be1c8fa153e896715", "command": "git clean -fdX"}
+{"record_id": "009ddee1a613df4ec809f004051b3f7ead9460dff64a9d5532796a7cb5e8b1a0", "command": "git clean -ndX"}
+{"record_id": "6f57a54450a912b94b40adfd8424671113fc1daf9114f8fea266b7bf7d2dbbb1", "command": "git clean -dfx --exclude=.env"}
+{"record_id": "39ef305a6c1e85cd8405cf7c9266e74c12e53d2fe82549c0ed352d022a160281", "command": "git clean -ndx -e .env"}
+{"record_id": "021ce6f115aafc7a8f213178efca7feb403a2d836a9dda65e9ba93587a60aed1", "command": "git clean -xffd && git submodule foreach --recursive git clean -xffd"}
+{"record_id": "9f845d0bd3d59366a2d4241e7110f73768045bb8c6a85d49b56f5ecbc5f79ee1", "command": "git clean -nxffd && git submodule foreach --recursive git clean -nxffd"}
+{"record_id": "9b39d9f5b1a5b27124235ad11b9f97d67a4c324db7087701e7dcd95e512f1081", "command": "git clean -xffd"}
+{"record_id": "438c0e3fd2d4cbc2235b9acbb41c02166ca1c5d053a81652a9d073e273600df9", "command": "git clean -nfdx"}
+{"record_id": "586526e7409a020b51afbfde339c49291581a1c3e34bc45288db730e35261312", "command": "git clean -nfd\ngit clean -fd"}
+{"record_id": "c1f17d7cc5de0fefbf39f8daaa41ca8b5a53464750b102e37c6bfbb56fdfad7a", "command": "git -c clean.requireForce=false clean -d"}
+{"record_id": "d2e408b7a85ccc10fd8a214c0f58e1889729d4f6d224f502c520228707a7b770", "command": "yes no | git clean -fdx"}
+{"record_id": "7c99cb91c572dfc614abbbc44045aca11fda7998e7653e8445eb8b373457e75f", "command": "git clean -X -n --exclude=\"!local_settings.py\""}
+{"record_id": "7245f64d5705db22660d93a1d3da0cb21bd9b3e9488ec550a3b988fd605faf45", "command": "git clean -nXd -e \\!venv -e \\!venv/**"}
+{"record_id": "abdae7f9f7397a159bd3d96f57224c6a154c26db1328bd0260f0ce55e4087e9a", "command": "git clean -dn | grep -v x"}
+{"record_id": "96d10d6f020aa3b12f83be7ba35d890ea6f6c3ddffd64b67897453d64f885fdc", "command": "git clean -n -x -d  | cut -c 14-"}
+{"record_id": "db8dda605ff6ab7bf45122351ac14a6f0afec3f1e419ea4dbdc939f579ebbb29", "command": "git clean -x -n -e local_settings.py # Shows what would remove (-n flag)\ngit clean -x -f -e local_settings.py # Removes it (note the -f flag)"}
+{"record_id": "c239488bd821d54f1b9236d57795a9e24fdbf36a1ca900f37f52765d93478902", "command": "git clean -fdx\ngit clean -fdX"}
+{"record_id": "ed967176f1bd73669d552f185697445c38b1c15fd215ed3b2901aef6d523a1bc", "command": "git clean -xdf && git submodule foreach git clean -xdf"}
+{"record_id": "beae9653d659cb7575d19691068c199128a89ec25927af40f5e6331f84b9acb1", "command": "git submodule foreach git clean -fd"}
+{"record_id": "0ae0a2f56a4c5a9b229d7439681d0c5a5971ab10b765d5778e8942aace659399", "command": "git clean -xdn\ngit clean -xdf\nls -ld mybranch"}
+{"record_id": "99bf8f16c0ef1b9d93f751c3465b25d8dc2f4c988ee9db8a9ee33a4abd6c3747", "command": "git clean -dfe --dry-run"}
+{"record_id": "502708c657fd49441cb0208f9351f96ddd522fa672cc06f4e62a5f2e5449b771", "command": "git clean --help"}
+{"record_id": "8f2e552e3b078d47defbfd07823cc4e154e2d69c1ffefa78843e05e0d6b22965", "command": "git clean -dfx --exclude='(.*\\/)*(\\.idea\\/.*)(.*)'\ngit clean -dfx --exclude=\"(.*\\/)*(\\.idea\\/.*)(.*)\"\ngit clean -dfx --exclude=r'(.*\\/)*(\\.idea\\/.*)(.*)'\ngit clean -dfx --exclude=r\"(.*\\/)*(\\.idea\\/.*)(.*)\""}
+{"record_id": "841afba420e15665512cd8119c1e37f5bccc62c1f2b73d3b229758a0b8582e63", "command": "git submodule foreach --recursive git clean -dxff"}
+{"record_id": "7bd07d188fc890c883f405ea27e9f7101ef28e674fb37746897b1e4d4dc3f922", "command": "cd ../../../../../../../../\ngit clean -n"}
+{"record_id": "b4f6011347f24e8058b97347a03e0de1a670e384219577f211422d9b8b08092d", "command": "git clean -fdx ."}
+{"record_id": "908edb6de006c4ddbfcd08cc5163cabb14029b4a4743ba0c769a36f536af8c9f", "command": "git clean -xdn ."}
+{"record_id": "99992d06e17de3b4d22a7ebff9c457c8f2fdb9d3b49ad89e4d92024175fb8f01", "command": "#!/bin/bash\n\n        # One time git hook setup\n        command -v git-lfs >/dev/null 2>&1 || { echo >&2 \"\\nThis repository is configured for Git LFS but 'git-lfs' was not found on your path. If you no longer wish to use Git LFS, remove this hook by deleting .git/hooks/post-checkout.\\n\"; exit 2; }\n\n        echo \"*** cleaning submodules\"\n        git submodule foreach --recursive git clean -fdx\n\n        echo \"*** updating submodules\""}
+{"record_id": "1fd0223e8168275914fc063a9cd4353c036d1be34ba3f05296bc70fad2302dae", "command": "git clean -n -q -f -d 100000_sub_dirs/"}
+{"record_id": "a0d2aa23e3dd6c9f4b83b327356b46ad5a549f37cebaaf83129f1f3de99e6838", "command": "git reflog expire --expire=now --all"}
+{"record_id": "a5f3811cf9a63cf70fda970c3d61a34f8154a1c50060ea9db272aa9917fd4703", "command": "git reflog --all"}
+{"record_id": "ae48340fd5957b2fba040882196aa35b67249564b1c284a4ebec644bde8924c6", "command": "git reflog expire --expire-unreachable=now --all"}
+{"record_id": "b0d996cf2c730b344ba9c50faa175a482276e6040763ed7959047b3dbb85850e", "command": "git reflog expire --dry-run --expire-unreachable=now --all"}
+{"record_id": "70d89de4dcc11a8f92a7d0c7cc6a58e5e9af972dd201399dd723eb2f4d1c0488", "command": "git reflog expire --expire=now --all && git gc --prune=now"}
+{"record_id": "fb9893274103f28dd89fa106a4b9366238a72a3264fa4045eef4cc86ac700744", "command": "git gc"}
+{"record_id": "6d59189e9da24bb977ccda3f5d02cd7b6a5b991d75ebef40ad0bd4bd97448b1f", "command": "git reflog delete master@{2}"}
+{"record_id": "bb94a575ccc3b88a7184f41c09f18d98c9400c66440e7c551b7da97e3d33c05f", "command": "git reflog master"}
+{"record_id": "6f6cad479f97f02bd93cc3f172e176dd26eca5502730e5a15cf8714e03404926", "command": "git update-ref -d refs/heads/main"}
+{"record_id": "0482d54522f08625145a2e7a5c95b4dd9dae8d10b44602479f05098653a96674", "command": "git show-ref"}
+{"record_id": "baf56d813b05544173398f05972cb11de2ceea1609b68a9512fd8830e48ac88a", "command": "git for-each-ref --format=\"delete %(refname)\" refs/original | git update-ref --stdin"}
+{"record_id": "aa89243b166438829e3aeb91cde3b165762990e51a40618a551202308f7ffb25", "command": "git reflog expire --dry-run --expire-unreachable=now --all --rewrite"}
+{"record_id": "99dac108dacb2598ba9e70ee612c774562c76df81dd037092b5b66341838c4d5", "command": "git reflog expire --dry-run --expire-unreachable=30.days refs/stash"}
+{"record_id": "d1c854248e0430bf46c921bd21aadb68e829d8e3cab4690f27caab85f2cfcaa4", "command": "git fsck --full --unreachable --no-reflog"}
+{"record_id": "331f48f3253ccd1efd55e5b578e2ed1120760a7ab419a28f64dfb729cc7d2576", "command": "git fsck --connectivity-only"}
+{"record_id": "bf9c7f92bd671744a700398892be24f3ac2368cd8d01fc81328d319b42869f69", "command": "git update-ref -d refs/original/refs/heads/master"}
+{"record_id": "a80a22cffde34bb40eea6c6107d904fbd9fe0c9256b21e73b028a4df3a9e5150", "command": "git for-each-ref --format=\"delete %(refname)\" refs/original | git update-ref --stdin\ngit reflog expire --expire=now --all\ngit gc --prune=now"}
+{"record_id": "a62337c55a485f2ecce2dc583f23090162685b6ce1bcb6c74577e6e4183a0afd", "command": "git update-ref -d refs/original/refs/heads/master # Remove the backup head ref\ngit reflog expire --expire=now --all\ngit gc --prune=now # Clean it all up"}
+{"record_id": "465c54ce5546e17345226eeb1a069e3c843aa20caae3b4364809d3f5e6b3d200", "command": "git fsck --unreachable --dangling --no-reflogs\ngit reflog expire --expire=now --all\ngit gc --prune=now"}
+{"record_id": "222cc30d0284d72d71fcb5dcd5ea4b073a4febc16dbd227e0553388489d42573", "command": "git reflog --date=relative | head -n 36 | cut -d' ' -f 1 | uniq | tr '\\n' ' '"}
+{"record_id": "d58d2ad86c490f8545573ff5ceee0761e85a48d323e708677fab5a8861609624", "command": "git fsck --full --unreachable --no-reflog | grep blob"}
+{"record_id": "2bb4acdd2d59528e8e122a9a23d736165bb0c8a1e2e3b9e192cb094275d84daa", "command": "git verify-pack -v .git/objects/pack/pack-*.idx | sort -k 3 -g | tail -5"}
+{"record_id": "1831b7ecbbd589c09df04a7881e2d662479197d791b24beede7b7a6a767c2ac2", "command": "git gc --help"}
+{"record_id": "b42eda929e8fc4ecf87d537828981a8f8bd386cc929d94cf700caee189fba681", "command": "ls .git"}
+{"record_id": "e3124e92c8f9d7bc8664b2b68f5039d58c7c65abf6a07322b2312b6a25d91070", "command": "find .git/refs -type f"}
+{"record_id": "846308b5c64ab7bf81e11df2bb970361131ec29c704ca540d2a57e4ffe7555f7", "command": "find . -type d -name '.git*' -prune -o -type f -print"}
+{"record_id": "e3d39ba0e66baa6936cd7dedc6ecb3a00833fac6a9f5d524da845cd146e598bd", "command": "git symbolic-ref HEAD 2>/dev/null | cut -d\"/\" -f 3"}
+{"record_id": "7c0b3728a8ab7338a6778d39a815c06d572f201513a3ae472faf051068a7db42", "command": "GIT_TRACE=1 git gc"}
+{"record_id": "f7046182196665e310acaaa0c96e4144c214c41cb317689d0b86de4fc2740f95", "command": "git reflog expire --expire=now --all\n git fsck --full --unreachable\n git repack -A -d\n git gc --aggressive --prune=now"}
+{"record_id": "816e54c4bdba80fec8c3f1bd9750918baef845fe6e31c250d04833b4308fc30a", "command": "git fsck --lost-found"}
+{"record_id": "0ad28dbc948c8299f9699983c1ee642f3fe46c6b0ce168dfd7d9bfcb8e98ed50", "command": "git gc --aggressive"}
+{"record_id": "2f2b23ca7e6003838b99552224094d06e4e2a47f7877e6568f906b5d46b203f0", "command": "git update-ref -d refs/heads/master"}
+{"record_id": "fc0a37e2b990e59366396236cbc652a1a08f7002a51e43290adb6aadfb5d2660", "command": "git reflog expire --expire=90.days.ago --expire-unreachable=now --all"}
+{"record_id": "fe3988ccb692daf31d734357ddd649420ef28549425b84a2166fd3c2fbbb59a5", "command": "git for-each-ref --format='delete %(refname)' refs/original | git update-ref --stdin\ngit reflog expire --expire=now --all\ngit repack -a -d -f --depth=250 --window=250\ngit gc --aggressive --prune=now --force"}
+{"record_id": "8a13604e972f411e7a47a64d304c6ec3d225f27feedfc6f8a2a8823d073e2111", "command": "git rev-list myFeature |\\\n  xargs -L1 git for-each-ref refs/tags --format=\"%(refname)\" --points-at"}
+{"record_id": "d57d4cc6efb99a216cd3ff9923e34a4d650d1793f842400f1e1926feb2c33a9a", "command": "git reflog | tr '\\r' '\\n'"}
+{"record_id": "704e92b2c847f2c499c9effb65a3f8daf962c1cbe8f7ab13dad7a29bf9639a71", "command": "git for-each-ref --format=\"%(refname)\" refs/original/ | xargs -n 1 git update-ref -d"}
+{"record_id": "947060930a9c9dbd2f4b7f796bbf9a47107b8a3677388756f6a1b5b5f9e5cdb0", "command": "git remote prune origin --dry-run"}
+{"record_id": "a68ebac27dbdd37be3a6068242ac200328be3eed467e0f98356df2c17264bd30", "command": "rm -rf .git"}
+{"record_id": "796a1f779e78e34483e7c017a3ea8e09a5d65aa15ca6bf466aac20a9ee9d68cc", "command": "rm --help"}
+{"record_id": "29e1aaed0fc0ccd6847b71bddf7acf1f0761f11ad832da87410e084a0bc61d99", "command": "terraform destroy -auto-approve"}
+{"record_id": "7b2b5a4e51d1b4d7bf7cf698cc027edadbdebe36b37c0942c4e30ceb82aea93e", "command": "terraform validate"}
+{"record_id": "d5b48d3480b577b80ff7913a96493de88d81336ffab846948189d2cc73fe0b93", "command": "pulumi destroy --yes"}
+{"record_id": "68195c6a417eeee4bf5f7c7aa4ba687fe94310e24f35b8e631cac3068385abc2", "command": "pulumi stack ls"}
+{"record_id": "65e742ea8f11ac5655917ca7acfe60f4c6264296a9eb71249a3eba2f2f21a0ee", "command": "aws cloudformation delete-stack \\\n    --stack-name my-stack"}
+{"record_id": "0fb2526019e54a0de86278642208cd9b96021a2dea4eded533324cb042ccdbf7", "command": "aws cloudformation describe-stack-resources \\\n    --stack-name my-stack"}
+{"record_id": "386937225d18fb776b6b716fa1e989b38c43f1664f4604c35749e41ddcd5ec93", "command": "aws cloudformation delete-stack-instances \\\n    --stack-set-name my-stack-set \\\n    --accounts 123456789012 567890123456 \\\n    --regions us-east-1 us-west-1 \\\n    --no-retain-stacks"}
+{"record_id": "57d82ee161650b7727983d6f45b10f8e76bcf1c446c8cf482a918e279c4ab0de", "command": "aws cloudformation list-stack-set-operations \\\n    --stack-set-name my-stack-set"}
+{"record_id": "66d3108c0175d6165245de46e697bfac119496886f150108752de9eb9cb00fca", "command": "terraform destroy -refresh=false -auto-approve"}
+{"record_id": "e53c6e491ec4f0840bf280be5a1446a29f651a72f6d411a38ba9547b44ae2a11", "command": "terraform destroy -target=\"module.vpc\" -auto-approve"}
+{"record_id": "15daba828ce8459153323765c5b27e5bc1f991a2fd6e4ec3fd69267f6dd60130", "command": "pulumi destroy --yes --remove"}
+{"record_id": "8cb0f644ad8cec1f785f94284cb13b7b387d05dc5d4fbd03657e298ee5e84643", "command": "aws cloudformation list-stacks --stack-status-filter CREATE_COMPLETE"}
+{"record_id": "6d4ce98eff72cde5f837cc8b9685e4d433fcd413de0d71d4a2e0cf602607bc69", "command": "aws cloudformation list-stack-resources \\\n    --stack-name my-stack"}
+{"record_id": "b9270f5452635037d31928dd4e64082c6757165712983c4a2b37e6a697528d95", "command": "aws cloudformation list-stack-sets"}
+{"record_id": "81e94715ef6a50e19354232b56ba5cd06a2aaec80c65b31433d41699a7a329ab", "command": "tofu destroy -auto-approve"}
+{"record_id": "04429dcaee1e17e77402776e0a86d30d7dc4d254e8033a4ce158d3c070c6ae7e", "command": "tofu validate"}
+{"record_id": "1414484449920d7808b18b6a935019a2a6ae4e98175fecc3fc7d4fe7f6cf7fab", "command": "kubectl get namespaces"}
+{"record_id": "9a0f0166098a49c72e0af1b1f1b0862dbe52c9bb99168e1b045c07c5c88180b7", "command": "kubectl delete pod,service baz foo"}
+{"record_id": "367ce0527d8ee0e466509ee86e9370caa9cba8201e1e9d05c8b255379aed7f26", "command": "kubectl delete pods,services -l name=myLabel"}
+{"record_id": "e34963a3ab9a3b8f5003bcaf6a289147cdf3f1e1d374a366f4172dbadc3da8e1", "command": "kubectl -n my-ns delete pod,svc --all"}
+{"record_id": "9c0ea2cb09b86a27c6f94da96a13b18b188c1d3aaf75e0b39c8fd6b011b8e284", "command": "kubectl get pods  -n mynamespace --no-headers=true | awk '/pattern1|pattern2/{print $1}' | xargs  kubectl delete -n mynamespace pod"}
+{"record_id": "a0452ebeaf588dfa93fb95d0fea387176f1ef6b319bd9d5e134b1324c85b12a8", "command": "kubectl delete pods --all -n dev-test"}
+{"record_id": "55574ed2c411f3f9839754725537cd992f811813bfecc3b613c95e8017283f19", "command": "kubectl delete service --all -n temp-staging"}
+{"record_id": "b834802b5faf5ce0d0b9f1263af152fcab8b3e8ce78a8954965a8fc16fbf53ac", "command": "kubectl get pods --all-namespaces"}
+{"record_id": "5cd36baec719a9f4e2f7ff79325519df4903f4607fe8e77c242592edeb4b00e6", "command": "kubectl get svc --all-namespaces"}
+{"record_id": "a285da47ebd13696113eb2550e4de6dae3f5f9f30152a4aa6d5011f20d04b710", "command": "kubectl delete hpa --all -n hpa-cleanup"}
+{"record_id": "775d9362694c796360e618e12ce5b70db224af82a5384f75ad42ca300260157a", "command": "kubectl get hpa --all-namespaces"}
+{"record_id": "7eb6dc8725e30dba8943f497c94915890ab9a47270d5654329b4c47504a8809a", "command": "kubectl delete jobs --all -n completed-jobs"}
+{"record_id": "173820cd9676a4de56de86239a7d2fd945a49a77992f3279b951d915d207d08c", "command": "kubectl get jobs --all-namespaces"}
+{"record_id": "b9c59129884945ac375729899c516d405d53ad8ae2d81a6e30f0abc74ec5a120", "command": "kubectl delete resourcequotas --all -n quota-limits-old"}
+{"record_id": "797c736ea920b62038cee4505ecaf35dd21dfa448eb159a1e104602944bbb91f", "command": "kubectl get resourcequotas --all-namespaces"}
+{"record_id": "5828162fcca771756c3c4f52da8850b63f161ba9b9433a23dd09478d9320017d", "command": "helm uninstall mysql-1612624192"}
+{"record_id": "a69ad26e17f7d128fdfded2a5125b4c34876905cccbcb0964f6a8ab2da12b375", "command": "helm list"}
+{"record_id": "79cda29996d68e0d174bfc766750d4faf522cbe10092b2787bf34ce7ab299ce2", "command": "eksctl delete cluster -f cluster.yaml"}
+{"record_id": "351a6831d286aad0770772152b56dd8d364bd8e1f81a4f9c9e588d1e7d20a47d", "command": "eksctl delete cluster -f cluster.yaml --disable-nodegroup-eviction"}
+{"record_id": "f8364db6bb6e13be017afbf842d696fa54dcfa795a4eeeb76cc1abca7523e2a3", "command": "gcloud container clusters delete online-boutique \\\n  --project=${PROJECT_ID} --region=${REGION}"}
+{"record_id": "9d8d953d1878dc8bdb3a5987c5924ebc8d4ab8e61fdc9e3c68811675aebd868c", "command": "gcloud container clusters list"}
+{"record_id": "021f6306081373e047bab5d3b97c71d093d38a1532752c85959fa2d61144be18", "command": "aws eks delete-cluster \\\n    --name my-eks-cluster"}
+{"record_id": "1a8ebff9ee9404db65d034cdd973e4be5fee8c6e8a7a066be9e61776f61cd81c", "command": "aws eks list-clusters"}
+{"record_id": "ccb6a227d7505d5967d70480b059f9367795d997601c0d4e93f6a13f048ac2c2", "command": "az aks delete --name MyManagedCluster --resource-group MyResourceGroup"}
+{"record_id": "c686c6c5d594fcd1c767ae99be57f0cd6722b6de6ffae81c9343faa8f68446aa", "command": "az aks show --name MyManagedCluster --resource-group MyResourceGroup"}
+{"record_id": "0bee132b9e4777b4ed4570cf763f65ef8c6630836a16e86a90202f65bcb1f703", "command": "kubectl delete configmaps --all -n obsolete-config"}
+{"record_id": "f5b6baef9214482e98664908292b9e7758a5dc7791ff695b3e8fbdd1ef2ca227", "command": "kubectl delete cronjobs --all -n cron-temp"}
+{"record_id": "9d5eb2cc5a3341e2ed40f74f9377afd24557e1445a96284d9c6f93266b6656f4", "command": "kubectl delete ingress --all -n old-web-system"}
+{"record_id": "111fda629812bc5cc2588c200db1ee63e198e1591783fd2d462af68a779727d5", "command": "kubectl delete rolebindings --all -n temporary-rbac"}
+{"record_id": "fba8233e10dcc623f64c0337d23cbb1d16c4a3f83bb0dd9476b13e14d72d098e", "command": "kubectl delete roles --all -n rbac-cleanup-c"}
+{"record_id": "54115c5323706dd2a1a27798617a0e76ba8a39d1735a21f5f74f183e0477f09d", "command": "kubectl delete serviceaccounts --all -n old-sas"}
+{"record_id": "6480ac57dd7bf57a3e3946ff225d17e8de9947a047bdcf523c3befd25f22321c", "command": "kubectl delete secrets --all -n old-project"}
+{"record_id": "f0671e4edac39d6ffa2cc2cb4001e96626a8fc20712a97541c93ed02388f4052", "command": "kubectl delete rs --all -n maintenance"}
+{"record_id": "82e0f56e8eef57086396710d25c87a77eb889bede6174fd173b615b5176c0c62", "command": "gcloud container clusters delete sample-cluster"}
+{"record_id": "694ecb54e5075397465b450f13376a1a3941e453bce66473f4a73f8610d72eba", "command": "kubectl api-resources -o name | while read -r resource; do\n    echo \"listing ${resource}...\"\n    kubectl get \"${resource}\" --all-namespaces -o jsonpath='{range .items[*]}{.metadata.name}{\"\\n\"}'\ndone"}
+{"record_id": "82f4b57f097b4f3d57785545209aa4526af7ed9d68e0d5c3e98afee286f0c0a7", "command": "kind delete cluster"}
+{"record_id": "b6c9d0b3773600188f51338faa87a26fc44a3cb90dd4de620a63b608154aebb9", "command": "kind get clusters"}
+{"record_id": "6dfbde9a3d4c29ed9863351a87045677f332edbcbb404f184d29777241398f0d", "command": "k3d cluster delete CLUSTER_NAME"}
+{"record_id": "4a56d56ec3d848e93e39f63d30f3fce94e8986f683ca88fc02083fd49dc9f6a8", "command": "k3d cluster list"}
+{"record_id": "c245fc11b0c7c5b135336039aa477f19cff395a2bfc63340c862a12779855013", "command": "minikube delete --all"}
+{"record_id": "e1c5381b201b02d5c4528564b730b0dcd72ff80cc8f2611218fdbf6aa2d0c782", "command": "minikube delete"}
+{"record_id": "0496477a6cbe8f75cc0eedb8ba9fae975857f36f5ec60be60a76da43d196c501", "command": "minikube profile list"}
+{"record_id": "9e376013840648d911b59902f308835bb84f1415c6090f37141261ec403c629d", "command": "kops delete cluster --name=k8s.cluster.site --yes"}
+{"record_id": "14db70985c18ac944316ba39711cb41b896887efb7e9bccdcaaaae2bcda53004", "command": "kops get clusters"}
+{"record_id": "f0758438bba9c38ad76f1ac6ebda046c00f23a9c9ab5d418cf4085c5fc716ef5", "command": "oc delete all -l app=blog-django-py -o name"}
+{"record_id": "52d8105d5ab036dcf3a1406ff060faa85a3f4bcbfa348a7e6792bd2998123c19", "command": "oc get all -l app=blog-django-py -o name"}
+{"record_id": "c7ac8b241f3e5ca673f10287152f69072cbd1f6ffe3c2fdcfcf74d8410b595b8", "command": "kubectl get roles -A"}
+{"record_id": "bfd0a028a333b2811ca906bc11e810ca44dee79c6172860d27b3c330ea56274b", "command": "kubectl get rolebindings -A"}
+{"record_id": "65a90a2be6b5d31f87cde9d3f7668058e4b4599634931daee921ce0c8259d539", "command": "kubectl get secrets --all-namespaces"}
+{"record_id": "2e9389df1e414b1c6808fbbc540d62fb29a73aafa1b18085fa47bbce89a0badb", "command": "kubectl delete namespace development-temp"}
+{"record_id": "d140b5d19ab1edc150c682c518dcfe7f3c4aef51fce8cd42cb21f03e317d9f64", "command": "kubectl delete deployment --all"}
+{"record_id": "5d6d8af0fe6677db9a653a67dc7116ff218eebc4e7ec690cdbcb578ca72b66c1", "command": "kubectl delete statefulset --all"}
+{"record_id": "a43d094a582114c8e41c35506797fa93cc2dea9441219baeb50a79e0aef8fcca", "command": "kubectl delete persistentvolume --all"}
+{"record_id": "603403a94a448b1c9dbadf0e7081963b4be21044cc68c08cc680f983b39bac98", "command": "kubectl delete persistentvolumeclaim --all"}
+{"record_id": "50da1da47427494e01b1c201962b13c446421538120c2bf88d6b3c4d66cbbc3c", "command": "kubectl delete node --all"}
+{"record_id": "099d2a17c283ada9497919cd50ec36dc9a35efa0bf0ed591e150dfc974f36a14", "command": "kubectl get pods,services,deployments,jobs,daemonset"}
+{"record_id": "79094bc6e03059207d479013dcf9d551b36b943277feb9bebdc4c346d2fd451e", "command": "kubectl get statefulsets --all-namespaces"}
+{"record_id": "0fd414597a59f6756e0631bd83338317e852663f9778b16ad1f5f274654b42a1", "command": "kubectl get pv"}
+{"record_id": "a23ab16ee083d98f0e3ad4b3d0e2212a2602fb2720b93ab0db50d6941aa32b8c", "command": "kubectl get nodes"}
+{"record_id": "2ad3e65d6ffd7345b4ef1ef218699d221866e75cc0c0ab86ff7046390436c531", "command": "kubectl delete daemonset --all"}
+{"record_id": "f08828b2c313297d6fdb66e7cd6ff050e9c230f5d5da7a4ad44ed5adce716ce3", "command": "kubectl delete replicationcontroller --all"}
+{"record_id": "60dc510bb9874a5e53cf4bae41f9e979f5197c0de5a17d3df7566dc55e5f8112", "command": "kubectl get rc --all-namespaces"}
+{"record_id": "8366fbd845f8ade6ae18d9b5cd8cf4290ae741b432933310cfdf8246748ea5ab", "command": "kind delete clusters --all"}
+{"record_id": "a13033d6c2b32af55b42d53907338e207914d7f183a5a8f9ddb51975e0ec9778", "command": "k3d cluster delete --all"}
+{"record_id": "ba1aaa1d9d41c2f9b3d66d1b1a033313c42e678005d59bd6ef1e1b3a84c491f5", "command": "oc delete project blog"}
+{"record_id": "56230fbbc8847ef09edb9e427da3302ec2a1451399e957c749d4d48b75df36b3", "command": "oc get projects"}
+{"record_id": "48a180e826f99c4ee2d5edbf8b57fec0e0b58b4aea984a05649bb19969496fc7", "command": "eksctl get cluster --all-regions -o json"}
+{"record_id": "c2e8042b9c4b384b5e7fa3cb2078366180dc2190d7c639918851079540e48f07", "command": "gcloud container clusters delete istio-ilb --project $PROJECT_ID --zone us-central1-c --async"}
+{"record_id": "ed1995d67b7cadea9aaac27c5d995df3a9221e2e7858921511ce101e25747713", "command": "gcloud container clusters list --project $PROJECT_ID"}
+{"record_id": "93ea8fa66b92124ef7d2408356b43b87e5c293f4c82d87da7c8287068c442840", "command": "kubectl delete -f https://k8s.io/examples/application/nginx-app.yaml"}
+{"record_id": "29de6f71e8f77ef95504956f42b29ef9056e39963fff0e5491a19a2cdb4b82b3", "command": "docker system prune"}
+{"record_id": "5b5078d2221d2c8b4600b3cfe24504ef9a7e32eaf25a78aaebcad2903c7ec6eb", "command": "docker system prune -a --volumes"}
+{"record_id": "7cd775c2f651a744ec567cb7880a592fca390a661ab63a9e0f617f2529331ca1", "command": "docker volume prune"}
+{"record_id": "633d9fc8c0a7f81f5f703495af57e335af1b64d90245bef82530c524cbcc7c8c", "command": "docker container prune --force --filter \"until=5m\""}
+{"record_id": "6a9803745127bd36bd04ff6c6946c2de076c8b2475fd8017f1c3b0d781a54fa1", "command": "docker container prune"}
+{"record_id": "47ece4b96bf7acbbff08ac4eef8f97cb2f171b96258dcdb3f9b09dddbea4376a", "command": "docker volume ls"}
+{"record_id": "f1a1adab61393f34f0065f31baddba540a71739e3d35335bb56f8be0f3128273", "command": "docker volume ls -f dangling=true"}
+{"record_id": "8cf0f28aeff9b5a6a448fc678d60f7385ac59e80c80b43250149a13bce526c36", "command": "docker ps -a --format 'table {{.ID}}\\t{{.Image}}\\t{{.Command}}\\t{{.CreatedAt}}\\t{{.Status}}'"}
+{"record_id": "c6b532f7bb3be5e19439e40b107c1bd20872e760840f98a0ec45e04c77d9c1b4", "command": "podman system prune --force"}
+{"record_id": "f887bfece04747799dac57c947ada59c868789bfd560b4e363a5a3b9090be2b1", "command": "podman system prune --all"}
+{"record_id": "1f896b98942c850a73c65699a6bf0359d826b6c2ff59b3779b92fcbfbf6aae3a", "command": "podman system prune --build"}
+{"record_id": "d809a542b9e714440c9e3359488b0a1b1001b61fafba4998536cc8f9fbaa5553", "command": "podman system prune --filter label=role=cleanup"}
+{"record_id": "7b8796eca5594ec8c08f60305a059eb171d9048f172ffc1da50a130718f5339a", "command": "podman system prune --filter until=2m"}
+{"record_id": "98f3b65263832364c2fc18648e0d3031e79feb718177f6507b9ea551f2f2ef36", "command": "podman system reset --force"}
+{"record_id": "c394e5e029f1db125b19e10e5c0dff28975ef9aaad0f6443d1455721b0f2d551", "command": "podman ps -a"}
+{"record_id": "9c8be95ba8c3c74537a765ac07b4302b85bdfbfb5ab420baf617d758195d0429", "command": "podman volume prune --force"}
+{"record_id": "d37327060c98e3b80e369e595c2ae34535561281ca62c59f4150b9667ef9fdd9", "command": "podman volume prune --all --force"}
+{"record_id": "5bfa7c98a8f7ec23d66aeb31267a540018f1495d970a49a29499d04623e9c4cb", "command": "podman volume prune --all --force --filter label!=keep"}
+{"record_id": "6c895fa0ec452b1c6552e660ac7e170a3832a42133b9be3d210e2742e27d606e", "command": "podman volume prune --filter label=mylabel=mylabelvalue"}
+{"record_id": "a45174ffa7e3b1f74d01a4b352d40e8f5734d7081d385f9532c0fae81575c299", "command": "podman volume prune --filter label!=mylabel=mylabelvalue"}
+{"record_id": "0fb5a36adb40451486b7ba161be51d05eb01ac2161110d52655bde0ae54e2f58", "command": "podman volume prune --all --dry-run"}
+{"record_id": "610d1033baddb7329e170a03763cb9f14f579cbd7b277b8b2f2ea61279d6bed4", "command": "podman volume ls"}
+{"record_id": "4cb52ea0d0949035d331f2c0f7d9ecc16a37b0f3390f0bf22fca8a2df76112c8", "command": "podman container prune -f"}
+{"record_id": "d19968db606008306a8d3cdfe11a461ea71c52653d3b369cc85e4e558d43b163", "command": "podman container prune --filter until=\"10m\""}
+{"record_id": "8a2ac8bff4a5c135cf45d133b265ba241572144de0704d3e7f99b4593d2cf7b2", "command": "docker compose down"}
+{"record_id": "8177b9a8853ee1fcb2b0dfc79ef78ca8e8dd7234755b59641f364b79a14e3abe", "command": "buildah rm --all"}
+{"record_id": "b7fdf67303b62524bea228f676f91367d6ab149313fddf5f5d2884cd597370e4", "command": "buildah prune --force"}
+{"record_id": "6d69c17ce1cbf243abaa40160853b838149e6c89c325076d71cf63c53c2d89e8", "command": "buildah containers"}
+{"record_id": "ad63f4135c4e01c1d86e98b82ed165c616be1195a531fd6fb6608759321837af", "command": "podman rm --depend mywebserver"}
+{"record_id": "75be1dc890d0371539904a3bda458f0f7e7ba20aed3a71ad73d8763cbe44ace3", "command": "podman rm -f -a"}
+{"record_id": "192a85bc5db9ae30144933d66e2766abd6aac8723a84c5d070b4d632c129a595", "command": "podman rm --filter status=exited"}
+{"record_id": "2b96bc19ab9ba75fcf7f5d7a7c0dee229f9a2eff296854c479e4c3399ca06c23", "command": "podman rm --filter ancestor=nginx"}
+{"record_id": "975cb8ea13fbda8616132b43d4fb09cbf23f853f47a0ece30d594a0f7785fec8", "command": "podman rm --filter volume=web-vol"}
+{"record_id": "9e2b4149ae44cab165e5733d1c0a9595bd1079b0f71680b0ef96b6566a050c57", "command": "podman rm --filter network=web-net"}
+{"record_id": "c7c56347a4de58f3ff91ebf8492b0fa84306a2eec1c819faed66559159abd2af", "command": "podman pod rm -f -a"}
+{"record_id": "c3ecc04ab72465393d44af3dcb14338246e9d1b87ed496a1c752605c57f236df", "command": "podman volume rm --all"}
+{"record_id": "4b07a5cf784e980c16042c57ab07ec960c397340177538fa1fb86f02ade50019", "command": "podman volume rm --force myvol"}
+{"record_id": "3faf9f272106fc22c9a4aa40de8bf6c023c4ad50ce5a4fcb5d4adae2a6065b21", "command": "sudo podman pod prune"}
+{"record_id": "f5f86fcb75e3628d0d264d425ee54d500c23f8ffa2c33be536a2c31fefdb05ec", "command": "docker compose down --remove-orphans"}
+{"record_id": "7ec89de6fae16fe724d7d7dd77f94743f84b79afb147de8d8954d130bc229206", "command": "docker compose down --rmi all"}
+{"record_id": "10001979f40f89640a6f822a272db9de1d227b0959c29d402615ce3780ad3bdb", "command": "docker ps -a --filter label=com.docker.compose.hook=pre_start"}
+{"record_id": "b675d90b2706f10a27357f96a7216364018b8ecb73297c60df8a131096500eb6", "command": "docker volume rm $(docker volume ls -qf dangling=true)"}
+{"record_id": "ed5e52e1f93820b61d95e4a8b1642789dadf52f02611ddb85447ff4aefa64244", "command": "docker volume ls -qf dangling=true | xargs -r docker volume rm"}
+{"record_id": "b8adec8acb4c7c100e12e2ac8d9f13fdd534603a1b51b19331b2759755584ee0", "command": "crictl rm --all --force"}
+{"record_id": "95693f3c4e8971b5abaa1aec447aef200df0347cfba1362ea084498d071de09d", "command": "crictl ps -a"}
+{"record_id": "4004579431b4638f3dda7e7690384dcde0abf81b3a6ab5404ef84a98d1f35783", "command": "coi clean"}
+{"record_id": "8588d0e31d91938e596f99306ebbce403793c04773eead40cb774316e4767263", "command": "coi list --all"}
+{"record_id": "716dec8758771d9fd5df065bba5463e319f6a49499f56d7fd00e57dd847b31cc", "command": "nerdctl system prune"}
+{"record_id": "f304c34625b27a7c5a3ba2689e68f678bfd7d0c957240523498d01d971092b81", "command": "nerdctl ps -a"}
+{"record_id": "14150257a85c7312f99f1429ea3dd66b330d563168f4b22c41c0852f4e63f940", "command": "sg incus-admin -c \"incus list --format csv | grep claude- | cut -d, -f1 | xargs -r -n1 incus delete --force\" || true"}
+{"record_id": "b8df9d3fb890f6bc4795d7a50eb7b4d04096b5254b8a71d97a8e0b2f1be45ec8", "command": "incus list --format csv"}
+{"record_id": "5f90552e965b4febd8be297d68944b384086e09604dc2d722a86956fdf56ac3c", "command": "podman machine reset --force"}
+{"record_id": "f4f93a30c80221b19c23f8433a38e48dfed8643066b3876188192cb3c6c5b1d7", "command": "podman machine list"}
+{"record_id": "1a4f4883596e27d37805ef92bde281facff1b7b8c399cdac83cecc1eeea44727", "command": "podman-compose down -v"}
+{"record_id": "050a5d6f9e02cf094254024e378e5ef02272d70bbe9d345c6f4d6fb84c3e8fbf", "command": "until crictl rmp --all --force 1>/dev/null; do sleep 1; done"}
+{"record_id": "a597707bacf04357230f1ac22fcb1df06663d9502c6117d3b1573331523bcf0a", "command": "crictl pods"}
+{"record_id": "a25a79595c05bd3ec1ca176a6f1a8940d0fb6363530d6f674791925e4957823d", "command": "aws s3 rm s3://amzn-s3-demo-bucket \\\n    --recursive"}
+{"record_id": "2e51394b8b9315a7dc6d0b476b907358f0708ba0173940203875ad2a5901f7c5", "command": "aws s3 rm s3://amzn-s3-demo-bucket/ \\\n    --recursive \\\n    --exclude \"*.jpg\""}
+{"record_id": "8d95cb8656fa430399de8051d1bb32ed32f383e7d9b0f4d3d70e9147a52452c5", "command": "aws s3 rb s3://amzn-s3-demo-bucket \\\n    --force"}
+{"record_id": "869fd038f75bb3cc73c30ed155270e2f06be35d06a43eb314ad0f06077804d71", "command": "aws s3 ls s3://amzn-s3-demo-bucket"}
+{"record_id": "539a565ddd554fbf5032ee19a87d3545de6f35aa569fe30b2d9728f87239e298", "command": "aws s3 ls s3://amzn-s3-demo-bucket \\\n    --recursive"}
+{"record_id": "2264939946a16f60d724cf03c982f5fbf0faf2bd203cd52b94b4d8665a571b8a", "command": "aws dynamodb delete-table \\\n    --table-name MusicCollection"}
+{"record_id": "95c144125f9ba1d93ed18a1dab4d91a0fa65a8ab1c97326a17447f591dffd1f8", "command": "aws dynamodb describe-table \\\n    --table-name MusicCollection"}
+{"record_id": "19bc13c65c24d89c39189bfb64f265823e44819b907cf0d2c1718c5ef13bb958", "command": "gsutil rm -r gs://bucket/subdir"}
+{"record_id": "c4c9fcbc844b8df8cec9ac1c0b220efbaedc07087c761e59f4d30b0fa6761db7", "command": "gsutil rm -r gs://bucket"}
+{"record_id": "6bdc81203432cbf8a6cf6115e9af39d22acf4396878f05196d3d9a2f4071114e", "command": "gsutil rm -a gs://bucket/**"}
+{"record_id": "d80c56dfb6ccded91b1dcf447dfacafa87d9e0b96853e47e33d542a4b56d40f0", "command": "gsutil ls gs://bucket"}
+{"record_id": "54ac093daefac6431007798adb16836890165a206ed71efcb270d64e8283f67b", "command": "gsutil ls -r gs://bucket"}
+{"record_id": "52a7ff2315edd73149a8088d437c127cb65739c70b90f32b7655072ef4a06149", "command": "az storage blob delete-batch -s mycontainer --pattern \"dir/*\""}
+{"record_id": "7a9813878dd6c5171bc85a1c9cea99d7e44b02d98c2dcfb61ad962b1f9c0d7a1", "command": "date=`date -d \"10 days ago\" '+%Y-%m-%dT%H:%MZ'`\naz storage blob delete-batch -s mycontainer --account-name mystorageaccount --pattern \"*.py\" --if-unmodified-since $date --auth-mode login"}
+{"record_id": "b80b0cf0ea58bd6041e6c7e3665c6c441803654dcb7229e57005fb9a9491c022", "command": "az storage remove -c mycontainer -n path/to/directory --recursive"}
+{"record_id": "a6c524b1c64b01989a5996d6ac01bd16d063959a9f307e3b5e0848486ef0f7af", "command": "az storage remove -c mycontainer --include-path path/to/directory --include-pattern \"*.jpg;*.pdf;exactName\" --exclude-pattern \"test*\" --recursive"}
+{"record_id": "e8044e265b8abf3ef525185e080dbf043a30f810c7b0c33086ea17325cd36729", "command": "az storage remove -c mycontainer --include-path path/to/directory --exclude-pattern \"foo*;*bar\" --recursive"}
+{"record_id": "7655272bdf47d1f519f8cd44dcc8578bb8c5040b5ffaaa7a337ce7473c23053e", "command": "az storage blob list -c mycontainer --prefix foo"}
+{"record_id": "9789d19ff7cec6baeea8d479495cdd5f8e5e79f8774cfb70af8fbc1fe1352a56", "command": "az storage container delete --account-key 00000000 --account-name MyAccount --name mycontainer"}
+{"record_id": "a6c0a9f1b29bbabb0ca524ac8715665cf45e0fc1c52d8650e248abc852f601e1", "command": "az storage container list"}
+{"record_id": "3ad94e6405b2279d179bbafbae0b122b38b054669ba798fb73ee5c7c61489fe6", "command": "az storage container list --include-deleted"}
+{"record_id": "66281cf0db27db53f1b4d06a1c1d00bd44cd108765d550757c7e68c6c79c50d1", "command": "az storage remove -s MyShare -p path/to/directory --recursive"}
+{"record_id": "01151643c4b9a8b18fc7f07b39030d63cbb9b906fa873a08fc0f7613967416d3", "command": "az storage remove -s MyShare --recursive"}
+{"record_id": "0d1f7cd03a3fdad9e6dda22026739c91af70e19afa8695c4582cb4a6cf3def5b", "command": "az storage file list --share-name MyShare"}
+{"record_id": "7505696d4343ecfc0acd48069df77440ebfb9c5069c326084ad519d03f65482f", "command": "redis-cli FLUSHALL"}
+{"record_id": "4f1edb03e257aa625e42a72d94efb137454e38b49e480f45f3b6dc9f282f2328", "command": "redis-cli --scan --pattern 'user:*' | wc -l"}
+{"record_id": "e9d853c0246bf3c6feba2924a2cec9df6b76096a138fb208e44de5b5a56ba31f", "command": "dropdb demo"}
+{"record_id": "56ddc9d57dbca900c6ba4f0bfa06b5928b852ae9e3e58e580c99d1527188928d", "command": "psql -l"}
+{"record_id": "f27112b8348a14bd8b235e3ac1374631fcfa86c2012681a2a1936a208585d572", "command": "sudo mysql -e 'DROP DATABASE mydb0'"}
+{"record_id": "0df9f65d1c8f2aa29bb9461e693847d6685c25a85d71c63e6b4f9ab701e67564", "command": "sudo mysql -e 'SHOW DATABASES'"}
+{"record_id": "8e701db2d44987ca8397b93dc32aaa1e011acbcce3b453e726668ff60c45355c", "command": "sudo mysql -e 'SHOW TABLES' mydb0"}
+{"record_id": "8b900c9b75ad3f0eadf8cbebb26fbe5f7b7ce3ed3e35f047e674c0689377b12f", "command": "psql -c 'DROP DATABASE \"testdb0\";'"}
+{"record_id": "e4da366606ba06c0772fd6d28830d56025edbc26c881d7156c0c0ff57ac6de68", "command": "psql testdb0 -c 'DROP TABLE table0;'"}
+{"record_id": "13c33cf3f8d2658c05a3885c3b5e877bebb1d1a04084480d5f02e1c1cc60386f", "command": "psql testdb0 -c '\\dt'"}
+{"record_id": "6ea549c6699263f53a7ee51825e7784f4f4337df4f775c28d15799c5040451ac", "command": "psql testdb0 -c '\\d+ table0'"}
+{"record_id": "269b71f12c25e4087a9042c949de6726b46bc7d6b84b616cef8adfc9e1fb94ab", "command": "psql testdb0 -c 'SELECT * FROM table0;'"}
+{"record_id": "ad2cee6a346643da9f891fd056fe74b24bfea9582cbb1686f2ff9c13f2cb7fed", "command": "rclone --min-size 100M delete remote:path"}
+{"record_id": "c76b808cdd15b5b805a0d73d6a2e07a2af8d7dfb14a0ff6fd0ef3a09fd8fcdf5", "command": "rclone --min-size 100M lsl remote:path"}
+{"record_id": "3c076bc34d3dcf2abdd47cdde93eb43e9bf7439904769e33c87fb98c07ee34e6", "command": "rclone --dry-run --min-size 100M delete remote:path"}
+{"record_id": "afc4e965b9cb6f38708e1813e675fc3b10f0dadb469b77abd0ddc27f7a19c65d", "command": "./mc rm --recursive --force local/bucket"}
+{"record_id": "af590331cfda8633c9d0e01bbb107a1e0030e3ccd6f56ce833afc654ebf67361", "command": "./mc rb --force local/bucket"}
+{"record_id": "4af6c24ab910eeacefa7aeb0d4e33e8e1490ce4940d4438a4e4401dac5e63966", "command": "./mc ls --recursive local/bucket"}
+{"record_id": "62637006d16b86c74c0bcbcd7a36973d5928a0c3db9cd1ac5e852c44669e8993", "command": "oci os object bulk-delete -ns mynamespace -bn mybucket --force"}
+{"record_id": "020e0b6ff68573a55d2917ca13c5e510bb472ed69a61a4c1020ec8cb2ff04364", "command": "oci os object bulk-delete -ns mynamespace -bn mybucket --dry-run"}
+{"record_id": "1ae12f57bf1beb4259cf1b0dc8c5c40b4ddc7cf847b77197ec2792b431e8a089", "command": "oci os object bulk-delete -ns mynamespace -bn mybucket --prefix level1/level2/ --force"}
+{"record_id": "116e230697d9f21dc24bbf5902b1aae5c82ad4ca7c5c791ef6344c1b07a4f6b7", "command": "oci os object bulk-delete -ns mynamespace -bn mybucket --prefix level1/level2/ --dry-run"}
+{"record_id": "ae5c11fb3b78f54eecceb2ec8d1c912410b4fbbf2ca875c6f979702b7b28cf9e", "command": "oci os object bulk-delete -ns mynamespace -bn mybucket --prefix level1/level2/ --delimiter / --force"}
+{"record_id": "3b3e231be808be189f60e01e8627cffd3586ccbf60b4552a022db3b8e0d91dff", "command": "oci os object bulk-delete -ns mynamespace -bn mybucket --prefix level1/level2/ --delimiter / --dry-run"}
+{"record_id": "2598ece11c731f7b95920e6cc72fcaa0ae934273b7de1112139d4f75a444cfe3", "command": "oci os object bulk-delete-versions -ns mynamespace -bn mybucket --force"}
+{"record_id": "042b165fae206100e14dea02247a792c2b71c357e132348c8d2890b85926b60d", "command": "oci os object bulk-delete-versions -ns mynamespace -bn mybucket --dry-run"}
+{"record_id": "9c6aaa478e426b1d25fee57b27b84e8dc9fdef387d721b84857dfe6470534b64", "command": "oci os object bulk-delete-versions -ns mynamespace -bn mybucket --prefix level1/level2/ --force"}
+{"record_id": "fbc8250d4fc0fde22ce294986604ac77a02b062fe0b69bab4c5f96dec64ca881", "command": "oci os object bulk-delete-versions -ns mynamespace -bn mybucket --prefix level1/level2/ --dry-run"}
+{"record_id": "3fffa67b43ae7d1031c1b15a0807707b37c2dac5013a6ad2630a38b8f88fc919", "command": "oci os object bulk-delete-versions -ns mynamespace -bn mybucket --prefix level1/level2/ --delimiter / --force"}
+{"record_id": "4ba85289760407db344f2b99c0fa43ab2d16ca0e7b277ef7666c3de48ca5143f", "command": "oci os object bulk-delete-versions -ns mynamespace -bn mybucket --prefix level1/level2/ --delimiter / --dry-run"}
+{"record_id": "c06eddc339840e5d799a95ae734e12feb3dcd7c2faccc89f47865fc762c2a1af", "command": "aws rds delete-db-cluster \\\n--db-cluster-identifier mycluster \\\n--no-skip-final-snapshot \\\n--final-db-snapshot-identifier mycluster-final-snapshot"}
+{"record_id": "f36307c1ec69b5544b87eee9fa7471723bf74de2f7fdd2ab93aa4579db8853bf", "command": "aws rds describe-db-clusters \\\n    --query 'DBClusters[].{DBClusterIdentifier:DBClusterIdentifier,Endpoint:Endpoint,ReaderEndpoint:ReaderEndpoint}'"}
+{"record_id": "34d25fa09578388766e77b5020d808b82f5eac0eb5064c61d55e15f2c3c53c1b", "command": "aws rds delete-db-snapshot \\\n    --db-snapshot-identifier mydbsnapshot"}
+{"record_id": "8ea37ed97a3b04ecc01365a255c7a6d6d19e5fe2825b8cf103939965a0aaeb57", "command": "aws rds describe-db-snapshots \\\n    --db-snapshot-identifier mydbsnapshot"}
+{"record_id": "e5a13f376a215d9480c2321fb2e04cdab5ebd8875109e9efe6c4a844db16dac5", "command": "aws rds delete-db-cluster-snapshot \\\n    --db-cluster-snapshot-identifier mydbclustersnapshot"}
+{"record_id": "bea06d838356b5827cc5651b72ceb709cc884fed6077a1887dcf42217936b524", "command": "aws rds describe-db-cluster-snapshots \\\n    --db-cluster-identifier mydbcluster"}
+{"record_id": "dc7d8cf35d645bff83702db50607fd011e8c681c0ff0f822c75ee1c46bfbb18e", "command": "aws rds delete-tenant-database \\\n    --db-instance-identifier test-rds-oracle \\\n    --tenant-db-name tenant2 \\\n    --final-db-snapshot-identifier final-snap-test"}
+{"record_id": "8afe6e8b9551a2e68f29da05610a66b9557900156383b4eb73651314c5f73059", "command": "aws rds describe-tenant-databases \\\n    --db-instance-identifier test-rds-oracle"}
+{"record_id": "6a31796c10655d92645258d12e7732a4d45ed175e6de7b6be857f86ce5ecc48e", "command": "aws rds delete-db-instance-automated-backup \\\n--db-instance-automated-backups-arn \"arn:aws:rds:us-west-2:123456789012:auto-backup:ab-jkib2gfq5rv7replzadausbrktni2bn4example\""}
+{"record_id": "47e717b053e6124346ddd95d3a1044a1b6ba13eca6b49babd1aac6a0b86502fb", "command": "aws rds describe-db-instance-automated-backups \\\n    --db-instance-identifier new-orcl-db"}
+{"record_id": "f44b0add9900e7a2b89cdc0f4267992e9c2b4ad24794adbac97cdfe0c6ba1d6e", "command": "b2 rm --recursive --with-wildcard \"b2://bucketName/*.[ct]sv\""}
+{"record_id": "187a8e20d867d78234fc58b4b8dedea6ca5a377bd4e09ae423cce9ecf5773dbd", "command": "b2 ls --recursive --with-wildcard \"b2://bucketName/*.[ct]sv\""}
+{"record_id": "2a44aa8adb23b40feda59d9f60294898d4147f78b4e96fc28fa35d1710cb716c", "command": "gcloud storage rm gs://my-bucket/my-dir/**"}
+{"record_id": "e688e87bb68a04d707df57bc8e45c297ca1e9bc9cb2df402f3d68327c333f71b", "command": "gcloud storage rm --recursive gs://my-bucket/"}
+{"record_id": "32049c9ee889c9022356c42bcefa526141b124b368550f2270f1e8ff34c49fe4", "command": "gcloud storage ls gs://my-bucket"}
+{"record_id": "ba9f2484d156e36892d6fba50f983058e5b1b980191bfc44691356a609b02d81", "command": "aws redshift delete-cluster --cluster-identifier mycluster --skip-final-cluster-snapshot"}
+{"record_id": "34fc7109ef99f4e2f0522ad99ab23584635c21bc840bd64299cf3a2b75ec0e57", "command": "aws redshift describe-clusters"}
+{"record_id": "f56d69069dc803d1dbaf0e240c7a64c3025117e291b328dfa9ef5aac1d66ca62", "command": "aws redshift batch-delete-cluster-snapshots \\\n--identifiers SnapshotIdentifier=mycluster-2019-11-06-14-12 SnapshotIdentifier=mycluster-2019-11-06-14-20"}
+{"record_id": "2fb7363aa35b0bf1f07e6bb8f81f31bc7a77b5fe7435f1ff0d17dbdf83f5ee77", "command": "aws redshift describe-cluster-snapshots"}
+{"record_id": "6288e8eafa630fab1657723ef5856089ca2abff98a8f9a1c0abfdf1234e19288", "command": "aws docdb delete-db-cluster \\\n--db-cluster-identifier sample-cluster \\\n--skip-final-snapshot"}
+{"record_id": "5fc8f2e2733f1c42f19a2ccefcf4f1ba0550fd1ace032485f306b93b7fe401e4", "command": "aws docdb delete-db-cluster-snapshot \\\n--db-cluster-snapshot-identifier sample-cluster-snapshot"}
+{"record_id": "531b344f9d68a0520c43881232090ad002907f173aaa6c2612418fa95dc2f302", "command": "aws docdb describe-db-cluster-snapshots \\\n--db-cluster-snapshot-identifier sample-cluster-snapshot"}
+{"record_id": "0cff2421e1d9d5408cd8b883930981848b5352b7c0aca170ed8ff19d707d8f9d", "command": "aws elasticache delete-cache-cluster \\\n--cache-cluster-id \"my-cluster-002\""}
+{"record_id": "b227109ddf51be1b7442e54062114119973f2ca5ba9a65c1c40cb622c8261cbd", "command": "aws elasticache describe-cache-clusters"}
+{"record_id": "706f64ec95d4b459ea37350c517a0c0af0f863a57ef47393672e9ff52c8353be", "command": "aws elasticache delete-replication-group \\\n--replication-group-id \"mygroup\" "}
+{"record_id": "e8bcca85d812f72a127e563b6af84ca0f76230147e441c179eaca869d795a21a", "command": "aws elasticache describe-replication-groups"}
+{"record_id": "52ddab8baa75a91ba2f47f51d899544458288f4a96735292290838fc9230486c", "command": "aws memorydb delete-cluster \\\n--cluster-name my-new-cluster"}
+{"record_id": "62141aa67c9637e7b8e7cec538c15e1315dca020f1c1cc688507af14a1b2045f", "command": "aws memorydb describe-clusters"}
+{"record_id": "96d5f768437c23eeb498600ce911239adfe3358db582aa862fc2eba167fcc02a", "command": "aws lightsail delete-relational-database \\\n--relational-database-name Database-1"}
+{"record_id": "47d3901619e345b96f1dd6b581a29fd2cea000e1c715a684d31897e7c4d64bba", "command": "aws lightsail get-relational-databases"}
+{"record_id": "ca0a4fa30c7ec595da7c982daf7127a5f1f5d3ccf7506b68e7b4acb39b5df03d", "command": "vercel --prod"}
+{"record_id": "b6aafacba2834237e005ba7d7cede0b58219c5855a9325aace4e0dba0cdbcdb8", "command": "vercel --prod --force"}
+{"record_id": "8c3fc7a8a3082e9789faa85450803fd610ee33c867da9b08225618ee662f25ae", "command": "vercel deploy --prebuilt --prod"}
+{"record_id": "b386be0396a5eb160d819bdae06278a6cbe19094bc375498da59713035c7f84f", "command": "vercel rollback status"}
+{"record_id": "d4646f10efe7695220552671f27456804d1fc52e541a442fabe10398059a826c", "command": "netlify deploy --prod"}
+{"record_id": "0cf7b26f046a8e4e3bcdf430bb74c028fa8b04d2db0d3634d68f2f6d50745d91", "command": "netlify deploy --remote --prod"}
+{"record_id": "0b77df4247421cade3a813f07da86528b0597d6469c618226ebf723168e363f7", "command": "netlify deploy --prod-if-unlocked"}
+{"record_id": "03523bad6c265de1f06d14589f626a971d2b200311ed9ec3ac8464518ff7fbc2", "command": "netlify status"}
+{"record_id": "9f2a7c805dbe0cca22f98f26555f8ef005d46b255948cb612e6d44c100179bfa", "command": "kubectl apply -k deploy/k8s/overlays/prod"}
+{"record_id": "0df0bc39d830bcc02f12c3d695f18b6a55cb16e1ca019ae9aa52ebff42aec4ed", "command": "kubectl -n linkwork-prod get pods -w"}
+{"record_id": "75cba630815c4b5dd914eb542cab3829042386134f13672887b6353552c8c138", "command": "kubectl rollout undo deployment/ralph-orchestrator"}
+{"record_id": "1216bd08abc102da863b9aa1c3bea70aceb473ce840fc96a6443e43eb30cb6a9", "command": "kubectl rollout status deployment/ralph-orchestrator"}
+{"record_id": "a13496f7dd0e0a60e0028df53992dfab07e9f3f44b59a6863ed1d7f12fd1c1a1", "command": "fly deploy --app adcp-docs"}
+{"record_id": "13eecef1b4041724c5ec04afbe5c7117ba7adb73b7df0ebcbf0f3dc101bf4ee6", "command": "fly status --app adcp-docs"}
+{"record_id": "e47336dfb23c08e6de7d4ee0369524b2561ef8702f74c7baf7f65ac5dfb6e44d", "command": "fly releases --app adcp-docs"}
+{"record_id": "d3395b07927144742bd59d7664503e7f26798b6438f77caab7199bba564aaab8", "command": "(cd modelguide-api && railway up --service api)"}
+{"record_id": "536c6a651c9db93e99cfdcdc66ba27820df2dc0231d17fe3bf2b0ade686aa5be", "command": "railway status"}
+{"record_id": "649b0d07d82a70a2a3d306100eea50bd07edad439bd5e6b4a68223e62a8daefc", "command": "gcloud run deploy pharmstock-backend \\\n    --image gcr.io/$PROJECT_ID/pharmstock-backend \\\n    --region europe-west1 \\\n    --platform managed \\\n    --allow-unauthenticated \\\n    --memory 512Mi \\\n    --cpu 1 \\\n    --concurrency 100 \\\n    --max-instances 5 \\\n    --min-instances 0 \\\n    --timeout 300 \\\n    --update-secrets GEMINI_API_KEY=gemini-api-key:latest"}
+{"record_id": "cac07a98a6aad606e83275eff9b1aab08c8462877cfc4e2e5b0f62d2174429e7", "command": "BACKEND_URL=$(gcloud run services describe pharmstock-backend --region=europe-west1 --format=\"value(status.url)\")"}
+{"record_id": "646b2d2b6108b39d4668a333436dc9f3288d880bf6a2bb7ac367f219fbdbc2a9", "command": "npm run build:production && ../node_modules/.bin/wrangler deploy --env production"}
+{"record_id": "ff18576ffb1da888e53a20094cc5fd8a48b98407d406aa009c4e740ebbad17e6", "command": "version_id=\"$(./node_modules/.bin/wrangler deployments list --config gen.pollinations.ai/wrangler.toml --env production --json | jq -r 'max_by(.created_on).versions[] | select(.percentage == 100) | .version_id')\""}
+{"record_id": "44c5eb517ad96508e4f300ae39f0685ac8c392194753f20d3ea6c64e7387a579", "command": "kamal deploy -d production"}
+{"record_id": "929b0b382681604cd749aa8388a34925574ab9ac8f60a8ddca8c17d8413ab02f", "command": "kamal app details -d production"}
+{"record_id": "31c30d6414b59c334d4a76acb8a623d7b6c63f519b6b4a5d86c6b9489c09eb33", "command": "kamal app version -d production"}
+{"record_id": "01ce5bb443d243919471f91f4f0a7748f75cd98ce124ee493b408bcde1b37270", "command": "find src/components -name 'module_1.py' -type f"}
+{"record_id": "0db5c7939df812716bf5f1ed8b4f90cac4f60704eccb9f96b9337a7b75166256", "command": "find src/components -name 'module_2.py' -type f"}
+{"record_id": "5564d22c2e52d8a176c0820c829169b51a2b033fe6398a6d6103b5ac5b78425d", "command": "find src/components -name 'module_3.py' -type f"}
+{"record_id": "570891d1b06d565841c218afcf29104a1f874408b596483fa55b231da655a05c", "command": "find src/components -name 'module_4.py' -type f"}
+{"record_id": "62f9cd197f9216fee14348cda8cffbc5f6e4dde53ffa5c25379f44980d278925", "command": "find src/components -name 'module_5.py' -type f"}
+{"record_id": "c194cef4b7c99421f1207d59b9edcecb5afe0c5a803d65eb2963d312a6aad14c", "command": "find src/components -name 'module_6.py' -type f"}
+{"record_id": "7930e916064464043bb1eb83e81720b96d97b7bcf2a267640b3865ca5a7dd8ad", "command": "find src/components -name 'module_7.py' -type f"}
+{"record_id": "3d21dcc698a2a6143a0e92b221aae40ca1c7a5c4e81486515c4e65f0b1d0dfe4", "command": "find src/components -name 'module_8.py' -type f"}
+{"record_id": "71e73a60245b1ad67675534c8b21e9b8c204435d5328d8a971f339982e4d35b4", "command": "find src/components -name 'module_9.py' -type f"}
+{"record_id": "9e6a1b31e1a03a6db8db46a55abf3977ee3df5103e3eecb0c203c8cb0a97613b", "command": "find src/components -name 'module_10.py' -type f"}
+{"record_id": "2725f18750d489b093415e06751d10d17feca936304f35cdf45ce7ce4036650d", "command": "find src/components -name 'module_11.py' -type f"}
+{"record_id": "46deb86e710e52f3225d7c71502f482397ea6b8825045c10b50b870c52901892", "command": "find src/components -name 'module_12.py' -type f"}
+{"record_id": "8ccb6fa62bf505d117dcd21088333908ca8e65ee62f5bfae4782879c56f0d600", "command": "find src/components -name 'module_13.py' -type f"}
+{"record_id": "dd2af6781a470b70581900cc7a78b10273edad5ff5f387d4f8b79f881eba668f", "command": "find src/components -name 'module_14.py' -type f"}
+{"record_id": "35893a4f0b6c131863e5c4a4bd9d6b693b9c879822e3cb935ac5ca7b300674c7", "command": "find src/components -name 'module_15.py' -type f"}
+{"record_id": "d07e18001db57f322306dc3d1f26177fefe567dd4fee17e354af210eeca707c4", "command": "find src/components -name 'module_16.py' -type f"}
+{"record_id": "c116c81e20f0a2ef9fc48754059d830d3dd06874323fe043a04afd5760155253", "command": "find src/components -name 'module_17.py' -type f"}
+{"record_id": "688607321f2c16fffd1fa23345e7bd9bb73062aef0a1f4bc6fb84d1c3ffab6af", "command": "find src/components -name 'module_18.py' -type f"}
+{"record_id": "66f39ede18b80cee54be3ec23ce1cec44caf071e74104374d7a5bd8477d5cc0d", "command": "find src/components -name 'module_19.py' -type f"}
+{"record_id": "e53b2711958d4f15bc1e78627af0144b014248eb80e19c8349ccbab8f547785f", "command": "find src/components -name 'module_20.py' -type f"}
+{"record_id": "41afd82a0c2ade84942eeee0037e324c7f9725b77b70dd67f983958a844be29d", "command": "find src/components -name 'module_21.py' -type f"}
+{"record_id": "1a07e318e6e9349374ad62a4d51e61cf05107d963e1709ecf28504741dd818e6", "command": "find src/components -name 'module_22.py' -type f"}
+{"record_id": "9c01ac94ac0fe6aa51356eab460962e89f460c578d47247b5e5fa684e4c3daf5", "command": "find src/components -name 'module_23.py' -type f"}
+{"record_id": "a2134b8c3bfdbd87d63d2b405857cbb19d86596b1931c531077c0d46fe0eece5", "command": "find src/components -name 'module_24.py' -type f"}
+{"record_id": "cda77a679156d67258e9a3988a19183de1d327117279a0cdbe7147f6c6162290", "command": "find src/components -name 'module_25.py' -type f"}
+{"record_id": "94264434f630d1012628e6512eabc3460d0c75f25cb55d476af6aac1f1154414", "command": "find src/components -name 'module_26.py' -type f"}
+{"record_id": "b22fa8bc8788b9e07a6ff19aecb487efd363be1fa18c2513b503b3907e563a3b", "command": "find src/components -name 'module_27.py' -type f"}
+{"record_id": "8d92bdf8c23fde0d19fe780bd11a08b5702e54792e46ecc5bf0f833acba28442", "command": "find src/components -name 'module_28.py' -type f"}
+{"record_id": "6c535529d40d47fab3ae38315d9f2be071a2c55b91d4a8d3f51009518be6d525", "command": "find src/components -name 'module_29.py' -type f"}
+{"record_id": "bbd83476cb61f22579101cccf8829fcc4d9b17f3244d13928d5ae0de8ce52568", "command": "find src/components -name 'module_30.py' -type f"}
+{"record_id": "204bd6e195020ac68b8c3fc1aef9b258dea6cecdd22fa3074e8f16f41ca0e6ce", "command": "find src/components -name 'module_31.py' -type f"}
+{"record_id": "3958fc86076b13370bb8233c90181289f3f9576c5042c9a31f5dff89212a7216", "command": "find src/components -name 'module_32.py' -type f"}
+{"record_id": "07eefdd698e665203197b591bc8225fb8fbc3df5f28acdbda808e5c0477c6d2d", "command": "find src/components -name 'module_33.py' -type f"}
+{"record_id": "8d94be5f481374c3c06480da7e82b4fc57b06c632fb7da088d9d380c5de0faf7", "command": "find src/components -name 'module_34.py' -type f"}
+{"record_id": "d609fa919f41d8a43b17f3ffc3752d154bd5ebb7bce97bc9de3ede834ddfa944", "command": "find src/components -name 'module_35.py' -type f"}
+{"record_id": "eaff3eb66e2cc6b8eb75761c8cefd2250a864d894a5341d744dc29866fb1a7dd", "command": "find src/components -name 'module_36.py' -type f"}
+{"record_id": "6d2aecd9dcbe6c05b2449146339b016c373851a6abceac06740b1009af5906f0", "command": "find src/components -name 'module_37.py' -type f"}
+{"record_id": "07ed8475261dbb431410d23fe99353c5b1357255c31c3270ffe48a8e3be038a0", "command": "find src/components -name 'module_38.py' -type f"}
+{"record_id": "303c72106a38db3ebb0699072496ff554e93f6b37e914848df686110faf5c299", "command": "find src/components -name 'module_39.py' -type f"}
+{"record_id": "43b84622ba4ced2e83b290a364a20a37f4e828e4ff75a13996fa3a49c1095b30", "command": "find src/components -name 'module_40.py' -type f"}
+{"record_id": "4dd1c3aa362e98096bdc649691f109e68ed869cef5de30f854e6cae094e3344f", "command": "find src/components -name 'module_41.py' -type f"}
+{"record_id": "feb158eab33bd4eb1b52628d62634db50003cb758f765c557ff26b847fe670f5", "command": "find src/components -name 'module_42.py' -type f"}
+{"record_id": "1dbafaf480b3ec75f969bd967d6c3b0dd0b5b5cf1e4337ef0998d85757d8b9b3", "command": "find src/components -name 'module_43.py' -type f"}
+{"record_id": "d4362286174277a29e4c4d2bb9f4b68467229286a8b17def9889b75fa4524460", "command": "find src/components -name 'module_44.py' -type f"}
+{"record_id": "12db45965f14fdb98a64bf08d26541deb9b4c8992af1c42bade3f95f07b52a27", "command": "find src/components -name 'module_45.py' -type f"}
+{"record_id": "ad61db868e8d8262972c069db27722e2ca5ad32088dd782e9d459179aa7bd143", "command": "find src/components -name 'module_46.py' -type f"}
+{"record_id": "98fe3c388622df7b3c04e70989b30029db8bece2d15108882442ce164b8942b4", "command": "find src/components -name 'module_47.py' -type f"}
+{"record_id": "aaf7eaf1b4b2a2bb19ece655894dc8d68ebbc53445c8e06bf28f16631102f6f5", "command": "find src/components -name 'module_48.py' -type f"}
+{"record_id": "22a23a6d1582e48d4c27710c57c043b0d7789c7e4ec0421dad9827f731cd1617", "command": "find src/components -name 'module_49.py' -type f"}
+{"record_id": "f8c9693efee139cfcf95e70d1c00e72f5591e14e85c6b61f2ec9ac9cce90b0f0", "command": "find src/components -name 'module_50.py' -type f"}
+{"record_id": "2e78788e30865ffe81fe0cdc272721548abab1016e2f03be58d84cf3c9837ede", "command": "find src/components -name 'module_51.py' -type f"}
+{"record_id": "6417175615aa826a8908ee6a41906a1297455eafd0120381e7bef9c4473313e6", "command": "find src/components -name 'module_52.py' -type f"}
+{"record_id": "b9149c1014fffda4abb71737f648b636591124ab758cb199eb46ec31f527e632", "command": "find src/components -name 'module_53.py' -type f"}
+{"record_id": "276be4ef3fb06dee6e7e5b044b32eb77c4896486e28a6e3b1af07ade4b56121f", "command": "find src/components -name 'module_54.py' -type f"}
+{"record_id": "18fbaec81ad7268c1c2d3170960721dd6bac84a36c0f5e1aeaebd996d7d2ea36", "command": "find src/components -name 'module_55.py' -type f"}
+{"record_id": "57371888ba76cf4199a7202ae3f8c15b774d97b8d5c03ee05632aeaa38273323", "command": "find src/components -name 'module_56.py' -type f"}
+{"record_id": "ea321bfd847a9f45aa464882dd1fa0b8b4c5470e5bb19c9ba2135140e6d11842", "command": "find src/components -name 'module_57.py' -type f"}
+{"record_id": "2a90b0f3010e9f85ba9c36f1a19fd66eab06515003bd1aeb1459a891757d5ebb", "command": "find src/components -name 'module_58.py' -type f"}
+{"record_id": "638bea63f65961e9ee617570386ea31b7707d621f2bc87041927d5e9016ec6bb", "command": "find src/components -name 'module_59.py' -type f"}
+{"record_id": "58113b62e71195187de78330e044f1d81d6ae5bd78b83ddc43962a590a63be4b", "command": "find src/components -name 'module_60.py' -type f"}
+{"record_id": "fcbd65a66d2434861dc76f74deedf4c0c7e8236906d52b843a8a56d700f2c42c", "command": "find src/components -name 'module_61.py' -type f"}
+{"record_id": "5683154e26b18b292d942e86420368b6cf684093fe92e6430c7820156e9b1be2", "command": "find src/components -name 'module_62.py' -type f"}
+{"record_id": "4302e41e87266c79d8d4822b4752c93099769d8f91a0c27e2cdc8585f36166cf", "command": "find src/components -name 'module_63.py' -type f"}
+{"record_id": "e5e05676e8521e72fa4f3008a5adf7f03bd65abadd73b3740d17f6fda97f83ff", "command": "find src/components -name 'module_64.py' -type f"}
+{"record_id": "04f0f104ef9c2f11dfe372e8f017a2e568607c8ae796013dd4732458fef5a1f0", "command": "find src/components -name 'module_65.py' -type f"}
+{"record_id": "b3356b5999a3ae1ccc355eaff94756eb4361908c07c2d82dca5cfac80c52dca4", "command": "find src/components -name 'module_66.py' -type f"}
+{"record_id": "a3ca218aa7f00d292cc13089a4e3ceaec00ad14cf45dd638d7f2c61a4dc9e574", "command": "find src/components -name 'module_67.py' -type f"}
+{"record_id": "869b161d9887b4f6aa103ac0e64c2164a6b786d54113c0c7acc6c81fc3c6b7e2", "command": "find src/components -name 'module_68.py' -type f"}
+{"record_id": "42c8e7bac5e0a0b88194cde43752c00b90667e16d0c8aba99d8638ca22378bb4", "command": "find src/components -name 'module_69.py' -type f"}
+{"record_id": "48133372dae1d63664bd40dad20054a172c2cb2ac4768547e21ca6a6e632f648", "command": "find src/components -name 'module_70.py' -type f"}
+{"record_id": "e47fc819126af9c5f668092ea442f8e1c56394e5233994d00dae695609ae0bf0", "command": "find src/components -name 'module_71.py' -type f"}
+{"record_id": "fbdf6f02d7386d2fc2bdf23daf73286b6ca933a530d1fda5265bd4f4571da061", "command": "find src/components -name 'module_72.py' -type f"}
+{"record_id": "4c3e3798840d189de256215fc329e2433c4a05fdd4e7b371db6ee43d9777b13e", "command": "find src/components -name 'module_73.py' -type f"}
+{"record_id": "a4004af4a886542d20a50a2db61a84aa9dfbbb58bf273405af1e69c9ed2651dc", "command": "find src/components -name 'module_74.py' -type f"}
+{"record_id": "66c0f93db39b13eb8d3c67996d97e02ba03f18ebe27c968cb865f8cb92c1914f", "command": "find src/components -name 'module_75.py' -type f"}
+{"record_id": "bd82ebb76efdb32a5e1c3a00faf5822a382a386fda16bf9884ea0791226a10be", "command": "find src/components -name 'module_76.py' -type f"}
+{"record_id": "ce448137b1379b9247698c9675a4691b045a747990391082eccf322682eafb74", "command": "find src/components -name 'module_77.py' -type f"}
+{"record_id": "00dbcc80b78305e6d09a98d5ba9ad680f9bb39a5a4b57a38483e5aefb8cdc3a9", "command": "find src/components -name 'module_78.py' -type f"}
+{"record_id": "550ac88fa0742f17ce4f84a0f6ca36158ba1a50db754b21498bb640381c7fa6b", "command": "find src/components -name 'module_79.py' -type f"}
+{"record_id": "b9fe0d1cae258aa76515d82d6bd08392423c1d92ea73688680ff24dacdf065d6", "command": "find src/components -name 'module_80.py' -type f"}
+{"record_id": "ccc9079719546e42ba7c83127379d07892839978918126136333ac60884db04c", "command": "find src/components -name 'module_81.py' -type f"}
+{"record_id": "164568b96424807d66f64c7644433aaf5a5012c850917f2046e076bc28d7a058", "command": "find src/components -name 'module_82.py' -type f"}
+{"record_id": "606be95dd56a95aeb375c5f80bf8efb66f01de0d5c09a23a1c828632598cb038", "command": "find src/components -name 'module_83.py' -type f"}
+{"record_id": "411b0223f16a30f7c99b2547dbe96123ffaf6c80834cb18f75f57a3818baf761", "command": "find src/components -name 'module_84.py' -type f"}
+{"record_id": "42d3167045c594466b5ce9530a57d67c14a7b9aa8ac2046c6236d0ebb875d1cf", "command": "find src/components -name 'module_85.py' -type f"}
+{"record_id": "95f20150206e31355877c728c241461d34ddf703631cac295bee2fda4af0939d", "command": "find src/components -name 'module_86.py' -type f"}
+{"record_id": "486beec05d563adeee510fe96e34a7d022184a5607d0011bbd7f7e479a6e4b1a", "command": "find src/components -name 'module_87.py' -type f"}
+{"record_id": "0f431981717badf0a8e30ccaa1f6755ac528cbdf4bb09aa98d95d2454a1ead0e", "command": "find src/components -name 'module_88.py' -type f"}
+{"record_id": "44b38406cf3c094e1073e200040dadc88c7992d0b152464e234d750ee79f871d", "command": "find src/components -name 'module_89.py' -type f"}
+{"record_id": "a659a7a1936f227bc0de32a27b4ac3e0cf796996397784cb9253661eeb57d41c", "command": "find src/components -name 'module_90.py' -type f"}
+{"record_id": "335b1c7fd27fff368c55ef5ca2bff2ca5e541c90a571cc441efb65e7326d9b3f", "command": "find src/components -name 'module_91.py' -type f"}
+{"record_id": "e634a610e567bff31c41e1ac2d4e87b140b0300d26c66f1058a913ea0eb5c9f9", "command": "find src/components -name 'module_92.py' -type f"}
+{"record_id": "979542cc6678cf4126f83ffde990ed39997ca79b0cdec448e53b69735f619a29", "command": "find src/components -name 'module_93.py' -type f"}
+{"record_id": "dd4c05993fb9b4dc7cd56f5b1a22bb8be570834b4e6bddf1e563879bd1a1ce3a", "command": "find src/components -name 'module_94.py' -type f"}
+{"record_id": "46a3f85c1e7ff0f1393a89aa70ffc5560cb9bf579b8ec5dbee5c3b3b4952b883", "command": "find src/components -name 'module_95.py' -type f"}
+{"record_id": "2c96c4dd378cb61bd4c4713c93ca4dc93d65a67d31ec4fbe7061b3d99f476e37", "command": "find src/components -name 'module_96.py' -type f"}
+{"record_id": "6a61457b47a1a93fd7d9a6b23505af4359c5b45502394238187c5e1efbf35665", "command": "find src/components -name 'module_97.py' -type f"}
+{"record_id": "33a140207c233dc62d85ac6024ed8bbb7f5884b17e7e37dee16a070825a03c5c", "command": "find src/components -name 'module_98.py' -type f"}
+{"record_id": "6a7bd92e037117b661c5bf5cc95594c555ffd87e0f0130d3d7fbec26ddd9f278", "command": "find src/components -name 'module_99.py' -type f"}
+{"record_id": "8c282dcab188ddb64099c44bbaaf4721fd9361f4b01f0a471b05ab15a13aa2da", "command": "find src/components -name 'module_100.py' -type f"}
+{"record_id": "00966a7d60a237f7bc6180936af52e464e0bf6d0b7638f0dde69645dcd8ab099", "command": "find src/components -name 'module_101.py' -type f"}
+{"record_id": "b8b503de3b907ff45e55878fbbf588f568606d25a036ffb3509c4c94817ab0d6", "command": "find src/components -name 'module_102.py' -type f"}
+{"record_id": "3acdf3ffd4f5fe1be96b1bbefe48ca75eba0708ffb39b82dda231ec32f879f9b", "command": "find src/components -name 'module_103.py' -type f"}
+{"record_id": "71d9f7fccb301d7e7e0f5e4a357a5e21ae2712d6394c503b06e67fc141c7cdd4", "command": "find src/components -name 'module_104.py' -type f"}
+{"record_id": "c10c76215626174e2e92be24f66b36ea9ffdadeebaa63f716c9b5f94158839aa", "command": "find src/components -name 'module_105.py' -type f"}
+{"record_id": "40e512d79e9d897bc610c3016bdbfdf5b5fb7ce0d5faeb598effc6ef0bb3a616", "command": "find src/components -name 'module_106.py' -type f"}
+{"record_id": "ce3e0bcdbd6b2746399047fdccaf40e410cbeddb4d4699f0422501e9ccab7c72", "command": "find src/components -name 'module_107.py' -type f"}
+{"record_id": "bb2d14a025d1fc5798228fbd699f1df65304900f23e8532391351589f03c548d", "command": "find src/components -name 'module_108.py' -type f"}
+{"record_id": "56c9c4f9ed2ee1499cbe986da8e7beb34eefc745401824af0431823bf07447cf", "command": "find src/components -name 'module_109.py' -type f"}
+{"record_id": "9fcdd60ba2265ff3f1783327e1bb291911d42284924efa8d1d99bf28f9b30abf", "command": "find src/components -name 'module_110.py' -type f"}
+{"record_id": "3202b24e27327be1766932854a72aee10adf95ca649f5a2d42f711c66b483b45", "command": "find src/components -name 'module_111.py' -type f"}
+{"record_id": "8b0c26fc8d237b714281fc2b429a5e18185442381091b97d2a05459e5130cc84", "command": "find src/components -name 'module_112.py' -type f"}
+{"record_id": "173a953ab19983d90b6f45ebc9a2eb32fd4d23af08bd0544325c660b02492a52", "command": "find src/components -name 'module_113.py' -type f"}
+{"record_id": "b2b4609c65085c7c2cca3f2ab5717c43e923456085073fcc716fdebccd0ff2ff", "command": "find src/components -name 'module_114.py' -type f"}
+{"record_id": "bc9e295111d044e87292b3dfde7591abfefb62e819eb46cd400e0891400d19a9", "command": "find src/components -name 'module_115.py' -type f"}
+{"record_id": "23b44cfdb01850dc8f0731bce2c2ec8aeae88979015cbfea543e5ba0aa1e5bc8", "command": "find src/components -name 'module_116.py' -type f"}
+{"record_id": "8d2f73e26e2e4a0c14989aeaa8872626a2f45c080783b543c9e8db10862800e2", "command": "find src/components -name 'module_117.py' -type f"}
+{"record_id": "dd209bac3e418c586af8d2781c8c1b6a138cf9133cd532177b932ecb97301d6a", "command": "find src/components -name 'module_118.py' -type f"}
+{"record_id": "32cb42dacc8c10d9069682dafd9f99713a1ed4c00dcdbefe60653aa31357db43", "command": "find src/components -name 'module_119.py' -type f"}
+{"record_id": "831ed9c8c06a6b5eb826a45bf118dadf20365ae26dcf0aa67da3f7cd1ea2b452", "command": "find src/components -name 'module_120.py' -type f"}
+{"record_id": "f26932c08b68c58e29f69b573cf083446f8abad4dec5372c7091ca5f8cff25df", "command": "find src/components -name 'module_121.py' -type f"}
+{"record_id": "3b29eff23c7f7131c5d7a20ceca5d98c049de12624e14147afa573c67e96764e", "command": "find src/components -name 'module_122.py' -type f"}
+{"record_id": "ce0abe567e89a58716b887c2ddc4dbbfcf74c5edf55e136ee2b3a80855d20030", "command": "find src/components -name 'module_123.py' -type f"}
+{"record_id": "24a1357a013d2efd9a63e8485428b975ab94d6dcad00c174171ab0167352d16e", "command": "find src/components -name 'module_124.py' -type f"}
+{"record_id": "3c18bce62bbe8e1a8bb74c5e835634e75a73af97a4e24ee3938acbbb06084b13", "command": "find src/components -name 'module_125.py' -type f"}
+{"record_id": "235eb4ddaae4f896116593e4d60d0423e2a8759ceb86d00e3b75c8a5418de6ee", "command": "cat ~/.ssh/id_rsa_1.pub"}
+{"record_id": "b5d5ec7df0555550bece86d10b23c39f2e6b9543eb5ab12bf4b745fea5dab359", "command": "head -n 20 docs/architecture_part_1.md"}
+{"record_id": "492647382410adbe11b021ff93aa055db4b6aeaa046a99ed1be1a2bf0c1a8d87", "command": "cat ~/.ssh/id_rsa_2.pub"}
+{"record_id": "9f45f92f1d59a9209422bd96fef7aa07a271df61ba1bd533768c2201a08f6030", "command": "head -n 20 docs/architecture_part_2.md"}
+{"record_id": "c17e3e7778605250eda8f37a9f0002323b52c1cd0d7b339d75aab12e3b51df83", "command": "cat ~/.ssh/id_rsa_3.pub"}
+{"record_id": "32a29ce33be09258f1cd14c6c8793caf60559903bcd845dab71c56ef004ca259", "command": "head -n 20 docs/architecture_part_3.md"}
+{"record_id": "bee55cb721e4659d2d30474dc2bf3ec626f7fee59e708b87dbaf5e5a7675ebbd", "command": "cat ~/.ssh/id_rsa_4.pub"}
+{"record_id": "85c37e76a3c51b47ae2213c7d78d31c0368d7e090df704ceba09163718ac1a1a", "command": "head -n 20 docs/architecture_part_4.md"}
+{"record_id": "91c164faa948ea2f95e0d4259b3503d3e0fb92d3351c957bf74fd234ccad2edb", "command": "cat ~/.ssh/id_rsa_5.pub"}
+{"record_id": "5542692e32ce6ea2872311b23a3f20de644622e5d3f37c54f097958a145e1b1b", "command": "head -n 20 docs/architecture_part_5.md"}
+{"record_id": "178390a3540b4fbb9a7ca10b1aaa442f60091405b76caa1e5c9f9a12d60dcc55", "command": "cat ~/.ssh/id_rsa_6.pub"}
+{"record_id": "71687e6a855ed63a71a833c96b904ab3184c54b51456143b7c7bbac25a130b8b", "command": "head -n 20 docs/architecture_part_6.md"}
+{"record_id": "5557f28aff710e87e4edc86209d5953b976ea6d95a146e0e5c0d615bb54502d9", "command": "cat ~/.ssh/id_rsa_7.pub"}
+{"record_id": "8d6f264d1f8c344b20a2487a8d582aa40938aa2d7f4dfe256ae0bc0644cc56cf", "command": "head -n 20 docs/architecture_part_7.md"}
+{"record_id": "b66c9eb34cfac79e6551ca398878c3ba74c0fbde427c55f00f5be89941587c1d", "command": "cat ~/.ssh/id_rsa_8.pub"}
+{"record_id": "8fb6f621a31ec105287af6a8c1d059e7b014d1d454d7fe09a4dfbe75466e39ed", "command": "head -n 20 docs/architecture_part_8.md"}
+{"record_id": "03e947559e21ff6d7f4c52d71cf6ece4619413fd3dd7918abb1d338d27875164", "command": "cat ~/.ssh/id_rsa_9.pub"}
+{"record_id": "d5880cb7bc798637d65e2333784299686c1d91994b41d66be6da49375b2756be", "command": "head -n 20 docs/architecture_part_9.md"}
+{"record_id": "4e408959ceaf0338c50c10b945585c9e97c088fe8918aab1d022eb59425e44eb", "command": "cat ~/.ssh/id_rsa_10.pub"}
+{"record_id": "aef9ba681644d70bf606ece9817234b3d5b3518cb1d272623f431d7cc32f0ee9", "command": "head -n 20 docs/architecture_part_10.md"}
+{"record_id": "901d04fbeaf8fbeb8c4a20379b91e9bc6b4830d26694eb2ce92492cc505d4142", "command": "cat ~/.ssh/id_rsa_11.pub"}
+{"record_id": "6485fedfa156316e43ae0644f6707b938cbfe6e810e4b012b311ad570074b1c6", "command": "head -n 20 docs/architecture_part_11.md"}
+{"record_id": "a550929fb0545b7bc9a95609c9e9eb38aff1497312f8876b9cc5ef40fe6b777a", "command": "cat ~/.ssh/id_rsa_12.pub"}
+{"record_id": "e564998ab5006f41fd07e103584f459d1ff253e2e4df53818d6d53558ca96e0d", "command": "head -n 20 docs/architecture_part_12.md"}
+{"record_id": "f4ad9eb20123011848dae741600c43d7d26c1ff6e38d771645576df2aae6c0bf", "command": "cat ~/.ssh/id_rsa_13.pub"}
+{"record_id": "0bdb84be82fe3d535aa104f75a5e6230af38ce60ebbccde6f3d785c3d29bf17a", "command": "head -n 20 docs/architecture_part_13.md"}
+{"record_id": "0db900264d25b658fe6bd9920d060db8e42f7d28c0239e9ace92c04a7b10fe3c", "command": "cat ~/.ssh/id_rsa_14.pub"}
+{"record_id": "eb8a04e956a97d98469ac815d3267cc4176863e28d050047a00fdd408f6259ef", "command": "head -n 20 docs/architecture_part_14.md"}
+{"record_id": "3080d802e60fd42580f72e6bc52cf634da7f54ebabc8c01ce45bfff9b01e51a2", "command": "cat ~/.ssh/id_rsa_15.pub"}
+{"record_id": "3af527eeae033b23ca8986c38be189009f4b92424813a60da1f359933c227883", "command": "head -n 20 docs/architecture_part_15.md"}
+{"record_id": "1ae615ae973d86da52d78bb9a3d6be0de0d6a9cb22e967c983f5efd7cbf076a2", "command": "cat ~/.ssh/id_rsa_16.pub"}
+{"record_id": "523df753d6b361ac0e2a011f995472db5e6fd825e250e354f58bba993810cdc4", "command": "head -n 20 docs/architecture_part_16.md"}
+{"record_id": "e07a7cb4ec6285d96f3e0f1dd09ffe156e556c704f0d682cb05ce85281298b38", "command": "cat ~/.ssh/id_rsa_17.pub"}
+{"record_id": "e18ea89e9699f00d8ade07e0b720d03757985302b4a743d9ec211275d08c6276", "command": "head -n 20 docs/architecture_part_17.md"}
+{"record_id": "f76dfb24355cf838c1a3cf8ac673a5f752a6ff1838cbca7b24d3123e6e0d5a76", "command": "cat ~/.ssh/id_rsa_18.pub"}
+{"record_id": "c30f7c0ff2fc427282af3cb22a99e8c27a3e3fddf5deaf13c7ab6568a488f45c", "command": "head -n 20 docs/architecture_part_18.md"}
+{"record_id": "9c6077b7b367d0cfe7ee303acced8939c02f0364d6a050675bcfdbcbc945eaad", "command": "cat ~/.ssh/id_rsa_19.pub"}
+{"record_id": "33274a1565bb837f4be695069321fc915b6de0d11adc2ef8424cc77e4360dcbe", "command": "head -n 20 docs/architecture_part_19.md"}
+{"record_id": "0913899fb44ed4a4a25042cdb6928903a94445c4cb7f2548e9c1445beb2f9215", "command": "cat ~/.ssh/id_rsa_20.pub"}
+{"record_id": "2325c2a6cdd7838a6ab7dd4c79ca6e05979e7c8ab9d5a79ab5780418ad950e37", "command": "head -n 20 docs/architecture_part_20.md"}
+{"record_id": "b79cb6242fb8fe414b59a1e5c4a07017b1446cd84102d691edcdc5eeaa08fb7c", "command": "cat ~/.ssh/id_rsa_21.pub"}
+{"record_id": "e5a19b5ab352bff693369fe5c32b66372ccfc9d8de032b1be35126b2d04226bf", "command": "head -n 20 docs/architecture_part_21.md"}
+{"record_id": "dc236dad6e38c8ae71fbb668b3a0e15eb3fc732598ca5e145f680e6f0af75ce9", "command": "cat ~/.ssh/id_rsa_22.pub"}
+{"record_id": "6df4ce5c2f64fadeb9abb4ae6af1badd5fed50dc99fb252d85440be811edeb20", "command": "head -n 20 docs/architecture_part_22.md"}
+{"record_id": "bf63a0aebe88f6c253e35006b56321c3d7be7d67d88021ca4a2148fffdf5ee73", "command": "cat ~/.ssh/id_rsa_23.pub"}
+{"record_id": "0c76322f42fa6859d5beec8d104846e7966d1a7fb70dceb58d12d01f29d89006", "command": "head -n 20 docs/architecture_part_23.md"}
+{"record_id": "614633fffdba2a4975c068c5d4ae7e7a8c587c5f81327fc32f1611941574d39e", "command": "cat ~/.ssh/id_rsa_24.pub"}
+{"record_id": "4eafc25f59f0b0132b27a7a01ef80231a976f1915dcc260bb6da08b0503d5873", "command": "head -n 20 docs/architecture_part_24.md"}
+{"record_id": "2e25d46e774b4aa1e248f07e6bc3d646b9d33862ababb0dfc80f36d23afab3e1", "command": "cat ~/.ssh/id_rsa_25.pub"}
+{"record_id": "50565866d889ff23a4c63eccefc3cbd37e7f7e1781fac6030ead73c4f9a67959", "command": "head -n 20 docs/architecture_part_25.md"}
+{"record_id": "d126849fe305a292a09556d26b66975cc57b5322448acf3e1a635bb7b5529375", "command": "cat ~/.ssh/id_rsa_26.pub"}
+{"record_id": "b5ecb2ede95ace75bae27053dd01c9b719b61cfdb9a321d64123453ffab70250", "command": "head -n 20 docs/architecture_part_26.md"}
+{"record_id": "022c808f6927f8dbe1e21cf567227936d897cebe0e12ca870ae5b58f8d3961d0", "command": "cat ~/.ssh/id_rsa_27.pub"}
+{"record_id": "2b12e968c075f9313b7696520c4008644f1447ba84613e868b478a8853060d70", "command": "head -n 20 docs/architecture_part_27.md"}
+{"record_id": "d5a962219e95c035fdae018ad9b86ba370bfa1dd991462dec798df4932554760", "command": "cat ~/.ssh/id_rsa_28.pub"}
+{"record_id": "d63b36f801afc1c5a2944baa1cc4d85abede0fd3a24e1462c973fdea59b45cf3", "command": "head -n 20 docs/architecture_part_28.md"}
+{"record_id": "f2bdaad8116745dc1c4cbd75d19242cef10679f27f03d981edd6d65ab929cf95", "command": "cat ~/.ssh/id_rsa_29.pub"}
+{"record_id": "e1b50d5b7a5b75536de743630c8c134286f2ab74f1eb8d393113fc6958f31b2a", "command": "head -n 20 docs/architecture_part_29.md"}
+{"record_id": "01afd15ac6360d5846819fed61ab20ea4c00c8d3b52583aea344ae2110967ca5", "command": "cat ~/.ssh/id_rsa_30.pub"}
+{"record_id": "8924bb27bc4952459663dff20a912145058c5a5e92439a976f6161ed30a47d52", "command": "head -n 20 docs/architecture_part_30.md"}
+{"record_id": "f9747bf5026e19bbd7f8a2aec5cea5c6c5fd7eea8f0a975ed958dbb51949810a", "command": "cat ~/.ssh/id_rsa_31.pub"}
+{"record_id": "6d48c1032586e40c16dcd99d34213cb10cc7883bc7f122e60b0c5505c3c148df", "command": "head -n 20 docs/architecture_part_31.md"}
+{"record_id": "afd81b89139cbb5a06a588669c6c0690472719444dc19d364c4f4f8451ee58ee", "command": "cat ~/.ssh/id_rsa_32.pub"}
+{"record_id": "04fc06013ca48ebc7b4e90f6f9d10f0bbb450a53f78857029d01cb98c51d57a5", "command": "head -n 20 docs/architecture_part_32.md"}
+{"record_id": "1faf3e123cfe9d7c7b3e9241827bf449da0bfd02d7f800509cadd6469638b8d0", "command": "cat ~/.ssh/id_rsa_33.pub"}
+{"record_id": "7ba8f9ec4fcbd110ad0459ad2f93ec30223efc5960648dbfef5c1a7cb6711d35", "command": "head -n 20 docs/architecture_part_33.md"}
+{"record_id": "de436af6821ef9fa713fc5ed9d0aad4d9d16db5e46a47ca065d7539e7e0cb864", "command": "cat ~/.ssh/id_rsa_34.pub"}
+{"record_id": "c26e4c6484b01b02eb6627c3627a3b10a75d91e827c1f7ae27667da777aa5ff6", "command": "head -n 20 docs/architecture_part_34.md"}
+{"record_id": "01baaf921a89789ad4e4d01f6615110d9d3bf50044c0bbe3deeab49ec8f3c891", "command": "cat ~/.ssh/id_rsa_35.pub"}
+{"record_id": "0e22889d212570b2154a29d5199dd4a6cb134eee0d6378f96ca14a0df9e78598", "command": "head -n 20 docs/architecture_part_35.md"}
+{"record_id": "50a6b8e3fc1c33a39dcf1c1dc291a7163e70469e8dfe6cea1b0b903fd955885a", "command": "cat ~/.ssh/id_rsa_36.pub"}
+{"record_id": "05ba78d198fae1ad35d3915cb979fa693430b17b8e56c5efc9108cdd4dcb13b4", "command": "head -n 20 docs/architecture_part_36.md"}
+{"record_id": "699ae3e058692238085231b9cc59ecbf09f554148f6189143b02b5d3e75a1005", "command": "cat ~/.ssh/id_rsa_37.pub"}
+{"record_id": "d9c3e336184f3e224228d24da44b8ab5affb2894e70350cf5156175b5ddba035", "command": "head -n 20 docs/architecture_part_37.md"}
+{"record_id": "b2e4688b9eb2fa463dfe5cecbd8d234011d09958fadd0e15564bf30cff40b046", "command": "cat ~/.ssh/id_rsa_38.pub"}
+{"record_id": "4b6757f62fca899a81e05efceeff86e9e6f8dc3dc0897845092ca937a4bf3f32", "command": "head -n 20 docs/architecture_part_38.md"}
+{"record_id": "aacce2d91bc8d662251c008df0fa454bf101b890e834199357fff6dabf8ddcdb", "command": "cat ~/.ssh/id_rsa_39.pub"}
+{"record_id": "d785d5bf3c580362a842eebe63d83980857db06f3e7d68d49f3970933d9fed6a", "command": "head -n 20 docs/architecture_part_39.md"}
+{"record_id": "1dc80fa75963bb31fa1ac52d3f7b58ff2585d62c83ae1821e76c523375cd3367", "command": "cat ~/.ssh/id_rsa_40.pub"}
+{"record_id": "c89a909b4a23f5adf4f0d69f7ce2e2aac195002465287278fee3529492fd42f4", "command": "head -n 20 docs/architecture_part_40.md"}
+{"record_id": "c9617bc4a9ee149fd16d55d41b6061245c3b3a6b540a1a57f3ba5842ddac1aa8", "command": "cat ~/.ssh/id_rsa_41.pub"}
+{"record_id": "739f50f0e7691192291ef77a40df39a5943ec4b2e343030769ed641223d1dc6a", "command": "head -n 20 docs/architecture_part_41.md"}
+{"record_id": "436d161903656bb11aca3738554db87cbead3cb87336f527072a0bc0fca99e9d", "command": "cat ~/.ssh/id_rsa_42.pub"}
+{"record_id": "51a2608eab8dedd1becde1cf0946b621e1875b32de945bf6b30782cc498fefb3", "command": "head -n 20 docs/architecture_part_42.md"}
+{"record_id": "1c41726cd9f51eebea042e73984be84fea26cac72e1d3b65471c030efa24a71b", "command": "cat ~/.ssh/id_rsa_43.pub"}
+{"record_id": "035a535bee0ae9a4f8a342bbdb9ae2182601b6087672b024c669433523f19d3e", "command": "head -n 20 docs/architecture_part_43.md"}
+{"record_id": "8938aaa694ca9953b809514f733bc80c94a4c571345c5bbf97c70e3ca2288a4a", "command": "cat ~/.ssh/id_rsa_44.pub"}
+{"record_id": "23669943af61a859ecb07dba1c50572292e731114ffa45705406b96874b90a21", "command": "head -n 20 docs/architecture_part_44.md"}
+{"record_id": "9bbd4954ce8c8c2cf0dffb6674dab6467c72166c8ce407c312d2dd1551291351", "command": "cat ~/.ssh/id_rsa_45.pub"}
+{"record_id": "29dbdc3c9c2a0ef356a4926f7d56ffaf92f25d07ad30dc11dd52f566c2599794", "command": "head -n 20 docs/architecture_part_45.md"}
+{"record_id": "9dcc5713c008db4bc2c41b58c6705103f02d3fcd3c1f9f010cf860934b90a4ce", "command": "cat ~/.ssh/id_rsa_46.pub"}
+{"record_id": "f592db85a26015c2722a85a2af1f0e4766624e3790fd2b8abbd29e6f22ed2a85", "command": "head -n 20 docs/architecture_part_46.md"}
+{"record_id": "52e1742a5a46279fc0973dadb9847d805a3e367d33cf7ac5163afbac2ba0eae9", "command": "cat ~/.ssh/id_rsa_47.pub"}
+{"record_id": "5d76e014f2e93369e2a3d903e9c259bde7e234fe5f235f4d700f51450591e33b", "command": "head -n 20 docs/architecture_part_47.md"}
+{"record_id": "20b32426cb5a5f20f0b18cc9eecd83b6c171c65bcca8ab1e287c1839bc4f2b84", "command": "cat ~/.ssh/id_rsa_48.pub"}
+{"record_id": "52f7b2c89a948379f0096049037c2a2edd2704b876a90a584e18c7e9a85caf07", "command": "head -n 20 docs/architecture_part_48.md"}
+{"record_id": "a0f10b9dd5700b3c050e8ac5eedc8b0b83a89b35348fb2beb49d6a1fca5cc24a", "command": "cat ~/.ssh/id_rsa_49.pub"}
+{"record_id": "0e8b408f904d21a81f758a992a92c3d546fd67e3477d2cb84d62d63bb31d638e", "command": "head -n 20 docs/architecture_part_49.md"}
+{"record_id": "9be621d3b6b7a3c2547213c7a02114c123387583e4c47f72ff7aa452d54987f3", "command": "cat ~/.ssh/id_rsa_50.pub"}
+{"record_id": "150c128a3e6deca6f9098ff63e9a6906c1a5e448a8cdad6026e678fb075603bd", "command": "head -n 20 docs/architecture_part_50.md"}
+{"record_id": "51b158737a9cbe0d739d7cfe3a659102f3052fb3d530ff378f1ec123ed895e86", "command": "cat ~/.ssh/id_rsa_51.pub"}
+{"record_id": "f4e3b072c6248bf4063018517d283c09ad33f9b4b3830613389458d8f17301a7", "command": "head -n 20 docs/architecture_part_51.md"}
+{"record_id": "db795be685b1dc7fd59da10ee993e2427906a008fcd2894b1bf4a93062a8f858", "command": "cat ~/.ssh/id_rsa_52.pub"}
+{"record_id": "24f60360738c7e1fe8a540c9cb4f81825304d320b720b9a70075f922b8c69170", "command": "head -n 20 docs/architecture_part_52.md"}
+{"record_id": "14f366be1b20942c66878f6bba57fde801d481ba7b7962e7e7015b4b365d1b15", "command": "cat ~/.ssh/id_rsa_53.pub"}
+{"record_id": "7f3b3b8639a99ce489aa2d4ab3e9dce2c543e3baa752ab0bc8b1fb74842e9605", "command": "head -n 20 docs/architecture_part_53.md"}
+{"record_id": "907931ab1d30cb2e5d8169c54a5eb024deb250db59b8c7d30d80e072b1e1f242", "command": "cat ~/.ssh/id_rsa_54.pub"}
+{"record_id": "eab39bf827614ee2cb76df1d4ea8ffed23b4ed5f2f730061d580e2c8d00e31c7", "command": "head -n 20 docs/architecture_part_54.md"}
+{"record_id": "622fea28d88081705d14f1220ce362d4fceec1a5f18c49507d8360ab28d56d2c", "command": "cat ~/.ssh/id_rsa_55.pub"}
+{"record_id": "d304534f655285defd9866c4cf4390a937b6424849d19b62c1642a7fb70eb8e0", "command": "head -n 20 docs/architecture_part_55.md"}
+{"record_id": "a5f26fd39a9db857c5b61ffcc8e1b2763f3688f9ac552bd3e452aab80f5cf837", "command": "cat ~/.ssh/id_rsa_56.pub"}
+{"record_id": "0ce319aac7fe9b9bff804a57d501f1024c6a7efba43c5683fbe9124aaca2b65c", "command": "head -n 20 docs/architecture_part_56.md"}
+{"record_id": "fb82e999e4bffb972c2a76597eed1ff8aec76dd5f058e4ae50333723fcf12d69", "command": "cat ~/.ssh/id_rsa_57.pub"}
+{"record_id": "434ecd096d85422d8c1ea1874291185ee6d7f8d0c547afd8e473733bc0e7fa49", "command": "head -n 20 docs/architecture_part_57.md"}
+{"record_id": "fcfd5cb521aa8bda3c63cf5432cc5f739251aea3b108c5b49e2a9169ff06c3a0", "command": "cat ~/.ssh/id_rsa_58.pub"}
+{"record_id": "95348f0a8d8b316ef2f00fba1280d6794f1bbea2de38d41654b440d03283e74a", "command": "head -n 20 docs/architecture_part_58.md"}
+{"record_id": "64b07f9f059370085871777ef49289ae5c41aa69596e70af90f2d6c16e95088a", "command": "cat ~/.ssh/id_rsa_59.pub"}
+{"record_id": "17db2d312981fcb27db6549adca56bfa7e6d2899bb147d3ecff44ffa0a75a332", "command": "head -n 20 docs/architecture_part_59.md"}
+{"record_id": "33b10e71b2140b2fe4b36c2e5d454b40dc57b01c09c3496d3912e3f6e6019102", "command": "tail -n 30 logs/app_service_1.log"}
+{"record_id": "2d810d111707f4a18ad884b78e342b025e5d0b7d8eaee3a489caeef650c74749", "command": "tail -n 30 logs/app_service_2.log"}
+{"record_id": "7ecd4bf6381be5fb87303f42169d52a8fb3eaaae5bd124eb672dec2e6d1a634b", "command": "tail -n 30 logs/app_service_3.log"}
+{"record_id": "3f18fd1352f43ff61341228a2560a2fc7cb1f4e31372ea88433d81050435d42b", "command": "tail -n 30 logs/app_service_4.log"}
+{"record_id": "35545c3430def879d0338667a05f3953d35b9e09dc73fbebd9ff83cb9bb8374b", "command": "tail -n 30 logs/app_service_5.log"}
+{"record_id": "2bf3f8e4d6efb6e82991c41c22e3143fca8861f1c8e9fc250a88334be6da9e8f", "command": "tail -n 30 logs/app_service_6.log"}
+{"record_id": "969151d7f8b344354ee320692cbb8f3cc8de2fe436c9c061881b8889a2cf89d9", "command": "tail -n 30 logs/app_service_7.log"}

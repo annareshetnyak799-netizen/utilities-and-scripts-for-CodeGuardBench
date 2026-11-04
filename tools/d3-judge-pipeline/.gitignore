@@ -1,7 +1,5 @@
-__pycache__/
-.pytest_cache/
-.venv/
-*.pyc
-model_cache/
-runs/
-train_private/
+# Local build and process-lock artifacts; experiment evidence stays versioned.
+build/
+*.egg-info/
+.run.lock
+budget_ledger.json.lock

@@ -1,0 +1,82 @@
+{
+  "remote_refs_unchanged_since_fetch": [
+    {
+      "repository": "code_guard_benchmark",
+      "ref": "origin",
+      "commit_unchanged": true
+    },
+    {
+      "repository": "code_guard_benchmark",
+      "ref": "origin/feat/data_CAT-1.1",
+      "commit_unchanged": true
+    },
+    {
+      "repository": "code_guard_benchmark",
+      "ref": "origin/feat/data_CAT-1.3",
+      "commit_unchanged": true
+    },
+    {
+      "repository": "code_guard_benchmark",
+      "ref": "origin/feat/data_CAT-2.1",
+      "commit_unchanged": true
+    },
+    {
+      "repository": "code_guard_benchmark",
+      "ref": "origin/feat/data_CAT-2.2",
+      "commit_unchanged": true
+    },
+    {
+      "repository": "code_guard_benchmark",
+      "ref": "origin/feat/data_CAT-2.3",
+      "commit_unchanged": true
+    },
+    {
+      "repository": "code_guard_benchmark",
+      "ref": "origin/feat/data_CAT-2.4",
+      "commit_unchanged": true
+    },
+    {
+      "repository": "code_guard_benchmark",
+      "ref": "origin/feat/data_CAT-3",
+      "commit_unchanged": true
+    },
+    {
+      "repository": "code_guard_benchmark",
+      "ref": "origin/feat/data_CAT-4",
+      "commit_unchanged": true
+    },
+    {
+      "repository": "code_guard_benchmark",
+      "ref": "origin/feat/generation-pipeline",
+      "commit_unchanged": true
+    },
+    {
+      "repository": "code_guard_benchmark",
+      "ref": "origin/main",
+      "commit_unchanged": true
+    },
+    {
+      "repository": "utilities-and-scripts-for-CodeGuardBench",
+      "ref": "origin",
+      "commit_unchanged": true
+    },
+    {
+      "repository": "utilities-and-scripts-for-CodeGuardBench",
+      "ref": "origin/feat/d2-local-log-collector",
+      "commit_unchanged": true
+    },
+    {
+      "repository": "utilities-and-scripts-for-CodeGuardBench",
+      "ref": "origin/feat/d3-judge-pipeline",
+      "commit_unchanged": true
+    },
+    {
+      "repository": "utilities-and-scripts-for-CodeGuardBench",
+      "ref": "origin/main",
+      "commit_unchanged": true
+    }
+  ],
+  "peer_worktree_clean": true,
+  "colleague_csv_mutations": 0,
+  "commands_executed_from_corpus": 0
+}

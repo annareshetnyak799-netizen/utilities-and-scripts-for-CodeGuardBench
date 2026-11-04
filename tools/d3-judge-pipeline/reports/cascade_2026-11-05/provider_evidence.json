@@ -1,0 +1,34 @@
+{
+  "checked_at": "2026-11-04T21:55:01.204845+00:00",
+  "models_endpoint": "https://api.proxyapi.ru/v1/models",
+  "selected_models": [
+    {
+      "id": "openai/gpt-oss-120b",
+      "object": "model",
+      "created": 1754352000,
+      "owned_by": "openai"
+    },
+    {
+      "id": "qwen/qwen3-32b",
+      "object": "model",
+      "created": 1745798400,
+      "owned_by": "qwen"
+    }
+  ],
+  "balance_endpoint_status": 403,
+  "balance_reason_documented": "requires explicit balance permission on key",
+  "balance_docs": "https://proxyapi.ru/docs/balance",
+  "pricing_source": "https://proxyapi.ru/models/browse",
+  "pricing_rub_per_million": {
+    "qwen/qwen3-32b": {
+      "input": 11.58,
+      "output": 37.89
+    },
+    "openai/gpt-oss-120b": {
+      "input": 7.79,
+      "output": 35.79
+    }
+  },
+  "actual_account_debit": "NOT_AVAILABLE",
+  "token_cost_is_estimate": true
+}

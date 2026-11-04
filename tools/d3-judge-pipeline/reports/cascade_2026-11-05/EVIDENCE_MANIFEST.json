@@ -1,0 +1,1037 @@
+{
+  "generated_at": "2026-11-04T22:49:09.991862+00:00",
+  "source_policy_sha": "a8b70fd5147df19b451154f2da5526e03cbe93e60d5553fae49bdb931fef2a5b",
+  "files": [
+    {
+      "path": "reports/cascade_2026-11-05/BASELINE.md",
+      "bytes": 1795,
+      "sha256": "25f4bfccbfc455843d9f6542ef16b9c0e282b21721b4b59e35daa347708996ca"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/CASCADE_COMPARISON.md",
+      "bytes": 4017,
+      "sha256": "7cb6ae08e23cfde94ac2f86748bc39fb56bb790e1b83517cb1f5b7ae46eb7253"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/ERROR_ANALYSIS.md",
+      "bytes": 2268,
+      "sha256": "07ed8b459786768bbe8246c366410bf0e471d4621919f60270691f995a26ab7d"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/HANDOFF_2026-11-05.md",
+      "bytes": 7640,
+      "sha256": "800984939288d648b5820595a537bf7b1312e3d02a1e605eba97937b10d448be"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/INTEGRATION_MATRIX.md",
+      "bytes": 3848,
+      "sha256": "84b9c373943d0a1fb0cbe22368305317900bd9cfc2a1cbcdc4f0de16a8c17f24"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/NEXT_STEPS.md",
+      "bytes": 2819,
+      "sha256": "4d5641ab9f61d1f796a50fd60d55e7e4b10421edf332796cf4e95288683308e1"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/POLICY_OPEN_QUESTIONS.md",
+      "bytes": 10493,
+      "sha256": "f0cd4efd360bcd1cf1da062e50baec5b87c86315727623ace6163c8fe2395aa7"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/POLICY_SOURCE_MAP.md",
+      "bytes": 5829,
+      "sha256": "213bacf5c58187be44c48acf9fe7498c86aa1733395f97e04a8955942b5130de"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/PROGRESS.md",
+      "bytes": 1890,
+      "sha256": "77c960d0657fa3f0a8feecebf5734a8f4ae98f54b80a25986141ee8e3b4008c0"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/RELEASE_CHECKLIST.md",
+      "bytes": 873,
+      "sha256": "8ac54987b31f58188be35ebf08915fb36baadf2d883a5ce1ac71b74cff450f75"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/REPO_INVENTORY.md",
+      "bytes": 3572,
+      "sha256": "829ed6a9afb348e7d24896a4f63f136317002fecf3e4357ab14cf922390a6813"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/TAXONOMY_COVERAGE.csv",
+      "bytes": 1638,
+      "sha256": "e409d1b30a1a0ee0e28ed79a2c5f145fc8447e3a45fdda9c78459766b1712f5e"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/TEAM_COMPARISON.csv",
+      "bytes": 1004,
+      "sha256": "73c7b1ad0e1b010266786e5536727f993a879d55be5c09a3050ecf6ddc099233"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/all_disagreements_and_decisions.csv",
+      "bytes": 40991,
+      "sha256": "e211bff3081a9a6d2e072a10f02b281f360bc833e132b17e4ca446b0a45d2361"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/budget_ledger.json",
+      "bytes": 183741,
+      "sha256": "d37176fd75ea9cf0b7e56bdd8f4238d271842de9d804ff23e0c69dedf3905c1e"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/clean_install_demo/actual.json",
+      "bytes": 113,
+      "sha256": "d2f451f1e98f31a1b80b874d87846ec0bfc25908643a86c999899f708b158116"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/clean_install_demo/doctor.json",
+      "bytes": 326,
+      "sha256": "c42fd703be22be56d311cdc053f44b71147d507bf3c2bc0b904cda0eee996880"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/clean_install_demo/expected.json",
+      "bytes": 113,
+      "sha256": "d2f451f1e98f31a1b80b874d87846ec0bfc25908643a86c999899f708b158116"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/clean_install_demo/input.jsonl",
+      "bytes": 657,
+      "sha256": "3005bbd596595c43c93e0fffe74205e5a6b289d32b24886cb91bade9815b9f0d"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/clean_install_demo/run/pipeline_health.json",
+      "bytes": 133,
+      "sha256": "c81607b5c134624c341c19612e234f1d086c440539c4fe13f5f6c2f178f7b532"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/clean_install_demo/run/results.jsonl",
+      "bytes": 22142,
+      "sha256": "4dc139d8945a4741007b71d880e8a0f230291dcd09bcff9a4a51260f0d4c86b5"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/clean_install_demo/run/review_queue.jsonl",
+      "bytes": 2272,
+      "sha256": "f302f5cfb0b2f7bfaa83ca6ce73e021ca31a74b5dfc914792bfc6248dfc0d5ca"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/clean_install_demo/run/run_manifest.json",
+      "bytes": 1229,
+      "sha256": "f5dcd9c975506bb2cc68b14b0ebe3250bd6f6b703dcd4c63928c1fe15c5b552e"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/clean_install_receipt.json",
+      "bytes": 564,
+      "sha256": "dc3235c7e4e2a1b761f2ddc16bad538cd4935955942bda993869a16d54df95ea"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/contracts.json",
+      "bytes": 3154,
+      "sha256": "dcf948c86549e09a99eff2efed6f264ef98f108809485ff8c8163a96219cc800"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/discovery/blind_inputs.jsonl",
+      "bytes": 167216,
+      "sha256": "a9833cd7435db027d64675e7b11746905f5fbe9a741f24c7cb6408b6c0e84045"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/discovery/eligible_references.jsonl",
+      "bytes": 991358,
+      "sha256": "d97f51d9b94eb9e01094755fda7f42ea72b8387d11606f9ff42089898a104eea"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/discovery/inventory.json",
+      "bytes": 194570,
+      "sha256": "0d8eb547de521f61e86318d049220b3ecd60e122c4474438834df8e7a723d804"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/discovery/references.jsonl",
+      "bytes": 3036741,
+      "sha256": "9c551d5d2b1d82a67ff3766497709bc466cd7353822330af54ecd929c5b3cbb4"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/discovery/snapshots/53386aac1ff37f1a4c0126226c9ac54ae6c2d163df4b46711a72205f90cb94c0.csv",
+      "bytes": 61682,
+      "sha256": "53386aac1ff37f1a4c0126226c9ac54ae6c2d163df4b46711a72205f90cb94c0"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/discovery/snapshots/5ed85343f3866070d01c5516af3ee655e311aefafe6e00cb6958f754a8e207de.csv",
+      "bytes": 10630,
+      "sha256": "5ed85343f3866070d01c5516af3ee655e311aefafe6e00cb6958f754a8e207de"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/discovery/snapshots/7b9ea66df787958f808a37963814e80d20b01872fbcb705103cfe0ab706c00d2.csv",
+      "bytes": 496278,
+      "sha256": "7b9ea66df787958f808a37963814e80d20b01872fbcb705103cfe0ab706c00d2"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/discovery/snapshots/7cb5f35a894a939716b9f679d325f6ad9be4b2d4ccf7c0bf9bc2cf472763285d.csv",
+      "bytes": 12155,
+      "sha256": "7cb5f35a894a939716b9f679d325f6ad9be4b2d4ccf7c0bf9bc2cf472763285d"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/discovery/snapshots/8d4f98bc12d7d9247e6d58d2c8e8819b6378690a8d2277a929c288d8ecfa079e.csv",
+      "bytes": 55200,
+      "sha256": "8d4f98bc12d7d9247e6d58d2c8e8819b6378690a8d2277a929c288d8ecfa079e"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/discovery/snapshots/9816deb1c7b24e13da764b4cad524e65795a7d3bae3bf54ceee21c320404c20f.csv",
+      "bytes": 85418,
+      "sha256": "9816deb1c7b24e13da764b4cad524e65795a7d3bae3bf54ceee21c320404c20f"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/discovery/snapshots/cb39cdec50ff937548d8126f88da988d97c041b425c82ff93330de7c563d34b9.csv",
+      "bytes": 21001,
+      "sha256": "cb39cdec50ff937548d8126f88da988d97c041b425c82ff93330de7c563d34b9"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/discovery/snapshots/ce040e0f2fd7cd7f7e5f50729aa84d420a59b89d8c58fce99a5f71dbc24d10b2.csv",
+      "bytes": 9400,
+      "sha256": "ce040e0f2fd7cd7f7e5f50729aa84d420a59b89d8c58fce99a5f71dbc24d10b2"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/discovery/snapshots/d6759e0b862de817e68b7fd25336ad60d6f6abba248c332b1878223d95a9a9b6.csv",
+      "bytes": 405643,
+      "sha256": "d6759e0b862de817e68b7fd25336ad60d6f6abba248c332b1878223d95a9a9b6"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/discovery_v2/blind_inputs.jsonl",
+      "bytes": 268907,
+      "sha256": "ce140ffeed2c1bbbfc57e10f777b10c027f467d98045f79a1ecd9a76374748e7"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/discovery_v2/eligible_references.jsonl",
+      "bytes": 1693731,
+      "sha256": "bbdc31c8a1ce675a7ce29889cd175df1b461cae867210214bed60b60ceb85c92"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/discovery_v2/inventory.json",
+      "bytes": 194576,
+      "sha256": "de6f3903539198a24301d3d6423e1385087ce23e74765c23914596514df9f2bb"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/discovery_v2/references.jsonl",
+      "bytes": 3036741,
+      "sha256": "9c551d5d2b1d82a67ff3766497709bc466cd7353822330af54ecd929c5b3cbb4"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/discovery_v2/snapshots/53386aac1ff37f1a4c0126226c9ac54ae6c2d163df4b46711a72205f90cb94c0.csv",
+      "bytes": 61682,
+      "sha256": "53386aac1ff37f1a4c0126226c9ac54ae6c2d163df4b46711a72205f90cb94c0"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/discovery_v2/snapshots/5ed85343f3866070d01c5516af3ee655e311aefafe6e00cb6958f754a8e207de.csv",
+      "bytes": 10630,
+      "sha256": "5ed85343f3866070d01c5516af3ee655e311aefafe6e00cb6958f754a8e207de"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/discovery_v2/snapshots/7b9ea66df787958f808a37963814e80d20b01872fbcb705103cfe0ab706c00d2.csv",
+      "bytes": 496278,
+      "sha256": "7b9ea66df787958f808a37963814e80d20b01872fbcb705103cfe0ab706c00d2"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/discovery_v2/snapshots/7cb5f35a894a939716b9f679d325f6ad9be4b2d4ccf7c0bf9bc2cf472763285d.csv",
+      "bytes": 12155,
+      "sha256": "7cb5f35a894a939716b9f679d325f6ad9be4b2d4ccf7c0bf9bc2cf472763285d"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/discovery_v2/snapshots/8d4f98bc12d7d9247e6d58d2c8e8819b6378690a8d2277a929c288d8ecfa079e.csv",
+      "bytes": 55200,
+      "sha256": "8d4f98bc12d7d9247e6d58d2c8e8819b6378690a8d2277a929c288d8ecfa079e"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/discovery_v2/snapshots/9816deb1c7b24e13da764b4cad524e65795a7d3bae3bf54ceee21c320404c20f.csv",
+      "bytes": 85418,
+      "sha256": "9816deb1c7b24e13da764b4cad524e65795a7d3bae3bf54ceee21c320404c20f"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/discovery_v2/snapshots/cb39cdec50ff937548d8126f88da988d97c041b425c82ff93330de7c563d34b9.csv",
+      "bytes": 21001,
+      "sha256": "cb39cdec50ff937548d8126f88da988d97c041b425c82ff93330de7c563d34b9"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/discovery_v2/snapshots/ce040e0f2fd7cd7f7e5f50729aa84d420a59b89d8c58fce99a5f71dbc24d10b2.csv",
+      "bytes": 9400,
+      "sha256": "ce040e0f2fd7cd7f7e5f50729aa84d420a59b89d8c58fce99a5f71dbc24d10b2"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/discovery_v2/snapshots/d6759e0b862de817e68b7fd25336ad60d6f6abba248c332b1878223d95a9a9b6.csv",
+      "bytes": 405643,
+      "sha256": "d6759e0b862de817e68b7fd25336ad60d6f6abba248c332b1878223d95a9a9b6"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/comparison.json",
+      "bytes": 14906,
+      "sha256": "1f08c403af693fa2355362eba0e592f925931396a328dbc4298daf894e491ba5"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/configs/critic_cascade.json",
+      "bytes": 1346,
+      "sha256": "c4c0b61f22306ea19462434897c3f66a36e4eb7f66741b83db0c602364fd7df1"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/configs/mock.json",
+      "bytes": 379,
+      "sha256": "b18a1040dd1cd13f3ce32279743c456c7b33a69074c4d6f4279be7f4a1377b76"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/configs/reasoning_single.json",
+      "bytes": 836,
+      "sha256": "427ab285e67b55869991deb8da3ad5abcc1d5b1b8ead82ad60bde2d8347e3b92"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/configs/rules.json",
+      "bytes": 218,
+      "sha256": "1cb44685cf19be0593ebec49d04b5b0158a44a24958004172faf0e16e86ca355"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/configs/semantic_cascade.json",
+      "bytes": 1348,
+      "sha256": "2e7d7165405d032c0a9d4b896f3a2a7d23dbea9aee386fbc53fa3a6ff92d87ae"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/configs/single.json",
+      "bytes": 739,
+      "sha256": "7140164f0e13e343d23c51bb0a8b865e55cf7b4fe1d016d5339e473f583c67e3"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/configs/specialists.json",
+      "bytes": 1343,
+      "sha256": "abb074a05650c5bb56ebf564c935c66fcf3c0cdbe0234da94d1bc9056b6b88e4"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/configs/static_single.json",
+      "bytes": 746,
+      "sha256": "72116b7eaf2114dc589f03687686cfdf3e530a5315c0c4f5b9078b33f7a7608d"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/critic_cascade/disagreements.csv",
+      "bytes": 4173,
+      "sha256": "12a2f195031c8d7f3f09d0f3547b27d2dd8f17c431ea29c48945e10e3014ada3"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/critic_cascade/metrics.json",
+      "bytes": 1584,
+      "sha256": "1adf1d3999f06531f029bc9bac55d96b1f675d8bfc3d7612735750882441ba9f"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/critic_cascade/metrics_by_category.json",
+      "bytes": 49844,
+      "sha256": "5e19f6dbaa31aa22a656f29833ce3ea731096a0411326aa6a705721023098b18"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/critic_cascade/metrics_by_dataset.json",
+      "bytes": 12415,
+      "sha256": "d3c913da8bdfc433c0753efe9a559cd96a5e23d429a48284e2f0969e52ae00eb"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/critic_cascade/pipeline_health.json",
+      "bytes": 133,
+      "sha256": "c7d75d88353022e84e0d9483a56660d9de438eb7cb1851941ed4b151c24da9dd"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/critic_cascade/results.jsonl",
+      "bytes": 89064,
+      "sha256": "dc6450ebe27093cb44406799cdb1d16f688f5d7e28d493b3353f818940769e87"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/critic_cascade/review_queue.jsonl",
+      "bytes": 8023,
+      "sha256": "65f284063019f47ea32eb2d4a83dd0d214e9495150cfcc20a7ed44eecd2e00c6"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/critic_cascade/run_manifest.json",
+      "bytes": 4576,
+      "sha256": "b414512c1b789bfda154a42daeea6d39e5ca7ce6f6df2935e950efafbf1b4af9"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/freeze.json",
+      "bytes": 2656,
+      "sha256": "d960004e4596f6faa82034caa275da5c47fd3c2f77d0ec861a3da5d59c01e5ae"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/legacy_reasoning_run_log.txt",
+      "bytes": 240,
+      "sha256": "2179863ccb40d357ece5faab1431392f66e00f0292f745a0d62e09034e41e3aa"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/legacy_run_log.txt",
+      "bytes": 3416,
+      "sha256": "47b27bd82538fc7646fe6db18d1b8989f2a87ff20169e26245746ecd16bcaa7c"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/legacy_v1/INTERRUPTED.json",
+      "bytes": 296,
+      "sha256": "f22a6f11732c0e64e21f691f09d7deceecaea3dc4e03622a134c4524c878c147"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/legacy_v1/manifest.json",
+      "bytes": 1055,
+      "sha256": "0e4a0a8b9a2908a662ed1fd98d80ab501787237fed34f4e9d284889c80cc8346"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/legacy_v1/results.jsonl",
+      "bytes": 33567,
+      "sha256": "886d11d178e4d3bb10fbc98757bfa8ecfe0a780e628d31473b6261e7e3bc99c0"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/legacy_v1_reasoning/annotation_agreement.json",
+      "bytes": 1733,
+      "sha256": "4401c0b76c27f1a21049e9af36f80afff3adff635cc19638d3a519cf17667c2b"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/legacy_v1_reasoning/manifest.json",
+      "bytes": 1162,
+      "sha256": "3a04e62d75e33914ab9e0981d7fb98d5702b62dbd2926af32ff7d0a4713d901d"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/legacy_v1_reasoning/results.jsonl",
+      "bytes": 45468,
+      "sha256": "5f7d03376431bbc3e0da4798d9db79224ca3593c9667fcf740f486a38e27a910"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/legacy_v1_reasoning/summary.json",
+      "bytes": 92,
+      "sha256": "43a54f64513a7cc944d93e0d8c5eba6712094308d51a81de48aeb40931a511f5"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/pilot_blind.jsonl",
+      "bytes": 4478,
+      "sha256": "4dbec7044453625608c0c557b746dad07404a54eb9a718ad8d7e3b2cd1ee8674"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/pilot_references.jsonl",
+      "bytes": 27683,
+      "sha256": "b9238142ab56431ddfdf4a158f005ce39eb9f181df8c3a7da2a19e5321513fd7"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/reasoning_single/disagreements.csv",
+      "bytes": 3570,
+      "sha256": "986b501e309d71316bb8b278daa52d4e029808aa29d782d590d176ed220838e9"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/reasoning_single/metrics.json",
+      "bytes": 1542,
+      "sha256": "6cd687dc98a41c21a3d2ee409edc7946353c5e41c5cebfd065f8e73eedeff1d7"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/reasoning_single/metrics_by_category.json",
+      "bytes": 50268,
+      "sha256": "c3872e72186a5efc8a08520c4d8e556588fe304919d2de8f73128aa39b0352b1"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/reasoning_single/metrics_by_dataset.json",
+      "bytes": 12463,
+      "sha256": "02ce91321fec218c1a80ce2151660bb0c63849d47426a4315e1a819eaadf7b23"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/reasoning_single/pipeline_health.json",
+      "bytes": 134,
+      "sha256": "d9f0e65b7e263e650eab0ca099ccb6f47e4e2b5ef14eb70ff2e363907300c852"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/reasoning_single/results.jsonl",
+      "bytes": 77757,
+      "sha256": "b7973370f41b70ecba780a42877427c936381a3cf7f2f9c88fa4bb6f3c11540d"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/reasoning_single/review_queue.jsonl",
+      "bytes": 7494,
+      "sha256": "08809099d9ebbf1b696f4a110a124479fa6e121cdd7648068a74984a3f7c0aed"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/reasoning_single/run_manifest.json",
+      "bytes": 4032,
+      "sha256": "d1efadd0e7d89a926921be696e7bad55a8b894c72c169da976ce332f170ecbda"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/rules/disagreements.csv",
+      "bytes": 4380,
+      "sha256": "d697c592a9a36579900507144d3e86ef3f66f84a3efedf1956f96b867b5832d8"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/rules/metrics.json",
+      "bytes": 1385,
+      "sha256": "ef9cf428daa78d8f1b24e72ed3fbce2240c9f4979fd8e33df54690cadeefaa94"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/rules/metrics_by_category.json",
+      "bytes": 48611,
+      "sha256": "484a56117ef9e499c3739f5ccdbc6445037cf9b3aadc5b6122de0c36a44e8df3"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/rules/metrics_by_dataset.json",
+      "bytes": 12056,
+      "sha256": "3d03b12243fe70bd88c8d7e360cf5c1caabc0cb7a52df5d268c8f81b7d1b3848"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/rules/pipeline_health.json",
+      "bytes": 133,
+      "sha256": "b0aaa0c53a2556dccaee5c3885983d405939cfedd8674f6d9849578386740a14"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/rules/results.jsonl",
+      "bytes": 44443,
+      "sha256": "41c9e4948a8288c04da1f8194f26b42d1d78607adbd95f5d448c67063281f79d"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/rules/review_queue.jsonl",
+      "bytes": 8195,
+      "sha256": "b325bc188bc1546fef805572726dfc32d1c225cd8a73d1213f2f23b739fcf61a"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/rules/run_manifest.json",
+      "bytes": 3366,
+      "sha256": "be4cd6cf88cf1e407e381c5109d6fee4806c6b3c394d50a44718bcba6686da39"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/run_log.txt",
+      "bytes": 1411,
+      "sha256": "d717d697a06e12a5ffd6d0a64999fda74c211cf60833824763ef855d338aaa41"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/semantic_cascade/disagreements.csv",
+      "bytes": 4254,
+      "sha256": "fa687e6aed3b0ea3b06c45bfa0dbc3b6e9c835f55b50aa2ff691bf4b9ded51ee"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/semantic_cascade/metrics.json",
+      "bytes": 1475,
+      "sha256": "4464725a0b1f50ba5af0d982dd90aa68e96a760894c78fa7b52b3e4ff8bbf1d2"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/semantic_cascade/metrics_by_category.json",
+      "bytes": 49696,
+      "sha256": "1a9cbe4924445f033be515daf9606c21b2f942726f1fd04e97878d5b8099a795"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/semantic_cascade/metrics_by_dataset.json",
+      "bytes": 12365,
+      "sha256": "8599775c4d50deabe70168f7ab0a994671bbb2ae5efb89af02dfb54112a6c8cc"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/semantic_cascade/pipeline_health.json",
+      "bytes": 133,
+      "sha256": "85885b7cc0510b2f1fcbf3a5fab9cff6215379585480cf3e6c1755e1b0594105"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/semantic_cascade/results.jsonl",
+      "bytes": 112929,
+      "sha256": "fb71b037924f06592eab22fb9021ec417ee74ef10e5855a5abf7922eeb5fe7f1"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/semantic_cascade/review_queue.jsonl",
+      "bytes": 8137,
+      "sha256": "dfa60f05d0134746867fac9a06b2bf837f48e634b2e7cb5f6da01ba1dde1193b"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/semantic_cascade/run_manifest.json",
+      "bytes": 4578,
+      "sha256": "3f274cccfda390c16dd7c72bd5c1b312ace24556c9253b26a334537016b20088"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/semantic_run_log.txt",
+      "bytes": 209,
+      "sha256": "5d24d9f7824287fce397eab2eae96e9f4c02786a9384b96332f8bb569e978c5e"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/single/disagreements.csv",
+      "bytes": 3982,
+      "sha256": "984cc453fbeafdc3228eab9e588ef57cd59f80b8a19ad152b69c516657f540ec"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/single/metrics.json",
+      "bytes": 1512,
+      "sha256": "9aee1279073b35cafc9b2eec9cffb17fa10b1a626c8d3c6e7293d957b9b80f82"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/single/metrics_by_category.json",
+      "bytes": 49935,
+      "sha256": "556afc7d4574c4994354ea5a41a0104c7cd35222035ba91afa3b8c4d229f4c0a"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/single/metrics_by_dataset.json",
+      "bytes": 12396,
+      "sha256": "c011d29bb48ded47c020b98fca170ce9c52eb27a7619783ede7e0a163d5be221"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/single/pipeline_health.json",
+      "bytes": 134,
+      "sha256": "b331e7609ad6e434d3ebb7534b72d662c7f1ba23e4fd0e60eef5f829dbbf405f"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/single/results.jsonl",
+      "bytes": 79964,
+      "sha256": "fdc030e2558c0324613312a23961664516886c2b2249f13a35469f140c3381ad"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/single/review_queue.jsonl",
+      "bytes": 7780,
+      "sha256": "fb508b28e5a338f607739908ff745c69a85f5bc981dca53981753f402a33cb06"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/single/run_manifest.json",
+      "bytes": 3925,
+      "sha256": "7829cccd573484425996a68267e222d65e4742738eafdf793906aa1233ad5818"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/smoke/pipeline_health.json",
+      "bytes": 130,
+      "sha256": "918ba8fa7897397931f68b7f6f61e736bde56435c2e6205233fda1c4cb6c12a4"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/smoke/results.jsonl",
+      "bytes": 2660,
+      "sha256": "eac52221f48ba504fa20216efbfa6248d0b8eb58c8f79a99f598e2a5624715fb"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/smoke/review_queue.jsonl",
+      "bytes": 166,
+      "sha256": "48a4f176d3ee1ceff09bab48a18fdf689329b20a39cc6171ee8943650c60d9e9"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/smoke/run_manifest.json",
+      "bytes": 1641,
+      "sha256": "7f3a70c988ab34888ebd69f7e58797d6ec192bab4f43479f168b8d3c85ef0b67"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/smoke_input.jsonl",
+      "bytes": 57,
+      "sha256": "f80471018ce016848557a18a0a40ac4f42f5f7931bda49ca9a4d9d7a72348f41"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/specialists/disagreements.csv",
+      "bytes": 4731,
+      "sha256": "04a76a7e2608b99f9e152b2885bca480b8ea5b239c54264af6ec39772d573a11"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/specialists/metrics.json",
+      "bytes": 1437,
+      "sha256": "c1dc163a3875f886a41a03010b1158cd4207ecc35b81abb61a6c1bbb93d7d93a"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/specialists/metrics_by_category.json",
+      "bytes": 49332,
+      "sha256": "6c63c64d0aad3e6073ed4d0e8353ad43869bb1931548a10c7a434b3d9200e9ca"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/specialists/metrics_by_dataset.json",
+      "bytes": 12216,
+      "sha256": "0e29c42b0c1648cb03d20c67f3bff3aa8a9df9ab4f5edc6e2bf1b17ffd3948f5"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/specialists/pipeline_health.json",
+      "bytes": 133,
+      "sha256": "7aa2916b338014d5acc6aff90e3310826c3a8a6db811637940144df241b254f3"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/specialists/results.jsonl",
+      "bytes": 85399,
+      "sha256": "94bf4bbacc3601e55a8547a265a3f68664f97846c5f754ea92916df4c1fe7ba3"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/specialists/review_queue.jsonl",
+      "bytes": 8319,
+      "sha256": "1caf64e69dff080777b17f942fcc641a37a4dd466066ad93179ab6e0789663f7"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/specialists/run_manifest.json",
+      "bytes": 4573,
+      "sha256": "30b346582f4a63dbc0f0fbf824af68a7add1e1378dbffc4e95f5491e6fb042aa"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/static_replay/disagreements.csv",
+      "bytes": 3994,
+      "sha256": "0778acb2bf04833c7884a8989292f1f48f1d2e1d719c99d07bcc0714e807300a"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/static_replay/metrics.json",
+      "bytes": 1544,
+      "sha256": "c3e4f6cf2b7cf29c04ae0c249ec3fcac1f9dda88e676b68a7a8dc7dbe79f8be8"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/static_replay/metrics_by_category.json",
+      "bytes": 49942,
+      "sha256": "bc987fd55d00f0bd510817a7728729d3b7bf064e2f74b7956d797602865ff7b7"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/static_replay/replay_receipt.json",
+      "bytes": 226,
+      "sha256": "5132279e38867b119f25c34dc3b65955adc1e58f0dcb7ac16d2061dd170ce352"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/static_replay/results.jsonl",
+      "bytes": 80202,
+      "sha256": "30bdf92deb071636364d6e41ca4febea91d7e2cb7a9e2728318cbeeefc97c885"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/static_replay/run_manifest.json",
+      "bytes": 4152,
+      "sha256": "d782aa2cf64c17f65037f0e9add44e1e77c69f09d03f5b04e6ba8bc3f5c05dfc"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/static_single/disagreements.csv",
+      "bytes": 4326,
+      "sha256": "94c118e29bec8f3e0619453e793cc6d8fe5a94eb2158ce8d9fbbbd279972b0ff"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/static_single/metrics.json",
+      "bytes": 1464,
+      "sha256": "5121e1ece3fa66637e223ac3f8501264e29555065dc2abef4316d7d38e506900"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/static_single/metrics_by_category.json",
+      "bytes": 49648,
+      "sha256": "b4983f4131182cd765cbb581df0137108ac556afcd9a35c246cdd4ad70fcfe2d"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/static_single/metrics_by_dataset.json",
+      "bytes": 12352,
+      "sha256": "c53014fcb06381beb47cf56c0eaac7378769cdc4b7d5cc933542f9394d7daa95"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/static_single/pipeline_health.json",
+      "bytes": 133,
+      "sha256": "1a2af48ad980e3225ce38091f614535bde65284c6037d73680dcbccf04f097c9"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/static_single/results.jsonl",
+      "bytes": 78918,
+      "sha256": "2c99d64198252ca5bf96b53216ad45118e01534d9cc9f79dc196188ddcc0aa77"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/static_single/review_queue.jsonl",
+      "bytes": 8100,
+      "sha256": "0e3ceeb6f9419404bcf4975f21f1101ce2794765b3901af0b89db212d906977f"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/experiments/static_single/run_manifest.json",
+      "bytes": 3932,
+      "sha256": "9a1a0b1c56b660536a61bca3b9717129ef8a22da4147a40832b646d4f0d0cdcc"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/final_tests.txt",
+      "bytes": 260,
+      "sha256": "e4cd1e8871929d8226efe5ba675934d9cd80f2c329d6f03caacf207f2924242c"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/full_mock/disagreements.csv",
+      "bytes": 291344,
+      "sha256": "96a3963045198e414608cc3c78b8e1af804118af068aae4dc3d6f7a74a23b5f2"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/full_mock/metrics.json",
+      "bytes": 1341,
+      "sha256": "2fac763b39af1acd331288eb0335874dc1ffd26b1a604fa43ecdc8df30f58df2"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/full_mock/metrics_by_category.json",
+      "bytes": 121055,
+      "sha256": "1daf1cbee97dec8b6edc0cd57017f96c7f7378497c461474ea4538343b287458"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/full_mock/pipeline_health.json",
+      "bytes": 139,
+      "sha256": "a243ed87099729f7965b742a4f150bc8e0cb89f1aa26c25b4fbb9d0379d47e18"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/full_mock/results.jsonl",
+      "bytes": 4408118,
+      "sha256": "ea77b309791ed8807ec4675744375cd4207f4496375b01cbc18e79bd4702a764"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/full_mock/review_queue.jsonl",
+      "bytes": 519661,
+      "sha256": "2552c688196fea60d07b82dcc9b84bb6b06330a2775dd1b91842a22349b9fb54"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/full_mock/run_manifest.json",
+      "bytes": 143443,
+      "sha256": "05e46102ff5cc77a160a44837901c07663a31dfbec6b9fa1d1b48a95a7fa9c5b"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/full_mock_cli.txt",
+      "bytes": 1341,
+      "sha256": "2fac763b39af1acd331288eb0335874dc1ffd26b1a604fa43ecdc8df30f58df2"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/full_rules/disagreements.csv",
+      "bytes": 279076,
+      "sha256": "518c04adfd9a60db1930018464fb236228be155769cf8fa102183c2402a48693"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/full_rules/metrics.json",
+      "bytes": 1500,
+      "sha256": "4bd4402366e8f1d3360120de43f8ca230c06ce591aa9d5761428783470a3cfb7"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/full_rules/metrics_by_category.json",
+      "bytes": 121578,
+      "sha256": "59c4df2a7c5ba7943fa65cfd254c3986c7e34347db669f05902751699133256f"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/full_rules/pipeline_health.json",
+      "bytes": 140,
+      "sha256": "0d7b792291015d18c7c43f7f3acf52aa81c2e2e862d329a7ab4eac3116697a33"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/full_rules/results.jsonl",
+      "bytes": 2712896,
+      "sha256": "0a1f5f120846d01274c3178aae2b54b14b231cd5e693bf4a08a815bb9ad0cce9"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/full_rules/review_queue.jsonl",
+      "bytes": 510059,
+      "sha256": "f5f4fdbdb7ef05a8303f96e3ff7e90866d0781d45dfc6ca55630bc099a581def"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/full_rules/run_manifest.json",
+      "bytes": 143262,
+      "sha256": "02676490527d439537289c54a1cd087a3d3bb4dd48849eb19e62a04a372e9299"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/full_rules_cli.txt",
+      "bytes": 1500,
+      "sha256": "4bd4402366e8f1d3360120de43f8ca230c06ce591aa9d5761428783470a3cfb7"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/human_review/blind_review.jsonl",
+      "bytes": 16133,
+      "sha256": "2029899c0c90004bc7302a02ee12dba7d89bc0f0a60043c159f78e95133c39c6"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/human_review/cat22_deny_review_candidates.jsonl",
+      "bytes": 11831,
+      "sha256": "584c7940772681bd22d0ba6cf8b4f9c8b400dbca3aeb47c0e71f2dbf40305dfb"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/human_review/manifest.json",
+      "bytes": 446,
+      "sha256": "75f361dd6dcea5389fee6016a7f2fa98fbb7278e636d70db7d9af0c678cf67d9"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/human_review/reference_key_DO_NOT_SHOW_REVIEWER.jsonl",
+      "bytes": 17996,
+      "sha256": "2fcaf37f082f74b89eb8dbd177667b177559b2ae5b2c8c4598a5685cc3e6dd65"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/inference_commit_verification.json",
+      "bytes": 148,
+      "sha256": "abbbaf4afaece7bf15a5b644e3950e78f54f32df0374d77218594999e0a7618c"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/integration_tests.txt",
+      "bytes": 260,
+      "sha256": "c8d9190c5157d3447fe460e24ce739916850a23cf2bd881103667781de0b4e82"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/live_pr1_comments.json",
+      "bytes": 6474,
+      "sha256": "ef39ca5b1a7e56b2947a8c8d886a99f6df009d40e8533e857b96161e38c13a84"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/provider_evidence.json",
+      "bytes": 880,
+      "sha256": "49148e4d2a382f8ea6e7857bd6841d43a0d2cc8f45718f818edc0c29f80ccff4"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/read_only_verification.json",
+      "bytes": 2120,
+      "sha256": "53b6d0fb0ec95c5babd71bcd6014fcfa34d06f2024393f9f4423b0be9191efe4"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/readiness.json",
+      "bytes": 782,
+      "sha256": "79142e9c3383580adf177737761047947d3a20ab252b062b1a4ae54d15a8f8c2"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/release_full_mock/disagreements.csv",
+      "bytes": 291344,
+      "sha256": "96a3963045198e414608cc3c78b8e1af804118af068aae4dc3d6f7a74a23b5f2"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/release_full_mock/metrics.json",
+      "bytes": 1341,
+      "sha256": "2fac763b39af1acd331288eb0335874dc1ffd26b1a604fa43ecdc8df30f58df2"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/release_full_mock/metrics_by_category.json",
+      "bytes": 121055,
+      "sha256": "1daf1cbee97dec8b6edc0cd57017f96c7f7378497c461474ea4538343b287458"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/release_full_mock/pipeline_health.json",
+      "bytes": 139,
+      "sha256": "a243ed87099729f7965b742a4f150bc8e0cb89f1aa26c25b4fbb9d0379d47e18"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/release_full_mock/results.jsonl",
+      "bytes": 4408118,
+      "sha256": "ea77b309791ed8807ec4675744375cd4207f4496375b01cbc18e79bd4702a764"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/release_full_mock/review_queue.jsonl",
+      "bytes": 519661,
+      "sha256": "2552c688196fea60d07b82dcc9b84bb6b06330a2775dd1b91842a22349b9fb54"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/release_full_mock/run_manifest.json",
+      "bytes": 143443,
+      "sha256": "d1df56e4dfdb1765f3fd7a9ad892550a51d80c740b1c00a77d6a5de330fc9d9c"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/release_full_mock_cli.txt",
+      "bytes": 1341,
+      "sha256": "2fac763b39af1acd331288eb0335874dc1ffd26b1a604fa43ecdc8df30f58df2"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/release_full_rules/disagreements.csv",
+      "bytes": 279076,
+      "sha256": "518c04adfd9a60db1930018464fb236228be155769cf8fa102183c2402a48693"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/release_full_rules/metrics.json",
+      "bytes": 1500,
+      "sha256": "4bd4402366e8f1d3360120de43f8ca230c06ce591aa9d5761428783470a3cfb7"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/release_full_rules/metrics_by_category.json",
+      "bytes": 121578,
+      "sha256": "59c4df2a7c5ba7943fa65cfd254c3986c7e34347db669f05902751699133256f"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/release_full_rules/pipeline_health.json",
+      "bytes": 140,
+      "sha256": "0d7b792291015d18c7c43f7f3acf52aa81c2e2e862d329a7ab4eac3116697a33"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/release_full_rules/results.jsonl",
+      "bytes": 2712896,
+      "sha256": "0a1f5f120846d01274c3178aae2b54b14b231cd5e693bf4a08a815bb9ad0cce9"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/release_full_rules/review_queue.jsonl",
+      "bytes": 510059,
+      "sha256": "f5f4fdbdb7ef05a8303f96e3ff7e90866d0781d45dfc6ca55630bc099a581def"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/release_full_rules/run_manifest.json",
+      "bytes": 143262,
+      "sha256": "8dbbafbc70797178b10c2e1ee94f0a88887545289806f028b405dd75f503cb9a"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/release_full_rules_cli.txt",
+      "bytes": 1500,
+      "sha256": "4bd4402366e8f1d3360120de43f8ca230c06ce591aa9d5761428783470a3cfb7"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/release_guards_red.txt",
+      "bytes": 4888,
+      "sha256": "7453002546b285bc752900499bec02e2ebc16cc31baee31342cd46e1c60fb547"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/release_install_demo/actual.json",
+      "bytes": 113,
+      "sha256": "d2f451f1e98f31a1b80b874d87846ec0bfc25908643a86c999899f708b158116"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/release_install_demo/doctor.json",
+      "bytes": 326,
+      "sha256": "c42fd703be22be56d311cdc053f44b71147d507bf3c2bc0b904cda0eee996880"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/release_install_demo/expected.json",
+      "bytes": 113,
+      "sha256": "d2f451f1e98f31a1b80b874d87846ec0bfc25908643a86c999899f708b158116"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/release_install_demo/input.jsonl",
+      "bytes": 657,
+      "sha256": "3005bbd596595c43c93e0fffe74205e5a6b289d32b24886cb91bade9815b9f0d"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/release_install_demo/run/pipeline_health.json",
+      "bytes": 133,
+      "sha256": "c81607b5c134624c341c19612e234f1d086c440539c4fe13f5f6c2f178f7b532"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/release_install_demo/run/results.jsonl",
+      "bytes": 22142,
+      "sha256": "4dc139d8945a4741007b71d880e8a0f230291dcd09bcff9a4a51260f0d4c86b5"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/release_install_demo/run/review_queue.jsonl",
+      "bytes": 2272,
+      "sha256": "f302f5cfb0b2f7bfaa83ca6ce73e021ca31a74b5dfc914792bfc6248dfc0d5ca"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/release_install_demo/run/run_manifest.json",
+      "bytes": 1229,
+      "sha256": "4ec8782427353babf5264102c28669ee65566e63d7ae877b503c566d4cfa27cf"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/release_install_receipt.json",
+      "bytes": 683,
+      "sha256": "938611393d76d465eb3f4a3a4bc4aefde50801080cff3d1b43ccef881ff30675"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/stage1_tests.txt",
+      "bytes": 99,
+      "sha256": "a70666234ab329b7c0796c67ac6cb985897b31a0e3735a1f7f4f6ce9d639aa28"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/stage2_tests.txt",
+      "bytes": 179,
+      "sha256": "b0737417bcc90964b459c5de2000f1e6ddbd1d15c8a8ab35d57ac0e270bd7d54"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/stage3_tests.txt",
+      "bytes": 260,
+      "sha256": "b93f1fe72b25a33962363c72300c21c2890bee17b749771184fc4538338022bc"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/taxonomy_probe/blind_inputs.jsonl",
+      "bytes": 3541,
+      "sha256": "296707cca63e99c87eeaaccd1fbe6a880cfa6619ec13b9b627ee21a68c20cdec"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/taxonomy_probe/freeze.json",
+      "bytes": 1056,
+      "sha256": "99b0008e0a2ae1d377c981d0b0a428243d7d0d0658d0b2148c4a218f1439497c"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/taxonomy_probe/run/pipeline_health.json",
+      "bytes": 134,
+      "sha256": "27d45ee18d1bb436e6e19ffcac5d12238b4d8ccc8a962469a4a65e9a04455946"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/taxonomy_probe/run/results.jsonl",
+      "bytes": 106855,
+      "sha256": "5e8c19eef8b27908a88bbe78624572708b969bf2845d8287895ba195ada4823b"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/taxonomy_probe/run/review_queue.jsonl",
+      "bytes": 7402,
+      "sha256": "d794cb0426698fad92888c445fa11cf3b1ba9a70e2ee81a7ff0561dbccf910dc"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/taxonomy_probe/run/run_manifest.json",
+      "bytes": 2610,
+      "sha256": "6c699bcacd4f27ee0ebc84e28c6c071edd65680888d7f987ea21234c3569f1ab"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/taxonomy_probe/summary.json",
+      "bytes": 150,
+      "sha256": "7371517e9f4076eeb7b114abda2d3704fde94898d725162a4956e5990706c944"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/taxonomy_probe_log.txt",
+      "bytes": 151,
+      "sha256": "e88f3f0c973f61a57bd04091a558a4858fdffc776462ffb4d53c91bb2ed3b264"
+    },
+    {
+      "path": "reports/cascade_2026-11-05/validation_errors.csv",
+      "bytes": 16322,
+      "sha256": "64f153ab4672466a116eb8be1f83e2ad74f2f2dca1b888c74c66ddb2538d18f9"
+    }
+  ],
+  "human_gold": 0
+}

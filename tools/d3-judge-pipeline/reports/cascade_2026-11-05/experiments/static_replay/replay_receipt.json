@@ -1,0 +1,9 @@
+{
+  "same_classifier_outputs": true,
+  "new_calls": 0,
+  "incremental_cost_rub": 0,
+  "changed_ids": [
+    "8c487cd33f26d473e8218d332f409a2a28f3ea95ebceff6e826abff79e71d78a"
+  ],
+  "usage_fields_refer_to_parent_calls": true
+}

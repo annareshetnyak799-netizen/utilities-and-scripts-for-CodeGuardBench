@@ -1,0 +1,15 @@
+{
+  "date": "2026-11-05",
+  "commands": [
+    "uv venv /tmp/codeguard-cascade-clean --python 3.11",
+    "uv pip install --python /tmp/codeguard-cascade-clean/bin/python . pytest==9.0.2",
+    "cd /tmp && /tmp/codeguard-cascade-clean/bin/codeguard-judge doctor",
+    "cd /tmp && /tmp/codeguard-cascade-clean/bin/codeguard-judge demo --output /tmp/codeguard-cascade-clean-demo"
+  ],
+  "working_directory_for_demo": "/tmp",
+  "installed_wheel_not_repository_import": true,
+  "python": "3.11.9",
+  "core_commit": "0bf406f",
+  "gpu": false,
+  "network_in_demo": false
+}

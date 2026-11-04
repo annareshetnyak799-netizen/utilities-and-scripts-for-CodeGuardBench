@@ -1,0 +1,1958 @@
+{
+  "category": {
+    "CAT-1": {
+      "n": 4,
+      "annotation_agreement": 0.0,
+      "conditional_agreement_on_nonabstain": null,
+      "prediction_coverage": 0.0,
+      "review_rate": 1.0,
+      "class_metrics": {
+        "allow": {
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0,
+          "support": 2
+        },
+        "ask": {
+          "precision": 0,
+          "recall": 0,
+          "f1": 0,
+          "support": 0
+        },
+        "deny": {
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0,
+          "support": 2
+        }
+      },
+      "class_macro_f1": 0.0,
+      "balanced_accuracy": 0.0,
+      "kappa": 0.0,
+      "confusion": {
+        "allow": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 2
+        },
+        "ask": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 0
+        },
+        "deny": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 2
+        }
+      },
+      "binary_false_allow_rate": 0.0,
+      "binary_false_unsafe_rate": 0.0,
+      "risk_agreement_all": 0.0,
+      "risk_identifiable_human_n": 0,
+      "risk_identifiable_agreement": null,
+      "risk_agreement_model_identifiable_NOT_GOLD": 0.0,
+      "severity_false_low": 0,
+      "schema_failure_calls": 1,
+      "provider_failure_calls": 0,
+      "parser_failure_rows": 1,
+      "calls": 2,
+      "estimated_cost_rub": 0.14326748,
+      "latency_s": 24.305243832990527,
+      "human_gold_accuracy": "NOT_AVAILABLE",
+      "bootstrap_ci": "NOT_AVAILABLE_NO_INDEPENDENT_GOLD"
+    },
+    "CAT-2": {
+      "n": 8,
+      "annotation_agreement": 0.0,
+      "conditional_agreement_on_nonabstain": null,
+      "prediction_coverage": 0.0,
+      "review_rate": 1.0,
+      "class_metrics": {
+        "allow": {
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0,
+          "support": 4
+        },
+        "ask": {
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0,
+          "support": 1
+        },
+        "deny": {
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0,
+          "support": 3
+        }
+      },
+      "class_macro_f1": 0.0,
+      "balanced_accuracy": 0.0,
+      "kappa": 0.0,
+      "confusion": {
+        "allow": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 4
+        },
+        "ask": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 1
+        },
+        "deny": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 3
+        }
+      },
+      "binary_false_allow_rate": 0.0,
+      "binary_false_unsafe_rate": 0.0,
+      "risk_agreement_all": 0.0,
+      "risk_identifiable_human_n": 0,
+      "risk_identifiable_agreement": null,
+      "risk_agreement_model_identifiable_NOT_GOLD": 0.0,
+      "severity_false_low": 0,
+      "schema_failure_calls": 4,
+      "provider_failure_calls": 0,
+      "parser_failure_rows": 0,
+      "calls": 10,
+      "estimated_cost_rub": 0.8942464099999999,
+      "latency_s": 71.12017479299539,
+      "human_gold_accuracy": "NOT_AVAILABLE",
+      "bootstrap_ci": "NOT_AVAILABLE_NO_INDEPENDENT_GOLD"
+    },
+    "CAT-3": {
+      "n": 10,
+      "annotation_agreement": 0.1,
+      "conditional_agreement_on_nonabstain": 1.0,
+      "prediction_coverage": 0.1,
+      "review_rate": 1.0,
+      "class_metrics": {
+        "allow": {
+          "precision": 1.0,
+          "recall": 0.2,
+          "f1": 0.33333333333333337,
+          "support": 5
+        },
+        "ask": {
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0,
+          "support": 5
+        },
+        "deny": {
+          "precision": 0,
+          "recall": 0,
+          "f1": 0,
+          "support": 0
+        }
+      },
+      "class_macro_f1": 0.11111111111111112,
+      "balanced_accuracy": 0.06666666666666667,
+      "kappa": 0.052631578947368425,
+      "confusion": {
+        "allow": {
+          "allow": 1,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 4
+        },
+        "ask": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 5
+        },
+        "deny": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 0
+        }
+      },
+      "binary_false_allow_rate": 0.0,
+      "binary_false_unsafe_rate": 0.0,
+      "risk_agreement_all": 0.0,
+      "risk_identifiable_human_n": 0,
+      "risk_identifiable_agreement": null,
+      "risk_agreement_model_identifiable_NOT_GOLD": 0.0,
+      "severity_false_low": 0,
+      "schema_failure_calls": 6,
+      "provider_failure_calls": 0,
+      "parser_failure_rows": 0,
+      "calls": 9,
+      "estimated_cost_rub": 0.9419860499999999,
+      "latency_s": 74.72308604300633,
+      "human_gold_accuracy": "NOT_AVAILABLE",
+      "bootstrap_ci": "NOT_AVAILABLE_NO_INDEPENDENT_GOLD"
+    },
+    "CAT-4": {
+      "n": 10,
+      "annotation_agreement": 0.0,
+      "conditional_agreement_on_nonabstain": null,
+      "prediction_coverage": 0.0,
+      "review_rate": 1.0,
+      "class_metrics": {
+        "allow": {
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0,
+          "support": 4
+        },
+        "ask": {
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0,
+          "support": 3
+        },
+        "deny": {
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0,
+          "support": 3
+        }
+      },
+      "class_macro_f1": 0.0,
+      "balanced_accuracy": 0.0,
+      "kappa": 0.0,
+      "confusion": {
+        "allow": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 4
+        },
+        "ask": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 3
+        },
+        "deny": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 3
+        }
+      },
+      "binary_false_allow_rate": 0.0,
+      "binary_false_unsafe_rate": 0.0,
+      "risk_agreement_all": 0.0,
+      "risk_identifiable_human_n": 0,
+      "risk_identifiable_agreement": null,
+      "risk_agreement_model_identifiable_NOT_GOLD": 0.0,
+      "severity_false_low": 0,
+      "schema_failure_calls": 9,
+      "provider_failure_calls": 0,
+      "parser_failure_rows": 0,
+      "calls": 12,
+      "estimated_cost_rub": 1.21345755,
+      "latency_s": 86.04840583401528,
+      "human_gold_accuracy": "NOT_AVAILABLE",
+      "bootstrap_ci": "NOT_AVAILABLE_NO_INDEPENDENT_GOLD"
+    }
+  },
+  "risk": {
+    "CAT-1.1": {
+      "n": 2,
+      "annotation_agreement": 0.0,
+      "conditional_agreement_on_nonabstain": null,
+      "prediction_coverage": 0.0,
+      "review_rate": 1.0,
+      "class_metrics": {
+        "allow": {
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0,
+          "support": 1
+        },
+        "ask": {
+          "precision": 0,
+          "recall": 0,
+          "f1": 0,
+          "support": 0
+        },
+        "deny": {
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0,
+          "support": 1
+        }
+      },
+      "class_macro_f1": 0.0,
+      "balanced_accuracy": 0.0,
+      "kappa": 0.0,
+      "confusion": {
+        "allow": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 1
+        },
+        "ask": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 0
+        },
+        "deny": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 1
+        }
+      },
+      "binary_false_allow_rate": 0.0,
+      "binary_false_unsafe_rate": 0.0,
+      "risk_agreement_all": 0.0,
+      "risk_identifiable_human_n": 0,
+      "risk_identifiable_agreement": null,
+      "risk_agreement_model_identifiable_NOT_GOLD": 0.0,
+      "severity_false_low": 0,
+      "schema_failure_calls": 1,
+      "provider_failure_calls": 0,
+      "parser_failure_rows": 1,
+      "calls": 2,
+      "estimated_cost_rub": 0.14326748,
+      "latency_s": 24.305243832990527,
+      "human_gold_accuracy": "NOT_AVAILABLE",
+      "bootstrap_ci": "NOT_AVAILABLE_NO_INDEPENDENT_GOLD"
+    },
+    "CAT-1.3": {
+      "n": 2,
+      "annotation_agreement": 0.0,
+      "conditional_agreement_on_nonabstain": null,
+      "prediction_coverage": 0.0,
+      "review_rate": 1.0,
+      "class_metrics": {
+        "allow": {
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0,
+          "support": 1
+        },
+        "ask": {
+          "precision": 0,
+          "recall": 0,
+          "f1": 0,
+          "support": 0
+        },
+        "deny": {
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0,
+          "support": 1
+        }
+      },
+      "class_macro_f1": 0.0,
+      "balanced_accuracy": 0.0,
+      "kappa": 0.0,
+      "confusion": {
+        "allow": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 1
+        },
+        "ask": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 0
+        },
+        "deny": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 1
+        }
+      },
+      "binary_false_allow_rate": 0.0,
+      "binary_false_unsafe_rate": 0.0,
+      "risk_agreement_all": 0.0,
+      "risk_identifiable_human_n": 0,
+      "risk_identifiable_agreement": null,
+      "risk_agreement_model_identifiable_NOT_GOLD": 0.0,
+      "severity_false_low": 0,
+      "schema_failure_calls": 0,
+      "provider_failure_calls": 0,
+      "parser_failure_rows": 0,
+      "calls": 0,
+      "estimated_cost_rub": 0,
+      "latency_s": 0,
+      "human_gold_accuracy": "NOT_AVAILABLE",
+      "bootstrap_ci": "NOT_AVAILABLE_NO_INDEPENDENT_GOLD"
+    },
+    "CAT-2.1": {
+      "n": 2,
+      "annotation_agreement": 0.0,
+      "conditional_agreement_on_nonabstain": null,
+      "prediction_coverage": 0.0,
+      "review_rate": 1.0,
+      "class_metrics": {
+        "allow": {
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0,
+          "support": 1
+        },
+        "ask": {
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0,
+          "support": 1
+        },
+        "deny": {
+          "precision": 0,
+          "recall": 0,
+          "f1": 0,
+          "support": 0
+        }
+      },
+      "class_macro_f1": 0.0,
+      "balanced_accuracy": 0.0,
+      "kappa": 0.0,
+      "confusion": {
+        "allow": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 1
+        },
+        "ask": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 1
+        },
+        "deny": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 0
+        }
+      },
+      "binary_false_allow_rate": 0.0,
+      "binary_false_unsafe_rate": 0.0,
+      "risk_agreement_all": 0.0,
+      "risk_identifiable_human_n": 0,
+      "risk_identifiable_agreement": null,
+      "risk_agreement_model_identifiable_NOT_GOLD": 0.0,
+      "severity_false_low": 0,
+      "schema_failure_calls": 1,
+      "provider_failure_calls": 0,
+      "parser_failure_rows": 0,
+      "calls": 2,
+      "estimated_cost_rub": 0.23544492,
+      "latency_s": 25.329757542000152,
+      "human_gold_accuracy": "NOT_AVAILABLE",
+      "bootstrap_ci": "NOT_AVAILABLE_NO_INDEPENDENT_GOLD"
+    },
+    "CAT-2.2": {
+      "n": 2,
+      "annotation_agreement": 0.0,
+      "conditional_agreement_on_nonabstain": null,
+      "prediction_coverage": 0.0,
+      "review_rate": 1.0,
+      "class_metrics": {
+        "allow": {
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0,
+          "support": 1
+        },
+        "ask": {
+          "precision": 0,
+          "recall": 0,
+          "f1": 0,
+          "support": 0
+        },
+        "deny": {
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0,
+          "support": 1
+        }
+      },
+      "class_macro_f1": 0.0,
+      "balanced_accuracy": 0.0,
+      "kappa": 0.0,
+      "confusion": {
+        "allow": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 1
+        },
+        "ask": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 0
+        },
+        "deny": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 1
+        }
+      },
+      "binary_false_allow_rate": 0.0,
+      "binary_false_unsafe_rate": 0.0,
+      "risk_agreement_all": 0.0,
+      "risk_identifiable_human_n": 0,
+      "risk_identifiable_agreement": null,
+      "risk_agreement_model_identifiable_NOT_GOLD": 0.0,
+      "severity_false_low": 0,
+      "schema_failure_calls": 1,
+      "provider_failure_calls": 0,
+      "parser_failure_rows": 0,
+      "calls": 3,
+      "estimated_cost_rub": 0.25704405,
+      "latency_s": 20.127552625002863,
+      "human_gold_accuracy": "NOT_AVAILABLE",
+      "bootstrap_ci": "NOT_AVAILABLE_NO_INDEPENDENT_GOLD"
+    },
+    "CAT-2.3": {
+      "n": 2,
+      "annotation_agreement": 0.0,
+      "conditional_agreement_on_nonabstain": null,
+      "prediction_coverage": 0.0,
+      "review_rate": 1.0,
+      "class_metrics": {
+        "allow": {
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0,
+          "support": 1
+        },
+        "ask": {
+          "precision": 0,
+          "recall": 0,
+          "f1": 0,
+          "support": 0
+        },
+        "deny": {
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0,
+          "support": 1
+        }
+      },
+      "class_macro_f1": 0.0,
+      "balanced_accuracy": 0.0,
+      "kappa": 0.0,
+      "confusion": {
+        "allow": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 1
+        },
+        "ask": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 0
+        },
+        "deny": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 1
+        }
+      },
+      "binary_false_allow_rate": 0.0,
+      "binary_false_unsafe_rate": 0.0,
+      "risk_agreement_all": 0.0,
+      "risk_identifiable_human_n": 0,
+      "risk_identifiable_agreement": null,
+      "risk_agreement_model_identifiable_NOT_GOLD": 0.0,
+      "severity_false_low": 0,
+      "schema_failure_calls": 1,
+      "provider_failure_calls": 0,
+      "parser_failure_rows": 0,
+      "calls": 1,
+      "estimated_cost_rub": 0.11510541,
+      "latency_s": 7.6378098749992205,
+      "human_gold_accuracy": "NOT_AVAILABLE",
+      "bootstrap_ci": "NOT_AVAILABLE_NO_INDEPENDENT_GOLD"
+    },
+    "CAT-2.4": {
+      "n": 2,
+      "annotation_agreement": 0.0,
+      "conditional_agreement_on_nonabstain": null,
+      "prediction_coverage": 0.0,
+      "review_rate": 1.0,
+      "class_metrics": {
+        "allow": {
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0,
+          "support": 1
+        },
+        "ask": {
+          "precision": 0,
+          "recall": 0,
+          "f1": 0,
+          "support": 0
+        },
+        "deny": {
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0,
+          "support": 1
+        }
+      },
+      "class_macro_f1": 0.0,
+      "balanced_accuracy": 0.0,
+      "kappa": 0.0,
+      "confusion": {
+        "allow": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 1
+        },
+        "ask": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 0
+        },
+        "deny": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 1
+        }
+      },
+      "binary_false_allow_rate": 0.0,
+      "binary_false_unsafe_rate": 0.0,
+      "risk_agreement_all": 0.0,
+      "risk_identifiable_human_n": 0,
+      "risk_identifiable_agreement": null,
+      "risk_agreement_model_identifiable_NOT_GOLD": 0.0,
+      "severity_false_low": 0,
+      "schema_failure_calls": 1,
+      "provider_failure_calls": 0,
+      "parser_failure_rows": 0,
+      "calls": 4,
+      "estimated_cost_rub": 0.28665203,
+      "latency_s": 18.02505475099315,
+      "human_gold_accuracy": "NOT_AVAILABLE",
+      "bootstrap_ci": "NOT_AVAILABLE_NO_INDEPENDENT_GOLD"
+    },
+    "CAT-3.1": {
+      "n": 2,
+      "annotation_agreement": 0.0,
+      "conditional_agreement_on_nonabstain": null,
+      "prediction_coverage": 0.0,
+      "review_rate": 1.0,
+      "class_metrics": {
+        "allow": {
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0,
+          "support": 1
+        },
+        "ask": {
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0,
+          "support": 1
+        },
+        "deny": {
+          "precision": 0,
+          "recall": 0,
+          "f1": 0,
+          "support": 0
+        }
+      },
+      "class_macro_f1": 0.0,
+      "balanced_accuracy": 0.0,
+      "kappa": 0.0,
+      "confusion": {
+        "allow": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 1
+        },
+        "ask": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 1
+        },
+        "deny": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 0
+        }
+      },
+      "binary_false_allow_rate": 0.0,
+      "binary_false_unsafe_rate": 0.0,
+      "risk_agreement_all": 0.0,
+      "risk_identifiable_human_n": 0,
+      "risk_identifiable_agreement": null,
+      "risk_agreement_model_identifiable_NOT_GOLD": 0.0,
+      "severity_false_low": 0,
+      "schema_failure_calls": 2,
+      "provider_failure_calls": 0,
+      "parser_failure_rows": 0,
+      "calls": 2,
+      "estimated_cost_rub": 0.23135067,
+      "latency_s": 21.38887841700489,
+      "human_gold_accuracy": "NOT_AVAILABLE",
+      "bootstrap_ci": "NOT_AVAILABLE_NO_INDEPENDENT_GOLD"
+    },
+    "CAT-3.2": {
+      "n": 2,
+      "annotation_agreement": 0.0,
+      "conditional_agreement_on_nonabstain": null,
+      "prediction_coverage": 0.0,
+      "review_rate": 1.0,
+      "class_metrics": {
+        "allow": {
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0,
+          "support": 1
+        },
+        "ask": {
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0,
+          "support": 1
+        },
+        "deny": {
+          "precision": 0,
+          "recall": 0,
+          "f1": 0,
+          "support": 0
+        }
+      },
+      "class_macro_f1": 0.0,
+      "balanced_accuracy": 0.0,
+      "kappa": 0.0,
+      "confusion": {
+        "allow": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 1
+        },
+        "ask": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 1
+        },
+        "deny": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 0
+        }
+      },
+      "binary_false_allow_rate": 0.0,
+      "binary_false_unsafe_rate": 0.0,
+      "risk_agreement_all": 0.0,
+      "risk_identifiable_human_n": 0,
+      "risk_identifiable_agreement": null,
+      "risk_agreement_model_identifiable_NOT_GOLD": 0.0,
+      "severity_false_low": 0,
+      "schema_failure_calls": 2,
+      "provider_failure_calls": 0,
+      "parser_failure_rows": 0,
+      "calls": 2,
+      "estimated_cost_rub": 0.23007927,
+      "latency_s": 19.672881417005556,
+      "human_gold_accuracy": "NOT_AVAILABLE",
+      "bootstrap_ci": "NOT_AVAILABLE_NO_INDEPENDENT_GOLD"
+    },
+    "CAT-3.3": {
+      "n": 2,
+      "annotation_agreement": 0.5,
+      "conditional_agreement_on_nonabstain": 1.0,
+      "prediction_coverage": 0.5,
+      "review_rate": 1.0,
+      "class_metrics": {
+        "allow": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 1
+        },
+        "ask": {
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0,
+          "support": 1
+        },
+        "deny": {
+          "precision": 0,
+          "recall": 0,
+          "f1": 0,
+          "support": 0
+        }
+      },
+      "class_macro_f1": 0.3333333333333333,
+      "balanced_accuracy": 0.3333333333333333,
+      "kappa": 0.3333333333333333,
+      "confusion": {
+        "allow": {
+          "allow": 1,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 0
+        },
+        "ask": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 1
+        },
+        "deny": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 0
+        }
+      },
+      "binary_false_allow_rate": 0.0,
+      "binary_false_unsafe_rate": 0.0,
+      "risk_agreement_all": 0.0,
+      "risk_identifiable_human_n": 0,
+      "risk_identifiable_agreement": null,
+      "risk_agreement_model_identifiable_NOT_GOLD": 0.0,
+      "severity_false_low": 0,
+      "schema_failure_calls": 1,
+      "provider_failure_calls": 0,
+      "parser_failure_rows": 0,
+      "calls": 3,
+      "estimated_cost_rub": 0.24856539,
+      "latency_s": 9.5421645000024,
+      "human_gold_accuracy": "NOT_AVAILABLE",
+      "bootstrap_ci": "NOT_AVAILABLE_NO_INDEPENDENT_GOLD"
+    },
+    "CAT-3.4": {
+      "n": 2,
+      "annotation_agreement": 0.0,
+      "conditional_agreement_on_nonabstain": null,
+      "prediction_coverage": 0.0,
+      "review_rate": 1.0,
+      "class_metrics": {
+        "allow": {
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0,
+          "support": 1
+        },
+        "ask": {
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0,
+          "support": 1
+        },
+        "deny": {
+          "precision": 0,
+          "recall": 0,
+          "f1": 0,
+          "support": 0
+        }
+      },
+      "class_macro_f1": 0.0,
+      "balanced_accuracy": 0.0,
+      "kappa": 0.0,
+      "confusion": {
+        "allow": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 1
+        },
+        "ask": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 1
+        },
+        "deny": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 0
+        }
+      },
+      "binary_false_allow_rate": 0.0,
+      "binary_false_unsafe_rate": 0.0,
+      "risk_agreement_all": 0.0,
+      "risk_identifiable_human_n": 0,
+      "risk_identifiable_agreement": null,
+      "risk_agreement_model_identifiable_NOT_GOLD": 0.0,
+      "severity_false_low": 0,
+      "schema_failure_calls": 1,
+      "provider_failure_calls": 0,
+      "parser_failure_rows": 0,
+      "calls": 2,
+      "estimated_cost_rub": 0.23199072,
+      "latency_s": 24.119161708993488,
+      "human_gold_accuracy": "NOT_AVAILABLE",
+      "bootstrap_ci": "NOT_AVAILABLE_NO_INDEPENDENT_GOLD"
+    },
+    "CAT-3.5": {
+      "n": 2,
+      "annotation_agreement": 0.0,
+      "conditional_agreement_on_nonabstain": null,
+      "prediction_coverage": 0.0,
+      "review_rate": 1.0,
+      "class_metrics": {
+        "allow": {
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0,
+          "support": 1
+        },
+        "ask": {
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0,
+          "support": 1
+        },
+        "deny": {
+          "precision": 0,
+          "recall": 0,
+          "f1": 0,
+          "support": 0
+        }
+      },
+      "class_macro_f1": 0.0,
+      "balanced_accuracy": 0.0,
+      "kappa": 0.0,
+      "confusion": {
+        "allow": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 1
+        },
+        "ask": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 1
+        },
+        "deny": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 0
+        }
+      },
+      "binary_false_allow_rate": 0.0,
+      "binary_false_unsafe_rate": 0.0,
+      "risk_agreement_all": 0.0,
+      "risk_identifiable_human_n": 0,
+      "risk_identifiable_agreement": null,
+      "risk_agreement_model_identifiable_NOT_GOLD": 0.0,
+      "severity_false_low": 0,
+      "schema_failure_calls": 0,
+      "provider_failure_calls": 0,
+      "parser_failure_rows": 0,
+      "calls": 0,
+      "estimated_cost_rub": 0,
+      "latency_s": 0,
+      "human_gold_accuracy": "NOT_AVAILABLE",
+      "bootstrap_ci": "NOT_AVAILABLE_NO_INDEPENDENT_GOLD"
+    },
+    "CAT-4.1": {
+      "n": 2,
+      "annotation_agreement": 0.0,
+      "conditional_agreement_on_nonabstain": null,
+      "prediction_coverage": 0.0,
+      "review_rate": 1.0,
+      "class_metrics": {
+        "allow": {
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0,
+          "support": 1
+        },
+        "ask": {
+          "precision": 0,
+          "recall": 0,
+          "f1": 0,
+          "support": 0
+        },
+        "deny": {
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0,
+          "support": 1
+        }
+      },
+      "class_macro_f1": 0.0,
+      "balanced_accuracy": 0.0,
+      "kappa": 0.0,
+      "confusion": {
+        "allow": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 1
+        },
+        "ask": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 0
+        },
+        "deny": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 1
+        }
+      },
+      "binary_false_allow_rate": 0.0,
+      "binary_false_unsafe_rate": 0.0,
+      "risk_agreement_all": 0.0,
+      "risk_identifiable_human_n": 0,
+      "risk_identifiable_agreement": null,
+      "risk_agreement_model_identifiable_NOT_GOLD": 0.0,
+      "severity_false_low": 0,
+      "schema_failure_calls": 1,
+      "provider_failure_calls": 0,
+      "parser_failure_rows": 0,
+      "calls": 3,
+      "estimated_cost_rub": 0.26236322999999995,
+      "latency_s": 20.9087053750045,
+      "human_gold_accuracy": "NOT_AVAILABLE",
+      "bootstrap_ci": "NOT_AVAILABLE_NO_INDEPENDENT_GOLD"
+    },
+    "CAT-4.2": {
+      "n": 2,
+      "annotation_agreement": 0.0,
+      "conditional_agreement_on_nonabstain": null,
+      "prediction_coverage": 0.0,
+      "review_rate": 1.0,
+      "class_metrics": {
+        "allow": {
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0,
+          "support": 1
+        },
+        "ask": {
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0,
+          "support": 1
+        },
+        "deny": {
+          "precision": 0,
+          "recall": 0,
+          "f1": 0,
+          "support": 0
+        }
+      },
+      "class_macro_f1": 0.0,
+      "balanced_accuracy": 0.0,
+      "kappa": 0.0,
+      "confusion": {
+        "allow": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 1
+        },
+        "ask": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 1
+        },
+        "deny": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 0
+        }
+      },
+      "binary_false_allow_rate": 0.0,
+      "binary_false_unsafe_rate": 0.0,
+      "risk_agreement_all": 0.0,
+      "risk_identifiable_human_n": 0,
+      "risk_identifiable_agreement": null,
+      "risk_agreement_model_identifiable_NOT_GOLD": 0.0,
+      "severity_false_low": 0,
+      "schema_failure_calls": 2,
+      "provider_failure_calls": 0,
+      "parser_failure_rows": 0,
+      "calls": 2,
+      "estimated_cost_rub": 0.23146017000000002,
+      "latency_s": 9.641436041994893,
+      "human_gold_accuracy": "NOT_AVAILABLE",
+      "bootstrap_ci": "NOT_AVAILABLE_NO_INDEPENDENT_GOLD"
+    },
+    "CAT-4.3": {
+      "n": 2,
+      "annotation_agreement": 0.0,
+      "conditional_agreement_on_nonabstain": null,
+      "prediction_coverage": 0.0,
+      "review_rate": 1.0,
+      "class_metrics": {
+        "allow": {
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0,
+          "support": 1
+        },
+        "ask": {
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0,
+          "support": 1
+        },
+        "deny": {
+          "precision": 0,
+          "recall": 0,
+          "f1": 0,
+          "support": 0
+        }
+      },
+      "class_macro_f1": 0.0,
+      "balanced_accuracy": 0.0,
+      "kappa": 0.0,
+      "confusion": {
+        "allow": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 1
+        },
+        "ask": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 1
+        },
+        "deny": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 0
+        }
+      },
+      "binary_false_allow_rate": 0.0,
+      "binary_false_unsafe_rate": 0.0,
+      "risk_agreement_all": 0.0,
+      "risk_identifiable_human_n": 0,
+      "risk_identifiable_agreement": null,
+      "risk_agreement_model_identifiable_NOT_GOLD": 0.0,
+      "severity_false_low": 0,
+      "schema_failure_calls": 2,
+      "provider_failure_calls": 0,
+      "parser_failure_rows": 0,
+      "calls": 2,
+      "estimated_cost_rub": 0.22834161,
+      "latency_s": 9.551314708012796,
+      "human_gold_accuracy": "NOT_AVAILABLE",
+      "bootstrap_ci": "NOT_AVAILABLE_NO_INDEPENDENT_GOLD"
+    },
+    "CAT-4.4": {
+      "n": 2,
+      "annotation_agreement": 0.0,
+      "conditional_agreement_on_nonabstain": null,
+      "prediction_coverage": 0.0,
+      "review_rate": 1.0,
+      "class_metrics": {
+        "allow": {
+          "precision": 0,
+          "recall": 0,
+          "f1": 0,
+          "support": 0
+        },
+        "ask": {
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0,
+          "support": 1
+        },
+        "deny": {
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0,
+          "support": 1
+        }
+      },
+      "class_macro_f1": 0.0,
+      "balanced_accuracy": 0.0,
+      "kappa": 0.0,
+      "confusion": {
+        "allow": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 0
+        },
+        "ask": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 1
+        },
+        "deny": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 1
+        }
+      },
+      "binary_false_allow_rate": 0.0,
+      "binary_false_unsafe_rate": null,
+      "risk_agreement_all": 0.0,
+      "risk_identifiable_human_n": 0,
+      "risk_identifiable_agreement": null,
+      "risk_agreement_model_identifiable_NOT_GOLD": 0.0,
+      "severity_false_low": 0,
+      "schema_failure_calls": 2,
+      "provider_failure_calls": 0,
+      "parser_failure_rows": 0,
+      "calls": 3,
+      "estimated_cost_rub": 0.26038599,
+      "latency_s": 24.058117250002397,
+      "human_gold_accuracy": "NOT_AVAILABLE",
+      "bootstrap_ci": "NOT_AVAILABLE_NO_INDEPENDENT_GOLD"
+    },
+    "CAT-4.5": {
+      "n": 2,
+      "annotation_agreement": 0.0,
+      "conditional_agreement_on_nonabstain": null,
+      "prediction_coverage": 0.0,
+      "review_rate": 1.0,
+      "class_metrics": {
+        "allow": {
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0,
+          "support": 1
+        },
+        "ask": {
+          "precision": 0,
+          "recall": 0,
+          "f1": 0,
+          "support": 0
+        },
+        "deny": {
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0,
+          "support": 1
+        }
+      },
+      "class_macro_f1": 0.0,
+      "balanced_accuracy": 0.0,
+      "kappa": 0.0,
+      "confusion": {
+        "allow": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 1
+        },
+        "ask": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 0
+        },
+        "deny": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 1
+        }
+      },
+      "binary_false_allow_rate": 0.0,
+      "binary_false_unsafe_rate": 0.0,
+      "risk_agreement_all": 0.0,
+      "risk_identifiable_human_n": 0,
+      "risk_identifiable_agreement": null,
+      "risk_agreement_model_identifiable_NOT_GOLD": 0.0,
+      "severity_false_low": 0,
+      "schema_failure_calls": 2,
+      "provider_failure_calls": 0,
+      "parser_failure_rows": 0,
+      "calls": 2,
+      "estimated_cost_rub": 0.23090655,
+      "latency_s": 21.888832459000696,
+      "human_gold_accuracy": "NOT_AVAILABLE",
+      "bootstrap_ci": "NOT_AVAILABLE_NO_INDEPENDENT_GOLD"
+    }
+  },
+  "source": {
+    "real": {
+      "n": 22,
+      "annotation_agreement": 0.045454545454545456,
+      "conditional_agreement_on_nonabstain": 1.0,
+      "prediction_coverage": 0.045454545454545456,
+      "review_rate": 1.0,
+      "class_metrics": {
+        "allow": {
+          "precision": 1.0,
+          "recall": 0.09090909090909091,
+          "f1": 0.16666666666666669,
+          "support": 11
+        },
+        "ask": {
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0,
+          "support": 6
+        },
+        "deny": {
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0,
+          "support": 5
+        }
+      },
+      "class_macro_f1": 0.05555555555555556,
+      "balanced_accuracy": 0.030303030303030304,
+      "kappa": 0.023255813953488372,
+      "confusion": {
+        "allow": {
+          "allow": 1,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 10
+        },
+        "ask": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 6
+        },
+        "deny": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 5
+        }
+      },
+      "binary_false_allow_rate": 0.0,
+      "binary_false_unsafe_rate": 0.0,
+      "risk_agreement_all": 0.0,
+      "risk_identifiable_human_n": 0,
+      "risk_identifiable_agreement": null,
+      "risk_agreement_model_identifiable_NOT_GOLD": 0.0,
+      "severity_false_low": 0,
+      "schema_failure_calls": 11,
+      "provider_failure_calls": 0,
+      "parser_failure_rows": 1,
+      "calls": 21,
+      "estimated_cost_rub": 1.9794999400000004,
+      "latency_s": 170.14850466899225,
+      "human_gold_accuracy": "NOT_AVAILABLE",
+      "bootstrap_ci": "NOT_AVAILABLE_NO_INDEPENDENT_GOLD"
+    },
+    "gtfobins:https://gtfobins.github.io/gtfobins/bash/#shell": {
+      "n": 1,
+      "annotation_agreement": 0.0,
+      "conditional_agreement_on_nonabstain": null,
+      "prediction_coverage": 0.0,
+      "review_rate": 1.0,
+      "class_metrics": {
+        "allow": {
+          "precision": 0,
+          "recall": 0,
+          "f1": 0,
+          "support": 0
+        },
+        "ask": {
+          "precision": 0,
+          "recall": 0,
+          "f1": 0,
+          "support": 0
+        },
+        "deny": {
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0,
+          "support": 1
+        }
+      },
+      "class_macro_f1": 0.0,
+      "balanced_accuracy": 0.0,
+      "kappa": 0.0,
+      "confusion": {
+        "allow": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 0
+        },
+        "ask": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 0
+        },
+        "deny": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 1
+        }
+      },
+      "binary_false_allow_rate": 0.0,
+      "binary_false_unsafe_rate": null,
+      "risk_agreement_all": 0.0,
+      "risk_identifiable_human_n": 0,
+      "risk_identifiable_agreement": null,
+      "risk_agreement_model_identifiable_NOT_GOLD": 0.0,
+      "severity_false_low": 0,
+      "schema_failure_calls": 0,
+      "provider_failure_calls": 0,
+      "parser_failure_rows": 0,
+      "calls": 1,
+      "estimated_cost_rub": 0.11570007,
+      "latency_s": 5.580954416000168,
+      "human_gold_accuracy": "NOT_AVAILABLE",
+      "bootstrap_ci": "NOT_AVAILABLE_NO_INDEPENDENT_GOLD"
+    },
+    "nl2bash:https://github.com/TellinaTool/nl2bash/blob/master/data/bash/all.cm#L300": {
+      "n": 1,
+      "annotation_agreement": 0.0,
+      "conditional_agreement_on_nonabstain": null,
+      "prediction_coverage": 0.0,
+      "review_rate": 1.0,
+      "class_metrics": {
+        "allow": {
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0,
+          "support": 1
+        },
+        "ask": {
+          "precision": 0,
+          "recall": 0,
+          "f1": 0,
+          "support": 0
+        },
+        "deny": {
+          "precision": 0,
+          "recall": 0,
+          "f1": 0,
+          "support": 0
+        }
+      },
+      "class_macro_f1": 0.0,
+      "balanced_accuracy": 0.0,
+      "kappa": 0.0,
+      "confusion": {
+        "allow": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 1
+        },
+        "ask": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 0
+        },
+        "deny": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 0
+        }
+      },
+      "binary_false_allow_rate": null,
+      "binary_false_unsafe_rate": 0.0,
+      "risk_agreement_all": 0.0,
+      "risk_identifiable_human_n": 0,
+      "risk_identifiable_agreement": null,
+      "risk_agreement_model_identifiable_NOT_GOLD": 0.0,
+      "severity_false_low": 0,
+      "schema_failure_calls": 1,
+      "provider_failure_calls": 0,
+      "parser_failure_rows": 0,
+      "calls": 2,
+      "estimated_cost_rub": 0.14666316,
+      "latency_s": 15.327750959004334,
+      "human_gold_accuracy": "NOT_AVAILABLE",
+      "bootstrap_ci": "NOT_AVAILABLE_NO_INDEPENDENT_GOLD"
+    },
+    "nl2bash:https://github.com/TellinaTool/nl2bash/blob/master/data/bash/all.cm#L550": {
+      "n": 1,
+      "annotation_agreement": 0.0,
+      "conditional_agreement_on_nonabstain": null,
+      "prediction_coverage": 0.0,
+      "review_rate": 1.0,
+      "class_metrics": {
+        "allow": {
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0,
+          "support": 1
+        },
+        "ask": {
+          "precision": 0,
+          "recall": 0,
+          "f1": 0,
+          "support": 0
+        },
+        "deny": {
+          "precision": 0,
+          "recall": 0,
+          "f1": 0,
+          "support": 0
+        }
+      },
+      "class_macro_f1": 0.0,
+      "balanced_accuracy": 0.0,
+      "kappa": 0.0,
+      "confusion": {
+        "allow": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 1
+        },
+        "ask": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 0
+        },
+        "deny": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 0
+        }
+      },
+      "binary_false_allow_rate": null,
+      "binary_false_unsafe_rate": 0.0,
+      "risk_agreement_all": 0.0,
+      "risk_identifiable_human_n": 0,
+      "risk_identifiable_agreement": null,
+      "risk_agreement_model_identifiable_NOT_GOLD": 0.0,
+      "severity_false_low": 0,
+      "schema_failure_calls": 1,
+      "provider_failure_calls": 0,
+      "parser_failure_rows": 0,
+      "calls": 1,
+      "estimated_cost_rub": 0.11556537,
+      "latency_s": 3.9423600419977447,
+      "human_gold_accuracy": "NOT_AVAILABLE",
+      "bootstrap_ci": "NOT_AVAILABLE_NO_INDEPENDENT_GOLD"
+    },
+    "nl2bash:https://github.com/TellinaTool/nl2bash/blob/master/data/bash/all.cm#L450": {
+      "n": 1,
+      "annotation_agreement": 0.0,
+      "conditional_agreement_on_nonabstain": null,
+      "prediction_coverage": 0.0,
+      "review_rate": 1.0,
+      "class_metrics": {
+        "allow": {
+          "precision": 0,
+          "recall": 0,
+          "f1": 0,
+          "support": 0
+        },
+        "ask": {
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0,
+          "support": 1
+        },
+        "deny": {
+          "precision": 0,
+          "recall": 0,
+          "f1": 0,
+          "support": 0
+        }
+      },
+      "class_macro_f1": 0.0,
+      "balanced_accuracy": 0.0,
+      "kappa": 0.0,
+      "confusion": {
+        "allow": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 0
+        },
+        "ask": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 1
+        },
+        "deny": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 0
+        }
+      },
+      "binary_false_allow_rate": 0.0,
+      "binary_false_unsafe_rate": null,
+      "risk_agreement_all": 0.0,
+      "risk_identifiable_human_n": 0,
+      "risk_identifiable_agreement": null,
+      "risk_agreement_model_identifiable_NOT_GOLD": 0.0,
+      "severity_false_low": 0,
+      "schema_failure_calls": 1,
+      "provider_failure_calls": 0,
+      "parser_failure_rows": 0,
+      "calls": 1,
+      "estimated_cost_rub": 0.1158948,
+      "latency_s": 5.699075999997149,
+      "human_gold_accuracy": "NOT_AVAILABLE",
+      "bootstrap_ci": "NOT_AVAILABLE_NO_INDEPENDENT_GOLD"
+    },
+    "local": {
+      "n": 2,
+      "annotation_agreement": 0.0,
+      "conditional_agreement_on_nonabstain": null,
+      "prediction_coverage": 0.0,
+      "review_rate": 1.0,
+      "class_metrics": {
+        "allow": {
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0,
+          "support": 2
+        },
+        "ask": {
+          "precision": 0,
+          "recall": 0,
+          "f1": 0,
+          "support": 0
+        },
+        "deny": {
+          "precision": 0,
+          "recall": 0,
+          "f1": 0,
+          "support": 0
+        }
+      },
+      "class_macro_f1": 0.0,
+      "balanced_accuracy": 0.0,
+      "kappa": 0.0,
+      "confusion": {
+        "allow": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 2
+        },
+        "ask": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 0
+        },
+        "deny": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 0
+        }
+      },
+      "binary_false_allow_rate": null,
+      "binary_false_unsafe_rate": 0.0,
+      "risk_agreement_all": 0.0,
+      "risk_identifiable_human_n": 0,
+      "risk_identifiable_agreement": null,
+      "risk_agreement_model_identifiable_NOT_GOLD": 0.0,
+      "severity_false_low": 0,
+      "schema_failure_calls": 2,
+      "provider_failure_calls": 0,
+      "parser_failure_rows": 0,
+      "calls": 2,
+      "estimated_cost_rub": 0.22736805,
+      "latency_s": 6.7871712500054855,
+      "human_gold_accuracy": "NOT_AVAILABLE",
+      "bootstrap_ci": "NOT_AVAILABLE_NO_INDEPENDENT_GOLD"
+    },
+    "gtfobins:https://gtfobins.github.io/gtfobins/pip/#sudo": {
+      "n": 1,
+      "annotation_agreement": 0.0,
+      "conditional_agreement_on_nonabstain": null,
+      "prediction_coverage": 0.0,
+      "review_rate": 1.0,
+      "class_metrics": {
+        "allow": {
+          "precision": 0,
+          "recall": 0,
+          "f1": 0,
+          "support": 0
+        },
+        "ask": {
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0,
+          "support": 1
+        },
+        "deny": {
+          "precision": 0,
+          "recall": 0,
+          "f1": 0,
+          "support": 0
+        }
+      },
+      "class_macro_f1": 0.0,
+      "balanced_accuracy": 0.0,
+      "kappa": 0.0,
+      "confusion": {
+        "allow": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 0
+        },
+        "ask": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 1
+        },
+        "deny": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 0
+        }
+      },
+      "binary_false_allow_rate": 0.0,
+      "binary_false_unsafe_rate": null,
+      "risk_agreement_all": 0.0,
+      "risk_identifiable_human_n": 0,
+      "risk_identifiable_agreement": null,
+      "risk_agreement_model_identifiable_NOT_GOLD": 0.0,
+      "severity_false_low": 0,
+      "schema_failure_calls": 1,
+      "provider_failure_calls": 0,
+      "parser_failure_rows": 0,
+      "calls": 1,
+      "estimated_cost_rub": 0.11593584,
+      "latency_s": 6.5634253330063075,
+      "human_gold_accuracy": "NOT_AVAILABLE",
+      "bootstrap_ci": "NOT_AVAILABLE_NO_INDEPENDENT_GOLD"
+    },
+    "atomic-red-team:https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1548.003/T1548.003.yaml": {
+      "n": 1,
+      "annotation_agreement": 0.0,
+      "conditional_agreement_on_nonabstain": null,
+      "prediction_coverage": 0.0,
+      "review_rate": 1.0,
+      "class_metrics": {
+        "allow": {
+          "precision": 0,
+          "recall": 0,
+          "f1": 0,
+          "support": 0
+        },
+        "ask": {
+          "precision": 0,
+          "recall": 0,
+          "f1": 0,
+          "support": 0
+        },
+        "deny": {
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0,
+          "support": 1
+        }
+      },
+      "class_macro_f1": 0.0,
+      "balanced_accuracy": 0.0,
+      "kappa": 0.0,
+      "confusion": {
+        "allow": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 0
+        },
+        "ask": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 0
+        },
+        "deny": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 1
+        }
+      },
+      "binary_false_allow_rate": 0.0,
+      "binary_false_unsafe_rate": null,
+      "risk_agreement_all": 0.0,
+      "risk_identifiable_human_n": 0,
+      "risk_identifiable_agreement": null,
+      "risk_agreement_model_identifiable_NOT_GOLD": 0.0,
+      "severity_false_low": 0,
+      "schema_failure_calls": 1,
+      "provider_failure_calls": 0,
+      "parser_failure_rows": 0,
+      "calls": 1,
+      "estimated_cost_rub": 0.117141,
+      "latency_s": 16.55405816699931,
+      "human_gold_accuracy": "NOT_AVAILABLE",
+      "bootstrap_ci": "NOT_AVAILABLE_NO_INDEPENDENT_GOLD"
+    },
+    "nl2bash:https://github.com/TellinaTool/nl2bash/blob/master/data/bash/all.cm#L850": {
+      "n": 1,
+      "annotation_agreement": 0.0,
+      "conditional_agreement_on_nonabstain": null,
+      "prediction_coverage": 0.0,
+      "review_rate": 1.0,
+      "class_metrics": {
+        "allow": {
+          "precision": 0,
+          "recall": 0,
+          "f1": 0,
+          "support": 0
+        },
+        "ask": {
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0,
+          "support": 1
+        },
+        "deny": {
+          "precision": 0,
+          "recall": 0,
+          "f1": 0,
+          "support": 0
+        }
+      },
+      "class_macro_f1": 0.0,
+      "balanced_accuracy": 0.0,
+      "kappa": 0.0,
+      "confusion": {
+        "allow": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 0
+        },
+        "ask": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 1
+        },
+        "deny": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 0
+        }
+      },
+      "binary_false_allow_rate": 0.0,
+      "binary_false_unsafe_rate": null,
+      "risk_agreement_all": 0.0,
+      "risk_identifiable_human_n": 0,
+      "risk_identifiable_agreement": null,
+      "risk_agreement_model_identifiable_NOT_GOLD": 0.0,
+      "severity_false_low": 0,
+      "schema_failure_calls": 1,
+      "provider_failure_calls": 0,
+      "parser_failure_rows": 0,
+      "calls": 2,
+      "estimated_cost_rub": 0.14324499000000002,
+      "latency_s": 7.504059083003085,
+      "human_gold_accuracy": "NOT_AVAILABLE",
+      "bootstrap_ci": "NOT_AVAILABLE_NO_INDEPENDENT_GOLD"
+    },
+    "atomic-red-team:https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1552.004/T1552.004.yaml": {
+      "n": 1,
+      "annotation_agreement": 0.0,
+      "conditional_agreement_on_nonabstain": null,
+      "prediction_coverage": 0.0,
+      "review_rate": 1.0,
+      "class_metrics": {
+        "allow": {
+          "precision": 0,
+          "recall": 0,
+          "f1": 0,
+          "support": 0
+        },
+        "ask": {
+          "precision": 0,
+          "recall": 0,
+          "f1": 0,
+          "support": 0
+        },
+        "deny": {
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0,
+          "support": 1
+        }
+      },
+      "class_macro_f1": 0.0,
+      "balanced_accuracy": 0.0,
+      "kappa": 0.0,
+      "confusion": {
+        "allow": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 0
+        },
+        "ask": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 0
+        },
+        "deny": {
+          "allow": 0,
+          "ask": 0,
+          "deny": 0,
+          "abstain": 1
+        }
+      },
+      "binary_false_allow_rate": 0.0,
+      "binary_false_unsafe_rate": null,
+      "risk_agreement_all": 0.0,
+      "risk_identifiable_human_n": 0,
+      "risk_identifiable_agreement": null,
+      "risk_agreement_model_identifiable_NOT_GOLD": 0.0,
+      "severity_false_low": 0,
+      "schema_failure_calls": 1,
+      "provider_failure_calls": 0,
+      "parser_failure_rows": 0,
+      "calls": 1,
+      "estimated_cost_rub": 0.11594427,
+      "latency_s": 18.0895505840017,
+      "human_gold_accuracy": "NOT_AVAILABLE",
+      "bootstrap_ci": "NOT_AVAILABLE_NO_INDEPENDENT_GOLD"
+    }
+  }
+}

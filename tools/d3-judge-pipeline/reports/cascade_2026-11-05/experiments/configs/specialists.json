@@ -1,0 +1,46 @@
+{
+  "architecture": "specialists",
+  "models": [
+    {
+      "provider": "api",
+      "base_url": "https://api.proxyapi.ru/v1",
+      "allow_network": true,
+      "credential_file": "/Users/dekovaleva/GigaChat/.proxyapi/access_token.py",
+      "timeout": 60,
+      "retries": 0,
+      "max_tokens": 1800,
+      "price_source": "https://proxyapi.ru/models/browse",
+      "price_checked": "2026-11-05",
+      "model_id": "qwen/qwen3-32b",
+      "family": "Qwen",
+      "rub_per_million": {
+        "input": 11.58,
+        "output": 37.89
+      }
+    },
+    {
+      "provider": "api",
+      "base_url": "https://api.proxyapi.ru/v1",
+      "allow_network": true,
+      "credential_file": "/Users/dekovaleva/GigaChat/.proxyapi/access_token.py",
+      "timeout": 60,
+      "retries": 0,
+      "max_tokens": 1800,
+      "price_source": "https://proxyapi.ru/models/browse",
+      "price_checked": "2026-11-05",
+      "model_id": "openai/gpt-oss-120b",
+      "family": "gpt-oss",
+      "rub_per_million": {
+        "input": 7.79,
+        "output": 35.79
+      },
+      "parameters": {
+        "reasoning": {
+          "effort": "low"
+        }
+      }
+    }
+  ],
+  "budget_rub": 60,
+  "budget_file": "/Users/dekovaleva/GigaChat/CodeBench/utilities-and-scripts-for-CodeGuardBench/tools/d3-judge-pipeline/reports/cascade_2026-11-05/budget_ledger.json"
+}

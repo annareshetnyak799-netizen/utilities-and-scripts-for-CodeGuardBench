@@ -1,0 +1,18 @@
+{
+  "zip_sha256": "2acc6cdfceffde9cc7bedfd6e99a50278361c4617328803ec58428907bbe99f0",
+  "zip_integrity": true,
+  "packaged_file_hashes_verified": 232,
+  "all_json_valid": true,
+  "actual_api_key_occurrences": 0,
+  "personal_absolute_path_occurrences": 0,
+  "pytest_passed": 212,
+  "demo": {
+    "rows": 11,
+    "review": 11,
+    "nonabstain": 0,
+    "gold": 0,
+    "network_calls": 0,
+    "executed_commands": 0
+  },
+  "verification": "fresh extracted final ZIP, separate temporary directory"
+}

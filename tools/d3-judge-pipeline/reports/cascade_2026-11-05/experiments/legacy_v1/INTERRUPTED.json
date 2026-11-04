@@ -1,0 +1,7 @@
+{
+  "status": "PARTIAL_NOT_SCORED",
+  "completed_rows": 18,
+  "expected_rows": 32,
+  "reason": "three consecutive 60-second provider transport failures; preserve partial evidence; run baseline with functioning reasoning model instead",
+  "remaining_ids": "not called; not counted as completed"
+}

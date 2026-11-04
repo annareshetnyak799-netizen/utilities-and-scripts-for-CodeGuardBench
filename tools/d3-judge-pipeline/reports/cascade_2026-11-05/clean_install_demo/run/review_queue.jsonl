@@ -1,0 +1,11 @@
+{"record_id": "demo-0", "predicted_class": null, "predicted_primary_risk": null, "review_reasons": ["abstain", "critic_disagreement", "human_review_required", "missing_context", "static_model_conflict"], "status": "needs_review"}
+{"record_id": "demo-1", "predicted_class": null, "predicted_primary_risk": null, "review_reasons": ["abstain", "critic_disagreement", "human_review_required", "missing_context"], "status": "needs_review"}
+{"record_id": "demo-2", "predicted_class": null, "predicted_primary_risk": null, "review_reasons": ["abstain", "critic_disagreement", "human_review_required", "missing_context"], "status": "needs_review"}
+{"record_id": "demo-3", "predicted_class": null, "predicted_primary_risk": null, "review_reasons": ["abstain", "critic_disagreement", "human_review_required", "missing_context"], "status": "needs_review"}
+{"record_id": "demo-4", "predicted_class": null, "predicted_primary_risk": null, "review_reasons": ["abstain", "critic_disagreement", "human_review_required", "missing_context"], "status": "needs_review"}
+{"record_id": "demo-5", "predicted_class": null, "predicted_primary_risk": null, "review_reasons": ["abstain", "critic_disagreement", "human_review_required", "missing_context"], "status": "needs_review"}
+{"record_id": "demo-6", "predicted_class": null, "predicted_primary_risk": null, "review_reasons": ["abstain", "human_review_required", "missing_context", "unknown_executable"], "status": "needs_review"}
+{"record_id": "demo-7", "predicted_class": null, "predicted_primary_risk": null, "review_reasons": ["abstain", "critic_disagreement", "human_review_required", "missing_context"], "status": "needs_review"}
+{"record_id": "demo-8", "predicted_class": null, "predicted_primary_risk": null, "review_reasons": ["abstain", "critic_disagreement", "human_review_required", "missing_context"], "status": "needs_review"}
+{"record_id": "demo-9", "predicted_class": null, "predicted_primary_risk": null, "review_reasons": ["abstain", "human_review_required", "missing_context", "unknown_executable"], "status": "needs_review"}
+{"record_id": "demo-10", "predicted_class": null, "predicted_primary_risk": null, "review_reasons": ["abstain", "human_review_required", "invalid_bash", "missing_context"], "status": "needs_review"}

@@ -1,0 +1,1 @@
+{"run": "semantic_cascade", "n": 32, "annotation_agreement": 0.125, "prediction_coverage": 0.125, "calls": 63, "provider_failure_calls": 1, "schema_failure_calls": 14, "estimated_cost_rub": 4.175276910000001}

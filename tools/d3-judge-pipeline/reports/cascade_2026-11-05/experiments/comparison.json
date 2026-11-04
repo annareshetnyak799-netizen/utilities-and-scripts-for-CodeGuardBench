@@ -1,0 +1,491 @@
+{
+  "same_frozen_ids": true,
+  "same_policy_schema_code": true,
+  "architectural_prompt_difference_intentional": true,
+  "runs": [
+    {
+      "run": "/Users/dekovaleva/GigaChat/CodeBench/utilities-and-scripts-for-CodeGuardBench/tools/d3-judge-pipeline/reports/cascade_2026-11-05/experiments/rules",
+      "architecture": "rules",
+      "metrics": {
+        "n": 32,
+        "annotation_agreement": 0.0625,
+        "conditional_agreement_on_nonabstain": 1.0,
+        "prediction_coverage": 0.0625,
+        "review_rate": 1.0,
+        "class_metrics": {
+          "allow": {
+            "precision": 0,
+            "recall": 0.0,
+            "f1": 0,
+            "support": 15
+          },
+          "ask": {
+            "precision": 0,
+            "recall": 0.0,
+            "f1": 0,
+            "support": 9
+          },
+          "deny": {
+            "precision": 1.0,
+            "recall": 0.25,
+            "f1": 0.4,
+            "support": 8
+          }
+        },
+        "class_macro_f1": 0.13333333333333333,
+        "balanced_accuracy": 0.08333333333333333,
+        "kappa": 0.047619047619047616,
+        "confusion": {
+          "allow": {
+            "allow": 0,
+            "ask": 0,
+            "deny": 0,
+            "abstain": 15
+          },
+          "ask": {
+            "allow": 0,
+            "ask": 0,
+            "deny": 0,
+            "abstain": 9
+          },
+          "deny": {
+            "allow": 0,
+            "ask": 0,
+            "deny": 2,
+            "abstain": 6
+          }
+        },
+        "binary_false_allow_rate": 0.0,
+        "binary_false_unsafe_rate": 0.0,
+        "risk_agreement_all": 0.0625,
+        "risk_identifiable_human_n": 0,
+        "risk_identifiable_agreement": null,
+        "risk_agreement_model_identifiable_NOT_GOLD": 1.0,
+        "severity_false_low": 0,
+        "schema_failure_calls": 0,
+        "provider_failure_calls": 0,
+        "parser_failure_rows": 1,
+        "calls": 0,
+        "estimated_cost_rub": 0,
+        "latency_s": 0,
+        "human_gold_accuracy": "NOT_AVAILABLE",
+        "bootstrap_ci": "NOT_AVAILABLE_NO_INDEPENDENT_GOLD"
+      }
+    },
+    {
+      "run": "/Users/dekovaleva/GigaChat/CodeBench/utilities-and-scripts-for-CodeGuardBench/tools/d3-judge-pipeline/reports/cascade_2026-11-05/experiments/single",
+      "architecture": "single",
+      "metrics": {
+        "n": 32,
+        "annotation_agreement": 0.21875,
+        "conditional_agreement_on_nonabstain": 0.7,
+        "prediction_coverage": 0.3125,
+        "review_rate": 1.0,
+        "class_metrics": {
+          "allow": {
+            "precision": 1.0,
+            "recall": 0.3333333333333333,
+            "f1": 0.5,
+            "support": 15
+          },
+          "ask": {
+            "precision": 0.5,
+            "recall": 0.1111111111111111,
+            "f1": 0.1818181818181818,
+            "support": 9
+          },
+          "deny": {
+            "precision": 0.3333333333333333,
+            "recall": 0.125,
+            "f1": 0.18181818181818182,
+            "support": 8
+          }
+        },
+        "class_macro_f1": 0.28787878787878785,
+        "balanced_accuracy": 0.1898148148148148,
+        "kappa": 0.11797133406835722,
+        "confusion": {
+          "allow": {
+            "allow": 5,
+            "ask": 0,
+            "deny": 2,
+            "abstain": 8
+          },
+          "ask": {
+            "allow": 0,
+            "ask": 1,
+            "deny": 0,
+            "abstain": 8
+          },
+          "deny": {
+            "allow": 0,
+            "ask": 1,
+            "deny": 1,
+            "abstain": 6
+          }
+        },
+        "binary_false_allow_rate": 0.0,
+        "binary_false_unsafe_rate": 0.13333333333333333,
+        "risk_agreement_all": 0.1875,
+        "risk_identifiable_human_n": 0,
+        "risk_identifiable_agreement": null,
+        "risk_agreement_model_identifiable_NOT_GOLD": 0.75,
+        "severity_false_low": 0,
+        "schema_failure_calls": 10,
+        "provider_failure_calls": 0,
+        "parser_failure_rows": 1,
+        "calls": 26,
+        "estimated_cost_rub": 3.0882744,
+        "latency_s": 295.11381658602477,
+        "human_gold_accuracy": "NOT_AVAILABLE",
+        "bootstrap_ci": "NOT_AVAILABLE_NO_INDEPENDENT_GOLD"
+      }
+    },
+    {
+      "run": "/Users/dekovaleva/GigaChat/CodeBench/utilities-and-scripts-for-CodeGuardBench/tools/d3-judge-pipeline/reports/cascade_2026-11-05/experiments/reasoning_single",
+      "architecture": "single",
+      "metrics": {
+        "n": 32,
+        "annotation_agreement": 0.40625,
+        "conditional_agreement_on_nonabstain": 0.6842105263157895,
+        "prediction_coverage": 0.59375,
+        "review_rate": 1.0,
+        "class_metrics": {
+          "allow": {
+            "precision": 0.875,
+            "recall": 0.4666666666666667,
+            "f1": 0.608695652173913,
+            "support": 15
+          },
+          "ask": {
+            "precision": 0.5714285714285714,
+            "recall": 0.4444444444444444,
+            "f1": 0.5,
+            "support": 9
+          },
+          "deny": {
+            "precision": 0.5,
+            "recall": 0.25,
+            "f1": 0.3333333333333333,
+            "support": 8
+          }
+        },
+        "class_macro_f1": 0.48067632850241543,
+        "balanced_accuracy": 0.387037037037037,
+        "kappa": 0.2484548825710754,
+        "confusion": {
+          "allow": {
+            "allow": 7,
+            "ask": 0,
+            "deny": 2,
+            "abstain": 6
+          },
+          "ask": {
+            "allow": 1,
+            "ask": 4,
+            "deny": 0,
+            "abstain": 4
+          },
+          "deny": {
+            "allow": 0,
+            "ask": 3,
+            "deny": 2,
+            "abstain": 3
+          }
+        },
+        "binary_false_allow_rate": 0.058823529411764705,
+        "binary_false_unsafe_rate": 0.13333333333333333,
+        "risk_agreement_all": 0.28125,
+        "risk_identifiable_human_n": 0,
+        "risk_identifiable_agreement": null,
+        "risk_agreement_model_identifiable_NOT_GOLD": 0.75,
+        "severity_false_low": 4,
+        "schema_failure_calls": 5,
+        "provider_failure_calls": 0,
+        "parser_failure_rows": 1,
+        "calls": 26,
+        "estimated_cost_rub": 2.03766798,
+        "latency_s": 98.23144854202837,
+        "human_gold_accuracy": "NOT_AVAILABLE",
+        "bootstrap_ci": "NOT_AVAILABLE_NO_INDEPENDENT_GOLD"
+      }
+    },
+    {
+      "run": "/Users/dekovaleva/GigaChat/CodeBench/utilities-and-scripts-for-CodeGuardBench/tools/d3-judge-pipeline/reports/cascade_2026-11-05/experiments/static_single",
+      "architecture": "static_single",
+      "metrics": {
+        "n": 32,
+        "annotation_agreement": 0.09375,
+        "conditional_agreement_on_nonabstain": 1.0,
+        "prediction_coverage": 0.09375,
+        "review_rate": 1.0,
+        "class_metrics": {
+          "allow": {
+            "precision": 1.0,
+            "recall": 0.13333333333333333,
+            "f1": 0.23529411764705882,
+            "support": 15
+          },
+          "ask": {
+            "precision": 0,
+            "recall": 0.0,
+            "f1": 0,
+            "support": 9
+          },
+          "deny": {
+            "precision": 1.0,
+            "recall": 0.125,
+            "f1": 0.2222222222222222,
+            "support": 8
+          }
+        },
+        "class_macro_f1": 0.15250544662309368,
+        "balanced_accuracy": 0.0861111111111111,
+        "kappa": 0.058823529411764705,
+        "confusion": {
+          "allow": {
+            "allow": 2,
+            "ask": 0,
+            "deny": 0,
+            "abstain": 13
+          },
+          "ask": {
+            "allow": 0,
+            "ask": 0,
+            "deny": 0,
+            "abstain": 9
+          },
+          "deny": {
+            "allow": 0,
+            "ask": 0,
+            "deny": 1,
+            "abstain": 7
+          }
+        },
+        "binary_false_allow_rate": 0.0,
+        "binary_false_unsafe_rate": 0.0,
+        "risk_agreement_all": 0.0625,
+        "risk_identifiable_human_n": 0,
+        "risk_identifiable_agreement": null,
+        "risk_agreement_model_identifiable_NOT_GOLD": 1.0,
+        "severity_false_low": 1,
+        "schema_failure_calls": 14,
+        "provider_failure_calls": 0,
+        "parser_failure_rows": 1,
+        "calls": 26,
+        "estimated_cost_rub": 3.0420486,
+        "latency_s": 323.8929888759958,
+        "human_gold_accuracy": "NOT_AVAILABLE",
+        "bootstrap_ci": "NOT_AVAILABLE_NO_INDEPENDENT_GOLD"
+      }
+    },
+    {
+      "run": "/Users/dekovaleva/GigaChat/CodeBench/utilities-and-scripts-for-CodeGuardBench/tools/d3-judge-pipeline/reports/cascade_2026-11-05/experiments/critic_cascade",
+      "architecture": "critic_cascade",
+      "metrics": {
+        "n": 32,
+        "annotation_agreement": 0.15625,
+        "conditional_agreement_on_nonabstain": 0.7142857142857143,
+        "prediction_coverage": 0.21875,
+        "review_rate": 1.0,
+        "class_metrics": {
+          "allow": {
+            "precision": 0.6666666666666666,
+            "recall": 0.13333333333333333,
+            "f1": 0.2222222222222222,
+            "support": 15
+          },
+          "ask": {
+            "precision": 1.0,
+            "recall": 0.1111111111111111,
+            "f1": 0.19999999999999998,
+            "support": 9
+          },
+          "deny": {
+            "precision": 0.6666666666666666,
+            "recall": 0.25,
+            "f1": 0.36363636363636365,
+            "support": 8
+          }
+        },
+        "class_macro_f1": 0.26195286195286194,
+        "balanced_accuracy": 0.16481481481481483,
+        "kappa": 0.08668076109936575,
+        "confusion": {
+          "allow": {
+            "allow": 2,
+            "ask": 0,
+            "deny": 1,
+            "abstain": 12
+          },
+          "ask": {
+            "allow": 1,
+            "ask": 1,
+            "deny": 0,
+            "abstain": 7
+          },
+          "deny": {
+            "allow": 0,
+            "ask": 0,
+            "deny": 2,
+            "abstain": 6
+          }
+        },
+        "binary_false_allow_rate": 0.058823529411764705,
+        "binary_false_unsafe_rate": 0.06666666666666667,
+        "risk_agreement_all": 0.125,
+        "risk_identifiable_human_n": 0,
+        "risk_identifiable_agreement": null,
+        "risk_agreement_model_identifiable_NOT_GOLD": 1.0,
+        "severity_false_low": 2,
+        "schema_failure_calls": 16,
+        "provider_failure_calls": 0,
+        "parser_failure_rows": 1,
+        "calls": 36,
+        "estimated_cost_rub": 3.823301390000001,
+        "latency_s": 328.25092595702154,
+        "human_gold_accuracy": "NOT_AVAILABLE",
+        "bootstrap_ci": "NOT_AVAILABLE_NO_INDEPENDENT_GOLD"
+      }
+    },
+    {
+      "run": "/Users/dekovaleva/GigaChat/CodeBench/utilities-and-scripts-for-CodeGuardBench/tools/d3-judge-pipeline/reports/cascade_2026-11-05/experiments/specialists",
+      "architecture": "specialists",
+      "metrics": {
+        "n": 32,
+        "annotation_agreement": 0.03125,
+        "conditional_agreement_on_nonabstain": 1.0,
+        "prediction_coverage": 0.03125,
+        "review_rate": 1.0,
+        "class_metrics": {
+          "allow": {
+            "precision": 1.0,
+            "recall": 0.06666666666666667,
+            "f1": 0.125,
+            "support": 15
+          },
+          "ask": {
+            "precision": 0,
+            "recall": 0.0,
+            "f1": 0,
+            "support": 9
+          },
+          "deny": {
+            "precision": 0,
+            "recall": 0.0,
+            "f1": 0,
+            "support": 8
+          }
+        },
+        "class_macro_f1": 0.041666666666666664,
+        "balanced_accuracy": 0.022222222222222223,
+        "kappa": 0.01684836471754212,
+        "confusion": {
+          "allow": {
+            "allow": 1,
+            "ask": 0,
+            "deny": 0,
+            "abstain": 14
+          },
+          "ask": {
+            "allow": 0,
+            "ask": 0,
+            "deny": 0,
+            "abstain": 9
+          },
+          "deny": {
+            "allow": 0,
+            "ask": 0,
+            "deny": 0,
+            "abstain": 8
+          }
+        },
+        "binary_false_allow_rate": 0.0,
+        "binary_false_unsafe_rate": 0.0,
+        "risk_agreement_all": 0.0,
+        "risk_identifiable_human_n": 0,
+        "risk_identifiable_agreement": null,
+        "risk_agreement_model_identifiable_NOT_GOLD": 0.0,
+        "severity_false_low": 0,
+        "schema_failure_calls": 20,
+        "provider_failure_calls": 0,
+        "parser_failure_rows": 1,
+        "calls": 33,
+        "estimated_cost_rub": 3.192957490000001,
+        "latency_s": 256.19691050300753,
+        "human_gold_accuracy": "NOT_AVAILABLE",
+        "bootstrap_ci": "NOT_AVAILABLE_NO_INDEPENDENT_GOLD"
+      }
+    },
+    {
+      "run": "/Users/dekovaleva/GigaChat/CodeBench/utilities-and-scripts-for-CodeGuardBench/tools/d3-judge-pipeline/reports/cascade_2026-11-05/experiments/semantic_cascade",
+      "architecture": "semantic_cascade",
+      "metrics": {
+        "n": 32,
+        "annotation_agreement": 0.125,
+        "conditional_agreement_on_nonabstain": 1.0,
+        "prediction_coverage": 0.125,
+        "review_rate": 1.0,
+        "class_metrics": {
+          "allow": {
+            "precision": 1.0,
+            "recall": 0.06666666666666667,
+            "f1": 0.125,
+            "support": 15
+          },
+          "ask": {
+            "precision": 1.0,
+            "recall": 0.1111111111111111,
+            "f1": 0.19999999999999998,
+            "support": 9
+          },
+          "deny": {
+            "precision": 1.0,
+            "recall": 0.25,
+            "f1": 0.4,
+            "support": 8
+          }
+        },
+        "class_macro_f1": 0.24166666666666667,
+        "balanced_accuracy": 0.14259259259259258,
+        "kappa": 0.08943089430894309,
+        "confusion": {
+          "allow": {
+            "allow": 1,
+            "ask": 0,
+            "deny": 0,
+            "abstain": 14
+          },
+          "ask": {
+            "allow": 0,
+            "ask": 1,
+            "deny": 0,
+            "abstain": 8
+          },
+          "deny": {
+            "allow": 0,
+            "ask": 0,
+            "deny": 2,
+            "abstain": 6
+          }
+        },
+        "binary_false_allow_rate": 0.0,
+        "binary_false_unsafe_rate": 0.0,
+        "risk_agreement_all": 0.09375,
+        "risk_identifiable_human_n": 0,
+        "risk_identifiable_agreement": null,
+        "risk_agreement_model_identifiable_NOT_GOLD": 0.75,
+        "severity_false_low": 0,
+        "schema_failure_calls": 14,
+        "provider_failure_calls": 1,
+        "parser_failure_rows": 1,
+        "calls": 63,
+        "estimated_cost_rub": 4.175276910000001,
+        "latency_s": 529.8687525000132,
+        "human_gold_accuracy": "NOT_AVAILABLE",
+        "bootstrap_ci": "NOT_AVAILABLE_NO_INDEPENDENT_GOLD"
+      }
+    }
+  ],
+  "human_gold_available": false
+}

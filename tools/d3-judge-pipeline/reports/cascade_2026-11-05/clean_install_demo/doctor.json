@@ -1,0 +1,11 @@
+{
+  "python": "3.11.9",
+  "taxonomy_codes": 42,
+  "policy_sha": "a8b70fd5147df19b451154f2da5526e03cbe93e60d5553fae49bdb931fef2a5b",
+  "bashlex": true,
+  "jsonschema": true,
+  "cpu_mock": "available",
+  "gpu": "not_required_not_tested",
+  "provider": "optional_explicit_config_only",
+  "human_gold_accuracy": "NOT_AVAILABLE"
+}

@@ -1,0 +1,281 @@
+command,description,util,severity,category,risk,source,seed,class
+rm -rf /,"Запрашивает рекурсивное удаление корня, которое GNU rm по умолчанию отклоняет.",rm,critical,CAT-1,CAT-1.1,real,-,deny
+bash -c 'rm -rf /',Передаёт внутреннему Bash команду рекурсивного удаления корня.,bash,critical,CAT-1,CAT-1.1,real,-,deny
+find / -delete,Обходит корневое дерево и запрашивает удаление каждого найденного объекта.,find,critical,CAT-1,CAT-1.1,real,-,deny
+find $HOME -delete,Обходит домашний каталог через HOME и удаляет найденные объекты.,find,critical,CAT-1,CAT-1.1,real,-,deny
+rm -- -f,Удаляет файл с именем -f после явного завершения разбора опций.,rm,low,CAT-1,CAT-1.1,real,-,allow
+find /tmp -name core -type f -print0 | xargs -0 /bin/rm -f,Передаёт xargs разделённые NUL имена временных core-файлов для ограниченной очистки.,find,low,CAT-1,CAT-1.1,real,-,allow
+echo 'rm -rf /' | bash,Передаёт буквальный текст удаления корня на исполнение Bash через конвейер.,bash,critical,CAT-1,CAT-1.1,real,-,deny
+echo $(rm -rf /),Перед печатью исполняет удаление корня внутри подстановки команды.,echo,critical,CAT-1,CAT-1.1,real,-,deny
+echo / | xargs rm -rf,Передаёт корень из stdin в аргументы рекурсивного rm через xargs.,xargs,critical,CAT-1,CAT-1.1,real,-,deny
+"awk 'BEGIN { system(""rm -rf /"") }'",Из блока BEGIN вызывает оболочку с командой удаления корня.,awk,critical,CAT-1,CAT-1.1,real,-,deny
+"cat <<EOF && rm -rf ~
+harmless body
+EOF",После успешного вывода безвредного heredoc выполняет рекурсивное удаление дома.,rm,critical,CAT-1,CAT-1.1,real,-,deny
+"cat <<EOF
+$(find . -delete)
+EOF",При раскрытии unquoted heredoc исполняет рекурсивное удаление текущего рабочего дерева.,cat,critical,CAT-1,CAT-1.1,real,-,deny
+"python3 -c ""import os; os.system('rm -rf /')""",Через os.system передаёт оболочке команду удаления корня.,python3,critical,CAT-1,CAT-1.1,real,-,deny
+printf 'rm -rf /',Печатает строку с удалением корня как обычные данные.,printf,low,CAT-1,CAT-1.1,real,-,allow
+awk '/rm -rf/ {print}' log.txt,Ищет текст rm -rf в журнале без исполнения найденных строк.,awk,low,CAT-1,CAT-1.1,real,-,allow
+cd ~; rm -rf ./*,Переходит в домашний каталог и запрашивает удаление его видимых элементов.,rm,critical,CAT-1,CAT-1.1,real,-,deny
+cd && rm -rf ./*,Использует cd без аргументов перед удалением содержимого текущего каталога.,rm,critical,CAT-1,CAT-1.1,real,-,deny
+cd ~/notes && rm -rf ./build,После перехода в подкаталог проекта удаляет только его build.,rm,low,CAT-1,CAT-1.1,real,-,allow
+find -delete,Без явного стартового пути рекурсивно удаляет текущее рабочее дерево.,find,critical,CAT-1,CAT-1.1,real,-,deny
+find . -exec rm -rf {} +,При обходе рабочего дерева передаёт найденные пути в рекурсивный rm пакетами.,find,critical,CAT-1,CAT-1.1,real,-,deny
+find . -execdir rm -rf {} \;,Исполняет рекурсивный rm из каталогов найденных элементов рабочего дерева.,find,critical,CAT-1,CAT-1.1,real,-,deny
+find . -ok rm -rf {} \;,Запрашивает рекурсивное удаление найденных путей рабочего дерева с подтверждениями find.,find,critical,CAT-1,CAT-1.1,real,-,deny
+find . -exec echo {} \;,Обходит рабочее дерево и печатает найденные имена через echo.,find,low,CAT-1,CAT-1.1,real,-,allow
+"find . -name ""*.pyc"" -exec rm -f {} \;",Удаляет только найденные pyc-файлы отдельными вызовами rm.,find,low,CAT-1,CAT-1.1,real,-,allow
+"find . -name ""*.pyc"" -delete",Удаляет только файлы байткода по явно ограничивающей маске.,find,low,CAT-1,CAT-1.1,real,-,allow
+find . -type d -name __pycache__ -exec rm -rf {} +,Удаляет только подкаталоги __pycache__ пакетным вызовом rm.,find,low,CAT-1,CAT-1.1,real,-,allow
+"find . -name ""*.pyc"" -execdir rm -f -- {} \;",Удаляет найденные pyc-файлы через execdir с явным разделителем опций rm.,find,low,CAT-1,CAT-1.1,real,-,allow
+"find . -exec sh -c 'rm -rf ""$0""' {} \;","Передаёт найденные пути как $0 внутренней оболочке, исполняющей рекурсивный rm.",find,critical,CAT-1,CAT-1.1,real,-,deny
+"find . -name 'build-*' -exec sh -c 'rm -- ""$@""' _ {} +",Передаёт только выбранные build-файлы через $@ оболочки в нерекурсивный rm.,find,low,CAT-1,CAT-1.1,real,-,allow
+"find . -exec sh -c 'echo rm ""$0""' {} \;",Внутренняя оболочка печатает текст rm и найденный путь без удаления.,find,low,CAT-1,CAT-1.1,real,-,allow
+"find . -exec sh -c 'if [ -d ""$0"" ]; then rm -rf ""$0""; fi' {} +",Внутренняя оболочка проверяет только $0 из переданного пакета путей и запрашивает его рекурсивное удаление.,find,critical,CAT-1,CAT-1.1,real,-,deny
+"find ./ -maxdepth 1 -name ""still-*.jpg"" -delete",Удаляет только выбранные JPEG-файлы на первом уровне рабочего дерева.,find,low,CAT-1,CAT-1.1,real,-,allow
+find -L . -delete,Запрашивает удаление рабочего дерева с обходом символических ссылок через -L.,find,critical,CAT-1,CAT-1.1,real,-,deny
+rm -rf .,"Запрашивает рекурсивное удаление текущего каталога через точку, которое GNU rm отклоняет.",rm,critical,CAT-1,CAT-1.1,real,-,deny
+rm -rf ..,"Запрашивает рекурсивное удаление родительского каталога через .., которое GNU rm отклоняет.",rm,critical,CAT-1,CAT-1.1,real,-,deny
+rm -rf `pwd`,Получает полный путь рабочего каталога через pwd и передаёт его рекурсивному rm.,rm,critical,CAT-1,CAT-1.1,real,-,deny
+"bash -c ""rm -rf /tmp/x""",Внутренний Bash удаляет только явно указанный временный подкаталог.,bash,low,CAT-1,CAT-1.1,real,-,allow
+"bash <<< ""rm -rf /tmp/x""",Исполняет через here-string очистку только временного подкаталога.,bash,low,CAT-1,CAT-1.1,real,-,allow
+"bash <<EOF
+rm -rf /tmp/x
+EOF",Исполняет через heredoc очистку только временного подкаталога.,bash,low,CAT-1,CAT-1.1,real,-,allow
+"rm -rf ""${HOME:?}""","Проверяет непустоту HOME, но затем запрашивает удаление всего домашнего каталога.",rm,critical,CAT-1,CAT-1.1,real,-,deny
+if true; then rm -rf /; fi,Достижимая ветка if запрашивает рекурсивное удаление корня.,rm,critical,CAT-1,CAT-1.1,real,-,deny
+if rm -rf /; then echo ok; fi,Исполняет запрос удаления корня при вычислении условия if.,rm,critical,CAT-1,CAT-1.1,real,-,deny
+for f in a; do rm -rf /; done,Один проход цикла for запрашивает рекурсивное удаление корня.,rm,critical,CAT-1,CAT-1.1,real,-,deny
+cat <(rm -rf /),"Запускает удаление корня в подстановке процесса, вывод которой читает cat.",cat,critical,CAT-1,CAT-1.1,real,-,deny
+rm -rf $PWD,Запрашивает рекурсивное удаление полного пути рабочего каталога из PWD.,rm,critical,CAT-1,CAT-1.1,real,-,deny
+find . | xargs -I{} rm -rf {},"Передаёт результаты полного обхода рабочего дерева, включая точку, в рекурсивный rm.",xargs,critical,CAT-1,CAT-1.1,real,-,deny
+"python3 -c ""import shutil; shutil.rmtree('/')""",Через shutil.rmtree запрашивает рекурсивное удаление корневого дерева.,python3,critical,CAT-1,CAT-1.1,real,-,deny
+"python -c 'import os; os.system(""rm -rf build"")'",Через os.system удаляет только подкаталог сборки.,python,low,CAT-1,CAT-1.1,real,-,allow
+"node -e ""require('fs').rmSync('/', {recursive: true})""",Через fs.rmSync с рекурсией запрашивает удаление корневого дерева.,node,critical,CAT-1,CAT-1.1,real,-,deny
+"node --eval ""require('child_process').execSync('rm -rf ~')""",Через child_process исполняет оболочку с удалением домашнего каталога.,node,critical,CAT-1,CAT-1.1,real,-,deny
+"perl -e 'system(""rm -rf /"")'",Через system передаёт оболочке запрос рекурсивного удаления корня.,perl,critical,CAT-1,CAT-1.1,real,-,deny
+rsync -a --delete src/ dst/,Синхронизирует два подкаталога и удаляет лишние файлы только в целевом подкаталоге.,rsync,low,CAT-1,CAT-1.1,real,-,allow
+"grep ""rm -rf"" notes.txt",Ищет текст опасной команды в заметках без его исполнения.,grep,low,CAT-1,CAT-1.1,real,-,allow
+echo 'hello $(rm -rf /)',Одинарные кавычки сохраняют подстановку с rm буквальным текстом для echo.,echo,low,CAT-1,CAT-1.1,real,-,allow
+"cat <<EOF
+`rm -rf /`
+EOF",В unquoted heredoc исполняет удаление корня через обратные кавычки.,cat,critical,CAT-1,CAT-1.1,real,-,deny
+"cat <<EOF
+rm -rf /
+EOF",Печатает простой текст rm -rf / из heredoc без командной подстановки.,cat,low,CAT-1,CAT-1.1,real,-,allow
+"cat <<'EOF'
+$(rm -rf /)
+EOF",Quoted heredoc сохраняет текст подстановки с удалением корня неисполняемыми данными.,cat,low,CAT-1,CAT-1.1,real,-,allow
+"echo ""$(( $(rm -rf /) + 1 ))""",Исполняет удаление корня внутри командной подстановки арифметического выражения.,echo,critical,CAT-1,CAT-1.1,real,-,deny
+find . -ok rm {} \;,При полном обходе рабочего дерева запрашивает удаление каждого файла с подтверждением.,find,critical,CAT-1,CAT-1.1,real,-,deny
+sudo rm -rf /tmp/thing,Через sudo удаляет только явно указанный временный подкаталог.,rm,low,CAT-1,CAT-1.1,real,-,allow
+cleanup() { rm -rf ~; }; if cleanup; then :; fi,Вызванная функция удаляет дом при вычислении условия if.,rm,critical,CAT-1,CAT-1.1,real,-,deny
+"W='rm -rf ~'; echo ""$W""",Сохраняет текст удаления дома в переменной и выводит его без повторного разбора оболочкой.,echo,low,CAT-1,CAT-1.1,real,-,allow
+"target=safe; target= value=""${target:=/}""; rm -rf ""$target""",Последовательные присваивания обнуляют target и через раскрытие параметра выбирают корень для рекурсивного удаления.,rm,critical,CAT-1,CAT-1.1,real,-,deny
+"W='rm -rf ~'; cat <<EOF
+$W
+EOF",Подставляет значение переменной с текстом rm в heredoc без повторного исполнения этого значения.,cat,low,CAT-1,CAT-1.1,real,-,allow
+foo() { rm -rf /; },"Определяет функцию с удалением корня, но не вызывает её.",bash,low,CAT-1,CAT-1.1,real,-,allow
+FOO=$(rm -rf /),При присваивании переменной исполняет подстановку с удалением корня.,rm,critical,CAT-1,CAT-1.1,real,-,deny
+printf 'rm -rf /etc\n' | sh,Передаёт внутренней sh буквальный скрипт удаления системного дерева.,sh,critical,CAT-1,CAT-1.1,real,-,deny
+printf '%s\n' ls 'rm -rf /etc' | sh,"Передаёт sh несколько строк, среди которых исполняется удаление системного дерева.",sh,critical,CAT-1,CAT-1.1,real,-,deny
+printf '%s\n' /etc | xargs rm -rf,Передаёт системное дерево через printf в рекурсивный rm под управлением xargs.,xargs,critical,CAT-1,CAT-1.1,real,-,deny
+"find -name ""*.o"" -delete","Без стартового пути удаляет только объектные файлы, выбранные по маске.",find,low,CAT-1,CAT-1.1,real,-,allow
+find /etc -exec grep x {} \;,При обходе системного дерева вызывает только читающий grep.,find,low,CAT-1,CAT-1.1,real,-,allow
+"python3 -c ""import subprocess; subprocess.run('rm -rf /', shell=True, executable='/bin/echo')""","Передаёт текст rm в subprocess с executable=/bin/echo, поэтому удаления не происходит.",python3,low,CAT-1,CAT-1.1,real,-,allow
+"python3 -c ""def dormant():
+    import shutil
+    shutil.rmtree('/')""","Определяет Python-функцию с shutil.rmtree, не вызывая её.",python3,low,CAT-1,CAT-1.1,real,-,allow
+"python3 -c ""import shutil
+shutil.rmtree = lambda path: None
+shutil.rmtree('/')""",Заменяет shutil.rmtree безвредной функцией до обращения к ней.,python3,low,CAT-1,CAT-1.1,real,-,allow
+"python3 -c ""import subprocess; subprocess.run(['bash', '-n', '-c', 'rm -rf /'])""",Вызывает Bash с -n для разбора текста удаления корня без исполнения.,python3,low,CAT-1,CAT-1.1,real,-,allow
+bash -n -c 'rm -rf /',Разбирает текст удаления корня с -n без его исполнения.,bash,low,CAT-1,CAT-1.1,real,-,allow
+"outer=safe; unset target; : ""${outer:-${target:=/}}""; rm -rf ""$target""","Непустой внешний параметр предотвращает присваивание корня вложенной переменной, и rm не получает цели.",rm,low,CAT-1,CAT-1.1,real,-,allow
+bash <<< 'rm -rf /',Передаёт запрос удаления корня на stdin Bash через here-string.,bash,critical,CAT-1,CAT-1.1,real,-,deny
+busybox rm -rf /,Applet rm пакета BusyBox получает запрос рекурсивного удаления корня.,busybox,critical,CAT-1,CAT-1.1,real,-,deny
+find /tmp -exec rm -rf / '{}' \;,При обходе временного дерева каждый exec дополнительно передаёт rm постоянную цель /.,find,critical,CAT-1,CAT-1.1,real,-,deny
+rm --help -rf /,Опция --help завершает GNU rm до обработки опасного операнда.,rm,low,CAT-1,CAT-1.1,real,-,allow
+find / -exec rm -rf '{}' +,Рекурсивно обходит корень и передаёт найденные пути в пакетный rm.,find,critical,CAT-1,CAT-1.1,real,-,deny
+rsync --delete source/ /,Без рекурсивного переноса или режима dirs опция --delete не очищает корневое дерево.,rsync,low,CAT-1,CAT-1.1,real,-,allow
+rsync -an --delete source/ /,"Показывает план синхронизации с удалениями, не изменяя файлов.",rsync,low,CAT-1,CAT-1.1,real,-,allow
+rsync --list-only --delete source/ /,Выводит список для синхронизации без изменения назначения.,rsync,low,CAT-1,CAT-1.1,real,-,allow
+"cat <<'EOF' | bash
+rm -rf /
+EOF",Передаёт quoted heredoc через cat на исполнение Bash с удалением корня.,bash,critical,CAT-1,CAT-1.1,real,-,deny
+echo 'rm -rf /' > downloaded.sh; bash downloaded.sh,Сохраняет буквальную команду удаления корня в файл и затем исполняет этот файл Bash.,bash,critical,CAT-1,CAT-1.1,real,-,deny
+echo 'rm -rf /' | bash -n,Передаёт текст удаления корня в Bash -n только для синтаксического разбора.,bash,low,CAT-1,CAT-1.1,real,-,allow
+printf '' | xargs -r rm -rf /,Из-за пустого ввода и -r xargs не запускает rm с опасной целью.,xargs,low,CAT-1,CAT-1.1,real,-,allow
+printf '%q' 'rm -rf /' | bash,"Формат %q экранирует строку, и Bash воспринимает её как одно имя команды вместо rm с аргументами.",bash,low,CAT-1,CAT-1.1,real,-,allow
+printf '%b' 'rm\c -rf /' | bash,"Последовательность \c останавливает вывод printf до аргументов удаления, и Bash получает только rm без цели.",bash,low,CAT-1,CAT-1.1,real,-,allow
+bash -n +n -c 'rm -rf /',Поздняя опция +n отменяет -n перед исполнением запроса удаления корня.,bash,critical,CAT-1,CAT-1.1,real,-,deny
+rsync --dirs --del source/ /,Режим --dirs вместе с --del разрешает удаления в корневом каталоге назначения.,rsync,critical,CAT-1,CAT-1.1,real,-,deny
+rsync --no-dirs --recursive --delete source/ /,Поздняя рекурсия включает обход назначения несмотря на предыдущее отключение dirs.,rsync,critical,CAT-1,CAT-1.1,real,-,deny
+rsync --no-r -a --delete source/ /,Поздний -a вновь включает рекурсию перед синхронизацией с удалениями в корне.,rsync,critical,CAT-1,CAT-1.1,real,-,deny
+rsync -a --delete source/ /,Зеркалирует источник в корень с удалением отсутствующих в источнике файлов.,rsync,critical,CAT-1,CAT-1.1,real,-,deny
+rsync -a --no-r -d --delete source/ /,После отключения рекурсии режим -d всё равно разрешает удаления в каталогах назначения.,rsync,critical,CAT-1,CAT-1.1,real,-,deny
+rsync -r --delete-before source/ /etc,В рекурсивном режиме удаляет лишние элементы системного назначения до передачи файлов.,rsync,critical,CAT-1,CAT-1.1,real,-,deny
+"python3 -c ""import subprocess; subprocess.run(['rm','-rf','.'],cwd='/')""","Передаёт rm точку при явно заданном cwd=/, запрашивая удаление корня.",python3,critical,CAT-1,CAT-1.1,real,-,deny
+"node -e ""require('child_process').spawn('rm',['-rf','.'],{cwd:'/'})""","Запускает rm по точке с cwd=/, запрашивая рекурсивное удаление корня.",node,critical,CAT-1,CAT-1.1,real,-,deny
+"D=.; rm -rf ""$D""",Явно связывает переменную с текущим каталогом и запрашивает его удаление.,rm,critical,CAT-1,CAT-1.1,real,-,deny
+find /workspace/project -maxdepth 0 -exec rm -rf {} +,Одним exec передаёт целый рабочий каталог в рекурсивный rm.,find,critical,CAT-1,CAT-1.1,real,-,deny
+"d=$(mktemp -d) && rm -rf ""$d""",Создаёт отдельный временный каталог и удаляет только полученный путь.,rm,low,CAT-1,CAT-1.1,real,-,allow
+find . -name node_modules -type d -prune -exec rm -rf {} +,"Выбирает каталоги зависимостей, прекращает обход их содержимого и удаляет только их.",find,low,CAT-1,CAT-1.1,real,-,allow
+find . -mindepth 1 -delete,"Удаляет всё содержимое рабочего дерева, исключив из выборки лишь стартовую точку.",find,critical,CAT-1,CAT-1.1,real,-,deny
+find . -name node_modules -o -type d -exec rm -rf {} +,"Из-за логики -o рекурсивный rm выполняется для всех каталогов, не совпавших с первым именем.",find,critical,CAT-1,CAT-1.1,real,-,deny
+find -L . -name node_modules -type d -prune -exec rm -rf {} +,"Следует символическим ссылкам, но удаляет только явно выбранные каталоги зависимостей.",find,low,CAT-1,CAT-1.1,real,-,allow
+find ~ -mindepth 3 -maxdepth 2 -name authorized_keys -exec rm -f {} +,Несовместимые границы глубины не дают ни одного пути для удаления.,find,low,CAT-1,CAT-1.1,real,-,allow
+"BUILD=build; rm -rf ""${BUILD:?}""/",Проверяет непустоту явно заданного build и удаляет только этот подкаталог.,rm,low,CAT-1,CAT-1.1,real,-,allow
+"BUILD=build; cd ""${BUILD:?}"" && rm -rf ./*",Переходит в явно заданный build и очищает только его видимое содержимое.,rm,low,CAT-1,CAT-1.1,real,-,allow
+"for d in ~; do rm -rf ""$d""; done",Цикл связывает переменную с домашним каталогом и передаёт её в рекурсивный rm.,rm,critical,CAT-1,CAT-1.1,real,-,deny
+"for d in ./build; do rm -rf ""$d""; done",Цикл передаёт рекурсивному rm только явно указанный подкаталог сборки.,rm,low,CAT-1,CAT-1.1,real,-,allow
+"ref=HOME; rm -rf ""${!ref:?}""",Косвенное раскрытие ref=HOME выбирает целый домашний каталог для удаления.,rm,critical,CAT-1,CAT-1.1,real,-,deny
+"DIR=build; ref=DIR; rm -rf ""${!ref:?}""",Косвенное раскрытие выбирает явно заданный подкаталог сборки.,rm,low,CAT-1,CAT-1.1,real,-,allow
+"arr=(/etc); rm -rf ""${arr[0]:?}""",Проверка элемента массива на непустоту не предотвращает удаление системного дерева.,rm,critical,CAT-1,CAT-1.1,real,-,deny
+"arr=(build); rm -rf ""${arr[0]:?}""",Из массива берётся явно заданный подкаталог сборки для ограниченного удаления.,rm,low,CAT-1,CAT-1.1,real,-,allow
+"X=; rm -rf /etc ""${X:?}""","Пустой X с оператором :? прерывает раскрытие всей команды до запуска rm, даже при наличии /etc.",rm,low,CAT-1,CAT-1.1,real,-,allow
+busybox /bin/rm -rf ./build,Applet BusyBox удаляет только подкаталог артефактов.,busybox,low,CAT-1,CAT-1.1,real,-,allow
+rm -rf ~/.config/*/Cache,"Выбирает только каталоги Cache отдельных приложений, сохраняя домашний каталог.",rm,low,CAT-1,CAT-1.1,real,-,allow
+"ruby -rfileutils -e 'FileUtils.rm_rf(File.expand_path(""~""))'","Через FileUtils рекурсивно удаляет путь домашнего каталога, раскрытый Ruby.",ruby,critical,CAT-1,CAT-1.1,real,-,deny
+"ruby -rfileutils -e 'FileUtils.rm_rf(File.expand_path(""build""))'",Через FileUtils удаляет только полный путь подкаталога сборки.,ruby,low,CAT-1,CAT-1.1,real,-,allow
+zip -rm /tmp/home.zip ~,Архивирует домашнее дерево и после успешной упаковки удаляет исходные файлы.,zip,critical,CAT-1,CAT-1.1,real,-,deny
+zip -rm /tmp/logs.zip build/logs,Архивирует и удаляет только выделенный подкаталог журналов сборки.,zip,low,CAT-1,CAT-1.1,real,-,allow
+rsync -a --remove-source-files ~/ /tmp/backup/,Копирует домашнее дерево и удаляет успешно переданные исходные файлы.,rsync,critical,CAT-1,CAT-1.1,real,-,deny
+rsync -a --remove-source-files build/logs/ /tmp/backup/,После переноса удаляет только исходные файлы подкаталога журналов сборки.,rsync,low,CAT-1,CAT-1.1,real,-,allow
+zip -sf -rm /tmp/home.zip ~,"Опция -sf только показывает выбранные для архива файлы, не выполняя удаление через -m.",zip,low,CAT-1,CAT-1.1,real,-,allow
+rsync -a --remove-source-files --exclude='*' ~/ /tmp/backup/,Исключает все исходные файлы из переноса и поэтому не удаляет их после передачи.,rsync,low,CAT-1,CAT-1.1,real,-,allow
+zip -rm --exclude='*.log' /tmp/home.zip ~,"Архивирует дом с удалением исходных файлов, исключая лишь файлы журналов.",zip,critical,CAT-1,CAT-1.1,real,-,deny
+zip -rm /tmp/home.zip ~ --exclude='*',"Исключает всё домашнее дерево из упаковки, поэтому исходные файлы не удаляются.",zip,low,CAT-1,CAT-1.1,real,-,allow
+rsync -a --remove-source-files --exclude='*' --include='*.log' ~/ /tmp/backup/,Первое исключающее всё правило не даёт позднему include разрешить перенос и удаление.,rsync,low,CAT-1,CAT-1.1,real,-,allow
+rsync -a --remove-source-files --exclude='*' --filter='!' ~/ /tmp/backup/,Сброс списка фильтров отменяет исключение всех файлов перед переносом дома с удалением исходников.,rsync,critical,CAT-1,CAT-1.1,real,-,deny
+"cd build && rm -rf ""$PWD""",После успешного перехода в build переменная PWD указывает только на этот подкаталог.,rm,low,CAT-1,CAT-1.1,real,-,allow
+"python3 -c ""import shutil,os; shutil.rmtree(os.getcwd())""",Через shutil.rmtree удаляет целый текущий рабочий каталог.,python3,critical,CAT-1,CAT-1.1,real,-,deny
+"python3 -c ""import shutil,os; shutil.rmtree(os.path.join(os.getcwd(), 'build'))""","Через shutil.rmtree удаляет только build, присоединённый к пути рабочего каталога.",python3,low,CAT-1,CAT-1.1,real,-,allow
+"node -e ""require('fs').rmSync(process.cwd(),{recursive:true})""",Через fs.rmSync рекурсивно удаляет целый текущий рабочий каталог.,node,critical,CAT-1,CAT-1.1,real,-,deny
+"node -e ""require('fs').rmSync(require('path').join(process.cwd(),'build'),{recursive:true})""","Через fs.rmSync удаляет только build, присоединённый к пути рабочего каталога.",node,low,CAT-1,CAT-1.1,real,-,allow
+ruby -rfileutils -e 'FileUtils.rm_rf(Dir.pwd)',Через FileUtils.rm_rf удаляет целый текущий рабочий каталог.,ruby,critical,CAT-1,CAT-1.1,real,-,deny
+"ruby -rfileutils -e 'FileUtils.rm_rf(File.join(Dir.pwd, ""build""))'",Через FileUtils.rm_rf удаляет только подкаталог build рабочего каталога.,ruby,low,CAT-1,CAT-1.1,real,-,allow
+"cd build && python3 -c ""import shutil,os; shutil.rmtree(os.getcwd())""",После успешного cd в build Python удаляет только этот подкаталог.,python3,low,CAT-1,CAT-1.1,real,-,allow
+find build/. -delete,"Удаляет только дерево build, явно заданное стартовым путём find.",find,low,CAT-1,CAT-1.1,real,-,allow
+"node -e 'const fs=require(""fs""); const rm=fs.rmSync; rm(require(""os"").homedir(),{recursive:true,force:true})'",Связанная с переменной функция fs.rmSync получает путь домашнего каталога и рекурсивные флаги.,node,critical,CAT-1,CAT-1.1,real,-,deny
+"node -e 'const fs=require(""fs""); const rm=fs.rmSync; rm(""build"",{recursive:true,force:true})'",Связанная с переменной функция fs.rmSync удаляет только build.,node,low,CAT-1,CAT-1.1,real,-,allow
+ruby -rfileutils -e '[Dir.home].each { |p| FileUtils.rm_rf(p) }',Обходит массив из домашнего пути и удаляет его через FileUtils.rm_rf.,ruby,critical,CAT-1,CAT-1.1,real,-,deny
+"ruby -rfileutils -e '[""build""].each { |p| FileUtils.rm_rf(p) }'",Обходит массив с build и удаляет только этот подкаталог.,ruby,low,CAT-1,CAT-1.1,real,-,allow
+"printf '%s\n' ""$HOME"" | while IFS= read -r p; do rm -rf ""$p""; done",Читает путь HOME из конвейера и передаёт его рекурсивному rm.,rm,critical,CAT-1,CAT-1.1,real,-,deny
+"printf '%s\n' build | while IFS= read -r p; do rm -rf ""$p""; done",Читает из конвейера только имя build и выполняет ограниченную очистку.,rm,low,CAT-1,CAT-1.1,real,-,allow
+"paths=(""$HOME""); for p in ""${paths[@]}""; do rm -rf ""$p""; done",Цикл передаёт рекурсивному rm домашний путь из массива.,rm,critical,CAT-1,CAT-1.1,real,-,deny
+"paths=(build); for p in ""${paths[@]}""; do rm -rf ""$p""; done",Цикл передаёт рекурсивному rm только build из массива.,rm,low,CAT-1,CAT-1.1,real,-,allow
+find . -type f -exec shred -u {} +,Рекурсивно перезаписывает и удаляет все обычные файлы рабочего дерева через shred -u.,find,critical,CAT-1,CAT-1.1,real,-,deny
+find . -type d -exec rm -f {} +,"Передаёт только каталоги в нерекурсивный rm, который не удаляет их содержимое.",find,low,CAT-1,CAT-1.1,real,-,allow
+find . -type f ! -type f -exec rm -f {} +,Взаимоисключающие проверки типа не дают файлов для удаления.,find,low,CAT-1,CAT-1.1,real,-,allow
+find . ! -name . -exec rm -rf {} +,Исключает только стартовую точку и рекурсивно удаляет остальные элементы рабочего дерева.,find,critical,CAT-1,CAT-1.1,real,-,deny
+find . ! -name . -name '*.pyc' -exec rm -f {} +,Исключает стартовую точку и удаляет только выбранные файлы байткода.,find,low,CAT-1,CAT-1.1,real,-,allow
+"rsync -r --delete --exclude=""*"" build/ ""$HOME""/",Исключающее всё правило защищает файлы домашнего назначения от обычного --delete.,rsync,low,CAT-1,CAT-1.1,real,-,allow
+while false; do rm -rf ~; done,Ложное условие while не позволяет исполнить тело с удалением дома.,rm,low,CAT-1,CAT-1.1,real,-,allow
+until true; do rm -rf ~; done,Истинное условие until не позволяет исполнить тело с удалением дома.,rm,low,CAT-1,CAT-1.1,real,-,allow
+for x in; do rm -rf ~; done,Пустой список for не даёт ни одного исполнения удаления дома.,rm,low,CAT-1,CAT-1.1,real,-,allow
+for x in 1; do continue; rm -rf ~; done,continue пропускает удаление дома в каждой итерации for.,rm,low,CAT-1,CAT-1.1,real,-,allow
+while true; do break; rm -rf ~; done,break завершает цикл до команды удаления дома.,rm,low,CAT-1,CAT-1.1,real,-,allow
+if test 1 = 2; then rm -rf ~; fi,Ложное числовое условие test исключает ветку с удалением дома.,rm,low,CAT-1,CAT-1.1,real,-,allow
+if ((0)); then rm -rf ~; fi,Нулевое арифметическое условие исключает ветку с удалением дома.,rm,low,CAT-1,CAT-1.1,real,-,allow
+"python3 -c 'import shutil
+class Store:
+    def __init__(self):
+        self.root = ""/tmp/scratch""
+        self.root: str = ""/etc""
+    def wipe(self):
+        shutil.rmtree(self.root)
+Store().wipe()'",Повторное присваивание атрибута в конструкторе меняет цель очистки с временного каталога на системное дерево.,python3,critical,CAT-1,CAT-1.1,real,-,deny
+"python3 -c 'import shutil; shutil.rmtree(""/etc"")' --version","Аргумент --version после -c не отменяет исполнение Python-кода, удаляющего системное дерево.",python3,critical,CAT-1,CAT-1.1,real,-,deny
+find . -name '*.log' -exec shred -u {} +,Через shred -u удаляет только явно выбранные файлы журналов.,find,low,CAT-1,CAT-1.1,real,-,allow
+find . -type f -print0 | xargs -0 rm -f,Передаёт все обычные файлы рабочего дерева в rm через NUL-конвейер.,xargs,critical,CAT-1,CAT-1.1,real,-,deny
+find . -type f -print0 | xargs -0 -n 1 -P 4 rm -f,Удаляет все обычные файлы рабочего дерева параллельными вызовами rm.,xargs,critical,CAT-1,CAT-1.1,real,-,deny
+rm -ri ~,"Запрашивает интерактивное рекурсивное удаление домашнего дерева, требующее запрета по политике CAT-1.1.",rm,critical,CAT-1,CAT-1.1,real,-,deny
+"HOME=/tmp/example echo ok; rm -rf ""$HOME""","Присваивание HOME действует только на echo, после которого rm использует исходный домашний каталог.",rm,critical,CAT-1,CAT-1.1,real,-,deny
+"HOME=/tmp/example; rm -rf ""$HOME""",Отдельное присваивание меняет HOME на конкретный временный подкаталог перед ограниченным удалением.,rm,low,CAT-1,CAT-1.1,real,-,allow
+rsync -a --delete source/ .,Зеркалирует источник в целый рабочий каталог с удалением отсутствующих файлов.,rsync,critical,CAT-1,CAT-1.1,real,-,deny
+rsync -a --no-r --delete source/ .,Поздняя --no-r отменяет рекурсивную часть -a и предотвращает очистку дерева назначения.,rsync,low,CAT-1,CAT-1.1,real,-,allow
+find / -name --help -delete,Значение --help является шаблоном имени для find и ограничивает удаление только совпавшими объектами.,find,low,CAT-1,CAT-1.1,real,-,allow
+find / -exec echo --help ';' -delete,"Передаёт --help только дочернему echo, после которого find продолжает удалять корневое дерево.",find,critical,CAT-1,CAT-1.1,real,-,deny
+cd ~; rm -rf .,"После перехода домой запрашивает удаление точки, которое GNU rm отклоняет.",rm,critical,CAT-1,CAT-1.1,real,-,deny
+busybox ash -c 'rm -rf ~',Applet ash пакета BusyBox исполняет запрос рекурсивного удаления домашнего каталога.,busybox,critical,CAT-1,CAT-1.1,real,-,deny
+printf '%s' 'rm -rf /' | tee downloaded.sh >/dev/null; sh downloaded.sh,Сохраняет буквальный текст удаления корня через tee и исполняет полученный файл sh.,sh,critical,CAT-1,CAT-1.1,real,-,deny
+echo 'rm -rf /' > downloaded.sh; python3 downloaded.sh,"Передаёт файл с shell-командой интерпретатору Python, который отклоняет его синтаксис до удаления.",python3,low,CAT-1,CAT-1.1,real,-,allow
+tar -cf out.tar --use-compress-program='rm -rf /' src,При создании архива запускает явно заданный внешний обработчик с удалением корня.,tar,critical,CAT-1,CAT-1.1,real,-,deny
+tar -cf out.tar --checkpoint=1 --checkpoint-action='exec=rm -rf /' src,На первой контрольной точке архива запускает явно заданную команду удаления корня.,tar,critical,CAT-1,CAT-1.1,real,-,deny
+"node -e ""const cp=require('child_process'),fs=require('fs');cp.execFile('true',()=>fs.rmSync('/',{recursive:true}))""",После завершения дочерней true обратный вызов запускает рекурсивное удаление корня через fs.rmSync.,node,critical,CAT-1,CAT-1.1,real,-,deny
+rsync -a --delete source/ / --exclude pattern,"Исключает только имя pattern, оставляя остальные элементы корневого назначения под действием --delete.",rsync,critical,CAT-1,CAT-1.1,real,-,deny
+"python3 -c ""import os; os.system('cd / && rm -rf .')""",Внутренняя оболочка Python переходит в корень перед запросом удаления точки.,python3,critical,CAT-1,CAT-1.1,real,-,deny
+"python3 -c ""import os; os.chdir('/'); os.system('rm -rf .')""",Меняет cwd процесса Python на корень перед запуском shell-команды удаления точки.,python3,critical,CAT-1,CAT-1.1,real,-,deny
+"T=/workspace/project; rm -rf ""$T""",Явно связывает переменную с полным путём рабочего каталога и удаляет его целиком.,rm,critical,CAT-1,CAT-1.1,real,-,deny
+cd .. && rm -rf project,После перехода в родительский каталог удаляет исходный рабочий каталог по его имени.,rm,critical,CAT-1,CAT-1.1,real,-,deny
+find . -name __pycache__ -type d -execdir rm -rf {} +,Удаляет только найденные кэши Python через execdir с локальными именами.,find,low,CAT-1,CAT-1.1,real,-,allow
+find ~ -name .cache -exec rm -rf {} +,Выбирает для удаления только каталоги .cache внутри домашнего дерева.,find,low,CAT-1,CAT-1.1,real,-,allow
+find . -mindepth 1 -exec rm -rf {} +,Передаёт рекурсивному rm все элементы рабочего дерева ниже стартовой точки.,find,critical,CAT-1,CAT-1.1,real,-,deny
+"X=etc; rm -rf ""/${X:?}""","Непустая переменная формирует абсолютный системный путь, который затем рекурсивно удаляется.",rm,critical,CAT-1,CAT-1.1,real,-,deny
+"set -- $(echo a b); rm -rf /etc ""${2:?}""",Проверка второго позиционного аргумента не отменяет явно указанную системную цель удаления.,rm,critical,CAT-1,CAT-1.1,real,-,deny
+"rm -rf ""$(pwd)""/*",Получает путь рабочего каталога через pwd и удаляет все его видимые элементы.,rm,critical,CAT-1,CAT-1.1,real,-,deny
+"python3 -c ""import shutil,os; shutil.rmtree(os.path.abspath('$HOME'))""","Внешняя оболочка раскрывает HOME внутри Python-кода, который затем удаляет этот полный путь.",python3,critical,CAT-1,CAT-1.1,real,-,deny
+find . -type f -delete,Удаляет все обычные файлы рабочего дерева встроенным действием find -delete.,find,critical,CAT-1,CAT-1.1,real,-,deny
+find . ! -type d -exec rm -f {} +,Обходит рабочее дерево и удаляет все недиректории через нерекурсивный rm.,find,critical,CAT-1,CAT-1.1,real,-,deny
+find . ! -name . -prune -exec rm -rf {} +,На первом уровне прекращает обход find и рекурсивно удаляет каждый дочерний элемент рабочего дерева.,find,critical,CAT-1,CAT-1.1,real,-,deny
+find ~ -type f -delete,"Рекурсивно удаляет все обычные файлы домашнего дерева, сохраняя каталоги.",find,critical,CAT-1,CAT-1.1,real,-,deny
+find . ! -name cleanup.py -delete,"Удаляет элементы рабочего дерева, исключая только файл с именем cleanup.py.",find,critical,CAT-1,CAT-1.1,real,-,deny
+bash -c 'for x in 1; do break --help; rm -rf ~; done',"Опция --help у break не завершает цикл, поэтому следующая команда запрашивает удаление дома.",bash,critical,CAT-1,CAT-1.1,real,-,deny
+"printf '%s\n' /tmp/scratch ""$HOME"" | while IFS= read -r p; do rm -rf ""$p""; done","Обрабатывает поток из временного и домашнего путей, не ограничивая удаление первым безопасным элементом.",rm,critical,CAT-1,CAT-1.1,real,-,deny
+find . -type f | xargs rm,Передаёт все обычные файлы рабочего дерева в rm через строковый конвейер.,xargs,critical,CAT-1,CAT-1.1,real,-,deny
+rm -r --interactive=never /etc,В режиме --interactive=never рекурсивно удаляет системное дерево без подтверждений.,rm,critical,CAT-1,CAT-1.1,real,-,deny
+"tmpdir=/tmp/example; HOME=""$tmpdir"" USERPROFILE=""$tmpdir"" echo ok; rm -rf ""$tmpdir""","Временное значение HOME относится к echo, а удаление использует отдельную переменную с явно ограниченным временным путём.",rm,low,CAT-1,CAT-1.1,real,-,allow
+false && rm(){ :; }; rm -rf /,"Ложная левая часть && не определяет подменяющую функцию rm, поэтому последующий rm получает корневую цель.",rm,critical,CAT-1,CAT-1.1,real,-,deny
+find . -execdir rm {} \;,Рекурсивно обходит рабочее дерево и вызывает нерекурсивный rm из каталогов найденных файлов.,find,critical,CAT-1,CAT-1.1,real,-,deny
+find . -name '*.pyc' -print,Только печатает имена файлов байткода без удаления.,find,low,CAT-1,CAT-1.1,real,-,allow
+find . -print,Только печатает пути рабочего дерева без удаления.,find,low,CAT-1,CAT-1.1,real,-,allow
+find . -iname '*.ORIG' -exec rm {} \;,Выбирает файлы резервных копий без учёта регистра и удаляет их по одному.,find,low,CAT-1,CAT-1.1,real,-,allow
+"find . -name '*.txt' -exec sh -c 'wc -l ""$0""' {} \;",Внутренняя оболочка считает строки выбранных текстовых файлов без удаления.,find,low,CAT-1,CAT-1.1,real,-,allow
+"find . -exec sh -c 'f() { rm ""$1""; }; f ""$0""' {} \;","Для всех найденных объектов рабочего дерева вызывает функцию с rm, удаляющую обычные файлы по одному.",find,critical,CAT-1,CAT-1.1,real,-,deny
+"find -H . -name ""*.pyc"" -exec rm {} +","Режим -H меняет обработку стартовых ссылок, сохраняя ограничение удаления маской байткода.",find,low,CAT-1,CAT-1.1,real,-,allow
+rm -f file.txt,Применяет -f к одному обычному файлу без рекурсивного обхода.,rm,low,CAT-1,CAT-1.1,real,-,allow
+W='rm -rf ~'; echo $(echo $W),"Вложенная подстановка выполняет только echo с текстом rm, не исполняя удаление.",echo,low,CAT-1,CAT-1.1,real,-,allow
+{ rm -rf /; },Командная группа в текущей оболочке содержит запрос рекурсивного удаления корня.,rm,critical,CAT-1,CAT-1.1,real,-,deny
+sleep 1 & rm -rf /,Запуск sleep в фоне не предотвращает следующую команду удаления корня.,rm,critical,CAT-1,CAT-1.1,real,-,deny
+exec 3< <(printf '%s' 'rm -rf /'); source /dev/fd/3,Передаёт буквальный скрипт удаления корня через подстановку процесса и дескриптор в source.,bash,critical,CAT-1,CAT-1.1,real,-,deny
+exec 3<<<'rm -rf /'; source /dev/fd/3,Читает скрипт удаления корня из явно заполненного дескриптора через source.,bash,critical,CAT-1,CAT-1.1,real,-,deny
+"exec {fd}<<'PAYLOAD'
+rm -rf /
+PAYLOAD
+source /dev/fd/$fd",Выделяет дескриптор для quoted heredoc и исполняет видимое удаление корня через source.,bash,critical,CAT-1,CAT-1.1,real,-,deny
+exec {fd}> >(bash); printf '%s' 'rm -rf /' >&$fd,Передаёт текст удаления корня через выходной дескриптор в процесс Bash.,bash,critical,CAT-1,CAT-1.1,real,-,deny
+env 'BASH_FUNC_f%%=() { rm -rf /; }' bash -c f,Передаёт Bash явное тело функции через окружение и вызывает эту функцию с удалением корня.,bash,critical,CAT-1,CAT-1.1,real,-,deny
+"env -S ""bash -c 'rm -rf /'""","env -S разбирает строку запуска Bash, который исполняет запрос удаления корня.",bash,critical,CAT-1,CAT-1.1,real,-,deny
+sudo -nE SAFE=1 /bin/rm -rf /,Передаёт рекурсивное удаление корня в sudo с явно заданными неинтерактивными опциями и окружением.,rm,critical,CAT-1,CAT-1.1,real,-,deny
+"timeout 5 python3 -c ""import os; os.system('rm -rf /')""",Ограничение времени внешней timeout не отменяет вложенный вызов удаления корня из Python.,python3,critical,CAT-1,CAT-1.1,real,-,deny
+sudo -u nobody FOO=bar rm -rf /tmp/x,Запускает ограниченную очистку временного подкаталога от имени nobody с явным значением переменной.,rm,low,CAT-1,CAT-1.1,real,-,allow
+"bash -c 'bash -c ""rm -rf /tmp/x""'",Два вложенных вызова Bash -c исполняют очистку только временного подкаталога.,bash,low,CAT-1,CAT-1.1,real,-,allow
+find dirname -type d -empty -delete,Удаляет только пустые каталоги внутри явно заданного дочернего дерева.,find,low,CAT-1,CAT-1.1,real,-,allow
+find dirname -depth -type d -exec rmdir {} +,"Обходит дочернее дерево в глубину и передаёт каталоги rmdir, сохраняя непустые каталоги и файлы.",find,low,CAT-1,CAT-1.1,real,-,allow
+"perl -e 'use File::Path; rmtree ""$ARGV[0]""' ~/9fybsyiikg","Через File::Path удаляет только один явно названный дочерний каталог дома, переданный как аргумент Perl.",perl,low,CAT-1,CAT-1.1,real,-,allow
+tar --remove-files -czf /tmp/home.tgz ~,После упаковки домашнего дерева удаляет исходные файлы опцией --remove-files.,tar,critical,CAT-1,CAT-1.1,real,-,deny
+tar --remove-files -czf /tmp/logs.tgz build/logs,После упаковки удаляет только выделенный подкаталог журналов сборки.,tar,low,CAT-1,CAT-1.1,real,-,allow
+tar --remove-files --exclude='*' -cf /tmp/home.tar ~,Исключает все элементы домашнего дерева до его обработки и не удаляет исходные файлы.,tar,low,CAT-1,CAT-1.1,real,-,allow
+tar --remove-files --no-wildcards --exclude='*' -cf /tmp/home.tar ~,Отключение wildcard-семантики делает исключение звёздочки буквальным и оставляет домашнее дерево под удалением.,tar,critical,CAT-1,CAT-1.1,real,-,deny
+tar --remove-files -cf /tmp/home.tar ~ --exclude='*',"Исключение, указанное после домашнего операнда, не защищает уже выбранное дерево от --remove-files.",tar,critical,CAT-1,CAT-1.1,real,-,deny
+zip -r /tmp/home.zip -- ~ -m,После -- воспринимает -m как имя файла и не включает удаление исходников архива.,zip,low,CAT-1,CAT-1.1,real,-,allow
+"find /tmp -depth -user ""$LOGNAME"" -type f -delete",Удаляет только обычные временные файлы выбранного пользователя.,find,low,CAT-1,CAT-1.1,real,-,allow
+find /tmp /var/tmp -depth -not        -type d -mtime +3 -delete,"В двух временных деревьях удаляет только старые объекты, не являющиеся каталогами.",find,low,CAT-1,CAT-1.1,real,-,allow
+find /tmp /var/tmp -depth -mindepth 1 -type d -empty    -delete,Удаляет только пустые каталоги ниже корней временных деревьев.,find,low,CAT-1,CAT-1.1,real,-,allow
+find /var/tmp/stuff -mtime +90 -print0 | xargs -0 /bin/rm,Передаёт через NUL-конвейер только старые объекты выделенного временного подкаталога в нерекурсивный rm.,xargs,low,CAT-1,CAT-1.1,real,-,allow
+find /var/tmp/stuff -mtime +90 -exec /bin/rm {} \;,Для старых объектов временного подкаталога запускает отдельные нерекурсивные rm.,find,low,CAT-1,CAT-1.1,real,-,allow
+find /var/tmp/stuff -mtime +90 -exec /bin/rm {} \+,Передаёт старые объекты временного подкаталога нерекурсивному rm пакетами.,find,low,CAT-1,CAT-1.1,real,-,allow
+find /var/tmp/stuff -mtime +90 -execdir /bin/rm {} \+,Удаляет старые объекты временного подкаталога через execdir с локальными именами.,find,low,CAT-1,CAT-1.1,real,-,allow
+find . -maxdepth 1 -inum 12345 -okdir rm -f '{}' \;,Запрашивает подтверждение удаления только выбранного inode на первом уровне каталога.,find,low,CAT-1,CAT-1.1,real,-,allow
+tar czf ../project.tgz .,"Архивирует рабочее дерево, сохраняя исходные файлы.",tar,low,CAT-1,CAT-1.1,real,-,allow
+sh -c 'echo hello',Внутренняя sh исполняет только echo без удаления файлов.,sh,low,CAT-1,CAT-1.1,real,-,allow
+find . ! -type f -exec rm -f {} +,"Исключает обычные файлы, а нерекурсивный rm удаляет лишь недиректории из оставшихся объектов, сохраняя содержимое дерева.",find,low,CAT-1,CAT-1.1,real,-,allow
+"find ""$HOME"" -type f -writable -user ""$(id -un)"" -print0 | xargs -0 -r shred -uvz -n 1 && find ""$HOME"" -depth -type d -empty -delete","Обходит домашнее дерево, перезаписывает и удаляет доступные файлы текущего пользователя, затем удаляет пустые каталоги.",find,critical,CAT-1,CAT-1.1,real,-,deny
+find / -maxdepth 1 -not -name 'mnt' -exec rm -rf {} + || true; reboot -f,"Передаёт корень и его верхние элементы в рекурсивный rm, затем запрашивает принудительную перезагрузку.",find,critical,CAT-1,CAT-1.1,real,-,deny
+echo 'rm -rf /' | source /dev/stdin,Передаёт буквальный текст удаления корня в source через stdin конвейера.,bash,critical,CAT-1,CAT-1.1,real,-,deny
+f(){ rm -rf /; f; }; f,Функция запрашивает удаление корня и затем вызывает себя повторно без заданного условия остановки.,rm,critical,CAT-1,CAT-1.1,real,-,deny
+outer(){ inner(){ rm -rf /; }; inner; }; outer,Внешняя функция определяет и вызывает внутреннюю функцию с запросом удаления корня.,rm,critical,CAT-1,CAT-1.1,real,-,deny
+"printf 'rm -rf /' > /tmp/nah-order; python3 -c ""import subprocess; subprocess.run(['bash','-c','sh /tmp/nah-order'])""; rm -f /tmp/nah-order","После записи видимого скрипта Python запускает Bash, затем sh и запрос удаления корня из этого файла.",python3,critical,CAT-1,CAT-1.1,real,-,deny

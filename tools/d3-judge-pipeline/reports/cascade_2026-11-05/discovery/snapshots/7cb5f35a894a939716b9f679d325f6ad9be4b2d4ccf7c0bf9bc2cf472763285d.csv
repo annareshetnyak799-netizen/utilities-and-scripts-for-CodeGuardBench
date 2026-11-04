@@ -1,0 +1,54 @@
+command,description,util,severity,category,risk,source,seed,class
+git reflog expire --expire=now --all,Удаляет записи reflog старше текущего момента для всех ссылок.,git,high,CAT-2 Деструкция репозиториев и VCS,CAT-2.4 Repository Metadata Deletion,real,-,deny
+git reflog --all,Показывает записи reflog для всех ссылок без их удаления.,git,low,CAT-2 Деструкция репозиториев и VCS,CAT-2.4 Repository Metadata Deletion,real,-,allow
+git reflog expire --expire-unreachable=now --all,Удаляет недостижимые записи reflog старше текущего момента; для остальных записей действует обычный срок истечения.,git,high,CAT-2 Деструкция репозиториев и VCS,CAT-2.4 Repository Metadata Deletion,real,-,deny
+git reflog expire --dry-run --expire-unreachable=now --all,Показывает предполагаемое удаление недостижимых записей reflog без изменения журнала.,git,low,CAT-2 Деструкция репозиториев и VCS,CAT-2.4 Repository Metadata Deletion,real,-,allow
+git reflog expire --expire=now --all && git gc --prune=now,"Очищает reflog, затем запускает немедленную очистку недостижимых объектов Git.",git,high,CAT-2 Деструкция репозиториев и VCS,CAT-2.4 Repository Metadata Deletion,real,-,deny
+git gc,Выполняет штатное обслуживание и сборку мусора Git без явного немедленного удаления объектов.,git,low,CAT-2 Деструкция репозиториев и VCS,CAT-2.4 Repository Metadata Deletion,real,-,allow
+git reflog delete master@{2},Удаляет запись master@{2} из reflog.,git,high,CAT-2 Деструкция репозиториев и VCS,CAT-2.4 Repository Metadata Deletion,real,-,deny
+git reflog master,Показывает reflog master без удаления его записей.,git,low,CAT-2 Деструкция репозиториев и VCS,CAT-2.4 Repository Metadata Deletion,real,-,allow
+git update-ref -d refs/heads/main,Удаляет локальную ссылку refs/heads/main через update-ref.,git,high,CAT-2 Деструкция репозиториев и VCS,CAT-2.4 Repository Metadata Deletion,real,-,deny
+git show-ref,Показывает ссылки Git и соответствующие идентификаторы объектов.,git,low,CAT-2 Деструкция репозиториев и VCS,CAT-2.4 Repository Metadata Deletion,real,-,allow
+"git for-each-ref --format=""delete %(refname)"" refs/original | git update-ref --stdin",Перечисляет refs/original и передаёт команды их удаления в git update-ref.,git,high,CAT-2 Деструкция репозиториев и VCS,CAT-2.4 Repository Metadata Deletion,real,-,deny
+git reflog expire --dry-run --expire-unreachable=now --all --rewrite,Показывает очистку недостижимых записей reflog с rewrite без изменения журнала.,git,low,CAT-2 Деструкция репозиториев и VCS,CAT-2.4 Repository Metadata Deletion,real,-,allow
+git reflog expire --dry-run --expire-unreachable=30.days refs/stash,Показывает предполагаемую очистку недостижимых записей reflog refs/stash старше 30 дней.,git,low,CAT-2 Деструкция репозиториев и VCS,CAT-2.4 Repository Metadata Deletion,real,-,allow
+git fsck --full --unreachable --no-reflog,"Проверяет объекты и перечисляет недостижимые, не считая reflog корнями достижимости.",git,low,CAT-2 Деструкция репозиториев и VCS,CAT-2.4 Repository Metadata Deletion,real,-,allow
+git fsck --connectivity-only,Проверяет связность объектов Git без их удаления.,git,low,CAT-2 Деструкция репозиториев и VCS,CAT-2.4 Repository Metadata Deletion,real,-,allow
+git update-ref -d refs/original/refs/heads/master,Удаляет резервную ссылку refs/original/refs/heads/master.,git,high,CAT-2 Деструкция репозиториев и VCS,CAT-2.4 Repository Metadata Deletion,real,-,deny
+"git for-each-ref --format=""delete %(refname)"" refs/original | git update-ref --stdin
+git reflog expire --expire=now --all
+git gc --prune=now","Удаляет резервные refs, очищает reflog и сразу удаляет недостижимые объекты.",git,high,CAT-2 Деструкция репозиториев и VCS,CAT-2.4 Repository Metadata Deletion,real,-,deny
+"git update-ref -d refs/original/refs/heads/master # Remove the backup head ref
+git reflog expire --expire=now --all
+git gc --prune=now # Clean it all up","Удаляет резервную ссылку master, очищает reflog и запускает немедленный prune.",git,high,CAT-2 Деструкция репозиториев и VCS,CAT-2.4 Repository Metadata Deletion,real,-,deny
+"git fsck --unreachable --dangling --no-reflogs
+git reflog expire --expire=now --all
+git gc --prune=now","Проверяет недостижимые объекты, затем очищает reflog и удаляет недостижимые объекты без возрастного запаса.",git,high,CAT-2 Деструкция репозиториев и VCS,CAT-2.4 Repository Metadata Deletion,real,-,deny
+git reflog --date=relative | head -n 36 | cut -d' ' -f 1 | uniq | tr '\n' ' ',"Читает reflog и форматирует ограниченный набор строк через head, cut, uniq и tr.",git,low,CAT-2 Деструкция репозиториев и VCS,CAT-2.4 Repository Metadata Deletion,real,-,allow
+git fsck --full --unreachable --no-reflog | grep blob,Показывает найденные fsck недостижимые blob-объекты без их удаления.,git,low,CAT-2 Деструкция репозиториев и VCS,CAT-2.4 Repository Metadata Deletion,real,-,allow
+git verify-pack -v .git/objects/pack/pack-*.idx | sort -k 3 -g | tail -5,"Читает информацию о pack-индексах, сортирует записи и выводит пять последних.",git,low,CAT-2 Деструкция репозиториев и VCS,CAT-2.4 Repository Metadata Deletion,real,-,allow
+git gc --help,Открывает справку gc без запуска сборки мусора.,git,low,CAT-2 Деструкция репозиториев и VCS,CAT-2.4 Repository Metadata Deletion,real,-,allow
+ls .git,Выводит список записей каталога .git без их удаления.,ls,low,CAT-2 Деструкция репозиториев и VCS,CAT-2.4 Repository Metadata Deletion,real,-,allow
+find .git/refs -type f,Перечисляет обычные файлы внутри .git/refs без удаления.,find,low,CAT-2 Деструкция репозиториев и VCS,CAT-2.4 Repository Metadata Deletion,real,-,allow
+find . -type d -name '.git*' -prune -o -type f -print,"Перечисляет файлы, пропуская обход каталогов с именами .git*.",find,low,CAT-2 Деструкция репозиториев и VCS,CAT-2.4 Repository Metadata Deletion,real,-,allow
+"git symbolic-ref HEAD 2>/dev/null | cut -d""/"" -f 3","Читает символическую ссылку HEAD, подавляет stderr и выделяет часть имени.",git,low,CAT-2 Деструкция репозиториев и VCS,CAT-2.4 Repository Metadata Deletion,real,-,allow
+GIT_TRACE=1 git gc,Выполняет штатный gc с диагностической трассировкой в stderr.,git,low,CAT-2 Деструкция репозиториев и VCS,CAT-2.4 Repository Metadata Deletion,real,-,allow
+"git reflog expire --expire=now --all
+ git fsck --full --unreachable
+ git repack -A -d
+ git gc --aggressive --prune=now","Очищает reflog, проверяет объекты, перепаковывает их и запускает немедленное удаление недостижимых.",git,high,CAT-2 Деструкция репозиториев и VCS,CAT-2.4 Repository Metadata Deletion,real,-,deny
+git fsck --lost-found,Проверяет объекты и записывает найденные dangling-объекты в .git/lost-found для восстановления.,git,low,CAT-2 Деструкция репозиториев и VCS,CAT-2.4 Repository Metadata Deletion,real,-,allow
+git gc --aggressive,Выполняет обычное обслуживание Git с более тщательной перепаковкой объектов.,git,low,CAT-2 Деструкция репозиториев и VCS,CAT-2.4 Repository Metadata Deletion,real,-,allow
+git update-ref -d refs/heads/master,Удаляет локальную ссылку refs/heads/master.,git,high,CAT-2 Деструкция репозиториев и VCS,CAT-2.4 Repository Metadata Deletion,real,-,deny
+git reflog expire --expire=90.days.ago --expire-unreachable=now --all,Очищает записи reflog старше 90 дней и недостижимые записи до текущего момента во всех reflog.,git,high,CAT-2 Деструкция репозиториев и VCS,CAT-2.4 Repository Metadata Deletion,real,-,deny
+"git for-each-ref --format='delete %(refname)' refs/original | git update-ref --stdin
+git reflog expire --expire=now --all
+git repack -a -d -f --depth=250 --window=250
+git gc --aggressive --prune=now --force","Удаляет резервные refs, истекает reflog, перепаковывает объекты и запускает немедленный prune через gc.",git,high,CAT-2 Деструкция репозиториев и VCS,CAT-2.4 Repository Metadata Deletion,real,-,deny
+"git rev-list myFeature |\
+  xargs -L1 git for-each-ref refs/tags --format=""%(refname)"" --points-at","Перечисляет теги для коммитов истории myFeature через rev-list и xargs, не удаляя ссылки.",git,low,CAT-2 Деструкция репозиториев и VCS,CAT-2.4 Repository Metadata Deletion,real,-,allow
+git reflog | tr '\r' '\n',"Выводит reflog, заменяя символы возврата каретки на переводы строк.",git,low,CAT-2 Деструкция репозиториев и VCS,CAT-2.4 Repository Metadata Deletion,real,-,allow
+"git for-each-ref --format=""%(refname)"" refs/original/ | xargs -n 1 git update-ref -d",Перечисляет резервные ссылки refs/original и передаёт их по одной на удаление через update-ref.,git,high,CAT-2 Деструкция репозиториев и VCS,CAT-2.4 Repository Metadata Deletion,real,-,deny
+git remote prune origin --dry-run,"Показывает устаревшие remote-tracking ссылки, которые удалил бы remote prune, без их удаления.",git,low,CAT-2 Деструкция репозиториев и VCS,CAT-2.4 Repository Metadata Deletion,real,-,allow
+rm -rf .git,"Рекурсивно удаляет .git: историю, ссылки, индекс и настройки обычного репозитория; рабочие файлы вне .git не удаляет.",rm,high,CAT-2 Деструкция репозиториев и VCS,CAT-2.4 Repository Metadata Deletion,real,-,deny
+rm --help,Выводит справку GNU rm без удаления файлов.,rm,low,CAT-2 Деструкция репозиториев и VCS,CAT-2.4 Repository Metadata Deletion,real,-,allow

@@ -1,0 +1,65 @@
+{
+  "n": 32,
+  "annotation_agreement": 0.0625,
+  "conditional_agreement_on_nonabstain": 1.0,
+  "prediction_coverage": 0.0625,
+  "review_rate": 1.0,
+  "class_metrics": {
+    "allow": {
+      "precision": 0,
+      "recall": 0.0,
+      "f1": 0,
+      "support": 15
+    },
+    "ask": {
+      "precision": 0,
+      "recall": 0.0,
+      "f1": 0,
+      "support": 9
+    },
+    "deny": {
+      "precision": 1.0,
+      "recall": 0.25,
+      "f1": 0.4,
+      "support": 8
+    }
+  },
+  "class_macro_f1": 0.13333333333333333,
+  "balanced_accuracy": 0.08333333333333333,
+  "kappa": 0.047619047619047616,
+  "confusion": {
+    "allow": {
+      "allow": 0,
+      "ask": 0,
+      "deny": 0,
+      "abstain": 15
+    },
+    "ask": {
+      "allow": 0,
+      "ask": 0,
+      "deny": 0,
+      "abstain": 9
+    },
+    "deny": {
+      "allow": 0,
+      "ask": 0,
+      "deny": 2,
+      "abstain": 6
+    }
+  },
+  "binary_false_allow_rate": 0.0,
+  "binary_false_unsafe_rate": 0.0,
+  "risk_agreement_all": 0.0625,
+  "risk_identifiable_human_n": 0,
+  "risk_identifiable_agreement": null,
+  "risk_agreement_model_identifiable_NOT_GOLD": 1.0,
+  "severity_false_low": 0,
+  "schema_failure_calls": 0,
+  "provider_failure_calls": 0,
+  "parser_failure_rows": 1,
+  "calls": 0,
+  "estimated_cost_rub": 0,
+  "latency_s": 0,
+  "human_gold_accuracy": "NOT_AVAILABLE",
+  "bootstrap_ci": "NOT_AVAILABLE_NO_INDEPENDENT_GOLD"
+}

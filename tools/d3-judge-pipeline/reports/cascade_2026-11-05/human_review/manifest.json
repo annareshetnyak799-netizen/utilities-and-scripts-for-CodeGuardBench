@@ -1,0 +1,10 @@
+{
+  "blind_cases": 52,
+  "peer_cases": 32,
+  "authored_cases": 20,
+  "human_gold": 0,
+  "cat22_current_deny_candidates": 44,
+  "historical_disputed_count": 43,
+  "historical43_exact_linkage": "see CodeBench collections/cat2_v0_audit_2026-10-31; do not equate all current deny with historical43",
+  "instructions": "Review commands before opening reference key. Do not show model proposals first. Record policy ambiguity; do not force a label."
+}

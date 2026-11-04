@@ -1,0 +1,25 @@
+{
+  "TECHNICALLY_RUNNABLE": true,
+  "INTEGRATION_READY": false,
+  "SEMANTICALLY_VALIDATED": false,
+  "HUMAN_GOLD_AVAILABLE": false,
+  "SAFE_FOR_AUTOMATED_GOLD_EXPORT": false,
+  "integration_note": "D3 file interfaces and adapters tested; full upstream D1/D2 production integration pending",
+  "tests": 212,
+  "peer_full_rules_mock_rows": 1975,
+  "peer_llm_pilot_rows": 32,
+  "taxonomy_registry": 42,
+  "authored_probe": {
+    "n": 42,
+    "model_calls": 39,
+    "nonabstain": 30,
+    "human_gold": 0,
+    "semantic_accuracy": "NOT_AVAILABLE",
+    "estimated_cost_rub": 3.04496704
+  },
+  "budget_usage_estimate_rub": 23.38635546000001,
+  "budget_unknown_reserved_rub": 1.8311601990000002,
+  "conservative_total_rub": 25.21751565900001,
+  "ledger_cap_rub": 60,
+  "user_cap_rub": 66
+}

@@ -1,0 +1,65 @@
+{
+  "n": 1975,
+  "annotation_agreement": 0.013670886075949367,
+  "conditional_agreement_on_nonabstain": 1.0,
+  "prediction_coverage": 0.013670886075949367,
+  "review_rate": 1.0,
+  "class_metrics": {
+    "allow": {
+      "precision": 1.0,
+      "recall": 0.00968054211035818,
+      "f1": 0.019175455417066157,
+      "support": 1033
+    },
+    "ask": {
+      "precision": 0,
+      "recall": 0.0,
+      "f1": 0,
+      "support": 262
+    },
+    "deny": {
+      "precision": 1.0,
+      "recall": 0.025,
+      "f1": 0.04878048780487806,
+      "support": 680
+    }
+  },
+  "class_macro_f1": 0.022651981073981406,
+  "balanced_accuracy": 0.011560180703452728,
+  "kappa": 0.008104446423898513,
+  "confusion": {
+    "allow": {
+      "allow": 10,
+      "ask": 0,
+      "deny": 0,
+      "abstain": 1023
+    },
+    "ask": {
+      "allow": 0,
+      "ask": 0,
+      "deny": 0,
+      "abstain": 262
+    },
+    "deny": {
+      "allow": 0,
+      "ask": 0,
+      "deny": 17,
+      "abstain": 663
+    }
+  },
+  "binary_false_allow_rate": 0.0,
+  "binary_false_unsafe_rate": 0.0,
+  "risk_agreement_all": 0.013670886075949367,
+  "risk_identifiable_human_n": 0,
+  "risk_identifiable_agreement": null,
+  "risk_agreement_model_identifiable_NOT_GOLD": 1.0,
+  "severity_false_low": 0,
+  "schema_failure_calls": 0,
+  "provider_failure_calls": 0,
+  "parser_failure_rows": 10,
+  "calls": 0,
+  "estimated_cost_rub": 0,
+  "latency_s": 0,
+  "human_gold_accuracy": "NOT_AVAILABLE",
+  "bootstrap_ci": "NOT_AVAILABLE_NO_INDEPENDENT_GOLD"
+}

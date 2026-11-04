@@ -1,0 +1,32 @@
+{
+  "implementation_sha": "13b86af3e6cec7283f5228b2641901f5bedb04975d726654f33df49991ca5c92",
+  "fingerprint": "969bbdb32751005f0fa94ed0a6b31a6ef80568cfa2b2fa3d360161ed1d2fd3a0",
+  "config": {
+    "judges": [
+      {
+        "provider": "api",
+        "base_url": "https://api.proxyapi.ru/v1",
+        "allow_network": true,
+        "credential_file": "/Users/dekovaleva/GigaChat/.proxyapi/access_token.py",
+        "timeout": 60,
+        "retries": 0,
+        "max_tokens": 1800,
+        "price_source": "https://proxyapi.ru/models/browse",
+        "price_checked": "2026-11-05",
+        "model_id": "qwen/qwen3-32b",
+        "family": "Qwen",
+        "rub_per_million": {
+          "input": 11.58,
+          "output": 37.89
+        }
+      }
+    ],
+    "budget_rub": 60,
+    "adapter": "budgeted_proxyapi"
+  },
+  "prompt_sha": "d35eca7794bbca38cb139ea16b933d42d5b0f57511f264a945d2b23e2ac64cfa",
+  "input_sha": "a96ef87096d81d00ffb5beaacc66fe215d2771d35ed25844947e0e3c4e82d2c0",
+  "dry_run": false,
+  "policy_version": "v0-2026-11-01",
+  "gold": false
+}

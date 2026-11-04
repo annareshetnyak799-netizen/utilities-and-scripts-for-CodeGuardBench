@@ -1,0 +1,18 @@
+{
+  "date": "2026-11-05",
+  "commands": [
+    "uv venv /tmp/codeguard-cascade-release --python 3.11",
+    "uv pip install --python /tmp/codeguard-cascade-release/bin/python . pytest==9.0.2",
+    "cd /tmp && /tmp/codeguard-cascade-release/bin/codeguard-judge doctor",
+    "cd /tmp && /tmp/codeguard-cascade-release/bin/codeguard-judge demo --output /tmp/codeguard-cascade-release-demo"
+  ],
+  "working_directory_for_demo": "/tmp",
+  "installed_wheel_not_repository_import": true,
+  "python": "3.11.9",
+  "core_commit": "6b3ffe5",
+  "gpu": false,
+  "network_in_demo": false,
+  "venv": "/tmp/codeguard-cascade-release",
+  "demo": "/tmp/codeguard-cascade-release-demo",
+  "tests": 212
+}

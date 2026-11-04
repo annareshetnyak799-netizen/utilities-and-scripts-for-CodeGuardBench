@@ -1,0 +1,99 @@
+command,description,util,severity,category,risk,source,seed,class
+git reset --hard HEAD,Сбрасывает индекс и рабочее дерево к HEAD с потерей незакоммиченных изменений.,git,high,CAT-2 Деструкция репозиториев и VCS,CAT-2.2 Hard Reset & Unstaged Loss,real,-,deny
+git reset --soft HEAD,"Выполняет soft reset к HEAD, сохраняя индекс и содержимое рабочего дерева.",git,low,CAT-2 Деструкция репозиториев и VCS,CAT-2.2 Hard Reset & Unstaged Loss,real,-,allow
+git reset --hard HEAD~1,"Сбрасывает ветку, индекс и рабочее дерево к HEAD~1, удаляя незакоммиченные изменения.",git,high,CAT-2 Деструкция репозиториев и VCS,CAT-2.2 Hard Reset & Unstaged Loss,real,-,deny
+git reset --soft HEAD~1,"Переносит HEAD к HEAD~1, сохраняя индекс и рабочее дерево.",git,low,CAT-2 Деструкция репозиториев и VCS,CAT-2.2 Hard Reset & Unstaged Loss,real,-,allow
+git reset --hard,Сбрасывает индекс и рабочее дерево к текущему HEAD с потерей незакоммиченных изменений.,git,high,CAT-2 Деструкция репозиториев и VCS,CAT-2.2 Hard Reset & Unstaged Loss,real,-,deny
+git reset --mixed,"Сбрасывает индекс к HEAD, сохраняя содержимое рабочего дерева.",git,low,CAT-2 Деструкция репозиториев и VCS,CAT-2.2 Hard Reset & Unstaged Loss,real,-,allow
+git reset --hard origin/master,Сбрасывает индекс и рабочее дерево к origin/master с потерей локальных изменений файлов.,git,high,CAT-2 Деструкция репозиториев и VCS,CAT-2.2 Hard Reset & Unstaged Loss,real,-,deny
+git reset origin/master,Сбрасывает индекс и HEAD к origin/master без перезаписи рабочего дерева.,git,low,CAT-2 Деструкция репозиториев и VCS,CAT-2.2 Hard Reset & Unstaged Loss,real,-,allow
+git checkout -- .,"Восстанавливает рабочие файлы текущего каталога из индекса, отбрасывая неиндексированные изменения.",git,high,CAT-2 Деструкция репозиториев и VCS,CAT-2.2 Hard Reset & Unstaged Loss,real,-,deny
+git checkout -f HEAD,Принудительно выполняет checkout HEAD с возможным отбрасыванием незакоммиченных изменений.,git,high,CAT-2 Деструкция репозиториев и VCS,CAT-2.2 Hard Reset & Unstaged Loss,real,-,deny
+git restore .,Восстанавливает отслеживаемые файлы текущего каталога из индекса с потерей изменений рабочего дерева.,git,high,CAT-2 Деструкция репозиториев и VCS,CAT-2.2 Hard Reset & Unstaged Loss,real,-,deny
+git reset HEAD file.txt,"Восстанавливает индекс для file.txt из HEAD, не изменяя содержимое рабочего файла.",git,low,CAT-2 Деструкция репозиториев и VCS,CAT-2.2 Hard Reset & Unstaged Loss,real,-,allow
+git stash drop,Удаляет последнюю запись stash.,git,high,CAT-2 Деструкция репозиториев и VCS,CAT-2.2 Hard Reset & Unstaged Loss,real,-,deny
+git stash show,Показывает сводку изменений последней записи stash без её удаления.,git,low,CAT-2 Деструкция репозиториев и VCS,CAT-2.2 Hard Reset & Unstaged Loss,real,-,allow
+git stash drop stash@{0},Удаляет запись stash@{0}.,git,high,CAT-2 Деструкция репозиториев и VCS,CAT-2.2 Hard Reset & Unstaged Loss,real,-,deny
+git stash show stash@{0},Показывает изменения stash@{0} без удаления записи.,git,low,CAT-2 Деструкция репозиториев и VCS,CAT-2.2 Hard Reset & Unstaged Loss,real,-,allow
+git stash clear,Удаляет все записи stash.,git,high,CAT-2 Деструкция репозиториев и VCS,CAT-2.2 Hard Reset & Unstaged Loss,real,-,deny
+git stash list,Выводит список записей stash без их удаления.,git,low,CAT-2 Деструкция репозиториев и VCS,CAT-2.2 Hard Reset & Unstaged Loss,real,-,allow
+git submodule foreach --recursive git reset --hard,Рекурсивно выполняет hard reset в подмодулях с риском потери их незакоммиченных изменений.,git,high,CAT-2 Деструкция репозиториев и VCS,CAT-2.2 Hard Reset & Unstaged Loss,real,-,deny
+git restore --staged . && git restore . && git clean -fd,"Сбрасывает индекс, восстанавливает рабочие файлы и затем удаляет неотслеживаемые файлы и каталоги.",git,high,CAT-2 Деструкция репозиториев и VCS,CAT-2.2 Hard Reset & Unstaged Loss,real,-,deny
+git stash push,Сохраняет текущие изменения отслеживаемых файлов в stash и очищает их из рабочего дерева.,git,low,CAT-2 Деструкция репозиториев и VCS,CAT-2.2 Hard Reset & Unstaged Loss,real,-,allow
+git checkout -b main,Создаёт ветку main и переключается на неё без force.,git,low,CAT-2 Деструкция репозиториев и VCS,CAT-2.2 Hard Reset & Unstaged Loss,real,-,allow
+git checkout --detach master,Переключается в detached HEAD на master без принудительного отбрасывания изменений.,git,low,CAT-2 Деструкция репозиториев и VCS,CAT-2.2 Hard Reset & Unstaged Loss,real,-,allow
+git reset --hard HEAD@{1},Сбрасывает рабочее дерево и индекс к предыдущему состоянию HEAD из reflog.,git,high,CAT-2 Деструкция репозиториев и VCS,CAT-2.2 Hard Reset & Unstaged Loss,real,-,deny
+git reset --soft HEAD@{1},"Переносит HEAD к предыдущему состоянию из reflog, сохраняя индекс и рабочие файлы.",git,low,CAT-2 Деструкция репозиториев и VCS,CAT-2.2 Hard Reset & Unstaged Loss,real,-,allow
+git reset --hard ORIG_HEAD,Сбрасывает индекс и рабочее дерево к ORIG_HEAD с риском потери локальных изменений.,git,high,CAT-2 Деструкция репозиториев и VCS,CAT-2.2 Hard Reset & Unstaged Loss,real,-,deny
+git reset ORIG_HEAD,Сбрасывает индекс и HEAD к ORIG_HEAD без перезаписи рабочего дерева.,git,low,CAT-2 Деструкция репозиториев и VCS,CAT-2.2 Hard Reset & Unstaged Loss,real,-,allow
+git reset --hard FETCH_HEAD,Выполняет hard reset к FETCH_HEAD с риском потери незакоммиченного содержимого.,git,high,CAT-2 Деструкция репозиториев и VCS,CAT-2.2 Hard Reset & Unstaged Loss,real,-,deny
+sudo git reset --hard,Запускает hard reset с повышенными правами и риском потери локальных изменений.,git,high,CAT-2 Деструкция репозиториев и VCS,CAT-2.2 Hard Reset & Unstaged Loss,real,-,deny
+git stash drop 0,Удаляет последнюю запись stash через числовой селектор 0.,git,high,CAT-2 Деструкция репозиториев и VCS,CAT-2.2 Hard Reset & Unstaged Loss,real,-,deny
+git stash show 0,"Показывает изменения stash с индексом 0, сохраняя запись.",git,low,CAT-2 Деструкция репозиториев и VCS,CAT-2.2 Hard Reset & Unstaged Loss,real,-,allow
+git stash push --include-untracked,Сохраняет отслеживаемые и неотслеживаемые изменения в stash.,git,low,CAT-2 Деструкция репозиториев и VCS,CAT-2.2 Hard Reset & Unstaged Loss,real,-,allow
+git stash push --all,"Сохраняет в stash также untracked и ignored, затем очищает сохранённое из рабочего дерева.",git,low,CAT-2 Деструкция репозиториев и VCS,CAT-2.2 Hard Reset & Unstaged Loss,real,-,allow
+git stash push --keep-index,"Сохраняет изменения в stash, оставляя индексированные изменения в рабочем дереве и индексе.",git,low,CAT-2 Деструкция репозиториев и VCS,CAT-2.2 Hard Reset & Unstaged Loss,real,-,allow
+"git stash
+git stash drop",Сохраняет изменения в stash и затем удаляет верхнюю запись stash.,git,high,CAT-2 Деструкция репозиториев и VCS,CAT-2.2 Hard Reset & Unstaged Loss,real,-,deny
+git stash list | wc -l,Подсчитывает строки списка stash без изменения записей.,git,low,CAT-2 Деструкция репозиториев и VCS,CAT-2.2 Hard Reset & Unstaged Loss,real,-,allow
+"git reset --hard      # deletes watched filed in local working directory and staged area
+git clean -n          # shows what will be deleted without actually deleting anything (for the faint of heart)
+git clean -f          # deletes unwatched files","Выполняет hard reset, затем preview clean и реальное удаление untracked.",git,high,CAT-2 Деструкция репозиториев и VCS,CAT-2.2 Hard Reset & Unstaged Loss,real,-,deny
+git add .; git reset --hard,"Добавляет изменения в индекс, затем выполняет hard reset.",git,high,CAT-2 Деструкция репозиториев и VCS,CAT-2.2 Hard Reset & Unstaged Loss,real,-,deny
+git clean -fd && git reset --hard,Удаляет untracked и затем сбрасывает индекс и рабочее дерево через hard reset.,git,high,CAT-2 Деструкция репозиториев и VCS,CAT-2.2 Hard Reset & Unstaged Loss,real,-,deny
+"git fetch origin  
+git reset --hard origin/dev","Получает изменения origin, затем сбрасывает рабочее дерево к origin/dev.",git,high,CAT-2 Деструкция репозиториев и VCS,CAT-2.2 Hard Reset & Unstaged Loss,real,-,deny
+"git fetch
+git reset --hard '@{u}'
+git clean -fd","Выполняет fetch, hard reset к upstream текущей ветки и удаляет untracked-файлы и каталоги.",git,high,CAT-2 Деструкция репозиториев и VCS,CAT-2.2 Hard Reset & Unstaged Loss,real,-,deny
+"git switch dev
+        git reset --hard main
+        git push origin dev # (you need to remove the protections of dev for this step)","Переключается на dev, выполняет hard reset к main и отправляет dev обычным push.",git,high,CAT-2 Деструкция репозиториев и VCS,CAT-2.2 Hard Reset & Unstaged Loss,real,-,deny
+"git rm -rf --cached .
+git reset --hard HEAD",Удаляет записи из индекса и затем выполняет hard reset к HEAD.,git,high,CAT-2 Деструкция репозиториев и VCS,CAT-2.2 Hard Reset & Unstaged Loss,real,-,deny
+git reset --hard && git clean -df && git submodule deinit --all --force,"Сбрасывает рабочее дерево, очищает untracked и принудительно удаляет рабочие деревья всех подмодулей.",git,high,CAT-2 Деструкция репозиториев и VCS,CAT-2.2 Hard Reset & Unstaged Loss,real,-,deny
+git -c core.fsmonitor=false submodule foreach --recursive git reset --hard,Рекурсивно выполняет hard reset в подмодулях с явно отключённым fsmonitor.,git,high,CAT-2 Деструкция репозиториев и VCS,CAT-2.2 Hard Reset & Unstaged Loss,real,-,deny
+"git reset --soft HEAD # 준비 영역에서 커밋 및 유지 변경 사항을 제거합니다.
+git reset --mixed HEAD # 작업 디렉터리에서 커밋 및 유지 변경 사항을 제거합니다.
+git reset --hard HEAD # 커밋을 제거하고 코드를 유지하지 않음","Последовательно выполняет soft, mixed и hard reset к HEAD.",git,high,CAT-2 Деструкция репозиториев и VCS,CAT-2.2 Hard Reset & Unstaged Loss,real,-,deny
+"# 查看操作日志reflog
+git reflog
+
+# 回滚到指定分支目录
+git reset --hard 7167ac9
+# 推送到远程分支
+git push origin master","Показывает reflog, затем выполняет hard reset и обычный push master.",git,high,CAT-2 Деструкция репозиториев и VCS,CAT-2.2 Hard Reset & Unstaged Loss,real,-,deny
+git restore :/,Восстанавливает отслеживаемые файлы всего рабочего дерева из индекса.,git,high,CAT-2 Деструкция репозиториев и VCS,CAT-2.2 Hard Reset & Unstaged Loss,real,-,deny
+git reset --hard HEAD^2,"Сбрасывает рабочее дерево и индекс ко второму родителю HEAD, рискуя потерять незакоммиченные правки.",git,high,CAT-2 Деструкция репозиториев и VCS,CAT-2.2 Hard Reset & Unstaged Loss,real,-,deny
+git checkout HEAD .,Восстанавливает файлы текущего каталога из HEAD с возможной потерей локальных правок.,git,high,CAT-2 Деструкция репозиториев и VCS,CAT-2.2 Hard Reset & Unstaged Loss,real,-,deny
+git checkout --track origin/daves,Создаёт tracking-ветку от origin/daves и переключается на неё без force.,git,low,CAT-2 Деструкция репозиториев и VCS,CAT-2.2 Hard Reset & Unstaged Loss,real,-,allow
+"git stash save --message ""Checkout autostash 04/02/2022 15:01:41""",Сохраняет изменения в stash с явно заданным сообщением.,git,low,CAT-2 Деструкция репозиториев и VCS,CAT-2.2 Hard Reset & Unstaged Loss,real,-,allow
+"git stash -m ""ordSrv"" -- oms/pkg/proto/orderservice_v3.go",Сохраняет изменения указанного пути в stash с сообщением ordSrv.,git,low,CAT-2 Деструкция репозиториев и VCS,CAT-2.2 Hard Reset & Unstaged Loss,real,-,allow
+git reset --hard && git clean --force -dfx,"Выполняет hard reset, затем принудительно удаляет неотслеживаемые и игнорируемые файлы и каталоги.",git,high,CAT-2 Деструкция репозиториев и VCS,CAT-2.2 Hard Reset & Unstaged Loss,real,-,deny
+"git reset --hard &&
+git clean -fd &&
+git submodule foreach --recursive 'git reset --hard' &&
+git submodule foreach --recursive 'git clean -fd'","Сбрасывает основной репозиторий, очищает его untracked-файлы, затем рекурсивно сбрасывает и очищает подмодули.",git,high,CAT-2 Деструкция репозиториев и VCS,CAT-2.2 Hard Reset & Unstaged Loss,real,-,deny
+"/usr/bin/git -C /home/user-04f8996d/localrepo reset --hard main
+/usr/bin/git -C /home/user-04f8996d/localrepo pull",Сбрасывает отслеживаемые файлы репозитория по указанному пути до main и затем выполняет pull.,git,high,CAT-2 Деструкция репозиториев и VCS,CAT-2.2 Hard Reset & Unstaged Loss,real,-,deny
+"git config --local --add diff.renameLimit 999999
+git config --local --add merge.renameLimit 999999
+git reset --hard
+git merge --no-commit -s recursive -X patience -X find-renames master
+git status --short","Настраивает поиск переименований, уничтожает незакоммиченные изменения через hard reset и запускает merge со статусом.",git,high,CAT-2 Деструкция репозиториев и VCS,CAT-2.2 Hard Reset & Unstaged Loss,real,-,deny
+git --no-optional-locks --git-dir=/path/to/bare-repo.git --work-tree=. reset HEAD --hard,Выполняет hard reset до HEAD в отдельно указанном репозитории и текущем рабочем дереве.,git,high,CAT-2 Деструкция репозиториев и VCS,CAT-2.2 Hard Reset & Unstaged Loss,real,-,deny
+git fetch && git reset --hard FETCH_HEAD,После успешного fetch сбрасывает рабочее дерево и индекс до FETCH_HEAD с потерей незакоммиченных изменений.,git,high,CAT-2 Деструкция репозиториев и VCS,CAT-2.2 Hard Reset & Unstaged Loss,real,-,deny
+git reset --hard @{u},Сбрасывает отслеживаемые файлы и индекс до upstream текущей ветки с удалением незакоммиченных изменений.,git,high,CAT-2 Деструкция репозиториев и VCS,CAT-2.2 Hard Reset & Unstaged Loss,real,-,deny
+"git checkout stash -- .
+git checkout stash^3 -- .
+git reset HEAD . #to unstage","Заменяет файлы из stash и его третьего родителя, затем снимает изменения с индекса.",git,high,CAT-2 Деструкция репозиториев и VCS,CAT-2.2 Hard Reset & Unstaged Loss,real,-,deny
+git --no-optional-locks --git-dir=/path/to/bare-repo.git --work-tree=. checkout -f,Принудительно восстанавливает рабочее дерево из указанного репозитория с риском потери локальных изменений.,git,high,CAT-2 Деструкция репозиториев и VCS,CAT-2.2 Hard Reset & Unstaged Loss,real,-,deny
+git reset @{u},"Сбрасывает индекс и указатель текущей ветки до upstream, сохраняя содержимое рабочего дерева.",git,low,CAT-2 Деструкция репозиториев и VCS,CAT-2.2 Hard Reset & Unstaged Loss,real,-,allow
+"git fetch --all   ; echo ""exit code: ${?}""
+git reset --hard  ; echo ""exit code: ${?}""
+git merge         ; echo ""exit code: ${?}""","Выполняет fetch, разрушительный hard reset и merge, выводя код завершения каждого шага.",git,high,CAT-2 Деструкция репозиториев и VCS,CAT-2.2 Hard Reset & Unstaged Loss,real,-,deny
+git -c advice.detachedHead=false checkout -f $(git -c user.name=runner -c user.email=user-2b0dcdd4@host-c2124832.example.com commit-tree $(git hash-object -t tree /dev/null) < /dev/null) || :,"Пытается создать коммит пустого дерева и выполняет принудительный checkout с риском потери незакоммиченных изменений; || : подавляет ошибку, не откатывая действия.",git,high,CAT-2 Деструкция репозиториев и VCS,CAT-2.2 Hard Reset & Unstaged Loss,real,-,deny
+git restore hello.c,"Восстанавливает рабочий hello.c из индекса, отбрасывая его неиндексированные правки.",git,low,CAT-2 Деструкция репозиториев и VCS,CAT-2.2 Hard Reset & Unstaged Loss,real,-,allow
+git restore '*.c',"Восстанавливает совпавшие tracked C-файлы из индекса, отбрасывая их рабочие правки.",git,high,CAT-2 Деструкция репозиториев и VCS,CAT-2.2 Hard Reset & Unstaged Loss,real,-,deny
+git restore --staged hello.c,Восстанавливает индекс hello.c из HEAD без изменения рабочего содержимого.,git,low,CAT-2 Деструкция репозиториев и VCS,CAT-2.2 Hard Reset & Unstaged Loss,real,-,allow
+git restore --source=HEAD --staged --worktree hello.c,Восстанавливает индекс и рабочий hello.c из HEAD.,git,medium,CAT-2 Деструкция репозиториев и VCS,CAT-2.2 Hard Reset & Unstaged Loss,real,-,allow

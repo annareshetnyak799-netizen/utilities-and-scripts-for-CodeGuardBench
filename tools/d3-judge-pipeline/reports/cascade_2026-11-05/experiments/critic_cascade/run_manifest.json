@@ -1,0 +1,94 @@
+{
+  "input_sha": "4dbec7044453625608c0c557b746dad07404a54eb9a718ad8d7e3b2cd1ee8674",
+  "policy_sha": "a8b70fd5147df19b451154f2da5526e03cbe93e60d5553fae49bdb931fef2a5b",
+  "policy_version": "cascade-policy-2026-11-05.1",
+  "schema_sha": "47c5bedab7edd48cbe41463348e2188493cc250afe7752fc982d5933e2c61941",
+  "prompt_sha": "0792044b842740a0feb383b122c5f20f3d2e4c9a3d7a19ca96f2769fdd24f4e7",
+  "implementation_sha": "0931ed4354140a8f98bc36c13b172f7b0b49727ec4a5e93457b9d12d378171fb",
+  "parser_version": "0.18",
+  "config": {
+    "architecture": "critic_cascade",
+    "models": [
+      {
+        "provider": "api",
+        "base_url": "https://api.proxyapi.ru/v1",
+        "allow_network": true,
+        "credential_file": "/Users/dekovaleva/GigaChat/.proxyapi/access_token.py",
+        "timeout": 60,
+        "retries": 0,
+        "max_tokens": 1800,
+        "price_source": "https://proxyapi.ru/models/browse",
+        "price_checked": "2026-11-05",
+        "model_id": "qwen/qwen3-32b",
+        "family": "Qwen",
+        "rub_per_million": {
+          "input": 11.58,
+          "output": 37.89
+        }
+      },
+      {
+        "provider": "api",
+        "base_url": "https://api.proxyapi.ru/v1",
+        "allow_network": true,
+        "credential_file": "/Users/dekovaleva/GigaChat/.proxyapi/access_token.py",
+        "timeout": 60,
+        "retries": 0,
+        "max_tokens": 1800,
+        "price_source": "https://proxyapi.ru/models/browse",
+        "price_checked": "2026-11-05",
+        "model_id": "openai/gpt-oss-120b",
+        "family": "gpt-oss",
+        "rub_per_million": {
+          "input": 7.79,
+          "output": 35.79
+        },
+        "parameters": {
+          "reasoning": {
+            "effort": "low"
+          }
+        }
+      }
+    ],
+    "budget_rub": 60,
+    "budget_file": "/Users/dekovaleva/GigaChat/CodeBench/utilities-and-scripts-for-CodeGuardBench/tools/d3-judge-pipeline/reports/cascade_2026-11-05/budget_ledger.json"
+  },
+  "mode": "command_only",
+  "expected_ids": [
+    "e42dbd5926cea5aceda7bd6e60bf3fb912933d99bf6710472bfe626b0d15ee64",
+    "cdf08e21e03d513de57b91e26e7bd9776d499b4a74e47a85e5c9d9b277926450",
+    "c9535553e20c1bc57aa6538af725314ccf1ce76ef5ada090c72c7abd2a94d22d",
+    "a9789b9ddb88dcd758a2119a0e0a4e78c9bff101f0ade921d07cf0d7d9f98bef",
+    "3a6d24f52f34c3aa4ce62f5b0440c2d66e2bac8931e7da10230870f36182a14a",
+    "b3ba441564d3574f9bb003339e7777c82558394148ce8ecff3df537f2da0f228",
+    "022049a034cc48dbc72b88fe6fad3a117f8034ff7b09fac43a2fb8798b7b4cf5",
+    "8c487cd33f26d473e8218d332f409a2a28f3ea95ebceff6e826abff79e71d78a",
+    "4d39ccc35d013e47f9f530e55330ac2d0742fc8441162b24e309e4b1c980a055",
+    "7bd07d188fc890c883f405ea27e9f7101ef28e674fb37746897b1e4d4dc3f922",
+    "465c54ce5546e17345226eeb1a069e3c843aa20caae3b4364809d3f5e6b3d200",
+    "7c0b3728a8ab7338a6778d39a815c06d572f201513a3ae472faf051068a7db42",
+    "d5b48d3480b577b80ff7913a96493de88d81336ffab846948189d2cc73fe0b93",
+    "7b2b5a4e51d1b4d7bf7cf698cc027edadbdebe36b37c0942c4e30ceb82aea93e",
+    "1a8ebff9ee9404db65d034cdd973e4be5fee8c6e8a7a066be9e61776f61cd81c",
+    "7eb6dc8725e30dba8943f497c94915890ab9a47270d5654329b4c47504a8809a",
+    "5bfa7c98a8f7ec23d66aeb31267a540018f1495d970a49a29499d04623e9c4cb",
+    "c394e5e029f1db125b19e10e5c0dff28975ef9aaad0f6443d1455721b0f2d551",
+    "531b344f9d68a0520c43881232090ad002907f173aaa6c2612418fa95dc2f302",
+    "a6c524b1c64b01989a5996d6ac01bd16d063959a9f307e3b5e0848486ef0f7af",
+    "b386be0396a5eb160d819bdae06278a6cbe19094bc375498da59713035c7f84f",
+    "646b2d2b6108b39d4668a333436dc9f3288d880bf6a2bb7ac367f219fbdbc2a9",
+    "c0d692faa0ca4a15263cb3bf8bfddf4052ade386dcdadca14fcd2aaa71b48bd3",
+    "804dd72f9d6eddae3c4c9c2a4ffebb80fdb50fec789e0d9fcaf839053e29ec90",
+    "4f60d5b6ca5e2739851f1c204519d84f5787eb0a43c948c51daae2271b8d5eab",
+    "fd8fa722ee81125b64c0af38d2250ed72d09f91038aad32262df570c014593b2",
+    "71e73a60245b1ad67675534c8b21e9b8c204435d5328d8a971f339982e4d35b4",
+    "c2cf854e0626c378c872af1091fd8a52c4ac4eb76063d7811ca0928591bbf48f",
+    "332eedb05cd4b38b816f55b1b3c18f0889e1495d802252ca62cadc41f151b7dd",
+    "46ec27d66e135bb126edd19e21fa278e3910dc43a5a980d01e83f90c1f54a81d",
+    "907931ab1d30cb2e5d8169c54a5eb024deb250db59b8c7d30d80e072b1e1f242",
+    "e3e485d219d4d38d8f20f1d0531563a07025f527fd79082a861dc3ed20fcf8a2"
+  ],
+  "fingerprint": "f4b16b3d1323276b16fc79db5d032306df59abf3fecccb9fe123a909feab6b5f",
+  "python": "3.11.9 (v3.11.9:de54cf5be3, Apr  2 2024, 07:12:50) [Clang 13.0.0 (clang-1300.0.29.30)]",
+  "platform": "macOS-27.2-arm64-arm-64bit",
+  "human_gold_available": false
+}

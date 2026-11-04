@@ -1,0 +1,1 @@
+{"n": 32, "annotation_agreement": 0.34375, "prediction_coverage": 0.40625, "estimated_cost_rub": 0.32088458, "protocol": "legacy raw proposal; legacy review gates not used to erase proposal; not apples-to-apples final-decision comparison"}

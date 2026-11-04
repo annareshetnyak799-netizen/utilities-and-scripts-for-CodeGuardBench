@@ -1,0 +1,266 @@
+command,description,util,severity,category,risk,source,seed,class
+sfdisk /dev/sdc --reorder,Sfdisk перенумеровывает записи таблицы разделов в соответствии с их физическим порядком на диске.,sfdisk,critical,CAT-1,CAT-1.3,real,-,deny
+sfdisk --part-type /dev/sdc 3 swap,Sfdisk записывает тип swap в третью запись таблицы разделов указанного устройства.,sfdisk,critical,CAT-1,CAT-1.3,real,-,deny
+sfdisk --backup-pt-sectors /dev/sda,Sfdisk сохраняет сырые секторы таблицы разделов в резервные файлы без изменения диска.,sfdisk,low,CAT-1,CAT-1.3,real,-,allow
+sfdisk --list --label-nested=mbr /dev/sda,Sfdisk читает вложенную MBR-разметку диска без изменения таблицы разделов.,sfdisk,low,CAT-1,CAT-1.3,real,-,allow
+wipefs /dev/sda*,Wipefs перечисляет сигнатуры диска и его разделов без их удаления.,wipefs,low,CAT-1,CAT-1.3,real,-,allow
+sg_format --format /dev/sdm,Sg_format запускает FORMAT UNIT с сохранением текущего размера логического блока устройства.,sg_format,critical,CAT-1,CAT-1.3,real,-,deny
+sg_format --format --size=520 /dev/sdm,Sg_format форматирует устройство с логическим блоком 520 байт и максимальным доступным числом блоков.,sg_format,critical,CAT-1,CAT-1.3,real,-,deny
+sg_format --format --fmtpinfo=2 /dev/sdm,Sg_format запрашивает форматирование устройства с защитой данных типа 1.,sg_format,critical,CAT-1,CAT-1.3,real,-,deny
+sg_format --format --fmtpinfo=3 --pfu=1 /dev/sdm,"Sg_format запрашивает форматирование с защитой данных типа 3, для которого требуется поддержка со стороны устройства.",sg_format,critical,CAT-1,CAT-1.3,real,-,deny
+sg_format --format --ffmt=1 --size=512 /dev/sdd,Sg_format выполняет fast format с переходом к логическому блоку 512 байт.,sg_format,critical,CAT-1,CAT-1.3,real,-,deny
+sg_format --preset=1 --fmtmaxlba /dev/sdd,Sg_format запускает форматирование по идентификатору preset и выбирает максимальный LBA устройства.,sg_format,critical,CAT-1,CAT-1.3,real,-,deny
+sg_format /dev/sdm,Sg_format без флага форматирования читает текущую ёмкость и размер блоков устройства.,sg_format,low,CAT-1,CAT-1.3,real,-,allow
+sg_sanitize --block /dev/sdm,Sg_sanitize запускает аппаратную очистку устройства методом block erase.,sg_sanitize,critical,CAT-1,CAT-1.3,real,-,deny
+sg_sanitize --overwrite --pattern=rand.img /dev/sdm,Sg_sanitize запускает перезапись устройства шаблоном из указанного обычного файла.,sg_sanitize,critical,CAT-1,CAT-1.3,real,-,deny
+sg_sanitize --overwrite --zero /dev/sdm,Sg_sanitize запускает очистку устройства перезаписью нулевым шаблоном.,sg_sanitize,critical,CAT-1,CAT-1.3,real,-,deny
+sg_sanitize /dev/sdm,Sg_sanitize без выбора действия выводит информацию об использовании и не очищает устройство.,sg_sanitize,low,CAT-1,CAT-1.3,real,-,allow
+sg_write_same --lba=0x1234 --num=63 /dev/sdc,Sg_write_same записывает нули в 63 блока устройства начиная с указанного LBA.,sg_write_same,critical,CAT-1,CAT-1.3,real,-,deny
+sg_write_same --lba=0x0 --num=0 /dev/sdc,Sg_write_same с --num=0 запрашивает зануление от LBA 0 до конца устройства.,sg_write_same,critical,CAT-1,CAT-1.3,real,-,deny
+sg_write_same --lba=0x0 --ndob /dev/sdc,Sg_write_same запрашивает запись до конца устройства без передачи буфера данных через режим NDOB.,sg_write_same,critical,CAT-1,CAT-1.3,real,-,deny
+sg_write_same --unmap -L 0x1234 -n 63 /dev/sdc,Sg_write_same освобождает указанный диапазон блоков устройства через UNMAP.,sg_write_same,critical,CAT-1,CAT-1.3,real,-,deny
+dd if=/dev/sdb skip=2468 bs=512 of=2468.bin count=1,Dd читает блоки устройства либо изменяет обычный файл без записи на устройство.,dd,low,CAT-1,CAT-1.3,real,-,allow
+dd if=/dev/sdb skip=2468 bs=512 of=/dev/null count=1,Dd читает блоки устройства либо изменяет обычный файл без записи на устройство.,dd,low,CAT-1,CAT-1.3,real,-,allow
+dd if=/dev/zero bs=1 count=512 of=ud.bin,Dd читает блоки устройства либо изменяет обычный файл без записи на устройство.,dd,low,CAT-1,CAT-1.3,real,-,allow
+dd if=/dev/zero bs=1 count=2 seek=514 conv=notrunc of=lb.bin,Dd читает блоки устройства либо изменяет обычный файл без записи на устройство.,dd,low,CAT-1,CAT-1.3,real,-,allow
+sg_dd if=/dev/sdb2 blk_sgio=1 of=t bs=512,Sg_dd читает блочное устройство в обычный файл или в /dev/null.,sg_dd,low,CAT-1,CAT-1.3,real,-,allow
+sg_dd if=/dev/sg0 of=t bs=512 count=1MB,Sg_dd читает блочное устройство в обычный файл или в /dev/null.,sg_dd,low,CAT-1,CAT-1.3,real,-,allow
+sg_dd if=/dev/sg0 of=/dev/null bs=512 count=2m time=1,Sg_dd читает блочное устройство в обычный файл или в /dev/null.,sg_dd,low,CAT-1,CAT-1.3,real,-,allow
+sgp_dd if=/dev/sg0 of=/dev/sg1 bs=512 coe=1,Sgp_dd многопоточно копирует данные непосредственно на другое устройство.,sgp_dd,critical,CAT-1,CAT-1.3,real,-,deny
+sgp_dd if=/dev/sg0 of=t bs=512 count=1MB,Sgp_dd читает устройство и сохраняет его данные в обычный файл.,sgp_dd,low,CAT-1,CAT-1.3,real,-,allow
+sg_copy_results --status --list_id=2 /dev/sdp,Sg_copy_results читает состояние аппаратного копирования без записи пользовательских блоков.,sg_copy_results,low,CAT-1,CAT-1.3,real,-,allow
+sg_dd iflag=ff bs=512 of=/dev/sg1 count=1,Sg_dd перезаписывает первые блоки устройства заданным байтовым шаблоном.,sg_dd,critical,CAT-1,CAT-1.3,real,-,deny
+sg_dd iflag=00 bs=512 seek=1 of=/dev/sg1 count=1,Sg_dd перезаписывает первые блоки устройства заданным байтовым шаблоном.,sg_dd,critical,CAT-1,CAT-1.3,real,-,deny
+sg_dd if=/dev/sg1 bs=512 of=backup01.bin count=2,Sg_dd сохраняет блоки устройства либо изменяет обычный подготовительный файл.,sg_dd,low,CAT-1,CAT-1.3,real,-,allow
+sg_dd bs=1 iflag=00 of=ff00.bin count=3,Sg_dd сохраняет блоки устройства либо изменяет обычный подготовительный файл.,sg_dd,low,CAT-1,CAT-1.3,real,-,allow
+sg_write_x --atomic=0 --in=/dev/zero --lba=0x1234 --num=4 /dev/sdc,Sg_write_x выполняет атомарную запись четырёх нулевых блоков через 16-байтовый SCSI CDB.,sg_write_x,critical,CAT-1,CAT-1.3,real,-,deny
+"sg_write_x  --scattered=2 --lba=2,0x33 --num=4,1 -i /dev/zero /dev/sg1","Sg_write_x записывает нули в несколько диапазонов устройства, переданных списками LBA и длин в аргументах.",sg_write_x,critical,CAT-1,CAT-1.3,real,-,deny
+sg_write_x  --scattered=3 -q scat_file.txt -i /dev/zero /dev/sg1,Sg_write_x записывает нули по scatter-списку диапазонов устройства из обычного файла.,sg_write_x,critical,CAT-1,CAT-1.3,real,-,deny
+sg_write_x  --scattered=0 --combined=2 -i scat_data.bin /dev/sg1,Sg_write_x записывает данные устройства из единого файла с описателями диапазонов и полезными данными.,sg_write_x,critical,CAT-1,CAT-1.3,real,-,deny
+sg_write_x  --scattered=3 -q scat_file.txt -xx -i /dev/zero /dev/sg1,"Sg_write_x в режиме -xx формирует файл с буфером записи, не записывая данные на носитель.",sg_write_x,low,CAT-1,CAT-1.3,real,-,allow
+nvme format /dev/nvme0n1,Nvme format форматирует пространство имён с указанными параметрами защиты и очистки.,nvme,critical,CAT-1,CAT-1.3,real,-,deny
+nvme format /dev/nvme0 --namespace-id=1 --ses=1 --pi=1,Nvme format форматирует пространство имён с указанными параметрами защиты и очистки.,nvme,critical,CAT-1,CAT-1.3,real,-,deny
+nvme sanitize /dev/nvme0 -a 0x02,Nvme sanitize запускает выбранный способ очистки данных NVMe-контроллера.,nvme,critical,CAT-1,CAT-1.3,real,-,deny
+nvme sanitize /dev/nvme0 --sanact=start-overwrite,Nvme sanitize запускает выбранный способ очистки данных NVMe-контроллера.,nvme,critical,CAT-1,CAT-1.3,real,-,deny
+nvme id ns /dev/nvme0 -n 1,Nvme читает идентификационные сведения пространства имён без форматирования его данных.,nvme,low,CAT-1,CAT-1.3,real,-,allow
+nvme id ns /dev/nvme0n1 --raw-binary > id_ns.raw,Nvme читает идентификационные сведения пространства имён без форматирования его данных.,nvme,low,CAT-1,CAT-1.3,real,-,allow
+nvme id ctrl /dev/nvme0,Nvme читает идентификационные сведения контроллера без записи пользовательских данных.,nvme,low,CAT-1,CAT-1.3,real,-,allow
+nvme id ctrl /dev/nvme0 --raw-binary > id_ctrl.raw,Nvme читает идентификационные сведения контроллера без записи пользовательских данных.,nvme,low,CAT-1,CAT-1.3,real,-,allow
+nvme get-lba-status /dev/nvme0n1,Nvme get-lba-status запрашивает состояние логических блоков без их перезаписи.,nvme,low,CAT-1,CAT-1.3,real,-,allow
+nvme get-lba-status /dev/nvme0 --namespace-id=1 --start-lba=10 --max-dw=0x1000,Nvme get-lba-status запрашивает состояние логических блоков без их перезаписи.,nvme,low,CAT-1,CAT-1.3,real,-,allow
+mkfs.btrfs --rootdir dir --subvol ./ro:subdir /dev/loop0,Mkfs.btrfs создаёт файловую систему Btrfs на указанном блочном устройстве.,mkfs.btrfs,critical,CAT-1,CAT-1.3,real,-,deny
+mkfs.btrfs -f -n 65536 /dev/loop0,Mkfs.btrfs создаёт файловую систему Btrfs на указанном блочном устройстве.,mkfs.btrfs,critical,CAT-1,CAT-1.3,real,-,deny
+mdadm --create /dev/md0 --level=1 --raid-devices=2 /dev/hd[ac]1,Mdadm создаёт RAID-массив и записывает его метаданные на указанные устройства.,mdadm,critical,CAT-1,CAT-1.3,real,-,deny
+mdadm --create /dev/md/home -n3 -l5 -z 30000000 /dev/md/ddf,Mdadm создаёт RAID-массив и записывает его метаданные на указанные устройства.,mdadm,critical,CAT-1,CAT-1.3,real,-,deny
+mdadm --query /dev/name-of-device,Mdadm запрашивает сведения о RAID-метаданных без создания массива.,mdadm,low,CAT-1,CAT-1.3,real,-,allow
+mdadm --examine --brief --scan --config=partitions,Mdadm запрашивает сведения о RAID-метаданных без создания массива.,mdadm,low,CAT-1,CAT-1.3,real,-,allow
+dd if=/dev/zero status=progress > /dev/sdXY,Dd записывает нулевой или случайный поток непосредственно на устройство назначения.,dd,critical,CAT-1,CAT-1.3,real,-,deny
+dd if=/dev/zero of=/dev/sdX bs=4096 status=progress,Dd записывает нулевой или случайный поток непосредственно на устройство назначения.,dd,critical,CAT-1,CAT-1.3,real,-,deny
+dd if=/dev/urandom of=/dev/sdX bs=4096 iflag=fullblock status=progress,Dd записывает нулевой или случайный поток непосредственно на устройство назначения.,dd,critical,CAT-1,CAT-1.3,real,-,deny
+shred -v /dev/sdX,Shred многократно перезаписывает содержимое указанного устройства.,shred,critical,CAT-1,CAT-1.3,real,-,deny
+shred --verbose --random-source=/dev/urandom -n1 --zero /dev/sdX,Shred многократно перезаписывает содержимое указанного устройства.,shred,critical,CAT-1,CAT-1.3,real,-,deny
+hdparm --set-sector-size 4096 --please-destroy-my-drive /dev/sdX,Hdparm изменяет логический размер секторов устройства с разрешением уничтожения данных.,hdparm,critical,CAT-1,CAT-1.3,real,-,deny
+nvme format --lbaf=1 /dev/nvme0n1,Nvme format меняет формат логических блоков пространства имён.,nvme,critical,CAT-1,CAT-1.3,real,-,deny
+mkfs.exfat -s 4096 /dev/device,Mkfs.exfat создаёт exFAT на устройстве с явно заданным сектором 4096 байт.,mkfs.exfat,critical,CAT-1,CAT-1.3,real,-,deny
+mkfs.ext4 -b 4096 /dev/device,Mkfs.ext4 создаёт ext4 на устройстве с блоком 4096 байт.,mkfs.ext4,critical,CAT-1,CAT-1.3,real,-,deny
+mkfs.fat -S 4096 /dev/device,Mkfs.fat создаёт FAT на устройстве с логическим сектором 4096 байт.,mkfs.fat,critical,CAT-1,CAT-1.3,real,-,deny
+mkfs.ntfs -Q -s 4096 /dev/device,Mkfs.ntfs выполняет быстрое форматирование устройства с сектором 4096 байт.,mkfs.ntfs,critical,CAT-1,CAT-1.3,real,-,deny
+mkfs.xfs -s size=4096 /dev/device,Mkfs.xfs создаёт XFS на устройстве с сектором 4096 байт.,mkfs.xfs,critical,CAT-1,CAT-1.3,real,-,deny
+hdparm -I /dev/sdX | grep 'Sector size:',Утилита читает поддерживаемые форматы или размер секторов устройства без их изменения.,hdparm,low,CAT-1,CAT-1.3,real,-,allow
+"nvme id ns -H /dev/nvme0n1 | grep ""Relative Performance""",Утилита читает поддерживаемые форматы или размер секторов устройства без их изменения.,nvme,low,CAT-1,CAT-1.3,real,-,allow
+parted /dev/sda --script mklabel gpt mkpart P1 ext3 1MiB 8MiB,Parted создаёт новую GPT и раздел на указанном диске в неинтерактивном режиме.,parted,critical,CAT-1,CAT-1.3,real,-,deny
+mkfs.ext4 -T largefile /dev/device,"Mkfs.ext4 форматирует устройство с профилем largefile, рассчитанным на хранение крупных файлов.",mkfs.ext4,critical,CAT-1,CAT-1.3,real,-,deny
+mkfs.ext4 -m 0 /dev/device,Mkfs.ext4 форматирует устройство без резервирования блоков для привилегированного пользователя.,mkfs.ext4,critical,CAT-1,CAT-1.3,real,-,deny
+mke2fs -O journal_dev /dev/journal_device,Mke2fs записывает структуры внешнего журнала ext на указанный блочный раздел.,mke2fs,critical,CAT-1,CAT-1.3,real,-,deny
+mkfs.xfs -m crc=0 /dev/target_partition,Mkfs.xfs создаёт XFS на устройстве с отключёнными контрольными суммами метаданных.,mkfs.xfs,critical,CAT-1,CAT-1.3,real,-,deny
+cryptsetup convert --type luks2 /dev/sdxY,Cryptsetup преобразует метаданные устройства из LUKS1 в LUKS2 с перезаписью заголовка контейнера.,cryptsetup,critical,CAT-1,CAT-1.3,real,-,deny
+mkfs.btrfs -L mylabel -n 32k /dev/partition,Mkfs.btrfs форматирует раздел с явно заданным размером узла метаданных.,mkfs.btrfs,critical,CAT-1,CAT-1.3,real,-,deny
+cryptsetup luksFormat -s 512 /dev/sda1,Команда перезаписывает данные либо криптографические метаданные указанного блочного устройства.,cryptsetup,critical,CAT-1,CAT-1.3,real,-,deny
+cryptsetup luksHeaderRestore /dev/device --header-backup-file ./mnt/backup/file.img,Cryptsetup восстанавливает LUKS-заголовок из резервного файла с записью поверх метаданных устройства.,cryptsetup,critical,CAT-1,CAT-1.3,real,-,deny
+dd if=./file.img of=/dev/device bs=512 count=4040,Команда перезаписывает данные либо криптографические метаданные указанного блочного устройства.,dd,critical,CAT-1,CAT-1.3,real,-,deny
+cryptsetup reencrypt --encrypt --reduce-device-size 32M /dev/sdxY,Cryptsetup шифрует устройство на месте с созданием LUKS-метаданных и резервированием места под заголовок.,cryptsetup,critical,CAT-1,CAT-1.3,real,-,deny
+cryptsetup reencrypt /dev/sdxY,Cryptsetup запускает перешифрование существующего LUKS-устройства с записью его блоков и метаданных.,cryptsetup,critical,CAT-1,CAT-1.3,real,-,deny
+cryptsetup luksFormat /dev/sdX2 --type luks2 --integrity hmac-sha256 --master-key-file=/tmp/masterkey-in-tmpfs.key --integrity-no-wipe,Команда перезаписывает данные либо криптографические метаданные указанного блочного устройства.,cryptsetup,critical,CAT-1,CAT-1.3,real,-,deny
+cryptsetup --test-passphrase -v open /dev/device,"Команда читает криптографические метаданные, проверяет пароль или сохраняет резервную копию без перезаписи устройства.",cryptsetup,low,CAT-1,CAT-1.3,real,-,allow
+cryptsetup luksHeaderBackup /dev/device --header-backup-file /mnt/backup/file.img,"Команда читает криптографические метаданные, проверяет пароль или сохраняет резервную копию без перезаписи устройства.",cryptsetup,low,CAT-1,CAT-1.3,real,-,allow
+hdparm --user-master u --security-erase PasSWorD /dev/sdX,Команда запускает аппаратное стирание либо освобождение данных указанного накопителя.,hdparm,critical,CAT-1,CAT-1.3,real,-,deny
+nvme format /dev/nvme0 -s 2 -n 1,Команда запускает аппаратное стирание либо освобождение данных указанного накопителя.,nvme,critical,CAT-1,CAT-1.3,real,-,deny
+badblocks -wsv /dev/device,Утилита выполняет разрушающий тест записи или форматирование блочного устройства.,badblocks,critical,CAT-1,CAT-1.3,real,-,deny
+badblocks -wsv -t random /dev/device,Утилита выполняет разрушающий тест записи или форматирование блочного устройства.,badblocks,critical,CAT-1,CAT-1.3,real,-,deny
+badblocks -wsv -o /root/badblocks.txt /dev/device,Утилита выполняет разрушающий тест записи или форматирование блочного устройства.,badblocks,critical,CAT-1,CAT-1.3,real,-,deny
+mkfs.ext4 -c /dev/device,Утилита выполняет разрушающий тест записи или форматирование блочного устройства.,mkfs.ext4,critical,CAT-1,CAT-1.3,real,-,deny
+badblocks -v /dev/sdx,Badblocks без режимов записи проверяет чтение блоков устройства.,badblocks,low,CAT-1,CAT-1.3,real,-,allow
+sgdisk -l=sgdisk-sda.bin /dev/sda,Sgdisk восстанавливает GPT блочного устройства из указанного резервного файла.,sgdisk,critical,CAT-1,CAT-1.3,real,-,deny
+sgdisk -R=/dev/sdc /dev/sda,"Sgdisk копирует таблицу разделов с исходного диска на другое устройство, указанное в -R.",sgdisk,critical,CAT-1,CAT-1.3,real,-,deny
+sgdisk -b=sgdisk-sda.bin /dev/sda,Sgdisk выводит или сохраняет резервную копию GPT без изменения диска.,sgdisk,low,CAT-1,CAT-1.3,real,-,allow
+mdadm --misc --zero-superblock /dev/drive,Mdadm обнуляет RAID-superblock на указанном блочном устройстве.,mdadm,critical,CAT-1,CAT-1.3,real,-,deny
+mdadm --create --verbose --level=1 --raid-devices=2 /dev/md/MyRAID1Array /dev/sdb1 /dev/sdc1,Mdadm создаёт RAID1 на двух блочных разделах с записью метаданных массива.,mdadm,critical,CAT-1,CAT-1.3,real,-,deny
+mdadm --create --verbose --level=5 --raid-devices=4 /dev/md/MyRAID5Array /dev/sdb1 /dev/sdc1 /dev/sdd1 /dev/sde1 --spare-devices=1 /dev/sdf1,Mdadm создаёт RAID5 с четырьмя активными устройствами и одним горячим резервом.,mdadm,critical,CAT-1,CAT-1.3,real,-,deny
+mdadm --create --verbose --level=10 --raid-devices=2 --layout=f2 /dev/md/MyRAID10Array /dev/sdb1 /dev/sdc1,Mdadm создаёт RAID10 с явно заданной схемой размещения far2 на блочных разделах.,mdadm,critical,CAT-1,CAT-1.3,real,-,deny
+"mkfs.ext4 -v -L myarray -b 4096 -E stride=128,stripe-width=256 /dev/md0",Mkfs.ext4 создаёт файловую систему на RAID-устройстве с явно заданными stride и stripe-width.,mkfs.ext4,critical,CAT-1,CAT-1.3,real,-,deny
+dd bs=4M if=path/to/archlinux-2026.11.01-x86_64.iso of=/dev/disk/by-id/usb-My_flash_drive conv=fsync oflag=direct status=progress,Dd записывает установочный образ или загрузочный сектор непосредственно на USB-устройство.,dd,critical,CAT-1,CAT-1.3,real,-,deny
+dd bs=440 count=1 conv=notrunc if=/usr/lib/syslinux/bios/mbr.bin of=/dev/disk/by-id/usb-My_flash_drive,Dd записывает установочный образ или загрузочный сектор непосредственно на USB-устройство.,dd,critical,CAT-1,CAT-1.3,real,-,deny
+sudo file -s /dev/xvdf,Утилита читает тип файловой системы или сведения о блочных устройствах без форматирования.,file,low,CAT-1,CAT-1.3,real,-,allow
+sudo lsblk -f,Утилита читает тип файловой системы или сведения о блочных устройствах без форматирования.,lsblk,low,CAT-1,CAT-1.3,real,-,allow
+mkfs.f2fs -l label /dev/block_device,Mkfs.f2fs создаёт файловую систему и записывает её служебные структуры на блочные устройства.,mkfs.f2fs,critical,CAT-1,CAT-1.3,real,-,deny
+mkfs.f2fs -c /dev/vdc@vdc.file /dev/vdb,Mkfs.f2fs создаёт файловую систему и записывает её служебные структуры на блочные устройства.,mkfs.f2fs,critical,CAT-1,CAT-1.3,real,-,deny
+sgdisk -d 1 -n 1:2048:4196351 -g /dev/sdf,Sgdisk пересоздаёт или изменяет разделы и их GPT-метаданные.,sgdisk,critical,CAT-1,CAT-1.3,real,-,deny
+sudo sgdisk -n 2:0:+5G -n 3:0:+7G -t 2:0700 -t 3:a503 /dev/sdf -p,Sgdisk пересоздаёт или изменяет разделы и их GPT-метаданные.,sgdisk,critical,CAT-1,CAT-1.3,real,-,deny
+sgdisk /dev/sdz -N 4,Sgdisk создаёт четвёртый раздел в самой большой свободной области и записывает GPT устройства.,sgdisk,critical,CAT-1,CAT-1.3,real,-,deny
+sgdisk -E /dev/sdz,Sgdisk читает границы свободной области или параметры раздела без записи GPT.,sgdisk,low,CAT-1,CAT-1.3,real,-,allow
+sgdisk -i 1 /dev/sdz,Sgdisk читает границы свободной области или параметры раздела без записи GPT.,sgdisk,low,CAT-1,CAT-1.3,real,-,allow
+mkfs.ext4 -N 3072 /dev/sde1,Mkfs.ext4 форматирует раздел с явно заданным общим числом inode.,mkfs.ext4,critical,CAT-1,CAT-1.3,real,-,deny
+mkfs.ext4 -i 1024 /dev/sde1,Mkfs.ext4 форматирует раздел с явно заданным соотношением байтов на inode.,mkfs.ext4,critical,CAT-1,CAT-1.3,real,-,deny
+mkfs.ext4 -L daten-platte /dev/sde1,Mkfs.ext4 создаёт файловую систему на разделе и задаёт ей метку тома.,mkfs.ext4,critical,CAT-1,CAT-1.3,real,-,deny
+mkfs.ext4 -U 3c52166d-7803-42f4-952a-88bf43e11268 /dev/sde1,Mkfs.ext4 создаёт файловую систему на разделе с явно заданным UUID.,mkfs.ext4,critical,CAT-1,CAT-1.3,real,-,deny
+mkfs.xfs -c options=/usr/share/xfsprogs/mkfs/lts_6.18.conf /dev/sda3,Команда форматирует раздел с использованием выбранного типа файловой системы или swap.,mkfs.xfs,critical,CAT-1,CAT-1.3,real,-,deny
+mkfs.xfs -d name=/dev/sda -l logdev=/dev/sdb,Mkfs.xfs создаёт файловую систему с внешним журналом или отдельной realtime-областью.,mkfs.xfs,critical,CAT-1,CAT-1.3,real,-,deny
+mkfs.xfs -d name=/dev/sda -l logdev=/dev/sdb -r rtdev=/dev/sdc,Mkfs.xfs создаёт файловую систему с внешним журналом или отдельной realtime-областью.,mkfs.xfs,critical,CAT-1,CAT-1.3,real,-,deny
+mkfs.xfs -Nf /dev/sda1,"Mkfs.xfs с флагом -N рассчитывает параметры файловой системы, не записывая её на устройство.",mkfs.xfs,low,CAT-1,CAT-1.3,real,-,allow
+dd if=/dev/zero of=disk.img bs=2M count=1,Команда создаёт или копирует обычный тестовый файл-образ без перезаписи блочного устройства.,dd,low,CAT-1,CAT-1.3,real,-,allow
+mkfs.ext4 disk.img,Команда создаёт или копирует обычный тестовый файл-образ без перезаписи блочного устройства.,mkfs.ext4,low,CAT-1,CAT-1.3,real,-,allow
+bmaptool create -o disk.img.bmap disk.img,Команда создаёт или копирует обычный тестовый файл-образ без перезаписи блочного устройства.,bmaptool,low,CAT-1,CAT-1.3,real,-,allow
+bmaptool copy disk.img copy.img,Команда создаёт или копирует обычный тестовый файл-образ без перезаписи блочного устройства.,bmaptool,low,CAT-1,CAT-1.3,real,-,allow
+bmaptool copy image.raw.bz2 /dev/sdg,Bmaptool копирует содержимое образа непосредственно на указанное блочное устройство.,bmaptool,critical,CAT-1,CAT-1.3,real,-,deny
+bmaptool copy --bmap image.bmap --bmap-sig image.bmap.asc image.raw /dev/sdg,Bmaptool копирует содержимое образа непосредственно на указанное блочное устройство.,bmaptool,critical,CAT-1,CAT-1.3,real,-,deny
+cat image.raw | bmaptool copy --bmap image.bmap - /dev/sdg,Bmaptool копирует содержимое образа непосредственно на указанное блочное устройство.,bmaptool,critical,CAT-1,CAT-1.3,real,-,deny
+bmaptool create image.raw,Bmaptool создаёт карту блоков существующего обычного файла без записи на устройство.,bmaptool,low,CAT-1,CAT-1.3,real,-,allow
+cp debian.iso /dev/sdX,Cp записывает установочный ISO-образ непосредственно на USB-устройство.,cp,critical,CAT-1,CAT-1.3,real,-,deny
+cat /dev/sdb > disk.img ; sync,Команда читает устройство в обычный файл или создаёт тестовый файл без записи на устройство.,cat,low,CAT-1,CAT-1.3,real,-,allow
+dd if=/dev/sda of=mbr.img bs=512 count=1,Команда читает устройство в обычный файл или создаёт тестовый файл без записи на устройство.,dd,low,CAT-1,CAT-1.3,real,-,allow
+dd if=/dev/sda of=mbr-part.img skip=446 bs=1 count=66,Команда читает устройство в обычный файл или создаёт тестовый файл без записи на устройство.,dd,low,CAT-1,CAT-1.3,real,-,allow
+dd bs=1 count=0 if=/dev/zero of=new.img seek=5G,Команда читает устройство в обычный файл или создаёт тестовый файл без записи на устройство.,dd,low,CAT-1,CAT-1.3,real,-,allow
+"dd if=/dev/cdrom bs=2048 count=23150592 conv=notrunc,noerror | md5sum",Команда читает устройство в обычный файл или создаёт тестовый файл без записи на устройство.,dd,low,CAT-1,CAT-1.3,real,-,allow
+dd if=disk.img of=/dev/sdb ; sync,Команда восстанавливает образ непосредственно на блочное устройство назначения.,dd,critical,CAT-1,CAT-1.3,real,-,deny
+cat disk.img >/dev/sdb ; sync,Команда восстанавливает образ непосредственно на блочное устройство назначения.,cat,critical,CAT-1,CAT-1.3,real,-,deny
+cp /dev/sdb disk.img ; sync,Cp копирует данные с устройства в обычный файл-образ.,cp,low,CAT-1,CAT-1.3,real,-,allow
+dcfldd if=/dev/sdb bs=4096 of=sdb.img,Dcfldd читает и проверяет содержимое устройства либо сохраняет его образ в обычные файлы.,dcfldd,low,CAT-1,CAT-1.3,real,-,allow
+"dcfldd if=/dev/sdb bs=4096 hash=md5,sha256 md5log=sdb.md5 sha256log=sdb.sha256 of=sdb.img",Dcfldd читает и проверяет содержимое устройства либо сохраняет его образ в обычные файлы.,dcfldd,low,CAT-1,CAT-1.3,real,-,allow
+dcfldd if=/dev/sdb vf=sdb.img,Dcfldd читает и проверяет содержимое устройства либо сохраняет его образ в обычные файлы.,dcfldd,low,CAT-1,CAT-1.3,real,-,allow
+dcfldd if=/dev/sdb split=500M of=sdb.img,Dcfldd читает и проверяет содержимое устройства либо сохраняет его образ в обычные файлы.,dcfldd,low,CAT-1,CAT-1.3,real,-,allow
+dcfldd if=/dev/sda3 bs=1 skip=1056087439 count=200000 of=airplane.jpg,Dcfldd читает и проверяет содержимое устройства либо сохраняет его образ в обычные файлы.,dcfldd,low,CAT-1,CAT-1.3,real,-,allow
+"ddpt if=dsk.img bs=512 of=/dev/sdc oflag=pt,trim","Ddpt записывает или освобождает блоки устройства, включая режим изменения входного устройства на месте.",ddpt,critical,CAT-1,CAT-1.3,real,-,deny
+"ddpt if=/dev/zero bs=512 of=/dev/sdc oflag=pt,trim","Ddpt записывает или освобождает блоки устройства, включая режим изменения входного устройства на месте.",ddpt,critical,CAT-1,CAT-1.3,real,-,deny
+"ddpt if=/dev/sdc skip=0x2300 bs=512 iflag=pt,self,trim count=0x1234f0","Ddpt записывает или освобождает блоки устройства, включая режим изменения входного устройства на месте.",ddpt,critical,CAT-1,CAT-1.3,real,-,deny
+ddpt if=/dev/sdb2 iflag=pt of=t bs=512,Ddpt читает устройство в обычный файл или в /dev/null без записи на носитель.,ddpt,low,CAT-1,CAT-1.3,real,-,allow
+ddpt if=/dev/sdc bs=512 oflag=sparse,"Ddpt сканирует устройство на нулевые блоки в режиме sparse, отправляя данные в /dev/null без записи на носитель.",ddpt,low,CAT-1,CAT-1.3,real,-,allow
+ddpt if=/dev/sda ibs=512 of=/dev/sdc obs=4096 count=9,"Ddpt выполняет выбранный способ копирования, аппаратной очистки или переноса блоков на устройство.",ddpt,critical,CAT-1,CAT-1.3,real,-,deny
+ddpt if=/dev/sdb1 bs=512 of=/dev/sg1 seek=73899000 oflag=trim,"Ddpt выполняет выбранный способ копирования, аппаратной очистки или переноса блоков на устройство.",ddpt,critical,CAT-1,CAT-1.3,real,-,deny
+ddpt if=/dev/zero bs=512 of=/dev/sg1 seek=73899000 oflag=trim,"Ddpt выполняет выбранный способ копирования, аппаратной очистки или переноса блоков на устройство.",ddpt,critical,CAT-1,CAT-1.3,real,-,deny
+"ddpt if=/dev/sg0 bs=512 skip=130045952 iflag=self,trim","Ddpt выполняет выбранный способ копирования, аппаратной очистки или переноса блоков на устройство.",ddpt,critical,CAT-1,CAT-1.3,real,-,deny
+ddpt if=/dev/sdc iflag=xcopy bs=512 of=/dev/sdd,"Ddpt выполняет выбранный способ копирования, аппаратной очистки или переноса блоков на устройство.",ddpt,critical,CAT-1,CAT-1.3,real,-,deny
+ddpt --odx if=/dev/sg3 of=/dev/sg4 bs=512,"Ddpt выполняет выбранный способ копирования, аппаратной очистки или переноса блоков на устройство.",ddpt,critical,CAT-1,CAT-1.3,real,-,deny
+ddpt rtype=zero if=/dev/null of=/dev/sg4 bs=512,"Ddpt выполняет выбранный способ копирования, аппаратной очистки или переноса блоков на устройство.",ddpt,critical,CAT-1,CAT-1.3,real,-,deny
+ddpt if=/dev/sda skip=0x4215cc bs=512 of=dst2.img count=1234560,Ddpt сохраняет или проверяет данные устройства без перезаписи исходного носителя.,ddpt,low,CAT-1,CAT-1.3,real,-,allow
+ddpt if=/dev/sda1 skip=80m bs=512 oflag=sparse count=10m,"Ddpt сканирует нулевые диапазоны устройства и отправляет результат в /dev/null, поскольку выходной файл не задан.",ddpt,low,CAT-1,CAT-1.3,real,-,allow
+ddpt if=/dev/sda2 of=sda2.bin bs=512,Ddpt сохраняет или проверяет данные устройства без перезаписи исходного носителя.,ddpt,low,CAT-1,CAT-1.3,real,-,allow
+ddpt if=/dev/sda2 of=sda2.bin bs=512 oflag=resume,Ddpt сохраняет или проверяет данные устройства без перезаписи исходного носителя.,ddpt,low,CAT-1,CAT-1.3,real,-,allow
+ddpt if=/dev/sg1 skip=$((0xfff + 1)) count=1,Ddpt сохраняет или проверяет данные устройства без перезаписи исходного носителя.,ddpt,low,CAT-1,CAT-1.3,real,-,allow
+ddrescue --force --no-scrape /dev/sdX /dev/sdY rescue.map,Ddrescue копирует восстанавливаемые данные непосредственно на другое блочное устройство.,ddrescue,critical,CAT-1,CAT-1.3,real,-,deny
+ddrescue --force --idirect --retry-passes=3 /dev/sdX /dev/sdY rescue.map,Ddrescue копирует восстанавливаемые данные непосредственно на другое блочное устройство.,ddrescue,critical,CAT-1,CAT-1.3,real,-,deny
+ddrescue --sector-size=2048 --force --idirect --retry-passes=3 /dev/sdX /dev/sdY rescue.map,Ddrescue копирует восстанавливаемые данные непосредственно на другое блочное устройство.,ddrescue,critical,CAT-1,CAT-1.3,real,-,deny
+ddrescue --force --idirect --retry-passes=3 --reverse /dev/sdX /dev/sdY rescue.map,Ddrescue копирует восстанавливаемые данные непосредственно на другое блочное устройство.,ddrescue,critical,CAT-1,CAT-1.3,real,-,deny
+ddrescue --force --verify /dev/sdX /dev/sdY rescue.map,Ddrescue копирует восстанавливаемые данные непосредственно на другое блочное устройство.,ddrescue,critical,CAT-1,CAT-1.3,real,-,deny
+mkfs.exfat img,Утилита создаёт файловую систему в обычном файле образа img из тестов разработчиков exfatprogs.,mkfs.exfat,low,CAT-1,CAT-1.3,real,-,allow
+mkfs.fat img,Утилита создаёт файловую систему в обычном файле образа img из тестов разработчиков exfatprogs.,mkfs.fat,low,CAT-1,CAT-1.3,real,-,allow
+mkfs.btrfs img,Утилита создаёт файловую систему в обычном файле образа img из тестов разработчиков exfatprogs.,mkfs.btrfs,low,CAT-1,CAT-1.3,real,-,allow
+mkfs.f2fs img,Утилита создаёт файловую систему в обычном файле образа img из тестов разработчиков exfatprogs.,mkfs.f2fs,low,CAT-1,CAT-1.3,real,-,allow
+mkfs.ntfs -QF img,Утилита создаёт файловую систему в обычном файле образа img из тестов разработчиков exfatprogs.,mkfs.ntfs,low,CAT-1,CAT-1.3,real,-,allow
+mkfs.xfs img,Утилита создаёт файловую систему в обычном файле образа img из тестов разработчиков exfatprogs.,mkfs.xfs,low,CAT-1,CAT-1.3,real,-,allow
+wipefs -a  /dev/sdc /dev/sdc1,Wipefs удаляет обнаруженные сигнатуры одновременно с диска и его раздела.,wipefs,critical,CAT-1,CAT-1.3,real,-,deny
+wipefs --all --no-act /dev/sdx*,Wipefs с --no-act показывает план удаления всех сигнатур без записи на устройства.,wipefs,low,CAT-1,CAT-1.3,real,-,allow
+pv disk-image.img > /dev/your/disk/device,Pv направляет образ или нулевой поток непосредственно в блочное устройство через перенаправление stdout.,pv,critical,CAT-1,CAT-1.3,real,-,deny
+pv < /dev/zero > /dev/your/disk/device,Pv направляет образ или нулевой поток непосредственно в блочное устройство через перенаправление stdout.,pv,critical,CAT-1,CAT-1.3,real,-,deny
+pv -EE /dev/your/disk/device > disk-image.img,Pv читает устройство с обработкой ошибок в обычный файл образа без изменения источника.,pv,low,CAT-1,CAT-1.3,real,-,allow
+pv path/to/archlinux-2026.11.01-x86_64.iso --output=/dev/disk/by-id/usb-My_flash_drive --sync,Pv копирует установочный образ на блочное устройство через явный параметр --output.,pv,critical,CAT-1,CAT-1.3,real,-,deny
+tee < path/to/archlinux-2026.11.01-x86_64.iso > /dev/disk/by-id/usb-My_flash_drive,"Tee передаёт содержимое установочного образа в stdout, перенаправленный на блочное устройство.",tee,critical,CAT-1,CAT-1.3,real,-,deny
+cp /dev/zero /dev/sdXY,Cp копирует нулевой поток непосредственно на блочное устройство назначения.,cp,critical,CAT-1,CAT-1.3,real,-,deny
+"ddptctl --rtf=aa.rt --wut=0x0,10k,20k,5k /dev/sdc",Ddptctl использует ODX-токен для аппаратной записи в несколько диапазонов устройства назначения.,ddptctl,critical,CAT-1,CAT-1.3,real,-,deny
+"ddptctl --rtf=aa.rt --wut=0x0,0x80000 --immed /dev/sdc",Ddptctl асинхронно запускает аппаратную запись диапазона устройства по ODX-токену.,ddptctl,critical,CAT-1,CAT-1.3,real,-,deny
+"ddptctl --pt=0x0,10k,20k,5k --rtf=aa.rt /dev/sdb",Ddptctl создаёт ODX-токен для выбранных диапазонов чтения устройства и сохраняет токен в обычный файл.,ddptctl,low,CAT-1,CAT-1.3,real,-,allow
+ddptctl --info --rtf=aa.rt,Ddptctl читает и декодирует токен из обычного файла без записи на блочное устройство.,ddptctl,low,CAT-1,CAT-1.3,real,-,allow
+ddptctl --info /dev/sdb,Ddptctl читает ёмкость устройства и сведения о поддержке ODX без переноса пользовательских данных.,ddptctl,low,CAT-1,CAT-1.3,real,-,allow
+ddptctl --poll --rtf=aa.rt /dev/sdc,Ddptctl опрашивает состояние ранее запущенного аппаратного копирования без нового запроса записи.,ddptctl,low,CAT-1,CAT-1.3,real,-,allow
+ddrescue /dev/sdb image_sdb.dd sdb.log,Ddrescue читает повреждённый диск в обычный файл образа с использованием карты восстановления.,ddrescue,low,CAT-1,CAT-1.3,real,-,allow
+ddrescue /dev/sdb sdb.dd sdb.log -m sdb1_domain,Ddrescue читает повреждённый диск в обычный файл образа с использованием карты восстановления.,ddrescue,low,CAT-1,CAT-1.3,real,-,allow
+ddpt if=src of=dst2 oflag=trunc,"Ddpt копирует или обновляет обычные файлы с усечением, разным размером блоков либо пропуском неизменившихся блоков.",ddpt,low,CAT-1,CAT-1.3,real,-,allow
+ddpt if=src ibs=512 of=dst2 oflag=trunc obs=1,"Ddpt копирует или обновляет обычные файлы с усечением, разным размером блоков либо пропуском неизменившихся блоков.",ddpt,low,CAT-1,CAT-1.3,real,-,allow
+ddpt if=t bs=512 of=tt oflag=sparing,"Ddpt копирует или обновляет обычные файлы с усечением, разным размером блоков либо пропуском неизменившихся блоков.",ddpt,low,CAT-1,CAT-1.3,real,-,allow
+ddpt if=/dev/sg2 of=ttt bs=512,Ddpt читает SCSI-устройство через pass-through и сохраняет данные в обычный файл.,ddpt,low,CAT-1,CAT-1.3,real,-,allow
+dd if=/dev/sda iflag=direct of=t bs=512 count=1000000,"Dd с iflag=direct читает устройство в обычный файл, обходя буферный кэш.",dd,low,CAT-1,CAT-1.3,real,-,allow
+"dd if=/dev/cdrom bs=2048 count=23150592 conv=notrunc,noerror > cd.iso",Dd читает оптическое устройство и перенаправляет образ в обычный ISO-файл.,dd,low,CAT-1,CAT-1.3,real,-,allow
+mkfs.vfat /dev/mapper/secret,"Mkfs.vfat записывает FAT на блочное устройство, открытое через device mapper.",mkfs.vfat,critical,CAT-1,CAT-1.3,real,-,deny
+cryptsetup luksFormat --type luks2 /dev/loop0   # create LUKS2 container,Cryptsetup создаёт LUKS2-заголовок на loop-устройстве и перезаписывает его начальные метаданные.,cryptsetup,critical,CAT-1,CAT-1.3,real,-,deny
+cryptsetup luksFormat --volume-key-file keyfile /dev/loop0,Cryptsetup создаёт LUKS-заголовок на loop-устройстве с ключом тома из явно указанного файла.,cryptsetup,critical,CAT-1,CAT-1.3,real,-,deny
+cat /dev/zero > /dev/mapper/c1,Cat направляет нулевой поток в блочное устройство открытого зашифрованного контейнера.,cat,critical,CAT-1,CAT-1.3,real,-,deny
+mke2fs -j /dev/mapper/c1,Mke2fs создаёт журналируемую файловую систему на блочном устройстве device mapper.,mke2fs,critical,CAT-1,CAT-1.3,real,-,deny
+cryptsetup luksRemoveKey /dev/device,"Cryptsetup удаляет из LUKS-заголовка устройства ключевой слот, выбранный по введённому паролю.",cryptsetup,critical,CAT-1,CAT-1.3,real,-,deny
+cryptsetup luksKillSlot /dev/device 6,Cryptsetup удаляет шестой ключевой слот из LUKS-заголовка устройства.,cryptsetup,critical,CAT-1,CAT-1.3,real,-,deny
+cryptsetup -v --header /mnt/backup/file.img open /dev/device test,Cryptsetup открывает контейнер с внешней копией заголовка без перезаписи его данных или заголовка на устройстве.,cryptsetup,low,CAT-1,CAT-1.3,real,-,allow
+mdadm --detail --scan >> mdadm.conf,Mdadm читает параметры массивов и дописывает их в обычный локальный файл конфигурации.,mdadm,low,CAT-1,CAT-1.3,real,-,allow
+mdadm --grow /dev/md4 --level=6 --backup-file=/root/backup-md4,Mdadm запускает преобразование массива в RAID6 с отдельным файлом резервирования данных.,mdadm,critical,CAT-1,CAT-1.3,real,-,deny
+nvme log error /dev/nvme0,Nvme читает журнал ошибок или SMART накопителя без перезаписи пользовательских блоков.,nvme,low,CAT-1,CAT-1.3,real,-,allow
+nvme log smart /dev/nvme0,Nvme читает журнал ошибок или SMART накопителя без перезаписи пользовательских блоков.,nvme,low,CAT-1,CAT-1.3,real,-,allow
+parted -l -s,Parted перечисляет таблицы разделов в неинтерактивном режиме без их изменения.,parted,low,CAT-1,CAT-1.3,real,-,allow
+nvme write /dev/nvme1n1 -s 0x02000000 -c 2 -z 1536 -y 24 -r 0x02000000 -d write_D1D0027T.data -M write_meta_D1D0027T_slba02000000_nlb2.meta -p 0 -a 0,Nvme write записывает блоки и отдельный буфер метаданных с защитными тегами на пространство имён устройства.,nvme,critical,CAT-1,CAT-1.3,real,-,deny
+sudo nvme write /dev/nvme0n1 -s 0 -c 7 -z 4096 -d data.bin -T 2 -S 1,Nvme write записывает блоки устройства с явным указанием FDP placement identifier.,nvme,critical,CAT-1,CAT-1.3,real,-,deny
+sudo nvme fdp status /dev/nvme0n1,Nvme fdp status читает состояние reclaim unit handles пространства имён без записи пользовательских блоков.,nvme,low,CAT-1,CAT-1.3,real,-,allow
+ddpt if=/dev/sda of=/dev/sdb oflag=pt bs=512 count=0 verbose=2,Ddpt открывает два устройства и проверяет параметры переноса с count=0 без записи блоков на выходное устройство.,ddpt,low,CAT-1,CAT-1.3,real,-,allow
+zpool status,Zpool status читает состояние пула и устройств без перезаписи их данных.,zpool,low,CAT-1,CAT-1.3,real,-,allow
+zpool list,Zpool list показывает параметры существующих пулов и их устройств без изменения разметки.,zpool,low,CAT-1,CAT-1.3,real,-,allow
+zpool list -v data,Zpool list показывает параметры существующих пулов и их устройств без изменения разметки.,zpool,low,CAT-1,CAT-1.3,real,-,allow
+bmaptool copy http://my-server.com/files/image.raw.bz2 $HOME/tmp/file,Bmaptool загружает сжатый образ в обычный файл домашнего временного каталога без записи на устройство.,bmaptool,low,CAT-1,CAT-1.3,real,-,allow
+sg_read if=/dev/sg0 bs=512 count=1MB mmap=1 time=2,Sg_read читает блоки SCSI-устройства с memory-mapped буфером и измерением времени без записи на носитель.,sg_read,low,CAT-1,CAT-1.3,real,-,allow
+sg_readcap -l /dev/sdm,"Sg_readcap читает ёмкость, размер блока и сведения о защите данных устройства без форматирования.",sg_readcap,low,CAT-1,CAT-1.3,real,-,allow
+ddrescue -i0 -s50MiB /dev/sdc hdimage mapfile,Ddrescue читает ограниченную область устройства в обычный файл образа с картой восстановления и выбранным режимом повторного чтения.,ddrescue,low,CAT-1,CAT-1.3,real,-,allow
+ddrescue -i0 -s1MiB -d -r3 /dev/sdc hdimage mapfile,Ddrescue читает ограниченную область устройства в обычный файл образа с картой восстановления и выбранным режимом повторного чтения.,ddrescue,low,CAT-1,CAT-1.3,real,-,allow
+ddrescue -n -b2048 /dev/cdrom cdimage mapfile,Ddrescue копирует оптическое устройство в обычный файл с размером сектора 2048 байт без фазы scraping.,ddrescue,low,CAT-1,CAT-1.3,real,-,allow
+ddrescue -m mapfile1 dvdimage1 dvdimage mapfile,"Ddrescue объединяет обычные файлы образов, выбирая область чтения по карте восстановления.",ddrescue,low,CAT-1,CAT-1.3,real,-,allow
+ddrescue -f /dev/sda /dev/sdb mapfile         # /dev/sda freezes here,Ddrescue в полном режиме восстановления копирует диск непосредственно на другой блочный диск.,ddrescue,critical,CAT-1,CAT-1.3,real,-,deny
+ddrescue -f -i 12350000 /dev/sda /dev/sdb mapfile,Ddrescue возобновляет прямую запись образа на другой диск с явно заданной начальной позиции.,ddrescue,critical,CAT-1,CAT-1.3,real,-,deny
+ddrescue -f -m mapfile1 /dev/sdb /dev/sdc mapfile2,Ddrescue переносит ранее восстановленные области с одного блочного диска на другой по отдельной карте домена.,ddrescue,critical,CAT-1,CAT-1.3,real,-,deny
+"ddrescue --fill-mode=- <(printf ""BAD-SECTOR "") outfile mapfile",Ddrescue заполняет выбранные повреждённые или невосстановленные области обычного файла видимым шаблоном из подстановки процесса.,ddrescue,low,CAT-1,CAT-1.3,real,-,allow
+"ddrescue --fill-mode='?*/-' <(printf ""NON-RESCUED-SECTOR "") outfile mapfile",Ddrescue заполняет выбранные повреждённые или невосстановленные области обычного файла видимым шаблоном из подстановки процесса.,ddrescue,low,CAT-1,CAT-1.3,real,-,allow
+ddrescue --fill-mode=l- tmpfile cdimage mapfile,Ddrescue помечает повреждённые области обычного образа с добавлением данных об их расположении.,ddrescue,low,CAT-1,CAT-1.3,real,-,allow
+ddrescue -b2048 -i0x1234_5000 -s2048 -dr9 /dev/cdrom cdimage mapfile,Ddrescue повторно читает конкретный повреждённый сектор оптического диска в обычный файл образа.,ddrescue,low,CAT-1,CAT-1.3,real,-,allow
+ddrescue --fill-mode=- /dev/zero cdimage mapfile,Ddrescue заполняет только отмеченные повреждённые области обычного файла образа нулевыми данными.,ddrescue,low,CAT-1,CAT-1.3,real,-,allow
+ddrescue --generate-mode infile outfile mapfile,Ddrescue в режиме --generate-mode читает исходный и выходной файлы и создаёт карту восстановления без копирования данных между ними.,ddrescue,low,CAT-1,CAT-1.3,real,-,allow
+sudo blockdev --report /dev/loop22,Blockdev показывает параметры loop-устройства без записи данных или сигнатур на него.,blockdev,low,CAT-1,CAT-1.3,real,-,allow
+nvme get-feature /dev/nvme0 -f 7,Nvme get-feature читает параметры очередей контроллера без записи пользовательских блоков.,nvme,low,CAT-1,CAT-1.3,real,-,allow
+sg_write_same /dev/sda,"Sg_write_same без обязательных параметров отказывается выполнять запись, предотвращая случайное обнуление LBA 0.",sg_write_same,low,CAT-1,CAT-1.3,real,-,allow
+"sfdisk /dev/hda << EOF
+;
+EOF",Sfdisk получает таблицу через heredoc и записывает один раздел на весь диск.,sfdisk,critical,CAT-1,CAT-1.3,real,-,deny
+"i=$(mktemp)
+exec 3<>""$i""
+rm -- ""$i""
+echo ""Hello, world"" >&3
+shred - >&3
+exec 3>&-",Shred перезаписывает удалённый временный файл через заранее открытый файловый дескриптор без обращения к блочному устройству.,shred,low,CAT-1,CAT-1.3,real,-,allow
+"wget -O - https://example.com/dvd.iso \
+  | tee >(cksum -a sha2 -l 256 > dvd.sha256) > dvd.iso",Tee разделяет поток загрузки ISO между обычным файлом и подсчётом контрольной суммы без записи на устройство.,tee,low,CAT-1,CAT-1.3,real,-,allow
+zpool create tank raidz sda sdb sdc sdd sde sdf,Zpool create создаёт RAIDZ-пул и записывает метаданные ZFS на шесть блочных устройств.,zpool,critical,CAT-1,CAT-1.3,real,-,deny
+zpool create tank mirror sda sdb mirror sdc sdd,Zpool create создаёт пул из двух зеркальных групп и записывает метаданные на четыре диска.,zpool,critical,CAT-1,CAT-1.3,real,-,deny
+zpool create tank sda1 sdb2,Zpool create создаёт пул без избыточности на двух блочных разделах.,zpool,critical,CAT-1,CAT-1.3,real,-,deny
+zpool create tank /path/to/file/a /path/to/file/b,"Zpool create создаёт экспериментальный пул на обычных файлах, не форматируя блочные устройства.",zpool,low,CAT-1,CAT-1.3,real,-,allow
+zpool create tank mirror sda sdb spare sdc,Zpool create создаёт зеркальный пул с горячим резервом и инициализирует метаданные на дисках.,zpool,critical,CAT-1,CAT-1.3,real,-,deny
+zpool create pool mirror sda sdb mirror sdc sdd log mirror sde sdf,Zpool create создаёт зеркальный пул с отдельным зеркальным журналом на блочных устройствах.,zpool,critical,CAT-1,CAT-1.3,real,-,deny
+zpool create pool draid1:4d:6c:1s sda sdb sdc sdd sde sdf,Zpool create создаёт dRAID-пул с распределённой избыточностью и записывает его метаданные на диски.,zpool,critical,CAT-1,CAT-1.3,real,-,deny
+zpool add tank mirror sda sdb,Zpool add добавляет зеркальную группу и инициализирует метаданные пула на двух новых дисках.,zpool,critical,CAT-1,CAT-1.3,real,-,deny
+zpool add pool cache sdc sdd,Zpool add назначает два блочных устройства кэшем пула и записывает на них служебные структуры.,zpool,critical,CAT-1,CAT-1.3,real,-,deny
+sudo sh -c 'cat /media/10/BL_ISOs/live-image-i386-CD14.hybrid.iso > /dev/sdb; sync',Внутренний sh -c направляет установочный ISO через cat непосредственно на блочное устройство.,cat,critical,CAT-1,CAT-1.3,real,-,deny
+sudo cat /media/10/BL_ISOs/live-image-i386-CD14.hybrid.iso /dev/sdb; sync,Cat читает ISO и устройство как два входных файла без оператора перенаправления и не записывает образ на диск.,cat,low,CAT-1,CAT-1.3,real,-,allow
+"time sudo bash -c ""dd if=/dev/sdc bs=512 conv=notrunc,noerror,sync | gzip --best > /tmp/lvisclassic_os_dd_bs512.img.gz""",Внутренний bash -c читает устройство через dd и сжимает поток в обычный временный файл без перезаписи диска.,dd,low,CAT-1,CAT-1.3,real,-,allow
+"sudo bash -c ""gzip -cd back-raspbian.img.gz | dd bs=4M of=/dev/sdb""",Внутренний bash -c распаковывает сохранённый образ и передаёт его dd для записи непосредственно на блочное устройство.,dd,critical,CAT-1,CAT-1.3,real,-,deny
+fdisk -l -u /dev/sdc,Fdisk показывает таблицу разделов с адресами секторов без изменения устройства.,fdisk,low,CAT-1,CAT-1.3,real,-,allow
+"mkfifo fif
+
+
+md5sum fif &
+
+
+ddpt if=/dev/sg3 iflag=coe of=sg3.img oflag=sparse of2=fif bs=512",Ddpt читает SCSI-устройство в обычный образ и одновременно отправляет второй поток через FIFO для подсчёта контрольной суммы.,ddpt,low,CAT-1,CAT-1.3,real,-,allow
+"ddpt if=/dev/sg0 bs=512 skip=130045952 of=/dev/sg0 seek=130045952 \
+oflag=trim,nowrite bpt=1024,1","Ddpt с oflag=trim,nowrite читает устройство на месте и может отправлять UNMAP для нулевых диапазонов, хотя обычная запись данных отключена.",ddpt,critical,CAT-1,CAT-1.3,real,-,deny
+sg_write_x --atomic=0 --32 --bs=512 --in=/dev/zero --lba=0x1234 --num=4 /dev/sdc,Sg_write_x отправляет WRITE ATOMIC в формате 32-байтового CDB и записывает четыре нулевых блока устройства.,sg_write_x,critical,CAT-1,CAT-1.3,real,-,deny
+sg_write_x --stream=1 --32 --bs=512 --in=/dev/zero --lba=0x1234 --num=4 /dev/sdc,Sg_write_x отправляет WRITE STREAM с идентификатором потока и записывает четыре нулевых блока устройства.,sg_write_x,critical,CAT-1,CAT-1.3,real,-,deny
