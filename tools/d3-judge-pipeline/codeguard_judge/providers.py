@@ -1,7 +1,7 @@
 """Optional HTTPS adapter with process-safe conservative RUB reservations.
 No credential or provider body is written to logs. Timeout reservations stay charged.
 """
-import ast,contextlib,fcntl,json,os,random,re,time,urllib.request,urllib.error,uuid
+import ast,contextlib,fcntl,json,math,os,random,re,time,urllib.request,urllib.error,uuid
 from pathlib import Path
 from judge.io import dump
 class ProviderError(Exception):pass
@@ -20,8 +20,11 @@ def credential(path):
  if not isinstance(value,str) or not re.fullmatch(r'[A-Za-z0-9_-]{16,}',value):raise ProviderError('invalid_credential_file')
  return value
 class Budget:
- def __init__(self,path,limit):self.path=Path(path);self.limit=limit
+ def __init__(self,path,limit):
+  if not isinstance(limit,(int,float)) or not math.isfinite(limit) or limit<=0:raise ProviderError('invalid_budget_limit')
+  self.path=Path(path);self.limit=limit
  def reserve(self,amount):
+  if not isinstance(amount,(int,float)) or not math.isfinite(amount) or amount<0:raise ProviderError('invalid_reservation')
   with lock(str(self.path)+'.lock'):
    ledger=json.loads(self.path.read_text()) if self.path.exists() else {'limit_rub':self.limit,'entries':[]}
    if ledger['limit_rub']!=self.limit:raise ProviderError('budget_limit_changed')
@@ -35,6 +38,9 @@ class Budget:
 class API:
  def __init__(self,c,budget):
   self.c=c;self.budget=budget
+  if set(c.get('parameters',{})) & {'model','messages','max_tokens','max_completion_tokens','stream','n','response_format'}:raise ProviderError('reserved_request_parameter')
+  if not isinstance(c.get('max_tokens',1500),int) or c.get('max_tokens',1500)<=0:raise ProviderError('invalid_token_limit')
+  if any(not isinstance(c['rub_per_million'].get(k),(float,int)) or not math.isfinite(c['rub_per_million'][k]) or c['rub_per_million'][k]<=0 for k in ('input','output')):raise ProviderError('invalid_prices')
   if c.get('base_url')!='https://api.proxyapi.ru/v1' or c.get('allow_network') is not True:raise ProviderError('network_not_authorized')
  def complete(self,messages):
   c=self.c;content=json.dumps(messages,ensure_ascii=False);input_bound=len(content.encode())+512

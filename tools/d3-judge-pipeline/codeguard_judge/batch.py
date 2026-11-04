@@ -11,7 +11,7 @@ def implementation_sha():
  files=list((root/'codeguard_judge').rglob('*.py'))+list((root/'judge').glob('*.py'))
  return digest({str(p.relative_to(root)):digest(p.read_bytes()) for p in sorted(files)})
 def load(path):
- path=Path(path)
+ path=Path(path);file_sha=digest(path.read_bytes())
  if path.suffix=='.csv':
   rows=read_records(path)
  else:
@@ -21,7 +21,7 @@ def load(path):
    try:r=json.loads(line)
    except ValueError:r={'command':None,'input_error':'malformed_json_line'}
    rows.append(r if isinstance(r,dict) else {'command':None,'input_error':'nonobject_row'})
- for i,r in enumerate(rows):r.setdefault('record_id',digest({'file_sha':digest(path.read_bytes()),'row':i,'command':r.get('command')}))
+ for i,r in enumerate(rows):r.setdefault('record_id',digest({'file_sha':file_sha,'row':i,'command':r.get('command')}))
  ids=[r['record_id'] for r in rows]
  if any(not isinstance(i,str) or not i for i in ids) or len(ids)!=len(set(ids)):raise ValueError('duplicate_or_invalid_record_id')
  return rows

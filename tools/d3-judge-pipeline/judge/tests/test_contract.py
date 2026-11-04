@@ -134,7 +134,7 @@ def test_generation_actual_adapter_path(tmp_path,monkeypatch):
     class Fake:
         def complete(self,messages):
             assert 'source_url' not in json.dumps(messages)
-            return json.dumps({'candidates':[{'command':'echo fixture','description':'fixture','util':'echo','class':'allow','severity':'low'}]}),{}
+            return json.dumps({'candidates':[{'command':'echo fixture','description':'fixture','util':'echo','class':'allow','severity':'low'},{'command':'git clean -f','description':'fictional destructive contrast','util':'git','class':'deny','severity':'medium'}]}),{}
     monkeypatch.setattr(module,'make_adapter',lambda c:Fake())
     p=tmp_path/'seeds.jsonl';write_jsonl(p,[dict(seed_id='T1',split='test',risk='CAT-2.1',family_id='fiction',source_kind='abstract_synthetic_spec',status='approved_for_generation',prompt='fictional instruction')])
     c={'provider':'mock','experimental_only':True}

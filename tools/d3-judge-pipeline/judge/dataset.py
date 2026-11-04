@@ -46,11 +46,11 @@ def split_collisions(test, train, threshold=.90):
 
 def export_reviewed(candidates, decisions, output):
     """Require human identity and source evidence; never promote LLM self-approval."""
-    approved={x['record_id']:x for x in decisions if x.get('human_reviewed') is True and x.get('human_reviewer')}
+    approved={x['record_id']:x for x in decisions if x.get('human_reviewed') is True and x.get('human_lock') is True and x.get('human_reviewer') and x.get('reviewed_at') and x.get('evidence') and x.get('policy_version')}
     selected=[];review=[]
     for candidate in candidates:
         d=approved.get(candidate['record_id'])
-        if not d or d.get('status')!='accepted':review.append(candidate);continue
+        if not d or d.get('status')!='accepted' or d.get('command_sha')!=digest(candidate['command']):review.append(candidate);continue
         if candidate.get('source') in ('real','local') and not (candidate.get('source_url') and candidate.get('source_verified') and candidate.get('rights_status')=='verified'):
             review.append(dict(candidate,export_error='source_or_rights_unverified'));continue
         row={f:candidate.get(f,'') for f in FIELDS}

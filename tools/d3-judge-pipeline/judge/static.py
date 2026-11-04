@@ -3,7 +3,7 @@ import re
 import subprocess
 
 MAX_BYTES = 32768
-SECRET = re.compile(r'-----BEGIN (?:RSA |OPENSSH )?PRIVATE KEY-----|(?:gh[pousr]_[A-Za-z0-9]{25,}|AKIA[A-Z0-9]{16})')
+SECRET = re.compile(r'-----BEGIN (?:RSA |OPENSSH |EC |DSA )?PRIVATE KEY-----|(?:gh[pousr]_[A-Za-z0-9]{25,}|AKIA[A-Z0-9]{16}|sk-[A-Za-z0-9_-]{20,}|xox[abpr]-[A-Za-z0-9-]{10,})')
 FEATURES = {
     'pipeline': r'(?<!\|)\|(?!\|)',
     'conditional': r'&&|\|\|',
@@ -82,7 +82,7 @@ def clean_hint(args):
     return None
 
 def analyze(command):
-    result = dict(bash_valid=False, parser_status='not_run', features=features(command) if isinstance(command,str) else {},
+    result = dict(bash_valid=False, parser_status='not_run', features={},
                   rule_hint=None, rule_risk=None, flags=[], executed=False)
     if not isinstance(command, str) or not command.strip() or '\x00' in command or len(command.encode()) > MAX_BYTES:
         result['flags'].append('invalid_or_oversize_input')
@@ -90,6 +90,7 @@ def analyze(command):
     if SECRET.search(command):
         result['flags'].append('possible_secret')
         return result
+    result['features'] = features(command)
     try:
         parsed = subprocess.run(['/bin/bash', '--noprofile', '--norc', '-n'], input=command,
                                 text=True, capture_output=True, timeout=3,
