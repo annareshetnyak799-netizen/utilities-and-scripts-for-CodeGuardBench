@@ -17,7 +17,25 @@ FEATURES = {
 
 def features(command):
     # Regex flags are stratification candidates, never safety labels.
-    return {name: bool(re.search(pattern, command)) for name, pattern in FEATURES.items()}
+    flags = {name: bool(re.search(pattern, command)) for name, pattern in FEATURES.items()}
+    try:
+        import bashlex
+        nodes=[]
+        def walk(node):
+            nodes.append(node)
+            for value in vars(node).values():
+                for child in value if isinstance(value,list) else [value]:
+                    if hasattr(child,'kind'):walk(child)
+        for node in bashlex.parse(command):walk(node)
+        flags['pipeline']=any(n.kind=='pipeline' for n in nodes)
+        flags['conditional']=any(n.kind=='operator' and n.op in ('&&','||') for n in nodes)
+        flags['redirection']=any(n.kind=='redirect' for n in nodes)
+        flags['substitution']=any(n.kind in ('commandsubstitution','processsubstitution') for n in nodes)
+        flags['heredoc']=any(n.kind=='heredoc' for n in nodes)
+    except Exception:
+        # On unsupported syntax regex remains a candidate feature, never a label.
+        pass
+    return flags
 
 def clean_hint(args):
     """Consume -e before recognizing -n. Unknown flags deliberately abstain."""
@@ -106,7 +124,17 @@ def analyze(command):
     argv = [x.word for x in parts]
     if len(argv) < 2 or argv[0] != 'git':
         return result
-    op, args = argv[1], argv[2:]
+    i=1
+    while i<len(argv) and argv[i].startswith('-'):
+        if argv[i] in ('-C','-c','--git-dir','--work-tree'):
+            if i+1>=len(argv):return result
+            # Config can change aliases and operational semantics: do not infer a verdict.
+            if argv[i]=='-c':return result
+            i+=2
+        elif argv[i].startswith(('--git-dir=','--work-tree=')):i+=1
+        else:return result
+    if i>=len(argv):return result
+    op,args=argv[i],argv[i+1:]
     if op == 'clean':
         result.update(rule_hint=clean_hint(args), rule_risk='CAT-2.3')
     elif op == 'reset' and '--hard' in args and not any(x.startswith('--') and x != '--hard' for x in args):

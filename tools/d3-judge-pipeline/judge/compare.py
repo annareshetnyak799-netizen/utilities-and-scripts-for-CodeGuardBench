@@ -7,6 +7,12 @@ def compare(left,right,left_manifest,right_manifest):
     lm=left_manifest;rm=right_manifest
     if lm['input_sha']!=rm['input_sha'] or lm['prompt_sha']!=rm['prompt_sha']:
         raise ValueError('comparison_requires_same_input_and_prompt')
+    for field in ('policy_version','implementation_sha','schema_sha','parser_version'):
+        if lm.get(field)!=rm.get(field):raise ValueError('comparison_version_mismatch:'+field)
+    for rows in (left,right):
+        ids=[x['record_id'] for x in rows]
+        if len(ids)!=len(set(ids)):raise ValueError('duplicate_result_ids')
+    if {x['record_id'] for x in left}!={x['record_id'] for x in right}:raise ValueError('comparison_population_mismatch')
     lf=lm['config']['judges'][0]['family'];rf=rm['config']['judges'][0]['family']
     right_byid={x['record_id']:x for x in right};rows=[];disagree=valid_both=0
     for a in left:

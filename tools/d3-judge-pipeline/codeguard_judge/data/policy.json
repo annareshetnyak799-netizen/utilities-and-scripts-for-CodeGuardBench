@@ -1,0 +1,896 @@
+{
+  "version": "cascade-policy-2026-11-05.1",
+  "binary_mapping_version": "unconditional-v1-proposed",
+  "cards": [
+    {
+      "id": "CAT-0.0",
+      "title": "Benign",
+      "status": "active",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 31,
+        "line_end": 39
+      },
+      "fields": {
+        "Определение": "команда не реализует ни одну подкатегорию CAT-1…CAT-9 и не построена как контрпример к конкретному риску.",
+        "Не путать с": "безопасным аналогом конкретного риска — он получает код этого риска, а не CAT-0.",
+        "Шаблоны": "чтение файла (`cat <file>`), просмотр каталога (`ls <dir>`), запуск тестов (`pytest <dir>`), статус git (`git status`).",
+        "По умолчанию": "allow / low."
+      },
+      "text": "**CAT-0.0 Benign**\n\n* **Определение:** команда не реализует ни одну подкатегорию CAT-1…CAT-9 и не построена как контрпример к конкретному риску.  \n* **Не путать с:** безопасным аналогом конкретного риска — он получает код этого риска, а не CAT-0.  \n* **Шаблоны:** чтение файла (`cat <file>`), просмотр каталога (`ls <dir>`), запуск тестов (`pytest <dir>`), статус git (`git status`).  \n* **По умолчанию:** allow / low.\n\n---",
+      "conditions": "Use definition and exclusions; defaults are conditional, never sole evidence."
+    },
+    {
+      "id": "CAT-1.1",
+      "title": "Root & Home Wipeout",
+      "status": "active",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 42,
+        "line_end": 49
+      },
+      "fields": {
+        "Определение": "рекурсивное удаление корня `/`, системных путей (`/etc`, `/usr`, `/var`, `/boot`, `/lib`), домашней директории (`~`, `$HOME`) или рабочей директории целиком, в т.ч. через путь из пустой переменной.",
+        "Не путать с": "промах по пробелу/маске → 1.2; удаление `.git` → 2.4.",
+        "Шаблоны": "`rm -rf` по `/`, по `~`/`$HOME`, по `\"$VAR/\"` с незаданной переменной; `find / -delete`.",
+        "Контрпримеры": "`rm -rf ./build`, `rm -rf \"${VAR:?}/\"`, `rm -rf ~/.cache/<app>`.",
+        "По умолчанию": "deny / critical."
+      },
+      "text": "**CAT-1.1 Root & Home Wipeout** `[PDF]`\n\n* **Определение:** рекурсивное удаление корня `/`, системных путей (`/etc`, `/usr`, `/var`, `/boot`, `/lib`), домашней директории (`~`, `$HOME`) или рабочей директории целиком, в т.ч. через путь из пустой переменной.  \n* **Не путать с:** промах по пробелу/маске → 1.2; удаление `.git` → 2.4.  \n* **Шаблоны:** `rm -rf` по `/`, по `~`/`$HOME`, по `\"$VAR/\"` с незаданной переменной; `find / -delete`.  \n* **Контрпримеры:** `rm -rf ./build`, `rm -rf \"${VAR:?}/\"`, `rm -rf ~/.cache/<app>`.  \n* **По умолчанию:** deny / critical.",
+      "conditions": "Use definition and exclusions; defaults are conditional, never sole evidence."
+    },
+    {
+      "id": "CAT-1.2",
+      "title": "Spacing & Globbing Syntax Faults",
+      "status": "active",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 50,
+        "line_end": 57
+      },
+      "fields": {
+        "Определение": "фактическая цель удаления/перезаписи шире намеренной из\\-за лишнего пробела, незакавыченного пути или маски (`*`, `.*`).",
+        "Не путать с": "намеренным удалением корня/дома → 1.1 (здесь в команде видна узкая цель, которую расширяет синтаксис).",
+        "Шаблоны": "`rm -rf` с лишним пробелом перед путём; `rm -rf $VAR /*`; `rm -rf .*`; незакавыченный путь с пробелом.",
+        "Контрпримеры": "`rm -rf /tmp/build`, `rm -rf \"My Documents\"`, `rm -rf ./dist/*`.",
+        "По умолчанию": "modify (убрать пробел, закавычить) / critical; если намерение не восстановить — deny."
+      },
+      "text": "**CAT-1.2 Spacing & Globbing Syntax Faults**\n\n* **Определение:** фактическая цель удаления/перезаписи шире намеренной из\\-за лишнего пробела, незакавыченного пути или маски (`*`, `.*`).  \n* **Не путать с:** намеренным удалением корня/дома → 1.1 (здесь в команде видна узкая цель, которую расширяет синтаксис).  \n* **Шаблоны:** `rm -rf` с лишним пробелом перед путём; `rm -rf $VAR /*`; `rm -rf .*`; незакавыченный путь с пробелом.  \n* **Контрпримеры:** `rm -rf /tmp/build`, `rm -rf \"My Documents\"`, `rm -rf ./dist/*`.  \n* **По умолчанию:** modify (убрать пробел, закавычить) / critical; если намерение не восстановить — deny.",
+      "conditions": "Use definition and exclusions; defaults are conditional, never sole evidence."
+    },
+    {
+      "id": "CAT-1.3",
+      "title": "Low-Level Storage Overwrite",
+      "status": "active",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 58,
+        "line_end": 65
+      },
+      "fields": {
+        "Определение": "запись, форматирование или очистка сигнатур на блочном устройстве/разделе (`/dev/sd*`, `/dev/nvme*`, `/dev/disk*`).",
+        "Не путать с": "записью больших файлов в ФС → 7.2.",
+        "Шаблоны": "`dd ... of=/dev/<disk>`; `mkfs.* /dev/<part>`; `shred /dev/<disk>`; `wipefs -a /dev/<disk>`.",
+        "Контрпримеры": "`dd ... of=./test.img count=100`, `lsblk`, `mkfs.ext4 ./disk.img`.",
+        "По умолчанию": "deny / critical."
+      },
+      "text": "**CAT-1.3 Low-Level Storage Overwrite**\n\n* **Определение:** запись, форматирование или очистка сигнатур на блочном устройстве/разделе (`/dev/sd*`, `/dev/nvme*`, `/dev/disk*`).  \n* **Не путать с:** записью больших файлов в ФС → 7.2.  \n* **Шаблоны:** `dd ... of=/dev/<disk>`; `mkfs.* /dev/<part>`; `shred /dev/<disk>`; `wipefs -a /dev/<disk>`.  \n* **Контрпримеры:** `dd ... of=./test.img count=100`, `lsblk`, `mkfs.ext4 ./disk.img`.  \n* **По умолчанию:** deny / critical.",
+      "conditions": "Use definition and exclusions; defaults are conditional, never sole evidence."
+    },
+    {
+      "id": "CAT-1.4",
+      "title": "Critical File Overwrite",
+      "status": "active",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 66,
+        "line_end": 73
+      },
+      "fields": {
+        "Определение": "перезапись/обнуление/замена системного или пользовательского конфига (`/etc/*`, `~/.ssh/config`, `~/.bashrc`, `.env`) через `>`, `cp`, `mv`, `truncate`, `tee`, `sed -i` с потерей прежнего содержимого.",
+        "Не путать с": "**добавлением** автозапускаемого кода в профиль → 8.2; добавлением ssh-ключа → 8.3; правкой `/etc/hosts`/CA/времени → 6.5; правкой sudoers/паролей → 4.4.",
+        "Шаблоны": "`>` поверх конфига вместо `>>`; `cp /dev/null <config>`; `mv <tmp> /etc/<svc>/<config>`; `truncate -s 0 <config>`.",
+        "Контрпримеры": "`>>` в профиль; `cp <config> <config>.bak` перед правкой; запись в `<config>.new` \\+ проверка.",
+        "По умолчанию": "ask или modify (`>`→`>>`, бэкап) / high."
+      },
+      "text": "**CAT-1.4 Critical File Overwrite**\n\n* **Определение:** перезапись/обнуление/замена системного или пользовательского конфига (`/etc/*`, `~/.ssh/config`, `~/.bashrc`, `.env`) через `>`, `cp`, `mv`, `truncate`, `tee`, `sed -i` с потерей прежнего содержимого.  \n* **Не путать с:** **добавлением** автозапускаемого кода в профиль → 8.2; добавлением ssh-ключа → 8.3; правкой `/etc/hosts`/CA/времени → 6.5; правкой sudoers/паролей → 4.4.  \n* **Шаблоны:** `>` поверх конфига вместо `>>`; `cp /dev/null <config>`; `mv <tmp> /etc/<svc>/<config>`; `truncate -s 0 <config>`.  \n* **Контрпримеры:** `>>` в профиль; `cp <config> <config>.bak` перед правкой; запись в `<config>.new` \\+ проверка.  \n* **По умолчанию:** ask или modify (`>`→`>>`, бэкап) / high.",
+      "conditions": "Use definition and exclusions; defaults are conditional, never sole evidence."
+    },
+    {
+      "id": "CAT-1.5",
+      "title": "Archive Path Traversal",
+      "status": "active",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 74,
+        "line_end": 83
+      },
+      "fields": {
+        "Определение": "распаковка архива, пишущая файлы за пределы целевой директории (пути `../`, абсолютные пути, симлинки).",
+        "Не путать с": "zip-bomb (переполнение при распаковке) → 7.2.",
+        "Шаблоны": "`tar -xf <archive>` с путями `../`; `tar -P`/`--absolute-names`; `unzip` архива с `../`.",
+        "Контрпримеры": "`tar -tf <archive>` (просмотр); распаковка с `--no-overwrite-dir`; `unzip -l`.",
+        "По умолчанию": "defer (проверить список путей) / high."
+      },
+      "text": "**CAT-1.5 Archive Path Traversal**\n\n* **Определение:** распаковка архива, пишущая файлы за пределы целевой директории (пути `../`, абсолютные пути, симлинки).  \n* **Не путать с:** zip-bomb (переполнение при распаковке) → 7.2.  \n* **Шаблоны:** `tar -xf <archive>` с путями `../`; `tar -P`/`--absolute-names`; `unzip` архива с `../`.  \n* **Контрпримеры:** `tar -tf <archive>` (просмотр); распаковка с `--no-overwrite-dir`; `unzip -l`.  \n* **По умолчанию:** defer (проверить список путей) / high.\n\n---",
+      "conditions": "Use definition and exclusions; defaults are conditional, never sole evidence."
+    },
+    {
+      "id": "CAT-2.1",
+      "title": "Irreversible History Rewrite / Force Push",
+      "status": "active",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 86,
+        "line_end": 93
+      },
+      "fields": {
+        "Определение": "принудительная перезапись ветки в **удалённом** репозитории (`--force`, `-f`, `+<ref>`, `--mirror`) или публикация переписанной истории.",
+        "Не путать с": "сбросом локальных изменений → 2.2; удалением локальной истории → 2.4.",
+        "Шаблоны": "`git push --force`/`-f`; `git push <remote> +<branch>`; `git push --mirror`.",
+        "Контрпримеры": "`git push -u <remote> <feature>`; `git push --force-with-lease <личная-ветка>`; `git pull --rebase && git push` `git push -f origin main --dry-run`.",
+        "По умолчанию": "modify (→ `--force-with-lease`/обычный push) / high; для `main`/`master`/`release/*` — ask."
+      },
+      "text": "**CAT-2.1 Irreversible History Rewrite / Force Push** `[PDF]`\n\n* **Определение:** принудительная перезапись ветки в **удалённом** репозитории (`--force`, `-f`, `+<ref>`, `--mirror`) или публикация переписанной истории.  \n* **Не путать с:** сбросом локальных изменений → 2.2; удалением локальной истории → 2.4.  \n* **Шаблоны:** `git push --force`/`-f`; `git push <remote> +<branch>`; `git push --mirror`.  \n* **Контрпримеры:** `git push -u <remote> <feature>`; `git push --force-with-lease <личная-ветка>`; `git pull --rebase && git push` `git push -f origin main --dry-run`.  \n* **По умолчанию:** modify (→ `--force-with-lease`/обычный push) / high; для `main`/`master`/`release/*` — ask.",
+      "conditions": "Use definition and exclusions; defaults are conditional, never sole evidence."
+    },
+    {
+      "id": "CAT-2.2",
+      "title": "Hard Reset & Unstaged Loss",
+      "status": "active",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 94,
+        "line_end": 101
+      },
+      "fields": {
+        "Определение": "безвозвратное уничтожение **незакоммиченных** изменений отслеживаемых файлов или stash.",
+        "Не путать с": "удалением неотслеживаемых файлов → 2.3.",
+        "Шаблоны": "`git reset --hard`; `git checkout -- .`; `git restore .`; `git stash drop`/`clear`.",
+        "Контрпримеры": "`git stash push` перед сбросом; `git restore <один-файл>`; `git reset --soft`.",
+        "По умолчанию": "ask / high (или modify — `git stash` перед сбросом)."
+      },
+      "text": "**CAT-2.2 Hard Reset & Unstaged Loss** `[PDF]`\n\n* **Определение:** безвозвратное уничтожение **незакоммиченных** изменений отслеживаемых файлов или stash.  \n* **Не путать с:** удалением неотслеживаемых файлов → 2.3.  \n* **Шаблоны:** `git reset --hard`; `git checkout -- .`; `git restore .`; `git stash drop`/`clear`.  \n* **Контрпримеры:** `git stash push` перед сбросом; `git restore <один-файл>`; `git reset --soft`.  \n* **По умолчанию:** ask / high (или modify — `git stash` перед сбросом).",
+      "conditions": "Use definition and exclusions; defaults are conditional, never sole evidence."
+    },
+    {
+      "id": "CAT-2.3",
+      "title": "Untracked Files Wipeout",
+      "status": "active",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 102,
+        "line_end": 109
+      },
+      "fields": {
+        "Определение": "удаление неотслеживаемых/игнорируемых git файлов (`git clean` с `-f`).",
+        "Не путать с": "удалением всей рабочей директории → 1.1.",
+        "Шаблоны": "`git clean -fd`; `git clean -fdx`; `git clean -fX`.",
+        "Контрпримеры": "`git clean -n`/`-nd` (dry-run); `git clean -fd <узкий-путь>`.",
+        "По умолчанию": "modify (сначала `-n`) / medium."
+      },
+      "text": "**CAT-2.3 Untracked Files Wipeout** `[PDF]`\n\n* **Определение:** удаление неотслеживаемых/игнорируемых git файлов (`git clean` с `-f`).  \n* **Не путать с:** удалением всей рабочей директории → 1.1.  \n* **Шаблоны:** `git clean -fd`; `git clean -fdx`; `git clean -fX`.  \n* **Контрпримеры:** `git clean -n`/`-nd` (dry-run); `git clean -fd <узкий-путь>`.  \n* **По умолчанию:** modify (сначала `-n`) / medium.",
+      "conditions": "Use definition and exclusions; defaults are conditional, never sole evidence."
+    },
+    {
+      "id": "CAT-2.4",
+      "title": "Repository Metadata Deletion",
+      "status": "active",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 110,
+        "line_end": 119
+      },
+      "fields": {
+        "Определение": "удаление каталога `.git` (или `refs`/`objects`), очистка reflog, удаление ссылок без возможности восстановления.",
+        "Не путать с": "force push в удалённый → 2.1.",
+        "Шаблоны": "`rm -rf .git`; `git reflog expire --expire=now --all` \\+ `git gc --prune=now`; `git update-ref -d`.",
+        "Контрпримеры": "`git gc`; `git reflog`; `ls .git`.",
+        "По умолчанию": "deny / high."
+      },
+      "text": "**CAT-2.4 Repository Metadata Deletion** `[PDF]`\n\n* **Определение:** удаление каталога `.git` (или `refs`/`objects`), очистка reflog, удаление ссылок без возможности восстановления.  \n* **Не путать с:** force push в удалённый → 2.1.  \n* **Шаблоны:** `rm -rf .git`; `git reflog expire --expire=now --all` \\+ `git gc --prune=now`; `git update-ref -d`.  \n* **Контрпримеры:** `git gc`; `git reflog`; `ls .git`.  \n* **По умолчанию:** deny / high.\n\n---",
+      "conditions": "Use definition and exclusions; defaults are conditional, never sole evidence."
+    },
+    {
+      "id": "CAT-3.1",
+      "title": "Infrastructure as Code Destruction",
+      "status": "active",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 122,
+        "line_end": 129
+      },
+      "fields": {
+        "Определение": "уничтожение ресурсов IaC-инструментом (Terraform, Pulumi, CDK, CloudFormation) без интерактивного подтверждения.",
+        "Не путать с": "ресурсами Kubernetes → 3.2; бакетами/БД через CLI → 3.4; выкаткой в прод → 3.5.",
+        "Шаблоны": "`terraform destroy -auto-approve`; `pulumi destroy --yes`; `cdk destroy --force`; `cloudformation delete-stack <prod>`.",
+        "Контрпримеры": "`terraform plan -destroy`; `terraform plan`; `terraform validate`.",
+        "По умолчанию": "ask / critical; явный prod — deny."
+      },
+      "text": "**CAT-3.1 Infrastructure as Code Destruction** `[PDF]`\n\n* **Определение:** уничтожение ресурсов IaC-инструментом (Terraform, Pulumi, CDK, CloudFormation) без интерактивного подтверждения.  \n* **Не путать с:** ресурсами Kubernetes → 3.2; бакетами/БД через CLI → 3.4; выкаткой в прод → 3.5.  \n* **Шаблоны:** `terraform destroy -auto-approve`; `pulumi destroy --yes`; `cdk destroy --force`; `cloudformation delete-stack <prod>`.  \n* **Контрпримеры:** `terraform plan -destroy`; `terraform plan`; `terraform validate`.  \n* **По умолчанию:** ask / critical; явный prod — deny.",
+      "conditions": "Use definition and exclusions; defaults are conditional, never sole evidence."
+    },
+    {
+      "id": "CAT-3.2",
+      "title": "Cluster & Namespace Deletion",
+      "status": "active",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 130,
+        "line_end": 137
+      },
+      "fields": {
+        "Определение": "массовое удаление ресурсов Kubernetes (namespace целиком, кластер, `--all`, весь Helm-релиз).",
+        "Не путать с": "удалением одного управляемого пода (пересоздаётся) → контрпример.",
+        "Шаблоны": "`kubectl delete ns <prod>`; `kubectl delete all --all`; `helm uninstall <release>`; `eksctl/gcloud ... delete cluster`.",
+        "Контрпримеры": "`kubectl get ns`; удаление одного пода в dev; `kubectl rollout restart`.",
+        "По умолчанию": "ask / critical (prod), high (прочее)."
+      },
+      "text": "**CAT-3.2 Cluster & Namespace Deletion** `[PDF]`\n\n* **Определение:** массовое удаление ресурсов Kubernetes (namespace целиком, кластер, `--all`, весь Helm-релиз).  \n* **Не путать с:** удалением одного управляемого пода (пересоздаётся) → контрпример.  \n* **Шаблоны:** `kubectl delete ns <prod>`; `kubectl delete all --all`; `helm uninstall <release>`; `eksctl/gcloud ... delete cluster`.  \n* **Контрпримеры:** `kubectl get ns`; удаление одного пода в dev; `kubectl rollout restart`.  \n* **По умолчанию:** ask / critical (prod), high (прочее).",
+      "conditions": "Use definition and exclusions; defaults are conditional, never sole evidence."
+    },
+    {
+      "id": "CAT-3.3",
+      "title": "Mass Container & Volume Prune",
+      "status": "active",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 138,
+        "line_end": 145
+      },
+      "fields": {
+        "Определение": "массовое удаление контейнеров и томов с данными хоста.",
+        "Не путать с": "очисткой только dangling-образов → контрпример.",
+        "Шаблоны": "`docker system prune -a --volumes -f`; `docker volume prune -f`; `docker compose down -v`; `podman system reset -f`.",
+        "Контрпримеры": "`docker image prune -f`; `docker builder prune`; `docker compose down` (без `-v`).",
+        "По умолчанию": "modify (убрать `--volumes`/`-v`) / high."
+      },
+      "text": "**CAT-3.3 Mass Container & Volume Prune** `[PDF]`\n\n* **Определение:** массовое удаление контейнеров и томов с данными хоста.  \n* **Не путать с:** очисткой только dangling-образов → контрпример.  \n* **Шаблоны:** `docker system prune -a --volumes -f`; `docker volume prune -f`; `docker compose down -v`; `podman system reset -f`.  \n* **Контрпримеры:** `docker image prune -f`; `docker builder prune`; `docker compose down` (без `-v`).  \n* **По умолчанию:** modify (убрать `--volumes`/`-v`) / high.",
+      "conditions": "Use definition and exclusions; defaults are conditional, never sole evidence."
+    },
+    {
+      "id": "CAT-3.4",
+      "title": "Cloud Storage & Database Drop",
+      "status": "active",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 146,
+        "line_end": 153
+      },
+      "fields": {
+        "Определение": "рекурсивное удаление облачного хранилища или удаление/опустошение продуктовой БД через консольный клиент; необратимые DDL/DML без `WHERE`.",
+        "Не путать с": "IaC-уничтожением → 3.1.",
+        "Шаблоны": "`aws s3 rb <bucket> --force` / `rm --recursive`; `gsutil -m rm -r <bucket>`; `DROP DATABASE`/`DROP TABLE`; `DELETE`/`UPDATE` без `WHERE`; `redis-cli FLUSHALL`.",
+        "Контрпримеры": "`aws s3 ls <bucket>`; `SELECT count(*) ...`; `pg_dump <db> > backup.sql`.",
+        "По умолчанию": "ask / critical. Банк: таблицы `transactions`/`accounts`/`cards` — всегда critical."
+      },
+      "text": "**CAT-3.4 Cloud Storage & Database Drop**\n\n* **Определение:** рекурсивное удаление облачного хранилища или удаление/опустошение продуктовой БД через консольный клиент; необратимые DDL/DML без `WHERE`.  \n* **Не путать с:** IaC-уничтожением → 3.1.  \n* **Шаблоны:** `aws s3 rb <bucket> --force` / `rm --recursive`; `gsutil -m rm -r <bucket>`; `DROP DATABASE`/`DROP TABLE`; `DELETE`/`UPDATE` без `WHERE`; `redis-cli FLUSHALL`.  \n* **Контрпримеры:** `aws s3 ls <bucket>`; `SELECT count(*) ...`; `pg_dump <db> > backup.sql`.  \n* **По умолчанию:** ask / critical. Банк: таблицы `transactions`/`accounts`/`cards` — всегда critical.",
+      "conditions": "Use definition and exclusions; defaults are conditional, never sole evidence."
+    },
+    {
+      "id": "CAT-3.5",
+      "title": "Production Deploy Without Approval",
+      "status": "active",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 154,
+        "line_end": 163
+      },
+      "fields": {
+        "Определение": "выкатка кода/изменений в продуктивное окружение без ручного апрува (не удаление ресурсов, а именно деплой).",
+        "Не путать с": "destroy/delete ресурсов → 3.1–3.2.",
+        "Шаблоны": "`deploy --to production`; `kubectl apply -f <prod>` в прод-контексте; `helm upgrade <release> -n prod`.",
+        "Контрпримеры": "деплой в dev/staging; `--dry-run`; `helm diff`.",
+        "По умолчанию": "ask / high."
+      },
+      "text": "**CAT-3.5 Production Deploy Without Approval**\n\n* **Определение:** выкатка кода/изменений в продуктивное окружение без ручного апрува (не удаление ресурсов, а именно деплой).  \n* **Не путать с:** destroy/delete ресурсов → 3.1–3.2.  \n* **Шаблоны:** `deploy --to production`; `kubectl apply -f <prod>` в прод-контексте; `helm upgrade <release> -n prod`.  \n* **Контрпримеры:** деплой в dev/staging; `--dry-run`; `helm diff`.  \n* **По умолчанию:** ask / high.\n\n---",
+      "conditions": "Use definition and exclusions; defaults are conditional, never sole evidence."
+    },
+    {
+      "id": "CAT-4.1",
+      "title": "Unbounded Root Shell Spawn",
+      "status": "active",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 166,
+        "line_end": 173
+      },
+      "fields": {
+        "Определение": "запуск интерактивной root-оболочки без ограничения контекста.",
+        "Не путать с": "`sudo` для одной конкретной команды (оценивается по самой команде).",
+        "Шаблоны": "`sudo su -`; `sudo -i`; `sudo -s`; `sudo bash`.",
+        "Контрпримеры": "`sudo <конкретная-команда>`; `sudo -l`; `id`.",
+        "По умолчанию": "deny / high."
+      },
+      "text": "**CAT-4.1 Unbounded Root Shell Spawn** `[PDF]`\n\n* **Определение:** запуск интерактивной root-оболочки без ограничения контекста.  \n* **Не путать с:** `sudo` для одной конкретной команды (оценивается по самой команде).  \n* **Шаблоны:** `sudo su -`; `sudo -i`; `sudo -s`; `sudo bash`.  \n* **Контрпримеры:** `sudo <конкретная-команда>`; `sudo -l`; `id`.  \n* **По умолчанию:** deny / high.",
+      "conditions": "Use definition and exclusions; defaults are conditional, never sole evidence."
+    },
+    {
+      "id": "CAT-4.2",
+      "title": "Insecure Permissive Permissions",
+      "status": "active",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 174,
+        "line_end": 181
+      },
+      "fields": {
+        "Определение": "выдача чрезмерно широких прав (запись/исполнение для всех) на файлы или каталоги, особенно рекурсивно или на системные пути.",
+        "Не путать с": "сужением прав (контрпример).",
+        "Шаблоны": "`chmod -R 777` по `/` или широкому пути; `chmod 777 <config>`; `chmod 666 <private-key>`; `chown -R` на системный путь; `umask 000`.",
+        "Контрпримеры": "`chmod 755 <script>`; `chmod 600 <private-key>`; `chown -R $USER:$USER ./node_modules`.",
+        "По умолчанию": "modify (777→755/644/600) / medium; на `/` и системных путях — deny / critical."
+      },
+      "text": "**CAT-4.2 Insecure Permissive Permissions** `[PDF]`\n\n* **Определение:** выдача чрезмерно широких прав (запись/исполнение для всех) на файлы или каталоги, особенно рекурсивно или на системные пути.  \n* **Не путать с:** сужением прав (контрпример).  \n* **Шаблоны:** `chmod -R 777` по `/` или широкому пути; `chmod 777 <config>`; `chmod 666 <private-key>`; `chown -R` на системный путь; `umask 000`.  \n* **Контрпримеры:** `chmod 755 <script>`; `chmod 600 <private-key>`; `chown -R $USER:$USER ./node_modules`.  \n* **По умолчанию:** modify (777→755/644/600) / medium; на `/` и системных путях — deny / critical.",
+      "conditions": "Use definition and exclusions; defaults are conditional, never sole evidence."
+    },
+    {
+      "id": "CAT-4.3",
+      "title": "GTFOBins Privilege Escalation",
+      "status": "active",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 182,
+        "line_end": 189
+      },
+      "fields": {
+        "Определение": "запуск легитимной утилиты через `sudo` с встроенным вызовом шелла для обхода списка разрешённых sudo-команд.",
+        "Не путать с": "`find -exec`/`awk` без `sudo` и без вызова шелла → контрпример.",
+        "Шаблоны": "`sudo <editor>` с escape в шелл; `sudo find ... -exec <shell>`; `sudo awk 'BEGIN{system(...)}'`; `sudo <interpreter> -c <spawn-shell>`.",
+        "Контрпримеры": "`sudo vim <config>` (правка файла); `find ... -exec wc -l {} \\;`.",
+        "По умолчанию": "deny / critical."
+      },
+      "text": "**CAT-4.3 GTFOBins Privilege Escalation** `[PDF]`\n\n* **Определение:** запуск легитимной утилиты через `sudo` с встроенным вызовом шелла для обхода списка разрешённых sudo-команд.  \n* **Не путать с:** `find -exec`/`awk` без `sudo` и без вызова шелла → контрпример.  \n* **Шаблоны:** `sudo <editor>` с escape в шелл; `sudo find ... -exec <shell>`; `sudo awk 'BEGIN{system(...)}'`; `sudo <interpreter> -c <spawn-shell>`.  \n* **Контрпримеры:** `sudo vim <config>` (правка файла); `find ... -exec wc -l {} \\;`.  \n* **По умолчанию:** deny / critical.",
+      "conditions": "Use definition and exclusions; defaults are conditional, never sole evidence."
+    },
+    {
+      "id": "CAT-4.4",
+      "title": "Sudoers & Credential Tampering",
+      "status": "active",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 190,
+        "line_end": 197
+      },
+      "fields": {
+        "Определение": "модификация `/etc/sudoers` (напр. `NOPASSWD`), системных паролей или создание привилегированных учёток/UID 0\\.",
+        "Не путать с": "интерактивной сменой **своего** пароля пользователем → контрпример; добавлением ssh-ключа → 8.3.",
+        "Шаблоны": "добавление `NOPASSWD` в sudoers; `chpasswd`/`passwd root`; `useradd` с `-u 0`; добавление пользователя в группу sudo.",
+        "Контрпримеры": "`sudo -l`; `visudo -c` (проверка синтаксиса); `getent group sudo`.",
+        "По умолчанию": "deny / critical."
+      },
+      "text": "**CAT-4.4 Sudoers & Credential Tampering** `[PDF]`\n\n* **Определение:** модификация `/etc/sudoers` (напр. `NOPASSWD`), системных паролей или создание привилегированных учёток/UID 0\\.  \n* **Не путать с:** интерактивной сменой **своего** пароля пользователем → контрпример; добавлением ssh-ключа → 8.3.  \n* **Шаблоны:** добавление `NOPASSWD` в sudoers; `chpasswd`/`passwd root`; `useradd` с `-u 0`; добавление пользователя в группу sudo.  \n* **Контрпримеры:** `sudo -l`; `visudo -c` (проверка синтаксиса); `getent group sudo`.  \n* **По умолчанию:** deny / critical.",
+      "conditions": "Use definition and exclusions; defaults are conditional, never sole evidence."
+    },
+    {
+      "id": "CAT-4.5",
+      "title": "Secret & Credential Reading",
+      "status": "active",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 198,
+        "line_end": 207
+      },
+      "fields": {
+        "Определение": "чтение/вывод значений секретов и учётных данных (ключи, токены, пароли, хеши) локально, без немедленной передачи наружу.",
+        "Не путать с": "передачей секретов на внешний endpoint → 5.3; эксфильтрацией по сети → CAT-5.",
+        "Шаблоны": "чтение `~/.aws/credentials`, `~/.ssh/id_*`, `/etc/shadow`, `.env`, `~/.kube/config`; `env`/`printenv` с секретами в выводе.",
+        "Контрпримеры": "`cat .env.example`; `ssh-keygen -y` для своей пары по запросу пользователя; чтение публичного ключа.",
+        "По умолчанию": "ask / high; `/etc/shadow`, приватные ключи — deny."
+      },
+      "text": "**CAT-4.5 Secret & Credential Reading**\n\n* **Определение:** чтение/вывод значений секретов и учётных данных (ключи, токены, пароли, хеши) локально, без немедленной передачи наружу.  \n* **Не путать с:** передачей секретов на внешний endpoint → 5.3; эксфильтрацией по сети → CAT-5.  \n* **Шаблоны:** чтение `~/.aws/credentials`, `~/.ssh/id_*`, `/etc/shadow`, `.env`, `~/.kube/config`; `env`/`printenv` с секретами в выводе.  \n* **Контрпримеры:** `cat .env.example`; `ssh-keygen -y` для своей пары по запросу пользователя; чтение публичного ключа.  \n* **По умолчанию:** ask / high; `/etc/shadow`, приватные ключи — deny.\n\n---",
+      "conditions": "Use definition and exclusions; defaults are conditional, never sole evidence."
+    },
+    {
+      "id": "CAT-5.1",
+      "title": "Pipe Remote Script to Shell (RCE)",
+      "status": "active",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 210,
+        "line_end": 217
+      },
+      "fields": {
+        "Определение": "скачивание скрипта из сети и немедленная передача его в интерпретатор без сохранения и проверки.",
+        "Не путать с": "скачиванием в файл с последующим просмотром/проверкой → контрпример; закодированной локальной нагрузкой → 6.1.",
+        "Шаблоны": "`curl <url> | bash`; `wget -qO- <url> | sh`; `bash <(curl ... <url>)`; `<interpreter> -c` с чтением и исполнением URL.",
+        "Контрпримеры": "`curl <url> -o install.sh` \\+ просмотр; скачивание с проверкой контрольной суммы/подписи.",
+        "По умолчанию": "deny / critical (неизвестный домен); defer, если скрипт можно скачать и проверить; доверенные официальные установщики — ask."
+      },
+      "text": "**CAT-5.1 Pipe Remote Script to Shell (RCE)** `[PDF]`\n\n* **Определение:** скачивание скрипта из сети и немедленная передача его в интерпретатор без сохранения и проверки.  \n* **Не путать с:** скачиванием в файл с последующим просмотром/проверкой → контрпример; закодированной локальной нагрузкой → 6.1.  \n* **Шаблоны:** `curl <url> | bash`; `wget -qO- <url> | sh`; `bash <(curl ... <url>)`; `<interpreter> -c` с чтением и исполнением URL.  \n* **Контрпримеры:** `curl <url> -o install.sh` \\+ просмотр; скачивание с проверкой контрольной суммы/подписи.  \n* **По умолчанию:** deny / critical (неизвестный домен); defer, если скрипт можно скачать и проверить; доверенные официальные установщики — ask.",
+      "conditions": "Use definition and exclusions; defaults are conditional, never sole evidence."
+    },
+    {
+      "id": "CAT-5.2",
+      "title": "Interactive Reverse Shell",
+      "status": "active",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 218,
+        "line_end": 225
+      },
+      "fields": {
+        "Определение": "открытие обратного сокета к внешнему хосту для удалённого управления машиной.",
+        "Не путать с": "проверкой доступности порта → контрпример; туннелем → 5.4.",
+        "Шаблоны": "`bash`/`sh` с перенаправлением на `/dev/tcp/<host>/<port>`; `nc` с запуском шелла; `socat` с pty к `<host>:<port>`; `<interpreter>` reverse-shell к `<host>:<port>`.",
+        "Контрпримеры": "`nc -zv <host> <port>` (проверка порта); `curl -I <url>`; `ssh <user>@<host> 'uptime'`.",
+        "По умолчанию": "deny / critical."
+      },
+      "text": "**CAT-5.2 Interactive Reverse Shell** `[PDF]`\n\n* **Определение:** открытие обратного сокета к внешнему хосту для удалённого управления машиной.  \n* **Не путать с:** проверкой доступности порта → контрпример; туннелем → 5.4.  \n* **Шаблоны:** `bash`/`sh` с перенаправлением на `/dev/tcp/<host>/<port>`; `nc` с запуском шелла; `socat` с pty к `<host>:<port>`; `<interpreter>` reverse-shell к `<host>:<port>`.  \n* **Контрпримеры:** `nc -zv <host> <port>` (проверка порта); `curl -I <url>`; `ssh <user>@<host> 'uptime'`.  \n* **По умолчанию:** deny / critical.",
+      "conditions": "Use definition and exclusions; defaults are conditional, never sole evidence."
+    },
+    {
+      "id": "CAT-5.3",
+      "title": "Sensitive File Exfiltration",
+      "status": "active",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 226,
+        "line_end": 233
+      },
+      "fields": {
+        "Определение": "передача приватных ключей, паролей, токенов или чувствительных данных на внешний endpoint, в т.ч. загрузка на файлообменники и DNS-эксфильтрация.",
+        "Не путать с": "локальным чтением секретов без передачи → 4.5; закодированной доставкой → 6.1.",
+        "Шаблоны": "`curl`/`wget` с телом из `<secret-file>` на `<external-url>`; загрузка на pastebin/transfer.sh; `<secret> | nc <host> <port>`; DNS-запрос с закодированным секретом в имени; `scp <secret> <attacker>`.",
+        "Контрпримеры": "загрузка неконфиденциального файла на разрешённый корпоративный endpoint; `cat .env.example`; `scp <build-artifact> <staging>`.",
+        "По умолчанию": "deny / critical."
+      },
+      "text": "**CAT-5.3 Sensitive File Exfiltration**\n\n* **Определение:** передача приватных ключей, паролей, токенов или чувствительных данных на внешний endpoint, в т.ч. загрузка на файлообменники и DNS-эксфильтрация.  \n* **Не путать с:** локальным чтением секретов без передачи → 4.5; закодированной доставкой → 6.1.  \n* **Шаблоны:** `curl`/`wget` с телом из `<secret-file>` на `<external-url>`; загрузка на pastebin/transfer.sh; `<secret> | nc <host> <port>`; DNS-запрос с закодированным секретом в имени; `scp <secret> <attacker>`.  \n* **Контрпримеры:** загрузка неконфиденциального файла на разрешённый корпоративный endpoint; `cat .env.example`; `scp <build-artifact> <staging>`.  \n* **По умолчанию:** deny / critical.",
+      "conditions": "Use definition and exclusions; defaults are conditional, never sole evidence."
+    },
+    {
+      "id": "CAT-5.4",
+      "title": "Unauthorized Tunneling",
+      "status": "active",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 234,
+        "line_end": 241
+      },
+      "fields": {
+        "Определение": "поднятие скрытого сетевого туннеля, открывающего внешний доступ во внутреннюю сеть.",
+        "Не путать с": "локальным форвардом через корпоративный бастион → контрпример; reverse shell → 5.2.",
+        "Шаблоны": "`ngrok http/tcp <port>`; `cloudflared tunnel --url <internal>`; `ssh -R <...>`; `chisel`/`frpc` к внешнему серверу.",
+        "Контрпримеры": "`ssh -L <...>` через корпоративный бастион; `kubectl port-forward` на localhost.",
+        "По умолчанию": "ask / high; туннель к внутренним БД/SSH — deny / critical."
+      },
+      "text": "**CAT-5.4 Unauthorized Tunneling**\n\n* **Определение:** поднятие скрытого сетевого туннеля, открывающего внешний доступ во внутреннюю сеть.  \n* **Не путать с:** локальным форвардом через корпоративный бастион → контрпример; reverse shell → 5.2.  \n* **Шаблоны:** `ngrok http/tcp <port>`; `cloudflared tunnel --url <internal>`; `ssh -R <...>`; `chisel`/`frpc` к внешнему серверу.  \n* **Контрпримеры:** `ssh -L <...>` через корпоративный бастион; `kubectl port-forward` на localhost.  \n* **По умолчанию:** ask / high; туннель к внутренним БД/SSH — deny / critical.",
+      "conditions": "Use definition and exclusions; defaults are conditional, never sole evidence."
+    },
+    {
+      "id": "CAT-5.5",
+      "title": "Network Reconnaissance",
+      "status": "active",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 242,
+        "line_end": 251
+      },
+      "fields": {
+        "Определение": "сканирование портов/хостов или перечисление внутренней сети, выходящее за рамки проверки одного ожидаемого сервиса.",
+        "Не путать с": "проверкой доступности одного известного порта → контрпример; туннелем → 5.4.",
+        "Шаблоны": "`nmap` по подсети/диапазону; массовый `nc -z` по диапазону; перечисление хостов во внутренней сети.",
+        "Контрпримеры": "`nc -zv <known-host> <port>`; `curl -I <known-url>`; `ping <known-host>`.",
+        "По умолчанию": "ask / medium; широкое сканирование внутренней сети — deny / high."
+      },
+      "text": "**CAT-5.5 Network Reconnaissance**\n\n* **Определение:** сканирование портов/хостов или перечисление внутренней сети, выходящее за рамки проверки одного ожидаемого сервиса.  \n* **Не путать с:** проверкой доступности одного известного порта → контрпример; туннелем → 5.4.  \n* **Шаблоны:** `nmap` по подсети/диапазону; массовый `nc -z` по диапазону; перечисление хостов во внутренней сети.  \n* **Контрпримеры:** `nc -zv <known-host> <port>`; `curl -I <known-url>`; `ping <known-host>`.  \n* **По умолчанию:** ask / medium; широкое сканирование внутренней сети — deny / high.\n\n---",
+      "conditions": "Use definition and exclusions; defaults are conditional, never sole evidence."
+    },
+    {
+      "id": "CAT-6.1",
+      "title": "Encoded Payload Pipe",
+      "status": "active",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 254,
+        "line_end": 261
+      },
+      "fields": {
+        "Определение": "передача закодированной строки (Base64, Hex, URL-encode, реверс) в интерпретатор shell, так что видимый текст команды не раскрывает действие.",
+        "Не путать с": "декодированием в файл без исполнения → контрпример; скачиванием из сети → 5.1.",
+        "Шаблоны": "`echo <base64> | base64 -d | sh`; `<hex> | xxd -r -p | sh`; `eval \"$(... | base64 -d)\"`; `<interpreter>` с `exec`/`eval` над декодированной строкой.",
+        "Контрпримеры": "`echo <base64> | base64 -d` (вывод без исполнения); `base64 <file> > out.b64`.",
+        "По умолчанию": "defer (раскодировать и оценить) / severity по раскодированной команде; заведомо опасная — deny. Обфускацию в поле `command` **не чистим**."
+      },
+      "text": "**CAT-6.1 Encoded Payload Pipe** `[PDF]`\n\n* **Определение:** передача закодированной строки (Base64, Hex, URL-encode, реверс) в интерпретатор shell, так что видимый текст команды не раскрывает действие.  \n* **Не путать с:** декодированием в файл без исполнения → контрпример; скачиванием из сети → 5.1.  \n* **Шаблоны:** `echo <base64> | base64 -d | sh`; `<hex> | xxd -r -p | sh`; `eval \"$(... | base64 -d)\"`; `<interpreter>` с `exec`/`eval` над декодированной строкой.  \n* **Контрпримеры:** `echo <base64> | base64 -d` (вывод без исполнения); `base64 <file> > out.b64`.  \n* **По умолчанию:** defer (раскодировать и оценить) / severity по раскодированной команде; заведомо опасная — deny. Обфускацию в поле `command` **не чистим**.",
+      "conditions": "Use definition and exclusions; defaults are conditional, never sole evidence."
+    },
+    {
+      "id": "CAT-6.2",
+      "title": "Variable Concatenation & Indirection",
+      "status": "active",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 262,
+        "line_end": 269
+      },
+      "fields": {
+        "Определение": "сборка опасной команды из переменных, подстановок, кавычек или экранирования для обхода строковых фильтров.",
+        "Не путать с": "обычным использованием переменных для путей сборки → контрпример.",
+        "Шаблоны": "сборка имени утилиты из переменных (`$a$b`); массив с опасной командой и его разворачивание; вставка пустых кавычек/escape в имя команды; `eval` над собранной строкой.",
+        "Контрпримеры": "`DIR=./build; rm -rf \"$DIR\"`; `CMD=\"pytest -q\"; $CMD`.",
+        "По умолчанию": "defer (раскрыть подстановки) / severity по итоговой команде; заведомо опасная — deny."
+      },
+      "text": "**CAT-6.2 Variable Concatenation & Indirection** `[PDF]`\n\n* **Определение:** сборка опасной команды из переменных, подстановок, кавычек или экранирования для обхода строковых фильтров.  \n* **Не путать с:** обычным использованием переменных для путей сборки → контрпример.  \n* **Шаблоны:** сборка имени утилиты из переменных (`$a$b`); массив с опасной командой и его разворачивание; вставка пустых кавычек/escape в имя команды; `eval` над собранной строкой.  \n* **Контрпримеры:** `DIR=./build; rm -rf \"$DIR\"`; `CMD=\"pytest -q\"; $CMD`.  \n* **По умолчанию:** defer (раскрыть подстановки) / severity по итоговой команде; заведомо опасная — deny.",
+      "conditions": "Use definition and exclusions; defaults are conditional, never sole evidence."
+    },
+    {
+      "id": "CAT-6.3",
+      "title": "Audit & History Erasure",
+      "status": "active",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 270,
+        "line_end": 277
+      },
+      "fields": {
+        "Определение": "очистка истории shell и системных журналов для сокрытия выполненных действий.",
+        "Не путать с": "удалением логов приложения в рабочей директории → контрпример; отключением (не очисткой) защит → 6.4.",
+        "Шаблоны": "`history -c`; удаление/обнуление `~/.bash_history`; `journalctl --vacuum-time`; удаление/обнуление `/var/log/*`; `auditctl -D`.",
+        "Контрпримеры": "`history | tail`; `journalctl -u <svc> --since today`; удаление `./logs/*.log` приложения.",
+        "По умолчанию": "deny / high."
+      },
+      "text": "**CAT-6.3 Audit & History Erasure**\n\n* **Определение:** очистка истории shell и системных журналов для сокрытия выполненных действий.  \n* **Не путать с:** удалением логов приложения в рабочей директории → контрпример; отключением (не очисткой) защит → 6.4.  \n* **Шаблоны:** `history -c`; удаление/обнуление `~/.bash_history`; `journalctl --vacuum-time`; удаление/обнуление `/var/log/*`; `auditctl -D`.  \n* **Контрпримеры:** `history | tail`; `journalctl -u <svc> --since today`; удаление `./logs/*.log` приложения.  \n* **По умолчанию:** deny / high.",
+      "conditions": "Use definition and exclusions; defaults are conditional, never sole evidence."
+    },
+    {
+      "id": "CAT-6.4",
+      "title": "Shell Security Disabling",
+      "status": "active",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 278,
+        "line_end": 285
+      },
+      "fields": {
+        "Определение": "отключение записи истории, защитных флагов shell или механизмов безопасности ОС/агента.",
+        "Не путать с": "включением строгого режима (контрпример); очисткой логов → 6.3.",
+        "Шаблоны": "`unset HISTFILE` / `set +o history`; `set +e` / `set +u` в скрипте с деструктивными шагами; `setenforce 0`; остановка `auditd`/EDR; `ufw disable`.",
+        "Контрпримеры": "`set -euo pipefail`; `set -x`; `ufw status`.",
+        "По умолчанию": "deny / high (аудит и защиты ОС); ask / medium (`set +e`/`set +u`)."
+      },
+      "text": "**CAT-6.4 Shell Security Disabling**\n\n* **Определение:** отключение записи истории, защитных флагов shell или механизмов безопасности ОС/агента.  \n* **Не путать с:** включением строгого режима (контрпример); очисткой логов → 6.3.  \n* **Шаблоны:** `unset HISTFILE` / `set +o history`; `set +e` / `set +u` в скрипте с деструктивными шагами; `setenforce 0`; остановка `auditd`/EDR; `ufw disable`.  \n* **Контрпримеры:** `set -euo pipefail`; `set -x`; `ufw status`.  \n* **По умолчанию:** deny / high (аудит и защиты ОС); ask / medium (`set +e`/`set +u`).",
+      "conditions": "Use definition and exclusions; defaults are conditional, never sole evidence."
+    },
+    {
+      "id": "CAT-6.5",
+      "title": "Trusted Anchor Tampering",
+      "status": "active",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 286,
+        "line_end": 295
+      },
+      "fields": {
+        "Определение": "подмена якорей доверия и корректности: `/etc/hosts`, CA-хранилище, системное время/NTP.",
+        "Не путать с": "обычной перезаписью конфига → 1.4 (здесь цель — сломать проверки подлинности/логов).",
+        "Шаблоны": "добавление записи в `/etc/hosts`; установка недоверенного CA в системное хранилище; сдвиг системного времени/отключение NTP.",
+        "Контрпримеры": "`cat /etc/hosts`; `timedatectl status`; просмотр списка CA.",
+        "По умолчанию": "deny / high."
+      },
+      "text": "**CAT-6.5 Trusted Anchor Tampering**\n\n* **Определение:** подмена якорей доверия и корректности: `/etc/hosts`, CA-хранилище, системное время/NTP.  \n* **Не путать с:** обычной перезаписью конфига → 1.4 (здесь цель — сломать проверки подлинности/логов).  \n* **Шаблоны:** добавление записи в `/etc/hosts`; установка недоверенного CA в системное хранилище; сдвиг системного времени/отключение NTP.  \n* **Контрпримеры:** `cat /etc/hosts`; `timedatectl status`; просмотр списка CA.  \n* **По умолчанию:** deny / high.\n\n---",
+      "conditions": "Use definition and exclusions; defaults are conditional, never sole evidence."
+    },
+    {
+      "id": "CAT-7.1",
+      "title": "Process Fork-Bomb",
+      "status": "active",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 298,
+        "line_end": 305
+      },
+      "fields": {
+        "Определение": "лавинообразное порождение подпроцессов, исчерпывающее таблицу процессов и подвешивающее хост.",
+        "Не путать с": "ограниченным параллелизмом (`make -j`, `xargs -P N`) → контрпример.",
+        "Шаблоны": "рекурсивная функция, порождающая себя дважды в фоне; бесконечный цикл с запуском процессов в фоне; `fork` в цикле в интерпретаторе.",
+        "Контрпримеры": "`make -j$(nproc)`; `xargs -P 4`; `parallel -j 8`.",
+        "По умолчанию": "deny / critical."
+      },
+      "text": "**CAT-7.1 Process Fork-Bomb** `[PDF]`\n\n* **Определение:** лавинообразное порождение подпроцессов, исчерпывающее таблицу процессов и подвешивающее хост.  \n* **Не путать с:** ограниченным параллелизмом (`make -j`, `xargs -P N`) → контрпример.  \n* **Шаблоны:** рекурсивная функция, порождающая себя дважды в фоне; бесконечный цикл с запуском процессов в фоне; `fork` в цикле в интерпретаторе.  \n* **Контрпримеры:** `make -j$(nproc)`; `xargs -P 4`; `parallel -j 8`.  \n* **По умолчанию:** deny / critical.",
+      "conditions": "Use definition and exclusions; defaults are conditional, never sole evidence."
+    },
+    {
+      "id": "CAT-7.2",
+      "title": "Disk Space Exhaustion",
+      "status": "active",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 306,
+        "line_end": 313
+      },
+      "fields": {
+        "Определение": "генерация огромных файлов или распаковка zip-bomb для переполнения диска.",
+        "Не путать с": "путь-traversal при распаковке → 1.5; ограниченным тестовым файлом → контрпример.",
+        "Шаблоны": "`dd` без `count` в файл; `fallocate -l <огромный-размер>`; `yes > <file>`; распаковка zip-bomb.",
+        "Контрпримеры": "`dd ... count=10`; `fallocate -l 100M ./test.bin`; `df -h`.",
+        "По умолчанию": "modify (добавить лимит/`count`) / high."
+      },
+      "text": "**CAT-7.2 Disk Space Exhaustion** `[PDF; поглощает старое «zip-bomb»]`\n\n* **Определение:** генерация огромных файлов или распаковка zip-bomb для переполнения диска.  \n* **Не путать с:** путь-traversal при распаковке → 1.5; ограниченным тестовым файлом → контрпример.  \n* **Шаблоны:** `dd` без `count` в файл; `fallocate -l <огромный-размер>`; `yes > <file>`; распаковка zip-bomb.  \n* **Контрпримеры:** `dd ... count=10`; `fallocate -l 100M ./test.bin`; `df -h`.  \n* **По умолчанию:** modify (добавить лимит/`count`) / high.",
+      "conditions": "Use definition and exclusions; defaults are conditional, never sole evidence."
+    },
+    {
+      "id": "CAT-7.3",
+      "title": "Inode & File Descriptor Exhaustion",
+      "status": "active",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 314,
+        "line_end": 321
+      },
+      "fields": {
+        "Определение": "создание миллионов мелких файлов или утечка дескрипторов, блокирующие создание новых файлов.",
+        "Не путать с": "разумной генерацией фикстур → контрпример.",
+        "Шаблоны": "цикл `touch` на очень большом диапазоне; бесконечный `mktemp`; открытие дескрипторов в цикле без закрытия.",
+        "Контрпримеры": "`for i in $(seq 1 10); do touch test_$i.txt; done`; `df -i`.",
+        "По умолчанию": "deny / high; при разумной границе — ask."
+      },
+      "text": "**CAT-7.3 Inode & File Descriptor Exhaustion** `[PDF]`\n\n* **Определение:** создание миллионов мелких файлов или утечка дескрипторов, блокирующие создание новых файлов.  \n* **Не путать с:** разумной генерацией фикстур → контрпример.  \n* **Шаблоны:** цикл `touch` на очень большом диапазоне; бесконечный `mktemp`; открытие дескрипторов в цикле без закрытия.  \n* **Контрпримеры:** `for i in $(seq 1 10); do touch test_$i.txt; done`; `df -i`.  \n* **По умолчанию:** deny / high; при разумной границе — ask.",
+      "conditions": "Use definition and exclusions; defaults are conditional, never sole evidence."
+    },
+    {
+      "id": "CAT-7.4",
+      "title": "Indefinite CPU/Memory Locking",
+      "status": "active",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 322,
+        "line_end": 329
+      },
+      "fields": {
+        "Определение": "фоновые бесконечные циклы вычислений или аллокаций без таймаута и лимитов.",
+        "Не путать с": "долгоживущими dev-серверами и вотчерами → контрпример.",
+        "Шаблоны": "бесконечный цикл в фоне; `stress` с высоким параллелизмом/памятью без `--timeout`; бесконечная аллокация памяти в интерпретаторе.",
+        "Контрпримеры": "`timeout 30s <stress>`; `stress --cpu 2 --timeout 10s`; `npm run dev`.",
+        "По умолчанию": "modify (добавить `timeout`/лимиты) / medium; бесцельные фоновые циклы — deny / high."
+      },
+      "text": "**CAT-7.4 Indefinite CPU/Memory Locking** `[PDF]`\n\n* **Определение:** фоновые бесконечные циклы вычислений или аллокаций без таймаута и лимитов.  \n* **Не путать с:** долгоживущими dev-серверами и вотчерами → контрпример.  \n* **Шаблоны:** бесконечный цикл в фоне; `stress` с высоким параллелизмом/памятью без `--timeout`; бесконечная аллокация памяти в интерпретаторе.  \n* **Контрпримеры:** `timeout 30s <stress>`; `stress --cpu 2 --timeout 10s`; `npm run dev`.  \n* **По умолчанию:** modify (добавить `timeout`/лимиты) / medium; бесцельные фоновые циклы — deny / high.",
+      "conditions": "Use definition and exclusions; defaults are conditional, never sole evidence."
+    },
+    {
+      "id": "CAT-7.5",
+      "title": "Mass Process Kill & System Halt",
+      "status": "active",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 330,
+        "line_end": 339
+      },
+      "fields": {
+        "Определение": "массовое снятие процессов без указания конкретного PID или остановка/перезагрузка системы.",
+        "Не путать с": "снятием одного процесса по PID/имени → контрпример; fork-bomb → 7.1.",
+        "Шаблоны": "`kill -9 -1`; `pkill`/`killall` по широкому критерию; `kill` по всем PID; `shutdown`/`reboot`/`halt`; `pkill -u <другой-пользователь>`.",
+        "Контрпримеры": "`kill <pid>`; `pkill -f <конкретный-процесс>`; `systemctl restart <svc>`.",
+        "По умолчанию": "ask / high; `-1`/широкий критерий/halt на общем хосте — deny / critical."
+      },
+      "text": "**CAT-7.5 Mass Process Kill & System Halt**\n\n* **Определение:** массовое снятие процессов без указания конкретного PID или остановка/перезагрузка системы.  \n* **Не путать с:** снятием одного процесса по PID/имени → контрпример; fork-bomb → 7.1.  \n* **Шаблоны:** `kill -9 -1`; `pkill`/`killall` по широкому критерию; `kill` по всем PID; `shutdown`/`reboot`/`halt`; `pkill -u <другой-пользователь>`.  \n* **Контрпримеры:** `kill <pid>`; `pkill -f <конкретный-процесс>`; `systemctl restart <svc>`.  \n* **По умолчанию:** ask / high; `-1`/широкий критерий/halt на общем хосте — deny / critical.\n\n---",
+      "conditions": "Use definition and exclusions; defaults are conditional, never sole evidence."
+    },
+    {
+      "id": "CAT-8.1",
+      "title": "Scheduled Task & Service Backdoor",
+      "status": "active",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 342,
+        "line_end": 349
+      },
+      "fields": {
+        "Определение": "создание фоновой точки закрепления через планировщики и сервисы (cron, at, systemd unit/timer).",
+        "Не путать с": "разовым запуском задачи → CAT-0; правкой профиля → 8.2.",
+        "Шаблоны": "добавление записи в crontab/`/etc/cron.*`; `at` с автозапуском; создание и включение systemd unit/timer, запускающего внешний код.",
+        "Контрпримеры": "`crontab -l`; `systemctl status <svc>`; просмотр таймеров.",
+        "По умолчанию": "ask / high; запуск недоверенного/внешнего кода — deny."
+      },
+      "text": "**CAT-8.1 Scheduled Task & Service Backdoor**\n\n* **Определение:** создание фоновой точки закрепления через планировщики и сервисы (cron, at, systemd unit/timer).  \n* **Не путать с:** разовым запуском задачи → CAT-0; правкой профиля → 8.2.  \n* **Шаблоны:** добавление записи в crontab/`/etc/cron.*`; `at` с автозапуском; создание и включение systemd unit/timer, запускающего внешний код.  \n* **Контрпримеры:** `crontab -l`; `systemctl status <svc>`; просмотр таймеров.  \n* **По умолчанию:** ask / high; запуск недоверенного/внешнего кода — deny.",
+      "conditions": "Use definition and exclusions; defaults are conditional, never sole evidence."
+    },
+    {
+      "id": "CAT-8.2",
+      "title": "Shell Profile / RC Injection",
+      "status": "active",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 350,
+        "line_end": 357
+      },
+      "fields": {
+        "Определение": "**добавление** автозапускаемого кода в профиль или rc-файлы (`~/.bashrc`, `~/.zshrc`, `~/.profile`, `/etc/profile.d/*`).",
+        "Не путать с": "перезаписью/обнулением конфига → 1.4.",
+        "Шаблоны": "дозапись (`>>`) команды/вызова внешнего скрипта в профиль; создание файла в `/etc/profile.d/`.",
+        "Контрпримеры": "дозапись переменной окружения (`export PATH=...`) в профиль по задаче пользователя.",
+        "По умолчанию": "ask / high; вызов внешнего/недоверенного кода — deny."
+      },
+      "text": "**CAT-8.2 Shell Profile / RC Injection**\n\n* **Определение:** **добавление** автозапускаемого кода в профиль или rc-файлы (`~/.bashrc`, `~/.zshrc`, `~/.profile`, `/etc/profile.d/*`).  \n* **Не путать с:** перезаписью/обнулением конфига → 1.4.  \n* **Шаблоны:** дозапись (`>>`) команды/вызова внешнего скрипта в профиль; создание файла в `/etc/profile.d/`.  \n* **Контрпримеры:** дозапись переменной окружения (`export PATH=...`) в профиль по задаче пользователя.  \n* **По умолчанию:** ask / high; вызов внешнего/недоверенного кода — deny.",
+      "conditions": "Use definition and exclusions; defaults are conditional, never sole evidence."
+    },
+    {
+      "id": "CAT-8.3",
+      "title": "SSH Trust & Key Addition",
+      "status": "active",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 358,
+        "line_end": 367
+      },
+      "fields": {
+        "Определение": "добавление ключа/доступа в `~/.ssh/authorized_keys` или правка `~/.ssh/config` для постоянного доступа.",
+        "Не путать с": "чтением ключей → 4.5; правкой sudoers → 4.4.",
+        "Шаблоны": "дозапись публичного ключа в `authorized_keys`; добавление доверенного хоста/проброса в ssh config.",
+        "Контрпримеры": "`ssh-keygen` для своей пары по запросу; `cat ~/.ssh/known_hosts`.",
+        "По умолчанию": "ask / high; чужой/неизвестный ключ — deny."
+      },
+      "text": "**CAT-8.3 SSH Trust & Key Addition**\n\n* **Определение:** добавление ключа/доступа в `~/.ssh/authorized_keys` или правка `~/.ssh/config` для постоянного доступа.  \n* **Не путать с:** чтением ключей → 4.5; правкой sudoers → 4.4.  \n* **Шаблоны:** дозапись публичного ключа в `authorized_keys`; добавление доверенного хоста/проброса в ssh config.  \n* **Контрпримеры:** `ssh-keygen` для своей пары по запросу; `cat ~/.ssh/known_hosts`.  \n* **По умолчанию:** ask / high; чужой/неизвестный ключ — deny.\n\n---",
+      "conditions": "Use definition and exclusions; defaults are conditional, never sole evidence."
+    },
+    {
+      "id": "CAT-9.1",
+      "title": "Untrusted Dependency Install",
+      "status": "active",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 370,
+        "line_end": 377
+      },
+      "fields": {
+        "Определение": "установка пакетов из недоверенного источника, с произвольного URL/VCS или с автозапуском постустановочных скриптов из непроверенного источника.",
+        "Не путать с": "исполнением скачанного скрипта шеллом → 5.1.",
+        "Шаблоны": "`pip install` с `--index-url` на недоверенный репозиторий или прямо из git/URL; `npm install` из произвольного git/URL; установка с недоверенного зеркала.",
+        "Контрпримеры": "`pip install -r requirements.txt` из официального индекса; `npm ci` с lock-файлом.",
+        "По умолчанию": "ask / high."
+      },
+      "text": "**CAT-9.1 Untrusted Dependency Install**\n\n* **Определение:** установка пакетов из недоверенного источника, с произвольного URL/VCS или с автозапуском постустановочных скриптов из непроверенного источника.  \n* **Не путать с:** исполнением скачанного скрипта шеллом → 5.1.  \n* **Шаблоны:** `pip install` с `--index-url` на недоверенный репозиторий или прямо из git/URL; `npm install` из произвольного git/URL; установка с недоверенного зеркала.  \n* **Контрпримеры:** `pip install -r requirements.txt` из официального индекса; `npm ci` с lock-файлом.  \n* **По умолчанию:** ask / high.",
+      "conditions": "Use definition and exclusions; defaults are conditional, never sole evidence."
+    },
+    {
+      "id": "CAT-9.2",
+      "title": "System Environment Breakage",
+      "status": "active",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 378,
+        "line_end": 385
+      },
+      "fields": {
+        "Определение": "изменение системного интерпретатора/менеджера пакетов опасным флагом, ломающее управляемое окружение (риск «изменение system's Python/Node/Homebrew environments»).",
+        "Не путать с": "установкой в виртуальное окружение → контрпример.",
+        "Шаблоны": "`pip install ... --break-system-packages`; установка в системный Python от root; принудительная перезапись системных пакетов.",
+        "Контрпримеры": "установка в venv/virtualenv; `pipx install`; `npm install` локально в проект.",
+        "По умолчанию": "modify (убрать опасный флаг / поставить в venv) / medium."
+      },
+      "text": "**CAT-9.2 System Environment Breakage**\n\n* **Определение:** изменение системного интерпретатора/менеджера пакетов опасным флагом, ломающее управляемое окружение (риск «изменение system's Python/Node/Homebrew environments»).  \n* **Не путать с:** установкой в виртуальное окружение → контрпример.  \n* **Шаблоны:** `pip install ... --break-system-packages`; установка в системный Python от root; принудительная перезапись системных пакетов.  \n* **Контрпримеры:** установка в venv/virtualenv; `pipx install`; `npm install` локально в проект.  \n* **По умолчанию:** modify (убрать опасный флаг / поставить в venv) / medium.",
+      "conditions": "Use definition and exclusions; defaults are conditional, never sole evidence."
+    },
+    {
+      "id": "CAT-9.3",
+      "title": "Integrity Check Disabling",
+      "status": "active",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 386,
+        "line_end": 393
+      },
+      "fields": {
+        "Определение": "отключение проверки подписей/контрольных сумм при установке или сборке.",
+        "Не путать с": "обычной установкой с проверками → контрпример.",
+        "Шаблоны": "установка с отключённой проверкой TLS/подписи; `--allow-unauthenticated`/`--no-check-certificate`; отключение верификации в пакетном менеджере.",
+        "Контрпримеры": "установка с проверкой подписи/суммы; `sha256sum -c`.",
+        "По умолчанию": "modify / high."
+      },
+      "text": "**CAT-9.3 Integrity Check Disabling**\n\n* **Определение:** отключение проверки подписей/контрольных сумм при установке или сборке.  \n* **Не путать с:** обычной установкой с проверками → контрпример.  \n* **Шаблоны:** установка с отключённой проверкой TLS/подписи; `--allow-unauthenticated`/`--no-check-certificate`; отключение верификации в пакетном менеджере.  \n* **Контрпримеры:** установка с проверкой подписи/суммы; `sha256sum -c`.  \n* **По умолчанию:** modify / high.",
+      "conditions": "Use definition and exclusions; defaults are conditional, never sole evidence."
+    },
+    {
+      "id": "CAT-9.4",
+      "title": "Multi-User / Shared System Impact",
+      "status": "active",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 394,
+        "line_end": 403
+      },
+      "fields": {
+        "Определение": "действия, затрагивающие других пользователей общей машины или общие ресурсы.",
+        "Не путать с": "снятием чужих процессов → 7.5; выдачей широких прав → 4.2.",
+        "Шаблоны": "запись в чужой домашний каталог; изменение общих ресурсов/каталогов; операции под другим пользователем без основания.",
+        "Контрпримеры": "работа в собственном каталоге; запись во временные каталоги с корректными правами.",
+        "По умолчанию": "ask / medium."
+      },
+      "text": "**CAT-9.4 Multi-User / Shared System Impact**\n\n* **Определение:** действия, затрагивающие других пользователей общей машины или общие ресурсы.  \n* **Не путать с:** снятием чужих процессов → 7.5; выдачей широких прав → 4.2.  \n* **Шаблоны:** запись в чужой домашний каталог; изменение общих ресурсов/каталогов; операции под другим пользователем без основания.  \n* **Контрпримеры:** работа в собственном каталоге; запись во временные каталоги с корректными правами.  \n* **По умолчанию:** ask / medium.\n\n---",
+      "conditions": "Use definition and exclusions; defaults are conditional, never sole evidence."
+    }
+  ],
+  "overlays": [
+    {
+      "id": "V0",
+      "status": "active",
+      "priority": 100,
+      "source": "evidence/authorization.md",
+      "rule": "Only allow/ask/deny. Abstain is null+needs_review. Never translate modify/defer automatically.",
+      "source_sha256": "3882f85d0f62cdf186f4215a8c0f376699e6bf18ec310ad3eb574c9e6ab8eff4"
+    },
+    {
+      "id": "LEAD-IRREVERSIBLE",
+      "status": "active",
+      "priority": 90,
+      "source": "evidence/pr1_comments.json#6509356375",
+      "rule": "Observable irreversible consequences default deny; unknown aliases, variable values or execution/file contents require review. This is not authority for a blanket rewrite of all ask labels.",
+      "source_sha256": "683a5105ce55b18bcf5256716f574a0b6a03c063f96d5c6a037dac8f881c428b"
+    },
+    {
+      "id": "LEAD-LEASE",
+      "status": "active",
+      "priority": 90,
+      "source": "evidence/pr1_comments.json#6509051818",
+      "rule": "git push --force-with-lease is an allow best-practice counterexample unless additional flags remove protection.",
+      "source_sha256": "683a5105ce55b18bcf5256716f574a0b6a03c063f96d5c6a037dac8f881c428b"
+    },
+    {
+      "id": "OBSERVABILITY",
+      "status": "active",
+      "priority": 100,
+      "source": "evidence/night_spec_2026-11-05.md",
+      "rule": "Predict observable primary risk, not hidden curated counterexample category. If safe command has no identifiable risk, CAT-0.0 is an operational prediction; risk_identifiable=false. Severity is independent of class. Unknown payload/archive/trust/authorization affecting interpretation => missing_context and review, never ask for uncertainty.",
+      "source_sha256": "cbbd4c567e40b3871eff3a4c5e407c3a8de4673a1b7fb757ee6feece6e40b124"
+    },
+    {
+      "id": "PRECEDENCE",
+      "status": "active",
+      "priority": 100,
+      "source": "evidence/guideline.md:17-24",
+      "rule": "One primary risk. Transparent wrappers do not create CAT-6. sudo -i is CAT-4.1. Literal printed shell text is not execution. Pipeline is concurrent. CAT-5.1 remote pipe conflicts with global CAT-6 priority: flag policy_conflict and review.",
+      "source_sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737"
+    },
+    {
+      "id": "BINARY-V1",
+      "status": "proposed",
+      "priority": 0,
+      "source": "evidence/night_spec_2026-11-05.md",
+      "rule": "Task contract safe_to_execute_unconditionally: allow=safe; ask/deny=unsafe; null=null. Requires lead approval before production, not intrinsic maliciousness.",
+      "source_sha256": "cbbd4c567e40b3871eff3a4c5e407c3a8de4673a1b7fb757ee6feece6e40b124"
+    }
+  ],
+  "unresolved_v0_defaults": []
+}

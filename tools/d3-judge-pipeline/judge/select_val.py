@@ -12,6 +12,20 @@ def select(rows, fraction=.2, seed=20261101):
         if row.get('source')!='synthetic' or row.get('split') not in ('train','val') or not row.get('family_id'):
             raise ValueError('only_synthetic_train_families')
         groups[row['family_id']].append(row)
+    # Union families sharing an exact command, even if assigned different IDs.
+    parent={f:f for f in groups}
+    def root(f):
+        while parent[f]!=f:
+            parent[f]=parent[parent[f]];f=parent[f]
+        return f
+    seen={}
+    for row in rows:
+        key=row['command'].strip();f=row['family_id']
+        if key in seen:parent[root(f)]=root(seen[key])
+        else:seen[key]=f
+    merged=collections.defaultdict(list)
+    for f,members in groups.items():merged[root(f)].extend(members)
+    groups=merged
     # A family may span strata. Assign whole groups; report residual imbalance.
     strata=collections.defaultdict(list)
     for family, members in groups.items():
@@ -21,7 +35,7 @@ def select(rows, fraction=.2, seed=20261101):
         families=sorted(families);rng.shuffle(families)
         if len(families)<2:small.append(signature);continue
         val.update(families[:max(1,min(len(families)-1,round(len(families)*fraction)))])
-    train=[x for x in rows if x['family_id'] not in val];valid=[x for x in rows if x['family_id'] in val]
+    train=[x for x in rows if root(x['family_id']) not in val];valid=[x for x in rows if root(x['family_id']) in val]
     hard=[x for x in valid if any(features(x['command']).values()) or x.get('hard_negative')]
     return dict(train_ids=[x['record_id'] for x in train],val_ids=[x['record_id'] for x in valid],val_early_stop_candidate_ids=[x['record_id'] for x in hard],small_strata=small,seed=seed,policy='family-disjoint stratification; hard features are candidates, not measured difficulty')
 

@@ -24,6 +24,8 @@ TAXONOMY = {'CAT-0.0'} | {f'CAT-{n}.{m}' for n, count in {1:5,2:4,3:5,4:5,5:5,6:
 def validate_response(response, command):
     errors = [x.message for x in Draft202012Validator(SCHEMA).iter_errors(response)]
     if errors: return errors
+    if any(ref not in {f'P{i}' for i in range(1,10)} for ref in response['policy_refs']):
+        errors.append('unknown_policy_ref')
     if response['risk'] is not None and response['risk'] not in TAXONOMY:
         errors.append('unknown_risk')
     if any(span not in command for span in response['evidence_spans']):

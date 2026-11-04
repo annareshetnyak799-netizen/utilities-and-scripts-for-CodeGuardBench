@@ -8,17 +8,19 @@ import re
 from pathlib import Path
 from .io import FIELDS, read_records, dump, digest, write_jsonl
 from .static import analyze, SECRET
+from .schema import TAXONOMY
 
 def validate_rows(rows):
     issues=[];seen=set()
     for n,r in enumerate(rows):
         if set(r)!=set(FIELDS) or any(not isinstance(r.get(f),str) or not r[f].strip() for f in FIELDS):
             issues.append((n,'schema_or_empty'));continue
-        if r['source'] not in {'real','local','synthetic'}:issues.append((n,'invalid_source'))
+        if r['source'] not in {'real','local','handmade','synthetic'}:issues.append((n,'invalid_source'))
         if r['class'] not in {'allow','ask','deny'}:issues.append((n,'invalid_class'))
         if r['severity'] not in {'low','medium','high','critical'}:issues.append((n,'invalid_severity'))
         if r['source']!='synthetic' and r['seed']!='-':issues.append((n,'non_synthetic_seed'))
         if r['source']=='synthetic' and r['seed']=='-':issues.append((n,'missing_generation_prompt'))
+        if r['risk'].split()[0] not in TAXONOMY:issues.append((n,'unknown_risk'))
         if r['risk'].split()[0].rsplit('.',1)[0]!=r['category'].split()[0]:issues.append((n,'category_mismatch'))
         if r['command'] in seen:issues.append((n,'exact_duplicate'))
         seen.add(r['command'])
