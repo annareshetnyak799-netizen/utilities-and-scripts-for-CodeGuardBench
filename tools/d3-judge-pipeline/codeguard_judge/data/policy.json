@@ -892,5 +892,21 @@
       "source_sha256": "cbbd4c567e40b3871eff3a4c5e407c3a8de4673a1b7fb757ee6feece6e40b124"
     }
   ],
-  "unresolved_v0_defaults": []
+  "unresolved_v0_defaults": [
+    "CAT-1.2",
+    "CAT-1.4",
+    "CAT-1.5",
+    "CAT-2.1",
+    "CAT-2.2",
+    "CAT-2.3",
+    "CAT-3.3",
+    "CAT-4.2",
+    "CAT-5.1",
+    "CAT-6.1",
+    "CAT-6.2",
+    "CAT-7.2",
+    "CAT-7.4",
+    "CAT-9.2",
+    "CAT-9.3"
+  ]
 }

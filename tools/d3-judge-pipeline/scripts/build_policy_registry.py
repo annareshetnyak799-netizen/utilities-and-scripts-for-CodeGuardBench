@@ -24,6 +24,6 @@ def build():
  for o in overlays:
   path=ROOT/o['source'].split('#')[0].split(':')[0]
   o['source_sha256']=hashlib.sha256(path.read_bytes()).hexdigest()
- return {'version':'cascade-policy-2026-11-05.1','binary_mapping_version':'unconditional-v1-proposed','cards':cards,'overlays':overlays,'unresolved_v0_defaults':[c['id'] for c in cards if re.search(r'\b(modify|defer)\b',c['fields'].get('Класс по умолчанию',''))]}
+ return {'version':'cascade-policy-2026-11-05.1','binary_mapping_version':'unconditional-v1-proposed','cards':cards,'overlays':overlays,'unresolved_v0_defaults':[c['id'] for c in cards if re.search(r'\b(modify|defer)\b',c['fields'].get('По умолчанию',''))]}
 if __name__=='__main__':
  (ROOT/'codeguard_judge/data/policy.json').write_text(json.dumps(build(),ensure_ascii=False,indent=2)+'\n')
