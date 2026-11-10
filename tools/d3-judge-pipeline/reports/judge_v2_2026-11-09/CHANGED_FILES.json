@@ -1,0 +1,154 @@
+[
+  {
+    "path": "JUDGE_V2.md",
+    "sha256": "9240aca26153f3bf960f5666a0406aa1bd0abba1bde803073a63a47883a5dbba"
+  },
+  {
+    "path": "README.md",
+    "sha256": "93f598d657cc69779d2ff7a1642cc82a7c81c761200fe8bf1c65df5a8c0e5cc7"
+  },
+  {
+    "path": "codeguard_judge_v2/__init__.py",
+    "sha256": "ffb3a541d6d590ae2369dd022dda48d20ad3fb31006feaa01661f9985cc35e20"
+  },
+  {
+    "path": "codeguard_judge_v2/__main__.py",
+    "sha256": "79ee6f134c5c5193377cf9b189cbdcc3e2095e49ba9cec310114441c15a917c4"
+  },
+  {
+    "path": "codeguard_judge_v2/aggregation.py",
+    "sha256": "556f29669b035efd1895ecae282e2612b22501ea7aeec0a04cb3f48b625fac86"
+  },
+  {
+    "path": "codeguard_judge_v2/cli.py",
+    "sha256": "110bb1c11c4bd766f187f63a86608eb9051fe09fde8a2e0f96524023c31396c0"
+  },
+  {
+    "path": "codeguard_judge_v2/common.py",
+    "sha256": "0f14f4f599ef006042c42b8fb1e53d563b6ece4177f314e5d6a205d01fd11931"
+  },
+  {
+    "path": "codeguard_judge_v2/config.py",
+    "sha256": "ff0cc6368cffaf3a26d007973ba44b32d514035f28b90c24d87cc339d4a802f2"
+  },
+  {
+    "path": "codeguard_judge_v2/evaluation.py",
+    "sha256": "6bade27e705caf26acfd789c3ea390c44bd145bdb7aaf8e346e913f1c5fafae9"
+  },
+  {
+    "path": "codeguard_judge_v2/export.py",
+    "sha256": "2a003416ebf9d30f603c1e73eaca01233850daf8a9e28402d11c54ef9f1f6e08"
+  },
+  {
+    "path": "codeguard_judge_v2/fixtures/mock.json",
+    "sha256": "714af66ad8d883a0479ff70d92514cea440147c776bbd512280b6d2398e9d616"
+  },
+  {
+    "path": "codeguard_judge_v2/limits.py",
+    "sha256": "8776a271ab36b195e4aae080f13f0e9ec1636722f679edb8de9739cf6264525e"
+  },
+  {
+    "path": "codeguard_judge_v2/metrics.py",
+    "sha256": "cba52796463cbc12b9ac1b3d42c67052855037353b3633d705b90d7d50ce2606"
+  },
+  {
+    "path": "codeguard_judge_v2/parser.py",
+    "sha256": "aa9d197d93ef7da82cbe47c32059c0fd72a0ea976a719d054adf695ce7e830f2"
+  },
+  {
+    "path": "codeguard_judge_v2/pipeline.py",
+    "sha256": "8071c5600c07bb362c39fff61dae1b83dce44ec7f7eda411497c885d5f7443e3"
+  },
+  {
+    "path": "codeguard_judge_v2/policy/issues.yaml",
+    "sha256": "15babddba313067b94ab3244fd004230afe0dd2d20a7c872aefe3149895b82f6"
+  },
+  {
+    "path": "codeguard_judge_v2/policy/registry_example.yaml",
+    "sha256": "d3c06a29aa34d9060af7c35a552f4e9657022263015dd34baee510fdde2d9336"
+  },
+  {
+    "path": "codeguard_judge_v2/policy/taxonomy_index.json",
+    "sha256": "9d9b255e3d1daea3f2b1e360bfcd3b41eb2e0f9e1620d9ad7ad557b91335ed53"
+  },
+  {
+    "path": "codeguard_judge_v2/policy_registry.py",
+    "sha256": "58403e378575fc5b2ae51d6536ecae832fc1d231251b15362c473ae774c37e6e"
+  },
+  {
+    "path": "codeguard_judge_v2/prompts/stage1_system_v1.txt",
+    "sha256": "644cf8642304897bf357e35f1af3cb2766934d4f53bd13e199dc292f27dc11f3"
+  },
+  {
+    "path": "codeguard_judge_v2/prompts/stage2_system_v1.txt",
+    "sha256": "53d0685dccbaa72f333c9ce102356662597940b0dc37f493694f0045a9f28574"
+  },
+  {
+    "path": "codeguard_judge_v2/providers.py",
+    "sha256": "2197b4c55eeb8120f11ca054d67d74a07ddec05b02a5f8c74f41ef1dc130b6f6"
+  },
+  {
+    "path": "codeguard_judge_v2/records.py",
+    "sha256": "ca1458166bef109ac1c7ccea3fa231858528932fc3b3102c3bca4be0d5216d6a"
+  },
+  {
+    "path": "codeguard_judge_v2/review.py",
+    "sha256": "c5932f966654d0ccf04d494d023713c1ec11d996e9437a7b04a58b0149577aff"
+  },
+  {
+    "path": "codeguard_judge_v2/schemas.py",
+    "sha256": "36b25e9c3f12464b73d42abca3bda06fbdafd8ce4e2e66daa529e5ae4de46d0f"
+  },
+  {
+    "path": "codeguard_judge_v2/stages.py",
+    "sha256": "8458edf321efc5181952addd9cea54141042e86a048d219378e4ff013df9a598"
+  },
+  {
+    "path": "codeguard_judge_v2/storage.py",
+    "sha256": "d814082e6e1261d319e8237e86667c55af710470699fe701e34863d5eacdf04e"
+  },
+  {
+    "path": "configs/v2/mock.yaml",
+    "sha256": "5722717322bf9cc4ee2532a41b94d64536912d850461a641d65c55402f10664e"
+  },
+  {
+    "path": "configs/v2/provider.example.yaml",
+    "sha256": "9fa3ff07d340e7963359857061085386eeac261a04e723b15614316c976ef9a5"
+  },
+  {
+    "path": "examples/v2/input.jsonl",
+    "sha256": "02c613ecd7c8a758e12172e114facb61e2005efb5c4aa91feae9988c770a3cc6"
+  },
+  {
+    "path": "pyproject.toml",
+    "sha256": "36871a8fde337690086f6bf7dbc8d31718594457b6e4e56d470819096bedd995"
+  },
+  {
+    "path": "requirements.txt",
+    "sha256": "dee9d61dd12febf0cb811c0790d7eea94cc41dbe1b3d5bbef2d5e747f0e16a52"
+  },
+  {
+    "path": "scripts/demo_v2.py",
+    "sha256": "433bd21fca93b4a31de7f54023717154d89345bfda60c23ed4231cced3744f62"
+  },
+  {
+    "path": "tests/v2/__init__.py",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "tests/v2/conftest.py",
+    "sha256": "3833b61945f1b1532603adf2b61d4b7ab407ac59955ed5f672386d1939236746"
+  },
+  {
+    "path": "tests/v2/test_core.py",
+    "sha256": "1cc3e757c03306b3e3078a052a8696a115012ade673ed36b7e7d3bc17918a142"
+  },
+  {
+    "path": "tests/v2/test_interfaces.py",
+    "sha256": "29e4c75301664e91a979ca85c9da001ba4a1f3908122eb1aafc231d3203160b5"
+  },
+  {
+    "path": "tests/v2/test_pipeline.py",
+    "sha256": "0bde33a060aff6e12c5c306d555634d38411ceeb1ffc4e198c4ac2d12b3ffe54"
+  }
+]

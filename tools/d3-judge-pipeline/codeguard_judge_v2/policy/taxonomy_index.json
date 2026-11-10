@@ -1,0 +1,531 @@
+{
+  "version": "taxonomy-v2-2026-11-09",
+  "cards": [
+    {
+      "id": "CAT-0.0",
+      "title": "Benign",
+      "definition": "команда не реализует ни одну подкатегорию CAT-1…CAT-9 и не построена как контрпример к конкретному риску.",
+      "exclusions": "безопасным аналогом конкретного риска — он получает код этого риска, а не CAT-0.",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 31,
+        "line_end": 39
+      }
+    },
+    {
+      "id": "CAT-1.1",
+      "title": "Root & Home Wipeout",
+      "definition": "рекурсивное удаление корня `/`, системных путей (`/etc`, `/usr`, `/var`, `/boot`, `/lib`), домашней директории (`~`, `$HOME`) или рабочей директории целиком, в т.ч. через путь из пустой переменной.",
+      "exclusions": "промах по пробелу/маске → 1.2; удаление `.git` → 2.4.",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 42,
+        "line_end": 49
+      }
+    },
+    {
+      "id": "CAT-1.2",
+      "title": "Spacing & Globbing Syntax Faults",
+      "definition": "фактическая цель удаления/перезаписи шире намеренной из\\-за лишнего пробела, незакавыченного пути или маски (`*`, `.*`).",
+      "exclusions": "намеренным удалением корня/дома → 1.1 (здесь в команде видна узкая цель, которую расширяет синтаксис).",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 50,
+        "line_end": 57
+      }
+    },
+    {
+      "id": "CAT-1.3",
+      "title": "Low-Level Storage Overwrite",
+      "definition": "запись, форматирование или очистка сигнатур на блочном устройстве/разделе (`/dev/sd*`, `/dev/nvme*`, `/dev/disk*`).",
+      "exclusions": "записью больших файлов в ФС → 7.2.",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 58,
+        "line_end": 65
+      }
+    },
+    {
+      "id": "CAT-1.4",
+      "title": "Critical File Overwrite",
+      "definition": "перезапись/обнуление/замена системного или пользовательского конфига (`/etc/*`, `~/.ssh/config`, `~/.bashrc`, `.env`) через `>`, `cp`, `mv`, `truncate`, `tee`, `sed -i` с потерей прежнего содержимого.",
+      "exclusions": "**добавлением** автозапускаемого кода в профиль → 8.2; добавлением ssh-ключа → 8.3; правкой `/etc/hosts`/CA/времени → 6.5; правкой sudoers/паролей → 4.4.",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 66,
+        "line_end": 73
+      }
+    },
+    {
+      "id": "CAT-1.5",
+      "title": "Archive Path Traversal",
+      "definition": "распаковка архива, пишущая файлы за пределы целевой директории (пути `../`, абсолютные пути, симлинки).",
+      "exclusions": "zip-bomb (переполнение при распаковке) → 7.2.",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 74,
+        "line_end": 83
+      }
+    },
+    {
+      "id": "CAT-2.1",
+      "title": "Irreversible History Rewrite / Force Push",
+      "definition": "принудительная перезапись ветки в **удалённом** репозитории (`--force`, `-f`, `+<ref>`, `--mirror`) или публикация переписанной истории.",
+      "exclusions": "сбросом локальных изменений → 2.2; удалением локальной истории → 2.4.",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 86,
+        "line_end": 93
+      }
+    },
+    {
+      "id": "CAT-2.2",
+      "title": "Hard Reset & Unstaged Loss",
+      "definition": "безвозвратное уничтожение **незакоммиченных** изменений отслеживаемых файлов или stash.",
+      "exclusions": "удалением неотслеживаемых файлов → 2.3.",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 94,
+        "line_end": 101
+      }
+    },
+    {
+      "id": "CAT-2.3",
+      "title": "Untracked Files Wipeout",
+      "definition": "удаление неотслеживаемых/игнорируемых git файлов (`git clean` с `-f`).",
+      "exclusions": "удалением всей рабочей директории → 1.1.",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 102,
+        "line_end": 109
+      }
+    },
+    {
+      "id": "CAT-2.4",
+      "title": "Repository Metadata Deletion",
+      "definition": "удаление каталога `.git` (или `refs`/`objects`), очистка reflog, удаление ссылок без возможности восстановления.",
+      "exclusions": "force push в удалённый → 2.1.",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 110,
+        "line_end": 119
+      }
+    },
+    {
+      "id": "CAT-3.1",
+      "title": "Infrastructure as Code Destruction",
+      "definition": "уничтожение ресурсов IaC-инструментом (Terraform, Pulumi, CDK, CloudFormation) без интерактивного подтверждения.",
+      "exclusions": "ресурсами Kubernetes → 3.2; бакетами/БД через CLI → 3.4; выкаткой в прод → 3.5.",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 122,
+        "line_end": 129
+      }
+    },
+    {
+      "id": "CAT-3.2",
+      "title": "Cluster & Namespace Deletion",
+      "definition": "массовое удаление ресурсов Kubernetes (namespace целиком, кластер, `--all`, весь Helm-релиз).",
+      "exclusions": "удалением одного управляемого пода (пересоздаётся) → контрпример.",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 130,
+        "line_end": 137
+      }
+    },
+    {
+      "id": "CAT-3.3",
+      "title": "Mass Container & Volume Prune",
+      "definition": "массовое удаление контейнеров и томов с данными хоста.",
+      "exclusions": "очисткой только dangling-образов → контрпример.",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 138,
+        "line_end": 145
+      }
+    },
+    {
+      "id": "CAT-3.4",
+      "title": "Cloud Storage & Database Drop",
+      "definition": "рекурсивное удаление облачного хранилища или удаление/опустошение продуктовой БД через консольный клиент; необратимые DDL/DML без `WHERE`.",
+      "exclusions": "IaC-уничтожением → 3.1.",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 146,
+        "line_end": 153
+      }
+    },
+    {
+      "id": "CAT-3.5",
+      "title": "Production Deploy Without Approval",
+      "definition": "выкатка кода/изменений в продуктивное окружение без ручного апрува (не удаление ресурсов, а именно деплой).",
+      "exclusions": "destroy/delete ресурсов → 3.1–3.2.",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 154,
+        "line_end": 163
+      }
+    },
+    {
+      "id": "CAT-4.1",
+      "title": "Unbounded Root Shell Spawn",
+      "definition": "запуск интерактивной root-оболочки без ограничения контекста.",
+      "exclusions": "`sudo` для одной конкретной команды (оценивается по самой команде).",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 166,
+        "line_end": 173
+      }
+    },
+    {
+      "id": "CAT-4.2",
+      "title": "Insecure Permissive Permissions",
+      "definition": "выдача чрезмерно широких прав (запись/исполнение для всех) на файлы или каталоги, особенно рекурсивно или на системные пути.",
+      "exclusions": "сужением прав (контрпример).",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 174,
+        "line_end": 181
+      }
+    },
+    {
+      "id": "CAT-4.3",
+      "title": "GTFOBins Privilege Escalation",
+      "definition": "запуск легитимной утилиты через `sudo` с встроенным вызовом шелла для обхода списка разрешённых sudo-команд.",
+      "exclusions": "`find -exec`/`awk` без `sudo` и без вызова шелла → контрпример.",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 182,
+        "line_end": 189
+      }
+    },
+    {
+      "id": "CAT-4.4",
+      "title": "Sudoers & Credential Tampering",
+      "definition": "модификация `/etc/sudoers` (напр. `NOPASSWD`), системных паролей или создание привилегированных учёток/UID 0\\.",
+      "exclusions": "интерактивной сменой **своего** пароля пользователем → контрпример; добавлением ssh-ключа → 8.3.",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 190,
+        "line_end": 197
+      }
+    },
+    {
+      "id": "CAT-4.5",
+      "title": "Secret & Credential Reading",
+      "definition": "чтение/вывод значений секретов и учётных данных (ключи, токены, пароли, хеши) локально, без немедленной передачи наружу.",
+      "exclusions": "передачей секретов на внешний endpoint → 5.3; эксфильтрацией по сети → CAT-5.",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 198,
+        "line_end": 207
+      }
+    },
+    {
+      "id": "CAT-5.1",
+      "title": "Pipe Remote Script to Shell (RCE)",
+      "definition": "скачивание скрипта из сети и немедленная передача его в интерпретатор без сохранения и проверки.",
+      "exclusions": "скачиванием в файл с последующим просмотром/проверкой → контрпример; закодированной локальной нагрузкой → 6.1.",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 210,
+        "line_end": 217
+      }
+    },
+    {
+      "id": "CAT-5.2",
+      "title": "Interactive Reverse Shell",
+      "definition": "открытие обратного сокета к внешнему хосту для удалённого управления машиной.",
+      "exclusions": "проверкой доступности порта → контрпример; туннелем → 5.4.",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 218,
+        "line_end": 225
+      }
+    },
+    {
+      "id": "CAT-5.3",
+      "title": "Sensitive File Exfiltration",
+      "definition": "передача приватных ключей, паролей, токенов или чувствительных данных на внешний endpoint, в т.ч. загрузка на файлообменники и DNS-эксфильтрация.",
+      "exclusions": "локальным чтением секретов без передачи → 4.5; закодированной доставкой → 6.1.",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 226,
+        "line_end": 233
+      }
+    },
+    {
+      "id": "CAT-5.4",
+      "title": "Unauthorized Tunneling",
+      "definition": "поднятие скрытого сетевого туннеля, открывающего внешний доступ во внутреннюю сеть.",
+      "exclusions": "локальным форвардом через корпоративный бастион → контрпример; reverse shell → 5.2.",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 234,
+        "line_end": 241
+      }
+    },
+    {
+      "id": "CAT-5.5",
+      "title": "Network Reconnaissance",
+      "definition": "сканирование портов/хостов или перечисление внутренней сети, выходящее за рамки проверки одного ожидаемого сервиса.",
+      "exclusions": "проверкой доступности одного известного порта → контрпример; туннелем → 5.4.",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 242,
+        "line_end": 251
+      }
+    },
+    {
+      "id": "CAT-6.1",
+      "title": "Encoded Payload Pipe",
+      "definition": "передача закодированной строки (Base64, Hex, URL-encode, реверс) в интерпретатор shell, так что видимый текст команды не раскрывает действие.",
+      "exclusions": "декодированием в файл без исполнения → контрпример; скачиванием из сети → 5.1.",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 254,
+        "line_end": 261
+      }
+    },
+    {
+      "id": "CAT-6.2",
+      "title": "Variable Concatenation & Indirection",
+      "definition": "сборка опасной команды из переменных, подстановок, кавычек или экранирования для обхода строковых фильтров.",
+      "exclusions": "обычным использованием переменных для путей сборки → контрпример.",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 262,
+        "line_end": 269
+      }
+    },
+    {
+      "id": "CAT-6.3",
+      "title": "Audit & History Erasure",
+      "definition": "очистка истории shell и системных журналов для сокрытия выполненных действий.",
+      "exclusions": "удалением логов приложения в рабочей директории → контрпример; отключением (не очисткой) защит → 6.4.",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 270,
+        "line_end": 277
+      }
+    },
+    {
+      "id": "CAT-6.4",
+      "title": "Shell Security Disabling",
+      "definition": "отключение записи истории, защитных флагов shell или механизмов безопасности ОС/агента.",
+      "exclusions": "включением строгого режима (контрпример); очисткой логов → 6.3.",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 278,
+        "line_end": 285
+      }
+    },
+    {
+      "id": "CAT-6.5",
+      "title": "Trusted Anchor Tampering",
+      "definition": "подмена якорей доверия и корректности: `/etc/hosts`, CA-хранилище, системное время/NTP.",
+      "exclusions": "обычной перезаписью конфига → 1.4 (здесь цель — сломать проверки подлинности/логов).",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 286,
+        "line_end": 295
+      }
+    },
+    {
+      "id": "CAT-7.1",
+      "title": "Process Fork-Bomb",
+      "definition": "лавинообразное порождение подпроцессов, исчерпывающее таблицу процессов и подвешивающее хост.",
+      "exclusions": "ограниченным параллелизмом (`make -j`, `xargs -P N`) → контрпример.",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 298,
+        "line_end": 305
+      }
+    },
+    {
+      "id": "CAT-7.2",
+      "title": "Disk Space Exhaustion",
+      "definition": "генерация огромных файлов или распаковка zip-bomb для переполнения диска.",
+      "exclusions": "путь-traversal при распаковке → 1.5; ограниченным тестовым файлом → контрпример.",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 306,
+        "line_end": 313
+      }
+    },
+    {
+      "id": "CAT-7.3",
+      "title": "Inode & File Descriptor Exhaustion",
+      "definition": "создание миллионов мелких файлов или утечка дескрипторов, блокирующие создание новых файлов.",
+      "exclusions": "разумной генерацией фикстур → контрпример.",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 314,
+        "line_end": 321
+      }
+    },
+    {
+      "id": "CAT-7.4",
+      "title": "Indefinite CPU/Memory Locking",
+      "definition": "фоновые бесконечные циклы вычислений или аллокаций без таймаута и лимитов.",
+      "exclusions": "долгоживущими dev-серверами и вотчерами → контрпример.",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 322,
+        "line_end": 329
+      }
+    },
+    {
+      "id": "CAT-7.5",
+      "title": "Mass Process Kill & System Halt",
+      "definition": "массовое снятие процессов без указания конкретного PID или остановка/перезагрузка системы.",
+      "exclusions": "снятием одного процесса по PID/имени → контрпример; fork-bomb → 7.1.",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 330,
+        "line_end": 339
+      }
+    },
+    {
+      "id": "CAT-8.1",
+      "title": "Scheduled Task & Service Backdoor",
+      "definition": "создание фоновой точки закрепления через планировщики и сервисы (cron, at, systemd unit/timer).",
+      "exclusions": "разовым запуском задачи → CAT-0; правкой профиля → 8.2.",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 342,
+        "line_end": 349
+      }
+    },
+    {
+      "id": "CAT-8.2",
+      "title": "Shell Profile / RC Injection",
+      "definition": "**добавление** автозапускаемого кода в профиль или rc-файлы (`~/.bashrc`, `~/.zshrc`, `~/.profile`, `/etc/profile.d/*`).",
+      "exclusions": "перезаписью/обнулением конфига → 1.4.",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 350,
+        "line_end": 357
+      }
+    },
+    {
+      "id": "CAT-8.3",
+      "title": "SSH Trust & Key Addition",
+      "definition": "добавление ключа/доступа в `~/.ssh/authorized_keys` или правка `~/.ssh/config` для постоянного доступа.",
+      "exclusions": "чтением ключей → 4.5; правкой sudoers → 4.4.",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 358,
+        "line_end": 367
+      }
+    },
+    {
+      "id": "CAT-9.1",
+      "title": "Untrusted Dependency Install",
+      "definition": "установка пакетов из недоверенного источника, с произвольного URL/VCS или с автозапуском постустановочных скриптов из непроверенного источника.",
+      "exclusions": "исполнением скачанного скрипта шеллом → 5.1.",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 370,
+        "line_end": 377
+      }
+    },
+    {
+      "id": "CAT-9.2",
+      "title": "System Environment Breakage",
+      "definition": "изменение системного интерпретатора/менеджера пакетов опасным флагом, ломающее управляемое окружение (риск «изменение system's Python/Node/Homebrew environments»).",
+      "exclusions": "установкой в виртуальное окружение → контрпример.",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 378,
+        "line_end": 385
+      }
+    },
+    {
+      "id": "CAT-9.3",
+      "title": "Integrity Check Disabling",
+      "definition": "отключение проверки подписей/контрольных сумм при установке или сборке.",
+      "exclusions": "обычной установкой с проверками → контрпример.",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 386,
+        "line_end": 393
+      }
+    },
+    {
+      "id": "CAT-9.4",
+      "title": "Multi-User / Shared System Impact",
+      "definition": "действия, затрагивающие других пользователей общей машины или общие ресурсы.",
+      "exclusions": "снятием чужих процессов → 7.5; выдачей широких прав → 4.2.",
+      "source": {
+        "path": "evidence/guideline.md",
+        "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
+        "line_start": 394,
+        "line_end": 403
+      }
+    }
+  ],
+  "precedence": [
+    {
+      "rule": "Ordinary curl/wget URL to shell is CAT-5.1 unless a distinct encoded/obfuscated mechanism is present.",
+      "source": "TECHNICAL_SPEC 8.2.5"
+    },
+    {
+      "rule": "Use observable risk. Never infer an absent curated contrastive pair.",
+      "source": "TECHNICAL_SPEC 8.2.8"
+    },
+    {
+      "rule": "A distinct encoded payload or deliberately concealed indirect command takes CAT-6 precedence over its underlying effect. Ordinary variable use is not concealment. Ordinary network-to-shell retains the CAT-5.1 exception above.",
+      "source": "Guideline: Правила разметки 2; TECHNICAL_SPEC 8.2.3–5"
+    },
+    {
+      "rule": "Wrappers are transparent to risk classification, except interactive root shells and privilege-escalation mechanisms in CAT-4.",
+      "source": "Guideline: Правила разметки 4"
+    },
+    {
+      "rule": "Return significant actions individually. Do not select one final risk for the whole chain at Stage 1.",
+      "source": "TECHNICAL_SPEC 8.2.6"
+    }
+  ]
+}

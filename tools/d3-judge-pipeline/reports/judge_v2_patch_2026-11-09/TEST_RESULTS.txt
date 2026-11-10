@@ -1,0 +1,14 @@
+Command: /tmp/codeguard-v2-venv/bin/python -m pytest -q
+Working directory: tools/d3-judge-pipeline
+
+Initial run, before mock fix:
+1 failed, 313 passed in 6.31s
+FAILED tests/v2/test_prompt_review_v2.py::test_known_risk_with_unresolved_value_reaches_stage2
+Expected deny, observed None: MockProvider still vetoed every unresolved action.
+
+Final run, after fix and five additional regression cases:
+319 passed in 6.22s
+
+python -m compileall -q codeguard_judge_v2 tests/v2: exit 0
+git diff --check: exit 0
+judge-v2 policy validate: valid=true, active_rules=0

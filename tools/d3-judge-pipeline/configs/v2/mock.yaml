@@ -1,0 +1,14 @@
+pipeline:
+  stage1_concurrency: 8
+  stage2_concurrency: 8
+  max_inflight_total: 16
+  queue_capacity: 128
+  max_format_retries: 2
+  max_transport_retries: 3
+inference:
+  provider: mock
+  model_id: mock-fixtures-v1
+  model_revision: '1'
+  mock_latency_seconds: 0.01
+run:
+  cache_policy: "off"

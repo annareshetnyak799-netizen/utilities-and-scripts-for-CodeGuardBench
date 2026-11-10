@@ -1,0 +1,13 @@
+{
+  "wheel": "codeguard_judge-0.3.0-py3-none-any.whl",
+  "wheel_sha256": "d540cc9c44ab1817a0e1221bd835bb510432b33a7f54616bfb0384ff81d83575",
+  "fresh_venv": true,
+  "invoked_outside_repository": true,
+  "rows": 23,
+  "calls_before_resume": 44,
+  "calls_after_resume": 44,
+  "active_rules": 0,
+  "network_calls": 0,
+  "human_gold": 0,
+  "exit_code": 0
+}

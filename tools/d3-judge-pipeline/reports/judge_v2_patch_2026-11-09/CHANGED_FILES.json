@@ -1,0 +1,52 @@
+[
+  {
+    "path": "codeguard_judge_v2/prompts/stage1_system_v2.txt",
+    "sha256": "37846bb30596e6ccc9ac4fba4025f29c7cde05b1231512ca7a9765f1de6844fc",
+    "matches_incoming": true
+  },
+  {
+    "path": "codeguard_judge_v2/prompts/stage2_system_v2.txt",
+    "sha256": "f5e0ffbc9aa258cac03b801f7a157c2d5bed84ab4fbd02058abf3e881b45794f",
+    "matches_incoming": true
+  },
+  {
+    "path": "codeguard_judge_v2/schemas.py",
+    "sha256": "30006ca75e53606264dbc09040505d983ee7602afe5cbc85f8e932dd11d7f701",
+    "matches_incoming": true
+  },
+  {
+    "path": "codeguard_judge_v2/stages.py",
+    "sha256": "9441e6e5736375ee9d4cf1e019936beb12cb95996ebdb43f787bc61c6f6dc3db",
+    "matches_incoming": true
+  },
+  {
+    "path": "codeguard_judge_v2/policy_registry.py",
+    "sha256": "99b1ff1b8c40090399003316e239edf5e4fe568dbf55af5c3e915a62ab28fc43",
+    "matches_incoming": true
+  },
+  {
+    "path": "codeguard_judge_v2/pipeline.py",
+    "sha256": "7b348e4cc8674ec05f320f46673c94b8da833c8d61685a62b06cb27bef5a5b5b",
+    "matches_incoming": true
+  },
+  {
+    "path": "tests/v2/test_core.py",
+    "sha256": "cd93def94900a80646626ba48265bcee163311fa3a839e3a37590e2a7d4072bb",
+    "matches_incoming": true
+  },
+  {
+    "path": "tests/v2/test_prompt_review_v2.py",
+    "sha256": "738f68d15958b315dcc516965d38c581391e779c7ac767e233870a062da90f93",
+    "matches_incoming": false
+  },
+  {
+    "path": "codeguard_judge_v2/providers.py",
+    "sha256": "f883c17e56f235328e49c2f1ad59e00c0f91060c9eb387e9083d69c5fe1093a6",
+    "matches_incoming": null
+  },
+  {
+    "path": "JUDGE_V2.md",
+    "sha256": "99bfa2597778df4c3c764cd645de067ae2a703bd41c46e3a19043278f5a97f7f",
+    "matches_incoming": null
+  }
+]

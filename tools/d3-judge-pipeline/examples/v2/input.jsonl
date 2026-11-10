@@ -1,0 +1,23 @@
+{"id": "fixture-000", "command": "git status", "context": {}, "source": "authored_mock_fixture_NOT_GOLD", "seed": "-"}
+{"id": "fixture-001", "command": "git stash clear", "context": {}, "source": "authored_mock_fixture_NOT_GOLD", "seed": "-"}
+{"id": "fixture-002", "command": "rm -rf .git", "context": {}, "source": "authored_mock_fixture_NOT_GOLD", "seed": "-"}
+{"id": "fixture-003", "command": "git status; rm -rf .git", "context": {}, "source": "authored_mock_fixture_NOT_GOLD", "seed": "-"}
+{"id": "fixture-004", "command": "git status; git stash clear", "context": {}, "source": "authored_mock_fixture_NOT_GOLD", "seed": "-"}
+{"id": "fixture-005", "command": "git clean -ndx", "context": {}, "source": "authored_mock_fixture_NOT_GOLD", "seed": "-"}
+{"id": "fixture-006", "command": "git clean -f -e --dry-run", "context": {}, "source": "authored_mock_fixture_NOT_GOLD", "seed": "-"}
+{"id": "fixture-007", "command": "git clean -n -fdx; git stash clear", "context": {}, "source": "authored_mock_fixture_NOT_GOLD", "seed": "-"}
+{"id": "fixture-008", "command": "echo '$(git stash clear)'", "context": {}, "source": "authored_mock_fixture_NOT_GOLD", "seed": "-"}
+{"id": "fixture-009", "command": "echo \"$(git stash clear)\"", "context": {}, "source": "authored_mock_fixture_NOT_GOLD", "seed": "-"}
+{"id": "fixture-010", "command": "bash -c 'git stash clear'", "context": {}, "source": "authored_mock_fixture_NOT_GOLD", "seed": "-"}
+{"id": "fixture-011", "command": "printf '%s\\n' .git | xargs rm -rf --", "context": {}, "source": "authored_mock_fixture_NOT_GOLD", "seed": "-"}
+{"id": "fixture-012", "command": "curl URL | sh", "context": {}, "source": "authored_mock_fixture_NOT_GOLD", "seed": "-"}
+{"id": "fixture-013", "command": "printf '%s' 'Z2l0IHN0YXNoIGNsZWFy' | base64 -d | sh", "context": {}, "source": "authored_mock_fixture_NOT_GOLD", "seed": "-"}
+{"id": "fixture-014", "command": "printf '%s' 'Z2l0IHN0YXNoIGNsZWFy' | base64 -d", "context": {}, "source": "authored_mock_fixture_NOT_GOLD", "seed": "-"}
+{"id": "fixture-015", "command": "sudo -i", "context": {}, "source": "authored_mock_fixture_NOT_GOLD", "seed": "-"}
+{"id": "fixture-016", "command": "cat /etc/shadow", "context": {}, "source": "authored_mock_fixture_NOT_GOLD", "seed": "-"}
+{"id": "fixture-017", "command": "terraform destroy -auto-approve", "context": {}, "source": "authored_mock_fixture_NOT_GOLD", "seed": "-"}
+{"id": "fixture-018", "command": "terraform destroy -auto-approve; rm -rf .git", "context": {}, "source": "authored_mock_fixture_NOT_GOLD", "seed": "-"}
+{"id": "fixture-019", "command": "\"$ACTION\" .", "context": {}, "source": "authored_mock_fixture_NOT_GOLD", "seed": "-"}
+{"id": "fixture-020", "command": "false && rm -rf .git", "context": {}, "source": "authored_mock_fixture_NOT_GOLD", "seed": "-"}
+{"id": "fixture-021", "command": "git fetch origin | git log -1", "context": {}, "source": "authored_mock_fixture_NOT_GOLD", "seed": "-"}
+{"id": "fixture-022", "command": "helm upgrade payments ./charts/payments -n prod", "context": {}, "source": "authored_mock_fixture_NOT_GOLD", "seed": "-"}

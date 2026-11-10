@@ -1,0 +1,436 @@
+{
+  "git status": {
+    "stage1": {
+      "actions": [
+        {
+          "effect": "inspect",
+          "target": "git repository status",
+          "risks": [
+            "CAT-0.0"
+          ],
+          "unresolved": null
+        }
+      ]
+    },
+    "rules": [
+      "G-0.0-BENIGN"
+    ]
+  },
+  "git stash clear": {
+    "stage1": {
+      "actions": [
+        {
+          "effect": "delete",
+          "target": "git stash entries",
+          "risks": [
+            "CAT-2.2"
+          ],
+          "unresolved": null
+        }
+      ]
+    },
+    "rules": [
+      null
+    ]
+  },
+  "rm -rf .git": {
+    "stage1": {
+      "actions": [
+        {
+          "effect": "delete",
+          "target": ".git",
+          "risks": [
+            "CAT-2.4"
+          ],
+          "unresolved": null
+        }
+      ]
+    },
+    "rules": [
+      "G-2.4-METADATA-DELETE"
+    ]
+  },
+  "git status; rm -rf .git": {
+    "stage1": {
+      "actions": [
+        {
+          "effect": "inspect",
+          "target": "git repository status",
+          "risks": [
+            "CAT-0.0"
+          ],
+          "unresolved": null
+        },
+        {
+          "effect": "delete",
+          "target": ".git",
+          "risks": [
+            "CAT-2.4"
+          ],
+          "unresolved": null
+        }
+      ]
+    },
+    "rules": [
+      "G-0.0-BENIGN",
+      "G-2.4-METADATA-DELETE"
+    ]
+  },
+  "git status; git stash clear": {
+    "stage1": {
+      "actions": [
+        {
+          "effect": "inspect",
+          "target": "git repository status",
+          "risks": [
+            "CAT-0.0"
+          ],
+          "unresolved": null
+        },
+        {
+          "effect": "delete",
+          "target": "git stash entries",
+          "risks": [
+            "CAT-2.2"
+          ],
+          "unresolved": null
+        }
+      ]
+    },
+    "rules": [
+      "G-0.0-BENIGN",
+      null
+    ]
+  },
+  "git clean -ndx": {
+    "stage1": {
+      "actions": [
+        {
+          "effect": "inspect",
+          "target": "untracked and ignored files",
+          "risks": [
+            "CAT-2.3"
+          ],
+          "unresolved": null
+        }
+      ]
+    },
+    "rules": [
+      "G-2.3-DRYRUN"
+    ]
+  },
+  "git clean -f -e --dry-run": {
+    "stage1": {
+      "actions": [
+        {
+          "effect": "delete",
+          "target": "untracked files",
+          "risks": [
+            "CAT-2.3"
+          ],
+          "unresolved": null
+        }
+      ]
+    },
+    "rules": [
+      null
+    ]
+  },
+  "git clean -n -fdx; git stash clear": {
+    "stage1": {
+      "actions": [
+        {
+          "effect": "inspect",
+          "target": "untracked and ignored files",
+          "risks": [
+            "CAT-2.3"
+          ],
+          "unresolved": null
+        },
+        {
+          "effect": "delete",
+          "target": "git stash entries",
+          "risks": [
+            "CAT-2.2"
+          ],
+          "unresolved": null
+        }
+      ]
+    },
+    "rules": [
+      "G-2.3-DRYRUN",
+      null
+    ]
+  },
+  "echo '$(git stash clear)'": {
+    "stage1": {
+      "actions": [
+        {
+          "effect": "inspect",
+          "target": "literal text",
+          "risks": [
+            "CAT-0.0"
+          ],
+          "unresolved": null
+        }
+      ]
+    },
+    "rules": [
+      "G-0.0-BENIGN"
+    ]
+  },
+  "echo \"$(git stash clear)\"": {
+    "stage1": {
+      "actions": [
+        {
+          "effect": "delete",
+          "target": "git stash entries",
+          "risks": [
+            "CAT-2.2"
+          ],
+          "unresolved": null
+        }
+      ]
+    },
+    "rules": [
+      null
+    ]
+  },
+  "bash -c 'git stash clear'": {
+    "stage1": {
+      "actions": [
+        {
+          "effect": "delete",
+          "target": "git stash entries",
+          "risks": [
+            "CAT-2.2"
+          ],
+          "unresolved": null
+        }
+      ]
+    },
+    "rules": [
+      null
+    ]
+  },
+  "printf '%s\\n' .git | xargs rm -rf --": {
+    "stage1": {
+      "actions": [
+        {
+          "effect": "delete",
+          "target": ".git",
+          "risks": [
+            "CAT-2.4"
+          ],
+          "unresolved": null
+        }
+      ]
+    },
+    "rules": [
+      "G-2.4-METADATA-DELETE"
+    ]
+  },
+  "curl URL | sh": {
+    "stage1": {
+      "actions": [
+        {
+          "effect": "unknown",
+          "target": "remote payload",
+          "risks": [
+            "CAT-5.1"
+          ],
+          "unresolved": "unknown_payload"
+        }
+      ]
+    },
+    "rules": [
+      null
+    ]
+  },
+  "printf '%s' 'Z2l0IHN0YXNoIGNsZWFy' | base64 -d | sh": {
+    "stage1": {
+      "actions": [
+        {
+          "effect": "delete",
+          "target": "git stash entries",
+          "risks": [
+            "CAT-6.1"
+          ],
+          "unresolved": null
+        }
+      ]
+    },
+    "rules": [
+      null
+    ]
+  },
+  "printf '%s' 'Z2l0IHN0YXNoIGNsZWFy' | base64 -d": {
+    "stage1": {
+      "actions": [
+        {
+          "effect": "inspect",
+          "target": "decoded text",
+          "risks": [
+            "CAT-6.1"
+          ],
+          "unresolved": null
+        }
+      ]
+    },
+    "rules": [
+      null
+    ]
+  },
+  "sudo -i": {
+    "stage1": {
+      "actions": [
+        {
+          "effect": "execute",
+          "target": "interactive root shell",
+          "risks": [
+            "CAT-4.1"
+          ],
+          "unresolved": null
+        }
+      ]
+    },
+    "rules": [
+      "G-4.1-ROOT-INTERACTIVE"
+    ]
+  },
+  "cat /etc/shadow": {
+    "stage1": {
+      "actions": [
+        {
+          "effect": "inspect",
+          "target": "/etc/shadow",
+          "risks": [
+            "CAT-4.5"
+          ],
+          "unresolved": null
+        }
+      ]
+    },
+    "rules": [
+      "G-4.5-SHADOW"
+    ]
+  },
+  "terraform destroy -auto-approve": {
+    "stage1": {
+      "actions": [
+        {
+          "effect": "delete",
+          "target": "IaC resources",
+          "risks": [
+            "CAT-3.1"
+          ],
+          "unresolved": null
+        }
+      ]
+    },
+    "rules": [
+      "G-3.1-DESTROY"
+    ]
+  },
+  "terraform destroy -auto-approve; rm -rf .git": {
+    "stage1": {
+      "actions": [
+        {
+          "effect": "delete",
+          "target": "IaC resources",
+          "risks": [
+            "CAT-3.1"
+          ],
+          "unresolved": null
+        },
+        {
+          "effect": "delete",
+          "target": ".git",
+          "risks": [
+            "CAT-2.4"
+          ],
+          "unresolved": null
+        }
+      ]
+    },
+    "rules": [
+      "G-3.1-DESTROY",
+      "G-2.4-METADATA-DELETE"
+    ]
+  },
+  "\"$ACTION\" .": {
+    "stage1": {
+      "actions": [
+        {
+          "effect": "unknown",
+          "target": ".",
+          "risks": [],
+          "unresolved": "unknown_variable"
+        }
+      ]
+    },
+    "rules": [
+      null
+    ]
+  },
+  "false && rm -rf .git": {
+    "stage1": {
+      "actions": [
+        {
+          "effect": "inspect",
+          "target": "false builtin; deletion unreachable",
+          "risks": [
+            "CAT-0.0"
+          ],
+          "unresolved": null
+        }
+      ]
+    },
+    "rules": [
+      "G-0.0-BENIGN"
+    ]
+  },
+  "git fetch origin | git log -1": {
+    "stage1": {
+      "actions": [
+        {
+          "effect": "transfer",
+          "target": "remote git objects",
+          "risks": [
+            "CAT-0.0"
+          ],
+          "unresolved": null
+        },
+        {
+          "effect": "inspect",
+          "target": "git log",
+          "risks": [
+            "CAT-0.0"
+          ],
+          "unresolved": null
+        }
+      ]
+    },
+    "rules": [
+      "G-0.0-BENIGN",
+      "G-0.0-BENIGN"
+    ]
+  },
+  "helm upgrade payments ./charts/payments -n prod": {
+    "stage1": {
+      "actions": [
+        {
+          "effect": "deploy",
+          "target": "payments release",
+          "risks": [
+            "CAT-3.5"
+          ],
+          "unresolved": null
+        }
+      ]
+    },
+    "rules": [
+      null
+    ]
+  }
+}

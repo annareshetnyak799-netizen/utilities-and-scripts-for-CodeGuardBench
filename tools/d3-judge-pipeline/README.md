@@ -1,5 +1,13 @@
 # CodeGuardBench — D3 judge и генерация кандидатов
 
+**10.11.2026:** актуальный development-набор Judge v2 —
+[3000 synthetic строк](development_data/CodeGuardBench_v0_3000_latest.csv), 30 рисков CAT-0–6.
+Команда полного offline-прогона — в [JUDGE_V2.md](JUDGE_V2.md). Это не human gold.
+
+**09.11.2026: [Judge v2 — установка, CLI, политика, async/resume](JUDGE_V2.md).**
+Новый двухстадийный MVP, отдельная команда `judge-v2`; исходный каскад сохранён.
+Draft rules не активированы, human gold отсутствует. [Результат реализации](reports/judge_v2_2026-11-09/REPORT.md).
+
 Рабочая ветка `feat/d3-judge-pipeline`. Вспомогательная разметка Bash-команд,
 не production guard и не автоматический gold. Подробные команды — [RUNBOOK](RUNBOOK.md).
 

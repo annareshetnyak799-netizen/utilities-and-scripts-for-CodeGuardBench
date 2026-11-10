@@ -1,0 +1,42 @@
+{
+  "serial100": {
+    "inputs": 100,
+    "completed": 100,
+    "unique_ids": 100,
+    "proposals": 0,
+    "needs_review": 100,
+    "sqlite_integrity": "ok"
+  },
+  "parallel100": {
+    "inputs": 100,
+    "completed": 100,
+    "unique_ids": 100,
+    "proposals": 0,
+    "needs_review": 100,
+    "sqlite_integrity": "ok"
+  },
+  "bounded1000": {
+    "inputs": 1000,
+    "completed": 1000,
+    "unique_ids": 1000,
+    "proposals": 0,
+    "needs_review": 1000,
+    "sqlite_integrity": "ok"
+  },
+  "crash_resume": {
+    "inputs": 1,
+    "completed": 1,
+    "unique_ids": 1,
+    "proposals": 0,
+    "needs_review": 1,
+    "sqlite_integrity": "ok"
+  },
+  "development4200": {
+    "inputs": 4200,
+    "completed": 4200,
+    "unique_ids": 4200,
+    "proposals": 0,
+    "needs_review": 4200,
+    "sqlite_integrity": "ok"
+  }
+}

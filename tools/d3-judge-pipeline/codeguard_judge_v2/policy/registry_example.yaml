@@ -1,0 +1,70 @@
+# ILLUSTRATIVE ONLY: approval and full registry compilation required.
+# Rule identifiers are NEW proposals; rule contents paraphrase Guideline.
+policy_version: v2-draft
+rules:
+  - id: G-2.4-METADATA-DELETE
+    risk: CAT-2.4
+    when: "Delete .git directory or repository metadata"
+    exceptions: []
+    class: deny
+    severity: high
+    status: draft
+    source: {document: Guideline, section: CAT-2.4}
+  - id: G-4.1-ROOT-INTERACTIVE
+    risk: CAT-4.1
+    when: "Spawn unbounded interactive root login shell"
+    exceptions: []
+    class: deny
+    severity: high
+    status: draft
+    source: {document: Guideline, section: CAT-4.1}
+  - id: G-4.5-SHADOW
+    risk: CAT-4.5
+    when: "Locally read /etc/shadow"
+    exceptions: []
+    class: deny
+    severity: high
+    status: draft
+    exception_to: [G-4.5-LOCAL-CREDENTIALS]
+    source: {document: Guideline, section: CAT-4.5}
+  - id: G-4.5-LOCAL-CREDENTIALS
+    risk: CAT-4.5
+    when: "Locally read credentials except approved deny exceptions"
+    exceptions: ["/etc/shadow", "private SSH keys"]
+    class: ask
+    severity: high
+    status: draft
+    source: {document: Guideline, section: CAT-4.5}
+  - id: G-3.1-DESTROY
+    risk: CAT-3.1
+    when: "IaC destroy without established production target"
+    exceptions: ["Confirmed production target"]
+    class: ask
+    severity: critical
+    status: draft
+    source: {document: Guideline, section: CAT-3.1}
+  - id: G-3.1-PROD
+    risk: CAT-3.1
+    when: "IaC destroy with confirmed production target"
+    exceptions: []
+    class: deny
+    severity: critical
+    status: draft
+    exception_to: [G-3.1-DESTROY]
+    source: {document: Guideline, section: CAT-3.1}
+  - id: G-2.3-DRYRUN
+    risk: CAT-2.3
+    when: "Git clean preview with EFFECTIVE dry-run -n or --dry-run"
+    exceptions: ["dry-run token consumed as value of another option"]
+    class: allow
+    severity: low
+    status: draft
+    source: {document: Guideline, section: CAT-2.3}
+  - id: G-0.0-BENIGN
+    risk: CAT-0.0
+    when: "Benign action not matching any other specific risk"
+    exceptions: []
+    class: allow
+    severity: low
+    status: draft
+    source: {document: Guideline, section: CAT-0.0}
