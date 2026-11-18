@@ -43,7 +43,7 @@ async def test_cli_v3_unlabeled_input_and_resume(tmp_path, monkeypatch):
     assert calls == [1, 2]
     row = json.loads((out / 'reports/results.jsonl').read_text())
     assert row['proposed_final_class'] == 'ask'
-    assert row['policy_version'] == 'guideline-first-three-class-v3'
+    assert row['policy_version'] == class_mode.VERSION
     assert not (out / 'reference.jsonl').exists()
     args = cli.parser().parse_args(['resume', '--run-id', 'test', '--output-dir', str(out)])
     await cli.execute(args)
@@ -53,6 +53,20 @@ async def test_cli_v3_unlabeled_input_and_resume(tmp_path, monkeypatch):
 def action():
     return Stage1Result.model_validate({'actions': [{'effect': 'unknown', 'target': 'unknown',
                                                     'risks': [], 'unresolved': 'unsupported_syntax'}]}).actions[0]
+
+
+@pytest.mark.parametrize('length', [161, 201, 4096])
+def test_long_target_preserves_full_path(length):
+    target = '/home/user/' + 'x' * (length - len('/home/user/'))
+    raw = {'actions': [{'effect': 'inspect', 'target': target, 'risks': ['CAT-0.0'], 'unresolved': None}]}
+    parsed = stages.validate(1, json.dumps(raw), {}, load_registry())
+    assert parsed['actions'][0]['target'] == target
+
+
+def test_target_still_bounded():
+    raw = {'actions': [{'effect': 'inspect', 'target': 'x' * 4097, 'risks': ['CAT-0.0'], 'unresolved': None}]}
+    with pytest.raises(ValidationError):
+        stages.validate(1, json.dumps(raw), {}, load_registry())
 
 
 @pytest.mark.parametrize('label', ['allow', 'ask', 'deny'])

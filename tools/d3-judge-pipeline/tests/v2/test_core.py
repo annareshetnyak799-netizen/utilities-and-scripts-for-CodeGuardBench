@@ -24,7 +24,7 @@ def decision(rule='G-2.4-METADATA-DELETE', aid='a1', reason=None):
     return dict(action_id=aid, rule_id=rule, review_reason=reason, note='fixture')
 
 
-@pytest.mark.parametrize('change', [dict(effect='unsafe'), dict(effect='unknown'), dict(target=''), dict(target='x'*161), dict(risks=['CAT-2.4']*2), dict(risks=[]), dict(unresolved='maybe'), dict(severity='high'), dict(**{'class': 'deny'}), dict(action_id='a1')])
+@pytest.mark.parametrize('change', [dict(effect='unsafe'), dict(effect='unknown'), dict(target=''), dict(target='x'*4097), dict(risks=['CAT-2.4']*2), dict(risks=[]), dict(unresolved='maybe'), dict(severity='high'), dict(**{'class': 'deny'}), dict(action_id='a1')])
 def test_stage1_strict(change):
     a = action(); a.update(change)
     with pytest.raises(ValidationError):

@@ -7,11 +7,11 @@ from .schemas import ActionClass
 DATA = Path(__file__).parent
 GUIDELINE = json.loads((DATA / 'policy/guideline_cards.json').read_text())
 PROMPTS = {
-    1: (DATA / 'prompts/stage1_guideline_three_class_v1.txt').read_text(),
+    1: (DATA / 'prompts/stage1_guideline_three_class_v2.txt').read_text(),
     2: (DATA / 'prompts/stage2_guideline_three_class_v3.txt').read_text(),
 }
 MODE = 'guideline_three_class'
-VERSION = 'guideline-first-three-class-v3'
+VERSION = 'guideline-first-three-class-v3.1'
 
 
 class ClassDecision(BaseModel):

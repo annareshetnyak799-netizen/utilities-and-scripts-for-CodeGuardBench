@@ -1,10 +1,10 @@
 {
-  "date": "2026-11-18",
-  "policy_version": "guideline-first-three-class-v3",
+  "date": "2026-11-19",
+  "policy_version": "guideline-first-three-class-v3.1",
   "stage2_sha256": "ecf0df338acb72191ff02077eda2a28801c4609d2692a03e1c5fac602cb9d0a5",
-  "tests": "135 passed; tests/v2",
+  "tests": "139 passed; tests/v2",
   "unlabeled_cli_and_resume_test": "passed",
-  "wheel_resources": "verified",
+  "wheel_resources": "verified on v3; unchanged package-data glob includes new prompt",
   "merged_ancestor": "b40ee1e0e9b0ab1bac65f29c2c3f353b089f6492",
   "known_limitation": "false allow observed on podman rm --filter ancestor=nginx; preliminary labels only",
   "retry_policy": {
@@ -13,5 +13,13 @@
     "retry_output_tokens": 16384,
     "mixed_errors_and_restart": "tested",
     "additional_full_rerun": false
+  },
+  "stage1_sha256": "99699508b1b9b2018cdfaa88333dfa98bd9e649c92e9dc95a8d7de29e11ae6dc",
+  "target_length_regression": {
+    "previously_rejected_saved_responses": 14,
+    "accepted_without_modification": 14,
+    "max_target_characters": 4096,
+    "stage2_prompt_unchanged": true,
+    "live_rerun": false
   }
 }

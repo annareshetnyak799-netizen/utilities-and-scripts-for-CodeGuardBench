@@ -1,6 +1,7 @@
 # CodeGuardBench — D3 judge и генерация кандидатов
 
-**18.11.2026: разметка без golden-меток, guideline-first v3.**
+**19.11.2026: разметка без golden-меток, guideline-first v3.1.**
+Технический патч принимает длинные `target`; правила классификации Stage 2 v3 сохранены.
 Актуальная ветка — `feat/d3-judge-pipeline`; история `feat/d3-judge-v2` включена в неё.
 Инструкция запуска и ограничения: [GUIDELINE_V3.txt](GUIDELINE_V3.txt).
 Вход — JSONL с `id` и `command`. Эталон нужен только отдельной команде `evaluate`.

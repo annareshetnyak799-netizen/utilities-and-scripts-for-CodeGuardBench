@@ -58,7 +58,7 @@ class ReviewReason(str, Enum):
 class Stage1Action(BaseModel):
     model_config = ConfigDict(extra='forbid')
     effect: Effect
-    target: str = Field(min_length=1, max_length=160)
+    target: str = Field(min_length=1, max_length=4096)
     risks: list[str] = Field(min_length=0, max_length=3)
     unresolved: Unresolved | None
 
