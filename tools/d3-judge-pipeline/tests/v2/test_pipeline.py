@@ -23,6 +23,42 @@ def projection(results):
 
 
 @pytest.mark.asyncio
+@pytest.mark.parametrize('faults', [['invalid', 'invalid'], ['invalid', TransportError(503, 0)], [TransportError(503, 0), 'invalid']])
+async def test_single_retry_shared_across_error_types_and_larger_reservation(tmp_path, faults):
+    cfg = Config(pipeline={'max_total_retries': 1, 'retry_output_tokens_multiplier': 2},
+                 inference={'reserved_output_tokens_stage1': 8192})
+    store, cfg, reg = setup(tmp_path, ['git status'], cfg=cfg)
+    provider = MockProvider(0, {('git status', 1): faults})
+    try:
+        await Pipeline(store, 'test', cfg, reg, provider).run()
+        assert len(provider.calls) == 2
+        caps = [r[0] for r in store.db.execute('SELECT estimated_output FROM stage_attempts ORDER BY attempt_id')]
+        assert caps == [8192, 16384]
+        assert list(store.results('test'))[0]['review_status'] == 'technical_failure'
+        await Pipeline(store, 'test', cfg, reg, provider).run()
+        assert len(provider.calls) == 2
+    finally:
+        store.close()
+
+
+@pytest.mark.asyncio
+async def test_reserved_attempt_counts_towards_retry_cap_after_restart(tmp_path):
+    cfg = Config(pipeline={'max_total_retries': 1, 'retry_output_tokens_multiplier': 2},
+                 inference={'reserved_output_tokens_stage1': 8192})
+    store, cfg, reg = setup(tmp_path, ['git status'], cfg=cfg)
+    try:
+        store.reserve('test', '0', 1, 10, 8192, 0)
+        provider = MockProvider(0, {('git status', 1): ['invalid']})
+        await Pipeline(store, 'test', cfg, reg, provider).run()
+        assert len(provider.calls) == 1
+        assert store.counters('test', '0', 1)['calls'] == 2
+        caps = [r[0] for r in store.db.execute('SELECT estimated_output FROM stage_attempts ORDER BY attempt_id')]
+        assert caps == [8192, 16384]
+    finally:
+        store.close()
+
+
+@pytest.mark.asyncio
 async def test_default_policy_review(tmp_path):
     store, cfg, reg = setup(tmp_path, ['git status', 'rm -rf .git'])
     try:

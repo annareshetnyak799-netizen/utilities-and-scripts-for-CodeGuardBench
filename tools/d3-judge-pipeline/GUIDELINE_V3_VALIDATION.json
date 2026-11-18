@@ -2,9 +2,16 @@
   "date": "2026-11-18",
   "policy_version": "guideline-first-three-class-v3",
   "stage2_sha256": "ecf0df338acb72191ff02077eda2a28801c4609d2692a03e1c5fac602cb9d0a5",
-  "tests": "131 passed; tests/v2",
+  "tests": "135 passed; tests/v2",
   "unlabeled_cli_and_resume_test": "passed",
   "wheel_resources": "verified",
   "merged_ancestor": "b40ee1e0e9b0ab1bac65f29c2c3f353b089f6492",
-  "known_limitation": "false allow observed on podman rm --filter ancestor=nginx; preliminary labels only"
+  "known_limitation": "false allow observed on podman rm --filter ancestor=nginx; preliminary labels only",
+  "retry_policy": {
+    "max_total_retries_per_stage": 1,
+    "first_output_tokens": 8192,
+    "retry_output_tokens": 16384,
+    "mixed_errors_and_restart": "tested",
+    "additional_full_rerun": false
+  }
 }

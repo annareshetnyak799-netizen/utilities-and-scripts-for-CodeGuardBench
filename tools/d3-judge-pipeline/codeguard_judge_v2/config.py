@@ -15,6 +15,8 @@ class PipelineConfig(StrictModel):
     prefer_stage2_when_backlogged: bool = True
     max_format_retries: int = Field(default=2, ge=0, le=2)
     max_transport_retries: int = Field(default=3, ge=0, le=10)
+    max_total_retries: int | None = Field(default=None, ge=0, le=10)
+    retry_output_tokens_multiplier: int = Field(default=1, ge=1, le=8)
     request_timeout_seconds: float = Field(default=180, gt=0)
     backoff_base_seconds: float = Field(default=1, gt=0)
     max_retry_wait_seconds: float = Field(default=300, gt=0)

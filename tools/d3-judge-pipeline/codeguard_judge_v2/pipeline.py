@@ -89,8 +89,12 @@ class Pipeline:
         error = feedback or 'provider_error'
         format_retry_pending = bool(formats)
         transport_retry_pending = bool(transports)
-        maximum = getattr(inf, f'reserved_output_tokens_stage{stage}')
+        base_maximum = getattr(inf, f'reserved_output_tokens_stage{stage}')
         while formats <= p.max_format_retries and transports <= p.max_transport_retries:
+            calls = store.counters(run, item['id'], stage)['calls']
+            if p.max_total_retries is not None and calls >= 1 + p.max_total_retries:
+                break
+            maximum = base_maximum * (p.retry_output_tokens_multiplier if calls else 1)
             if self.paused:
                 store.state(run, item['id'], 'budget_paused')
                 return None

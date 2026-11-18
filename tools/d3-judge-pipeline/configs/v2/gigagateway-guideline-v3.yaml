@@ -5,6 +5,8 @@ pipeline:
   queue_capacity: 8
   max_format_retries: 1
   max_transport_retries: 1
+  max_total_retries: 1
+  retry_output_tokens_multiplier: 2
   request_timeout_seconds: 240
 inference:
   provider: openai_compatible
