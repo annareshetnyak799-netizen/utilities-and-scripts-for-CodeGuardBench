@@ -96,10 +96,12 @@ class MockProvider:
     Unknown inputs yield unresolved. Never use candidate labels or regex guessing.
     Tests may inject exceptions/strings as an ordered script per (command, stage).
     """
-    def __init__(self, latency=0.005, faults=None, fixtures=None):
+    def __init__(self, latency=0.005, faults=None, fixtures=None, policy_version=None):
         self.latency = latency
         self.faults = faults or {}
-        self.fixtures = fixtures if fixtures is not None else json.loads((Path(__file__).parent / 'fixtures/mock.json').read_text())
+        fixture_name = 'mock_s055.json' if policy_version == 'three-class-S055-2026-11-15' else 'mock.json'
+        self.fixture_model = 'mock-three-class-s055' if fixture_name == 'mock_s055.json' else 'mock-fixtures-v1'
+        self.fixtures = fixtures if fixtures is not None else json.loads((Path(__file__).parent / 'fixtures' / fixture_name).read_text())
         self.calls = []
         self.active = 0
         self.max_active = 0
@@ -140,7 +142,7 @@ class MockProvider:
                                           note='Authored offline fixture; not human gold.'))
                 raw = {'decisions': decisions}
             content = dumps(raw)
-            return Response(content, len(dumps(messages).encode()) // 4 + 1, len(content.encode()) // 4 + 1, model='mock-fixtures-v1')
+            return Response(content, len(dumps(messages).encode()) // 4 + 1, len(content.encode()) // 4 + 1, model=self.fixture_model)
         finally:
             self.active -= 1
             self.active_stages[stage] -= 1

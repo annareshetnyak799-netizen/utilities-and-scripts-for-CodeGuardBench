@@ -16,6 +16,7 @@ assert len(RISK_CODES) == 42
 
 class Approval(StrictModel):
     reviewer: str = Field(min_length=1)
+    basis: Literal['human_review', 'user_delegated_authoring'] = 'human_review'
     approved_at: str = Field(min_length=1)
     evidence: str = Field(min_length=1)
     rule_sha256: str = Field(pattern='^[a-f0-9]{64}$')
@@ -97,7 +98,7 @@ class Registry(StrictModel):
 
 
 def load_registry(path=None):
-    data = yaml.safe_load(Path(path or DATA / 'registry_example.yaml').read_text())
+    data = yaml.safe_load(Path(path or DATA / 'registry_three_class_s055.json').read_text())
     # The reference omits per-rule versions. Inherit explicitly, without changing status.
     for r in data['rules']:
         r.setdefault('policy_version', data['policy_version'])

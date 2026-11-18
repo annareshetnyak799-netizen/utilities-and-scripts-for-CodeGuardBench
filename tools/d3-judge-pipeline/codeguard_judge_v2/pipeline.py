@@ -7,6 +7,7 @@ from pathlib import Path
 from pydantic import ValidationError
 from judge.static import SECRET  # Reuse only the tested secret-shape detector, never analyze().
 from . import stages
+from . import class_mode
 from .aggregation import aggregate
 from .common import digest, dumps, atomic_write
 from .limits import InflightGate, RateLimiter, LimitExceeded
@@ -58,12 +59,14 @@ class Pipeline:
         self.stats[f'peak_queue{stage}'] = max(self.stats[f'peak_queue{stage}'], q.qsize())
 
     def terminal(self, item, reason, status='technical_failure', facts=None):
+        forced = self.config.run.decision_mode == class_mode.MODE
         self.store.commit_decision(self.run_id, item['id'], dict(
             id=item['id'], operational_verdict=None, proposed_final_class=None, primary_risk=None,
             severity=None, review_status=status, review_reasons=[reason], human_status='unreviewed',
             parser=facts, stage1=self.store.stage(self.run_id, item['id'], 1),
             stage2=self.store.stage(self.run_id, item['id'], 2),
-            policy_version=self.registry.policy_version, policy_sha256=self.registry.sha))
+            policy_version=class_mode.VERSION if forced else self.registry.policy_version,
+            policy_sha256=digest(class_mode.POLICY) if forced else self.registry.sha))
 
     async def call_stage(self, stage, item, data):
         store, run, cfg = self.store, self.run_id, self.config
@@ -93,7 +96,7 @@ class Pipeline:
                 return None
             msg = stages.messages(stage, data, feedback)
             # UTF-8 bytes + framing/schema is a conservative tokenizer-independent bound.
-            pin = len(dumps({'messages': msg, 'schema': stages.SCHEMAS[stage]}).encode()) + 512
+            pin = len(dumps({'messages': msg, 'schema': stages.schema(stage, data)}).encode()) + 512
             if pin > inf.max_input_tokens:
                 error = 'input_token_limit_no_truncation'
                 break
@@ -126,7 +129,7 @@ class Pipeline:
                 start = time.monotonic()
                 try:
                     async with asyncio.timeout(p.request_timeout_seconds):
-                        response = await self.provider.complete(stage, data, msg, stages.SCHEMAS[stage], maximum)
+                        response = await self.provider.complete(stage, data, msg, stages.schema(stage, data), maximum)
                 except (TransportError, TimeoutError) as exc:
                     code = str(exc.code) if isinstance(exc, TransportError) else 'timeout'
                     store.attempt_status(attempt, 'transport_error', code, time.monotonic()-start)
@@ -163,8 +166,8 @@ class Pipeline:
                 store.attempt_status(attempt, 'success')
                 store.commit_stage(run, item['id'], stage, 'success', result, key,
                                    {'cache_hit': False, 'attempts': store.counters(run, item['id'], stage)['calls'],
-                                    'prompt_sha256': digest(stages.PROMPTS[stage]), 'model_id': inf.model_id,
-                                    'model_revision': inf.model_revision, 'schema_sha256': digest(stages.SCHEMAS[stage])})
+                                    'prompt_sha256': digest(stages.system_prompt(stage, data)), 'model_id': inf.model_id,
+                                    'model_revision': inf.model_revision, 'schema_sha256': digest(stages.schema(stage, data))})
                 self.hook('after_stage_commit', item, stage)
                 return store.stage(run, item['id'], stage)
         store.commit_stage(run, item['id'], stage, 'failure', {'reason': error}, key,
@@ -193,7 +196,8 @@ class Pipeline:
                     self.terminal(item, 'possible_secret', 'needs_review')
                     continue
                 facts = parse(command)
-                s1 = await self.call_stage(1, item, stages.payload(1, item, facts, self.registry))
+                s1 = await self.call_stage(1, item, stages.payload(1, item, facts, self.registry,
+                                           decision_mode=self.config.run.decision_mode))
                 if s1 is None:
                     continue
                 if s1['status'] != 'success':
@@ -203,7 +207,7 @@ class Pipeline:
                 # Only skip Stage 2 when no action has an identified CAT.
                 # Known risks with unknown payload/variable still require policy
                 # evaluation (e.g. encoded code execution with unknown content).
-                if all(not a.risks for a in parsed.actions):
+                if self.config.run.decision_mode != class_mode.MODE and all(not a.risks for a in parsed.actions):
                     self.store.commit_stage(self.run_id, item['id'], 2, 'skipped', {'skip_reason': 'no_identified_risk'}, '', {})
                     self.terminal(item, 'no_identified_risk', 'needs_review', facts)
                     continue
@@ -219,19 +223,25 @@ class Pipeline:
                     return
                 item, facts, s1, start = job
                 parsed = Stage1Result.model_validate(s1['result'])
-                data = stages.payload(2, item, facts, self.registry, parsed)
+                data = stages.payload(2, item, facts, self.registry, parsed,
+                                      decision_mode=self.config.run.decision_mode)
                 s2 = await self.call_stage(2, item, data)
                 if s2 is None:
                     continue
                 if s2['status'] != 'success':
                     self.terminal(item, s2['result']['reason'], facts=facts)
                     continue
-                decisions = materialize(s2['result'], parsed.actions, data['approved_rules_by_action'], self.registry)
-                result = dict(id=item['id'], **aggregate(decisions), decisions=decisions,
+                forced = self.config.run.decision_mode == class_mode.MODE
+                decisions = (class_mode.materialize(s2['result'], parsed.actions) if forced else
+                             materialize(s2['result'], parsed.actions, data['approved_rules_by_action'], self.registry))
+                result = dict(id=item['id'], **aggregate(decisions, class_only=forced), decisions=decisions,
                               stage1=s1, stage2=s2, parser=facts,
                               command_sha256=digest(item['command']), context_sha256=digest(item.get('context', {})),
                               policy_version=self.registry.policy_version, policy_sha256=self.registry.sha,
                               elapsed_seconds=time.monotonic()-start)
+                if forced:
+                    result.update(policy_version=class_mode.VERSION,
+                                  policy_sha256=digest(class_mode.POLICY))
                 self.store.commit_decision(self.run_id, item['id'], result)
             finally:
                 self.q2.task_done()

@@ -5,13 +5,13 @@ from codeguard_judge_v2.storage import Store
 from codeguard_judge_v2.stages import fingerprint
 from codeguard_judge_v2.pipeline import Pipeline, InjectedCrash
 from codeguard_judge_v2.providers import MockProvider, TransportError, Response
-from codeguard_judge_v2.policy_registry import load_registry
+from codeguard_judge_v2.policy_registry import load_registry, DATA
 from codeguard_judge_v2.limits import RateLimiter, LimitExceeded
 from codeguard_judge_v2.export import export, COLUMNS
 
 
 def setup(path, commands, cfg=None, registry=None, run='test'):
-    cfg, registry = cfg or Config(), registry or load_registry()
+    cfg, registry = cfg or Config(), registry or load_registry(DATA / "registry_example.yaml")
     store = Store(path/'state.sqlite3')
     store.create_run(run, fingerprint(cfg, registry), cfg)
     store.ingest(run, ({'id': str(i), 'command': c, 'context': {}, 'metadata': {'source': 'test_fixture', 'seed': '-'}} for i, c in enumerate(commands)))
@@ -103,8 +103,12 @@ async def test_transports_timeout(tmp_path, active_registry):
     store, cfg, reg = setup(tmp_path, ['rm -rf .git'], registry=active_registry)
     cfg.pipeline.backoff_base_seconds = .001
     provider = MockProvider(0, {('rm -rf .git', 1): [TransportError(429, .003), TransportError(503, .001), TimeoutError()]})
+    # Retry-After may elapse during SQLite writes on a busy host. Control the
+    # limiter clock so this verifies throttling, not sub-millisecond scheduling.
+    clock = FakeClock()
+    limiter = RateLimiter(cfg.rate_limit, clock.clock, clock.sleep)
     try:
-        report = await Pipeline(store, 'test', cfg, reg, provider).run()
+        report = await Pipeline(store, 'test', cfg, reg, provider, limiter=limiter).run()
         assert len(provider.calls) == 5
         assert report['count_429'] == 1 and report['transport_errors'] == 3
         assert report['runtime']['throttled_seconds'] >= .001

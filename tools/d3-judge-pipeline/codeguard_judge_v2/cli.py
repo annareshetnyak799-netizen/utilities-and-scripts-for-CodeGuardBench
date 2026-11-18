@@ -18,6 +18,7 @@ from .providers import MockProvider, HTTPProvider
 from .records import read_records
 from .review import import_decisions
 from .stages import fingerprint
+from . import class_mode
 from .storage import Store
 
 
@@ -43,6 +44,8 @@ async def execute(args):
             run_id = args.run_id or 'run-' + uuid.uuid4().hex[:12]
             manifest = fingerprint(config, registry)
             atomic_write(out / f'{run_id}.policy.json', dumps(registry.model_dump(mode='json', by_alias=True)))
+            if config.run.decision_mode == class_mode.MODE:
+                atomic_write(out / 'class_policy.json', dumps(class_mode.POLICY))
             store.create_run(run_id, manifest, config)
             store.ingest(run_id, read_records(args.input))
             atomic_write(out / 'run_manifest.json', dumps({'run_id': run_id, 'versions': manifest, 'config': config.model_dump(mode='json')}))
@@ -59,7 +62,7 @@ async def execute(args):
                 store.raise_budget(run_id, args.max_spend)
         if args.crash_after_stage1 and config.inference.provider != 'mock':
             raise ValueError('fault injection is mock-only')
-        provider = MockProvider(config.inference.mock_latency_seconds) if config.inference.provider == 'mock' else HTTPProvider(config)
+        provider = MockProvider(config.inference.mock_latency_seconds, policy_version=registry.policy_version) if config.inference.provider == 'mock' else HTTPProvider(config)
         fired = False
         def hook(location, item_id, stage):
             nonlocal fired

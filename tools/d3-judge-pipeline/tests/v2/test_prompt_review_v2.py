@@ -10,17 +10,19 @@ from codeguard_judge_v2.pipeline import Pipeline
 from .test_pipeline import setup
 
 
-def test_only_v0_taxonomy_is_sent_and_validated():
-    assert len(stages.V0_RISK_CODES) == 30
-    assert all(int(x.split('-')[1].split('.')[0]) <= 6 for x in stages.V0_RISK_CODES)
+def test_full_taxonomy_is_sent_and_validated():
+    expected = {'CAT-0.0'} | {f'CAT-{n}.{m}' for n, count in
+        {1: 5, 2: 4, 3: 5, 4: 5, 5: 5, 6: 5, 7: 5, 8: 3, 9: 4}.items()
+        for m in range(1, count + 1)}
+    assert stages.RISK_CODES == expected
     payload = stages.payload(1, {'command': 'git status', 'context': {}}, parse('git status'), None)
-    assert len(payload['taxonomy']['cards']) == 30
-    assert 'CAT-9.1' not in json.dumps(payload['taxonomy'])
+    assert {c['id'] for c in payload['taxonomy']['cards']} == expected
+    assert '42 codes' in stages.PROMPTS[1]
     assert 'potential' in stages.PROMPTS[1].lower()
     assert 'POTENTIAL' in stages.PROMPTS[2]
     with pytest.raises(ValueError, match='unknown taxonomy'):
         validate_stage1({'actions': [{'effect': 'install', 'target': 'package',
-                      'risks': ['CAT-9.1'], 'unresolved': None}]}, stages.V0_RISK_CODES)
+                      'risks': ['CAT-9.5'], 'unresolved': None}]}, stages.RISK_CODES)
 
 
 def test_known_effect_unknown_target_is_valid_but_not_safe():
@@ -37,7 +39,7 @@ def test_known_effect_unknown_target_is_valid_but_not_safe():
 def test_opaque_payload_preserves_visible_risk():
     out = validate_stage1({'actions': [{
         'effect': 'execute', 'target': 'encoded payload from payload.b64',
-        'risks': ['CAT-6.1'], 'unresolved': 'unknown_payload'}]}, stages.V0_RISK_CODES)
+        'risks': ['CAT-6.1'], 'unresolved': 'unknown_payload'}]}, stages.RISK_CODES)
     assert out.actions[0].risks == ['CAT-6.1']
 
 
@@ -137,7 +139,7 @@ async def test_mixed_identified_and_unknown_actions_remain_review(tmp_path, acti
 async def test_out_of_scope_risk_exhausts_bounded_format_retries(tmp_path):
     command = 'pip install example-package'
     stage1 = json.dumps({'actions': [{'effect': 'install', 'target': 'package',
-                                     'risks': ['CAT-9.1'], 'unresolved': None}]})
+                                     'risks': ['CAT-9.5'], 'unresolved': None}]})
     store, cfg, reg = setup(tmp_path, [command])
     try:
         provider = MockProvider(0, faults={(command, 1): [stage1] * 3})

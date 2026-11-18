@@ -2,7 +2,7 @@
 from .schemas import aggregate_class
 
 
-def aggregate(decisions):
+def aggregate(decisions, class_only=False):
     verdict = aggregate_class(decisions)
     reasons = sorted({d['review_reason'] for d in decisions if d.get('review_reason')})
     resolved = [d for d in decisions if d.get('class')]
@@ -18,8 +18,14 @@ def aggregate(decisions):
         severity = resolved[0]['severity']
     elif len(decisions) > 1:
         reasons.append('aggregation_severity_unapproved:PI-20')
-    return dict(operational_verdict=verdict,
+    result = dict(operational_verdict=verdict,
                 proposed_final_class=verdict if not any(d.get('review_reason') for d in decisions) else None,
                 primary_risk=primary, severity=severity,
                 review_status='needs_review' if reasons else 'proposed',
                 review_reasons=sorted(set(reasons)), human_status='unreviewed')
+    if class_only:
+        if verdict is None or any(not d.get('class') or d.get('review_reason') for d in decisions):
+            raise ValueError('class-only aggregation requires every action class')
+        result.update(review_status='proposed', review_reasons=[],
+                      class_only=True, diagnostic_notes=sorted(set(reasons)))
+    return result

@@ -7,8 +7,8 @@ pipeline:
   max_transport_retries: 3
 inference:
   provider: mock
-  model_id: mock-fixtures-v1
-  model_revision: '1'
+  model_id: mock-three-class-s055
+  model_revision: 'S055'
   mock_latency_seconds: 0.01
 run:
   cache_policy: "off"

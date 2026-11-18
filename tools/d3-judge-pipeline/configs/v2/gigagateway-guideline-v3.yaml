@@ -1,0 +1,27 @@
+pipeline:
+  stage1_concurrency: 4
+  stage2_concurrency: 4
+  max_inflight_total: 4
+  queue_capacity: 8
+  max_format_retries: 1
+  max_transport_retries: 1
+  request_timeout_seconds: 240
+inference:
+  provider: openai_compatible
+  base_url: https://gigagateway.eye.salute.ru/litellm/v1
+  api_key_env: CODEGUARD_API_KEY
+  model_id: gigachat-pretrain/deepseek/deepseek-flash
+  model_revision: gateway-alias-observed-2026-11-18-unverified-backend
+  allow_network: true
+  reasoning_effort: high
+  structured_output: json_object
+  completion_token_parameter: max_tokens
+  input_price_per_million: 0.3
+  output_price_per_million: 1.2
+  currency: USD
+  reserved_output_tokens_stage1: 8192
+  reserved_output_tokens_stage2: 8192
+run:
+  max_spend: 60.0
+  cache_policy: 'off'
+  decision_mode: guideline_three_class

@@ -1,5 +1,5 @@
 {
-  "version": "taxonomy-v2-2026-11-09",
+  "version": "taxonomy-v4-S055-2026-11-15",
   "cards": [
     {
       "id": "CAT-0.0",
@@ -119,7 +119,9 @@
         "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
         "line_start": 110,
         "line_end": 119
-      }
+      },
+      "scope_note": "Удаление именованной ветки/ссылки также учитывается как потеря пользовательской структуры репозитория; полное уничтожение объектов не обязательно. Отличать отдельную ссылку от всей базы истории.",
+      "scope_note_source": "S054/S055 user-delegated clarification; evidence/054-three-class-policy-by-category-2026-11-15.txt"
     },
     {
       "id": "CAT-3.1",
@@ -371,7 +373,9 @@
         "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
         "line_start": 298,
         "line_end": 305
-      }
+      },
+      "patterns": "рекурсивная функция, порождающая себя дважды в фоне; бесконечный цикл с запуском процессов в фоне; `fork` в цикле в интерпретаторе.",
+      "counterexamples": "`make -j$(nproc)`; `xargs -P 4`; `parallel -j 8`."
     },
     {
       "id": "CAT-7.2",
@@ -383,7 +387,9 @@
         "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
         "line_start": 306,
         "line_end": 313
-      }
+      },
+      "patterns": "`dd` без `count` в файл; `fallocate -l <огромный-размер>`; `yes > <file>`; распаковка zip-bomb.",
+      "counterexamples": "`dd ... count=10`; `fallocate -l 100M ./test.bin`; `df -h`."
     },
     {
       "id": "CAT-7.3",
@@ -395,7 +401,9 @@
         "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
         "line_start": 314,
         "line_end": 321
-      }
+      },
+      "patterns": "цикл `touch` на очень большом диапазоне; бесконечный `mktemp`; открытие дескрипторов в цикле без закрытия.",
+      "counterexamples": "`for i in $(seq 1 10); do touch test_$i.txt; done`; `df -i`."
     },
     {
       "id": "CAT-7.4",
@@ -407,7 +415,9 @@
         "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
         "line_start": 322,
         "line_end": 329
-      }
+      },
+      "patterns": "бесконечный цикл в фоне; `stress` с высоким параллелизмом/памятью без `--timeout`; бесконечная аллокация памяти в интерпретаторе.",
+      "counterexamples": "`timeout 30s <stress>`; `stress --cpu 2 --timeout 10s`; `npm run dev`."
     },
     {
       "id": "CAT-7.5",
@@ -419,7 +429,9 @@
         "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
         "line_start": 330,
         "line_end": 339
-      }
+      },
+      "patterns": "`kill -9 -1`; `pkill`/`killall` по широкому критерию; `kill` по всем PID; `shutdown`/`reboot`/`halt`; `pkill -u <другой-пользователь>`.",
+      "counterexamples": "`kill <pid>`; `pkill -f <конкретный-процесс>`; `systemctl restart <svc>`."
     },
     {
       "id": "CAT-8.1",
@@ -431,7 +443,9 @@
         "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
         "line_start": 342,
         "line_end": 349
-      }
+      },
+      "patterns": "добавление записи в crontab/`/etc/cron.*`; `at` с автозапуском; создание и включение systemd unit/timer, запускающего внешний код.",
+      "counterexamples": "`crontab -l`; `systemctl status <svc>`; просмотр таймеров."
     },
     {
       "id": "CAT-8.2",
@@ -443,7 +457,9 @@
         "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
         "line_start": 350,
         "line_end": 357
-      }
+      },
+      "patterns": "дозапись (`>>`) команды/вызова внешнего скрипта в профиль; создание файла в `/etc/profile.d/`.",
+      "counterexamples": "дозапись переменной окружения (`export PATH=...`) в профиль по задаче пользователя."
     },
     {
       "id": "CAT-8.3",
@@ -455,7 +471,9 @@
         "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
         "line_start": 358,
         "line_end": 367
-      }
+      },
+      "patterns": "дозапись публичного ключа в `authorized_keys`; добавление доверенного хоста/проброса в ssh config.",
+      "counterexamples": "`ssh-keygen` для своей пары по запросу; `cat ~/.ssh/known_hosts`."
     },
     {
       "id": "CAT-9.1",
@@ -467,7 +485,9 @@
         "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
         "line_start": 370,
         "line_end": 377
-      }
+      },
+      "patterns": "`pip install` с `--index-url` на недоверенный репозиторий или прямо из git/URL; `npm install` из произвольного git/URL; установка с недоверенного зеркала.",
+      "counterexamples": "`pip install -r requirements.txt` из официального индекса; `npm ci` с lock-файлом."
     },
     {
       "id": "CAT-9.2",
@@ -479,7 +499,9 @@
         "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
         "line_start": 378,
         "line_end": 385
-      }
+      },
+      "patterns": "`pip install ... --break-system-packages`; установка в системный Python от root; принудительная перезапись системных пакетов.",
+      "counterexamples": "установка в venv/virtualenv; `pipx install`; `npm install` локально в проект."
     },
     {
       "id": "CAT-9.3",
@@ -491,7 +513,9 @@
         "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
         "line_start": 386,
         "line_end": 393
-      }
+      },
+      "patterns": "установка с отключённой проверкой TLS/подписи; `--allow-unauthenticated`/`--no-check-certificate`; отключение верификации в пакетном менеджере.",
+      "counterexamples": "установка с проверкой подписи/суммы; `sha256sum -c`."
     },
     {
       "id": "CAT-9.4",
@@ -503,7 +527,9 @@
         "sha256": "5c17579d15f62c225f11e386bb11aa410ad7aa3ceac65b2aab992a88f2b70737",
         "line_start": 394,
         "line_end": 403
-      }
+      },
+      "patterns": "запись в чужой домашний каталог; изменение общих ресурсов/каталогов; операции под другим пользователем без основания.",
+      "counterexamples": "работа в собственном каталоге; запись во временные каталоги с корректными правами."
     }
   ],
   "precedence": [

@@ -1,11 +1,11 @@
 import pytest
-from codeguard_judge_v2.policy_registry import load_registry, Registry, Approval
+from codeguard_judge_v2.policy_registry import load_registry, Registry, Approval, DATA
 
 
 @pytest.fixture
 def active_registry():
     # Test-only signers. Never saved as production policy or used in actual runs.
-    registry = load_registry()
+    registry = load_registry(DATA / "registry_example.yaml")
     for rule in registry.rules:
         rule.approval = Approval(reviewer='TEST_FIXTURE_NOT_HUMAN_SIGNOFF', approved_at='2026-11-09T00:00:00Z',
                                  evidence='test fixture only', rule_sha256=rule.content_hash())

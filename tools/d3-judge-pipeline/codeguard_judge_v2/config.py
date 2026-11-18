@@ -50,6 +50,7 @@ class InferenceConfig(StrictModel):
 
 
 class RunConfig(StrictModel):
+    decision_mode: Literal['rule_only', 'guideline_three_class'] = 'rule_only'
     max_spend: float | None = Field(default=None, ge=0)
     cache_policy: Literal['off', 'exact'] = 'off'
     metrics_interval_seconds: float = Field(default=30, gt=0)

@@ -1,0 +1,47 @@
+Guideline-first v3 — 18.11.2026
+
+Рабочая ветка: feat/d3-judge-pipeline.
+feat/d3-judge-v2 была продолжением старой ветки: 6 коммитов,
+без расходящейся истории. Её вершина b40ee1e0e9b0ab1bac65f29c2c3f353b089f6492
+включена fast-forward в единственную рабочую ветку judge.
+
+Это Judge v2 (архитектура), с политикой guideline-first-three-class-v3.
+Stage 1 использует stage1_guideline_three_class_v1.txt, Stage 2 —
+stage2_guideline_three_class_v3.txt. Приоритет у гайдлайна; принцип
+пользователь/система применяется только как вторичный ориентир.
+Выходные классы: allow, ask, deny. Model abstention needs_review запрещён;
+технические сбои сохраняются отдельно без выдуманного класса.
+Обычный rule_only режим сохранён для совместимости. Для v3 используйте конфиг ниже.
+
+Установка из tools/d3-judge-pipeline:
+  python -m pip install '.[test]'
+
+Установите CODEGUARD_API_KEY в окружении из вашего защищённого хранилища.
+Ключи, локальные логи, запросы и результаты разметки в репозиторий не входят.
+Файл input.jsonl содержит только id и command; контекст и golden не требуются.
+
+  judge-v2 run --input /path/input.jsonl --run-id local-v3 \
+    --config configs/v2/gigagateway-guideline-v3.yaml --output-dir /path/run
+
+Возобновление прерванного процесса с тем же кодом/политикой:
+  judge-v2 resume --run-id local-v3 --output-dir /path/run
+
+Результаты: reports/results.jsonl; предложенный класс — proposed_final_class,
+объяснения — decisions; review_status отличает proposal от technical_failure.
+Прогресс и расчётные расходы — reports/metrics.json, состояние — state.sqlite3.
+Все команды рассматриваются как текст, не исполняются.
+
+Модель: gigachat-pretrain/deepseek/deepseek-flash, reasoning_effort=high.
+Имя — алиас шлюза, точная версия backend не подтверждена.
+Цена в конфиге: $0.30/M input + $1.20/M output; лимит $60 на запуск.
+Это публичная оценка без скидок, не подтверждённый тариф GigaGateway.
+4 одновременных запроса, по 8192 выходных токенов на стадию.
+
+Проверка качества до выбора пользователем:
+- v2: 24/24 development, но holdout 30/36 против 32/36 у v1; отклонён.
+- v3: 31/32 development, новая отложенная выборка 33/36 против 29/36 у v1.
+- Есть подтверждённый false allow на podman rm --filter ancestor=nginx:
+  модель ошибочно считала --filter неподдерживаемым. Промпт после holdout не меняли.
+- Малые выборки и авторские метки не подтверждают точность на новых логах.
+Пользователь выбрал v3 для предварительной разметки; результаты не human gold.
+Golden используется исключительно для отдельного evaluate/debug, не для run.

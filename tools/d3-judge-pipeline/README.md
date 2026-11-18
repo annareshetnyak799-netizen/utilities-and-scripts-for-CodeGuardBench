@@ -1,5 +1,11 @@
 # CodeGuardBench — D3 judge и генерация кандидатов
 
+**18.11.2026: разметка без golden-меток, guideline-first v3.**
+Актуальная ветка — `feat/d3-judge-pipeline`; история `feat/d3-judge-v2` включена в неё.
+Инструкция запуска и ограничения: [GUIDELINE_V3.txt](GUIDELINE_V3.txt).
+Вход — JSONL с `id` и `command`. Эталон нужен только отдельной команде `evaluate`.
+
+
 **10.11.2026:** актуальный development-набор Judge v2 —
 [3000 synthetic строк](development_data/CodeGuardBench_v0_3000_latest.csv), 30 рисков CAT-0–6.
 Команда полного offline-прогона — в [JUDGE_V2.md](JUDGE_V2.md). Это не human gold.

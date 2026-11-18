@@ -4,7 +4,7 @@ from unittest.mock import patch
 import pytest
 from pydantic import ValidationError
 from codeguard_judge_v2.schemas import Stage1Result, Stage2Result, validate_stage1
-from codeguard_judge_v2.policy_registry import RISK_CODES, TAXONOMY, Registry, load_registry, materialize, approve
+from codeguard_judge_v2.policy_registry import RISK_CODES, TAXONOMY, Registry, load_registry, materialize, approve, DATA
 from codeguard_judge_v2.config import Config
 from codeguard_judge_v2.aggregation import aggregate
 from codeguard_judge_v2.parser import parse
@@ -36,8 +36,15 @@ def test_taxonomy_validated():
     with pytest.raises(ValueError):
         validate_stage1({'actions': [action('CAT-9.99')]}, RISK_CODES)
     import re
-    assert not re.search(r'\b(?:allow|ask|deny|defer|severity)\b', json.dumps(TAXONOMY))
-    assert all(set(c) == {'id', 'title', 'definition', 'exclusions', 'source'} for c in TAXONOMY['cards'])
+    # CLI flags such as --allow-unauthenticated are evidence, not class labels.
+    assert not re.search(r'(?<![\w-])(?:allow|ask|deny|defer|severity)(?![\w-])', json.dumps(TAXONOMY))
+    for card in TAXONOMY['cards']:
+        expected = {'id', 'title', 'definition', 'exclusions', 'source'}
+        if int(card['id'].split('-')[1].split('.')[0]) >= 7:
+            expected |= {'patterns', 'counterexamples'}
+        if card['id'] == 'CAT-2.4':
+            expected |= {'scope_note', 'scope_note_source'}
+        assert set(card) == expected
 
 
 @pytest.mark.parametrize('change', [dict(rule_id=None), dict(review_reason='policy_gap'), dict(review_reason='random', rule_id=None), dict(action_id='b1'), dict(note=''), dict(note='x'*181), dict(**{'class': 'deny'})])
@@ -48,7 +55,7 @@ def test_stage2_strict(change):
 
 
 def test_no_draft_activation():
-    r = load_registry()
+    r = load_registry(DATA / "registry_example.yaml")
     assert r.gaps()['active_rules'] == 0
     assert len(r.gaps()['risks_without_active_rules']) == 42
     assert r.compile(s1().actions) == {'a1': []}
@@ -58,7 +65,7 @@ def test_no_draft_activation():
         Registry.model_validate(raw)
 
 
-@pytest.mark.parametrize('failure', ['duplicate', 'cycle', 'missing_ref', 'version', 'tamper', 'modify'])
+@pytest.mark.parametrize('failure', ['duplicate', 'cycle', 'missing_ref', 'version', 'tamper', 'modify', 'defer'])
 def test_registry_invalid(active_registry, failure):
     raw = active_registry.model_dump(mode='json', by_alias=True)
     if failure == 'duplicate': raw['rules'].append(raw['rules'][0])
@@ -66,7 +73,7 @@ def test_registry_invalid(active_registry, failure):
     elif failure == 'missing_ref': raw['rules'][0]['exception_to'] = ['absent']
     elif failure == 'version': raw['rules'][0]['policy_version'] = 'wrong'
     elif failure == 'tamper': raw['rules'][0]['when'] = 'everything'
-    elif failure == 'modify': raw['rules'][0]['class'] = 'modify'
+    elif failure in ('modify', 'defer'): raw['rules'][0]['class'] = failure
     with pytest.raises(ValueError): Registry.model_validate(raw)
 
 
@@ -77,7 +84,7 @@ def test_policy_approval(tmp_path):
     assert result.gaps()['active_rules'] == 1
     assert load_registry(output).sha == result.sha
     assert result.audit[0]['event'] == 'human_policy_approval'
-    assert load_registry().gaps()['active_rules'] == 0
+    assert load_registry(DATA / "registry_example.yaml").gaps()['active_rules'] == 0
 
 
 def test_materialize(active_registry):
@@ -167,7 +174,7 @@ def test_blind_prompts_and_cache(active_registry):
     assert messages(1, data)[0]['role'] == 'system'
     cfg = Config()
     key = cache_key(1, data, cfg, active_registry)
-    reg = load_registry()
+    reg = load_registry(DATA / "registry_example.yaml")
     assert cache_key(1, data, cfg, reg) == key  # policy changes don't taint semantic cache
     cfg.inference.model_revision = 'new'
     assert cache_key(1, data, cfg, reg) != key
