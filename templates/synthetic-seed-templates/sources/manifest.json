@@ -1,0 +1,51 @@
+{
+  "date": "2026-11-19",
+  "files": [
+    {
+      "source_workspace_relative_path": "train_synthetic_2026-11-11_cat21/axes.py",
+      "snapshot_path": "train_synthetic_2026-11-11_cat21/axes.py",
+      "sha256": "60b8bcdff504145bd9dd25dfc5edcf1764574552ca8105a330e58bb8003089bd",
+      "bytes": 40664,
+      "origin": "author_synthetic_form_library",
+      "source_status": "draft",
+      "semantic_validation": false
+    },
+    {
+      "source_workspace_relative_path": "train_synthetic_2026-11-11_cat22/forms.py",
+      "snapshot_path": "train_synthetic_2026-11-11_cat22/forms.py",
+      "sha256": "fd9fc6242b20465187e27191866406e044f47f1b8286f617f09cbad3f08fa330",
+      "bytes": 19550,
+      "origin": "author_synthetic_form_library",
+      "source_status": "draft",
+      "semantic_validation": false
+    },
+    {
+      "source_workspace_relative_path": "train_synthetic_2026-11-11_cat23/forms.py",
+      "snapshot_path": "train_synthetic_2026-11-11_cat23/forms.py",
+      "sha256": "3e183c53c10e0c68fd015f42680946ba3f2cc1a2b80b52a1e5b02a4cdc05813d",
+      "bytes": 19519,
+      "origin": "author_synthetic_form_library",
+      "source_status": "draft",
+      "semantic_validation": false
+    },
+    {
+      "source_workspace_relative_path": "train_synthetic_2026-11-11_cat24/forms.py",
+      "snapshot_path": "train_synthetic_2026-11-11_cat24/forms.py",
+      "sha256": "1c65c5fcc49c5aab801e56af2591fd32b4d167a3c713a2ec7e8dff218c22b7b6",
+      "bytes": 20058,
+      "origin": "author_synthetic_form_library",
+      "source_status": "draft",
+      "semantic_validation": false
+    },
+    {
+      "source_workspace_relative_path": "train_synthetic_2026-11-19_cat7/forms.json",
+      "snapshot_path": "train_synthetic_2026-11-19_cat7/forms.json",
+      "sha256": "66d2cc0bc8e97026429d63d38c9fff770f8b980043cbdec37a581846b0752357",
+      "bytes": 20371,
+      "origin": "author_synthetic_form_library",
+      "source_status": "draft",
+      "semantic_validation": false
+    }
+  ],
+  "note": "Побайтные снимки авторских библиотек. Ссылка на commit снапшота означает место фиксации, а не происхождение из внешнего репозитория. CAT-2.1 axes.py содержит также сценарии; таблица извлекает только FORMS. Сценарии и формы не исполняются."
+}
